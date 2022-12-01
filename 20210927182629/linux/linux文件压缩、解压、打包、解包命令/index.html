@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>linux文件压缩、解压、打包、解包命令总结 | hicode</title>
+  <meta name="description" content="文件压缩、解压、打包、解包zip压缩&#x2F;unzip解压zip&#x2F;unzip  [参数]  被压缩文件  参数： 参数    含义 -r    压缩所有子目录 -d    解压  命令 # 压缩成zip文件(其中havorld.zip中的.zip可以省略，默认扩展名为zip) zip -r havorld.zip .&#x2F;havorld&#x2F;* # 解压zip文件到指定目录 unzip -d &#x2F;home&#x2F;hav">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux文件压缩、解压、打包、解包命令总结">
+<meta property="og:url" content="https://hicode360.github.io/20210927182629/linux/linux%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="hicode">
+<meta property="og:description" content="文件压缩、解压、打包、解包zip压缩&#x2F;unzip解压zip&#x2F;unzip  [参数]  被压缩文件  参数： 参数    含义 -r    压缩所有子目录 -d    解压  命令 # 压缩成zip文件(其中havorld.zip中的.zip可以省略，默认扩展名为zip) zip -r havorld.zip .&#x2F;havorld&#x2F;* # 解压zip文件到指定目录 unzip -d &#x2F;home&#x2F;hav">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-27T10:26:29.000Z">
+<meta property="article:modified_time" content="2022-11-28T02:34:32.000Z">
+<meta property="article:author" content="hicode">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="文件压缩">
+<meta property="article:tag" content="文件解压">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://hicode360.github.io/20210927182629/linux/linux%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85%E5%91%BD%E4%BB%A4/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="hicode" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-black# 主题颜色 theme-black theme-blue theme-green theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://hicode360.github.io" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">hicode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web &amp; Data &amp; Algorithms</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Peking, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Welcome to my den, this is a blog about web engineering, data science and algorithms</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/tfserving/" style="font-size: 13px;">tfserving</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 13px;">命令</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9/" style="font-size: 13px;">文件压缩</a> <a href="/tags/%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B/" style="font-size: 13px;">文件解压</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/20221127222839/git&sql&docker/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/docker/">docker</a>
+              </p>
+              <p class="item-title">
+                <a href="/20221127222839/git&sql&docker/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="title">docker常用命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-27T14:28:39.000Z" itemprop="datePublished">2022-11-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/20221127221118/python/Python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/python/">python</a>
+              </p>
+              <p class="item-title">
+                <a href="/20221127221118/python/Python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="title">python中的数据类型</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-27T14:11:18.000Z" itemprop="datePublished">2022-11-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/20210928110535/git&sql&docker/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/git/">git</a>
+              </p>
+              <p class="item-title">
+                <a href="/20210928110535/git&sql&docker/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="title">git常用命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-28T03:05:35.000Z" itemprop="datePublished">2021-09-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/20210927182629/linux/linux%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85%E5%91%BD%E4%BB%A4/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/linux/">linux</a>
+              </p>
+              <p class="item-title">
+                <a href="/20210927182629/linux/linux%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85%E5%91%BD%E4%BB%A4/" class="title">linux文件压缩、解压、打包、解包命令总结</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-27T10:26:29.000Z" itemprop="datePublished">2021-09-27</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">文件压缩、解压、打包、解包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#zip%E5%8E%8B%E7%BC%A9-unzip%E8%A7%A3%E5%8E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">zip压缩&#x2F;unzip解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip%E5%8E%8B%E7%BC%A9-%E8%A7%A3%E5%8E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">gzip压缩&#x2F;解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85-%E5%BD%92%E6%A1%A3-%E8%A7%A3%E5%8C%85-tar"><span class="toc-number">1.3.</span> <span class="toc-text">打包(归档)&#x2F;解包 tar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bzip2%E5%8E%8B%E7%BC%A9-bunzip2%E8%A7%A3%E5%8E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">bzip2压缩&#x2F;bunzip2解压</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-linux/linux文件压缩、解压、打包、解包命令" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux文件压缩、解压、打包、解包命令总结
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/20210927182629/linux/linux%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85%E5%91%BD%E4%BB%A4/" class="article-date">
+	  <time datetime="2021-09-27T10:26:29.000Z" itemprop="datePublished">2021-09-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="article-tag-link-link" href="/tags/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9/" rel="tag">文件压缩</a>, <a class="article-tag-link-link" href="/tags/%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B/" rel="tag">文件解压</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/20210927182629/linux/linux%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85%E5%91%BD%E4%BB%A4/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="文件压缩、解压、打包、解包"><a href="#文件压缩、解压、打包、解包" class="headerlink" title="文件压缩、解压、打包、解包"></a>文件压缩、解压、打包、解包</h2><h3 id="zip压缩-unzip解压"><a href="#zip压缩-unzip解压" class="headerlink" title="zip压缩/unzip解压"></a>zip压缩/unzip解压</h3><pre><code>zip/unzip  [参数]  被压缩文件
+</code></pre>
+<p><strong>参数：</strong></p>
+<pre><code>参数    含义
+-r    压缩所有子目录
+-d    解压
+</code></pre>
+<p><strong>命令</strong></p>
+<pre><code># 压缩成zip文件(其中havorld.zip中的.zip可以省略，默认扩展名为zip)
+zip -r havorld.zip ./havorld/*
+# 解压zip文件到指定目录
+unzip -d /home/havorld havorld.zip
+</code></pre>
+<p>注：zip既能压缩文件又能压缩目录</p>
+<h3 id="gzip压缩-解压"><a href="#gzip压缩-解压" class="headerlink" title="gzip压缩/解压"></a>gzip压缩/解压</h3><p><strong>gzip使用格式：</strong></p>
+<pre><code>gzip  [参数]  被压缩文件
+</code></pre>
+<p><strong>参数：</strong></p>
+<pre><code>参数    含义
+-r    压缩所有子目录
+-d    解压
+</code></pre>
+<p><strong>命令</strong></p>
+<pre><code>gzip havorld.txt # 压缩指定文件 ,生成havorld.txt.tar.gz
+gzip -r havorld.tar havorld.tar.gz # 压缩文件
+gzip havorld.tar # 压缩打包文件，生成havorld.tar.gz
+
+gzip -d havorld.tar.gz # 解压文件
+</code></pre>
+<p>注：gzip只能压缩文件不能压缩目录</p>
+<h3 id="打包-归档-解包-tar"><a href="#打包-归档-解包-tar" class="headerlink" title="打包(归档)/解包 tar"></a>打包(归档)/解包 tar</h3><ul>
+<li>数据备份：把一系列文件打包到一个大文件中</li>
+<li>恢复数据：把档案文件数据解包</li>
+</ul>
+<p><strong>tar使用格式：</strong></p>
+<pre><code>tar [参数] 打包文件名 文件
+</code></pre>
+<p><strong>参数：</strong></p>
+<pre><code>参数    含义
+-c    生成档案文件，创建打包文件
+-v    列出打包解档的详细过程，显示进度
+-f    指定档案文件名称，f后面一定是.tar文件，所以必须放选项最后
+-t    列出档案中包含的文件
+-x    解开档案文件
+</code></pre>
+<p>注：参数前面的 “-“ 也加可不加</p>
+<p><strong>命令：</strong></p>
+<pre><code># 打包指定文件,生成.tar文件
+tar -cvf havorld.tar havorld.txt meng.log
+# 打包文件havorld目录下的所有文件,生成.tar文件
+tar -cvf havorld.tar ./havorld*
+
+# 解包.tar的文件
+tar -xvf havorld.tar 
+</code></pre>
+<p><strong>注：tar只负责打包文件但不压缩，在tar命令中增加一个参数(-z)调用gzip实现打包+压缩的功能，其扩展名一般为.tar.gz</strong></p>
+<pre><code># 打包+压缩指定文件,生成.tar.gz文件
+tar -cvzf havorld.tar.gz havorld.txt meng.log
+# 打包+压缩havorld目录下的所有文件,生成.tar.gz文件
+tar -cvzf havorld.tar.gz ./havorld*
+
+# 解压缩+解包.tar.gz的文件到指定目录
+tar -zxvf havorld.tar.gz -C /home/havorld
+</code></pre>
+<h3 id="bzip2压缩-bunzip2解压"><a href="#bzip2压缩-bunzip2解压" class="headerlink" title="bzip2压缩/bunzip2解压"></a>bzip2压缩/bunzip2解压</h3><p>由于 bzip2 与 gzip 相比，其压缩稳定性和效果都更好，用法跟gzip一样</p>
+<pre><code>bzip2 havorld.txt # 生成havorld.txt.bz2
+bzip2 -k havorld.txt # 生成havorld.txt.bz2，并保留源文件
+
+bunzip2 havorld.txt # 生成havorld.txt.bz2
+bunzip2 -k havorld.txt # 生成havorld.txt.bz2，并保留源文件
+</code></pre>
+<p>tar与bzip2命令结合使用实现文件打包和压缩，其扩展名一般用xxxx.tar.gz2。 在tar命令中增加一个选项(-j)可以调用bzip2实现了一个压缩的功能，实行一个先打包后压缩的过程。</p>
+<pre><code># 打包+压缩指定文件,生成.tar.gz文件
+tar -jcvf havorld.tar.bz2 havorld.txt meng.log
+# 打包+压缩havorld目录下的所有文件,生成.tar.gz文件
+tar -jcvf havorld.tar.bz2 ./havorld*
+
+# 解压缩+解包.tar.gz的文件到指定目录
+tar -jxvf havorld.tar.bz2 -C /home/havorld
+</code></pre>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://hicode360.github.io/20210927182629/linux/linux%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E8%A7%A3%E5%8C%85%E5%91%BD%E4%BB%A4/" title="linux文件压缩、解压、打包、解包命令总结" target="_blank" rel="external">https://hicode360.github.io/20210927182629/linux/linux文件压缩、解压、打包、解包命令/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://hicode360.github.io" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://hicode360.github.io" target="_blank"><span class="text-dark">hicode</span><small class="ml-1x">Web &amp; Data &amp; Algorithms</small></a></h3>
+        <div>Open shared and free</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/20210928110535/git&sql&docker/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="git常用命令"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        &copy; 2022 hicode
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:hicode360.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
