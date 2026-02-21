@@ -3,11 +3,11 @@
   <title>hicode</title>
   
   <subtitle>愿你出走半生 归来仍是少年</subtitle>
-  <link href="https://hicode360.github.io/atom.xml" rel="self"/>
+  <link href="https://www.hicode365.com/atom.xml" rel="self"/>
   
-  <link href="https://hicode360.github.io/"/>
+  <link href="https://www.hicode365.com/"/>
   <updated>2026-01-01T15:46:05.612Z</updated>
-  <id>https://hicode360.github.io/</id>
+  <id>https://www.hicode365.com/</id>
   
   <author>
     <name>hicode365</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>python中的数据类型</title>
-    <link href="https://hicode360.github.io/cmlw761pi0006jyduevioewag"/>
-    <id>https://hicode360.github.io/cmlw761pi0006jyduevioewag</id>
+    <link href="https://www.hicode365.com/cmlw94qpz0001y1du0j6jhlms"/>
+    <id>https://www.hicode365.com/cmlw94qpz0001y1du0j6jhlms</id>
     <published>2023-08-15T02:10:06.000Z</published>
     <updated>2026-01-01T15:46:05.612Z</updated>
     
@@ -33,19 +33,19 @@
     
     
     
-    <category term="工程与实战" scheme="https://hicode360.github.io/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/"/>
+    <category term="工程与实战" scheme="https://www.hicode365.com/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/"/>
     
     
-    <category term="python" scheme="https://hicode360.github.io/tags/python/"/>
+    <category term="python" scheme="https://www.hicode365.com/tags/python/"/>
     
-    <category term="数据类型" scheme="https://hicode360.github.io/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <category term="数据类型" scheme="https://www.hicode365.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     
   </entry>
   
   <entry>
     <title>docker常用命令</title>
-    <link href="https://hicode360.github.io/1c41d072cac63725dbd48a1273b2fd97"/>
-    <id>https://hicode360.github.io/1c41d072cac63725dbd48a1273b2fd97</id>
+    <link href="https://www.hicode365.com/1c41d072cac63725dbd48a1273b2fd97"/>
+    <id>https://www.hicode365.com/1c41d072cac63725dbd48a1273b2fd97</id>
     <published>2022-11-27T14:28:39.000Z</published>
     <updated>2023-08-15T02:10:06.000Z</updated>
     
@@ -59,19 +59,19 @@
     
     
     
-    <category term="docker" scheme="https://hicode360.github.io/categories/docker/"/>
+    <category term="docker" scheme="https://www.hicode365.com/categories/docker/"/>
     
     
-    <category term="docker" scheme="https://hicode360.github.io/tags/docker/"/>
+    <category term="docker" scheme="https://www.hicode365.com/tags/docker/"/>
     
-    <category term="tfserving" scheme="https://hicode360.github.io/tags/tfserving/"/>
+    <category term="tfserving" scheme="https://www.hicode365.com/tags/tfserving/"/>
     
   </entry>
   
   <entry>
     <title>git常用命令</title>
-    <link href="https://hicode360.github.io/cmlw761pe0003jydud59o7y5y"/>
-    <id>https://hicode360.github.io/cmlw761pe0003jydud59o7y5y</id>
+    <link href="https://www.hicode365.com/cmlw94qq80007y1du88t2eajw"/>
+    <id>https://www.hicode365.com/cmlw94qq80007y1du88t2eajw</id>
     <published>2021-09-28T03:05:35.000Z</published>
     <updated>2023-08-15T02:10:06.000Z</updated>
     
@@ -85,12 +85,12 @@
     
     
     
-    <category term="git" scheme="https://hicode360.github.io/categories/git/"/>
+    <category term="git" scheme="https://www.hicode365.com/categories/git/"/>
     
     
-    <category term="git" scheme="https://hicode360.github.io/tags/git/"/>
+    <category term="git" scheme="https://www.hicode365.com/tags/git/"/>
     
-    <category term="命令" scheme="https://hicode360.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
+    <category term="命令" scheme="https://www.hicode365.com/tags/%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
