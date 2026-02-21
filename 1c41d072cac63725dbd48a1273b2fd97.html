@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>docker常用命令 | hicode365</title>
+  <meta name="description" content="docker常用命令12345678910111213141516docker pull tensorflow&#x2F;serving #从仓库拉取镜像docker pull tensorflow&#x2F;serving:latest-gpu #从仓库拉取GPU镜像docker pull tensorflow&#x2F;serving:2.8.3-gpu #从仓库拉取GPU镜像docker run -it tensorfl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker常用命令">
+<meta property="og:url" content="https://hicode360.github.io/1c41d072cac63725dbd48a1273b2fd97">
+<meta property="og:site_name" content="hicode">
+<meta property="og:description" content="docker常用命令12345678910111213141516docker pull tensorflow&#x2F;serving #从仓库拉取镜像docker pull tensorflow&#x2F;serving:latest-gpu #从仓库拉取GPU镜像docker pull tensorflow&#x2F;serving:2.8.3-gpu #从仓库拉取GPU镜像docker run -it tensorfl">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-27T14:28:39.000Z">
+<meta property="article:modified_time" content="2023-08-15T02:10:06.000Z">
+<meta property="article:author" content="hicode365">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="tfserving">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://hicode360.github.io/1c41d072cac63725dbd48a1273b2fd97.html">
+  
+    <link rel="alternate" href="/atom.xml" title="hicode" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-black# 主题颜色 theme-black theme-blue theme-green theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://www.hicode365.com/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">hicode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Algorithms &amp; Engineer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Peking, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/tfserving/" style="font-size: 13px;">tfserving</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 13px;">命令</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cmlw761pi0006jyduevioewag" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a>
+              </p>
+              <p class="item-title">
+                <a href="/cmlw761pi0006jyduevioewag" class="title">python中的数据类型</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-08-15T02:10:06.000Z" itemprop="datePublished">2023-08-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/1c41d072cac63725dbd48a1273b2fd97" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/docker/">docker</a>
+              </p>
+              <p class="item-title">
+                <a href="/1c41d072cac63725dbd48a1273b2fd97" class="title">docker常用命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-27T14:28:39.000Z" itemprop="datePublished">2022-11-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cmlw761pe0003jydud59o7y5y" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/git/">git</a>
+              </p>
+              <p class="item-title">
+                <a href="/cmlw761pe0003jydud59o7y5y" class="title">git常用命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-28T03:05:35.000Z" itemprop="datePublished">2021-09-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">docker常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tf-serving%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text">tf-serving部署</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-git&amp;sql&amp;docker/docker常用命令" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      docker常用命令
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <!-- <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/1c41d072cac63725dbd48a1273b2fd97" class="article-date">
+	  <time datetime="2022-11-27T14:28:39.000Z" itemprop="datePublished">2022-11-27</time>
+	</a>
+</span> -->
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/docker/">docker</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/docker/" rel="tag">docker</a>, <a class="article-tag-link-link" href="/tags/tfserving/" rel="tag">tfserving</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/1c41d072cac63725dbd48a1273b2fd97#comments" class="article-comment-link">评论</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="docker常用命令"><a href="#docker常用命令" class="headerlink" title="docker常用命令"></a>docker常用命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker pull tensorflow/serving #从仓库拉取镜像</span><br><span class="line">docker pull tensorflow/serving:latest-gpu #从仓库拉取GPU镜像</span><br><span class="line">docker pull tensorflow/serving:2.8.3-gpu #从仓库拉取GPU镜像</span><br><span class="line">docker run -it tensorflow/serving #进入到镜像中</span><br><span class="line">exit #退出镜像</span><br><span class="line">docker run tensorflow/serving #运行某个容器</span><br><span class="line">docker ps // 查看所有正在运行容器</span><br><span class="line">docker stop containerId // containerId 是容器的ID</span><br><span class="line"></span><br><span class="line">docker ps -a // 查看所有容器</span><br><span class="line">docker ps -a -q // 查看所有容器ID</span><br><span class="line"></span><br><span class="line">docker stop $(docker ps -a -q) //  stop停止所有容器</span><br><span class="line">docker rm $(docker ps -a -q) //   remove删除所有容器</span><br><span class="line">docker rm/rmi #删除容器/镜像</span><br><span class="line">docker cp local_files containerId:docker_files #本地文件复制到docker</span><br></pre></td></tr></table></figure>
+
+<h1 id="tf-serving部署"><a href="#tf-serving部署" class="headerlink" title="tf-serving部署"></a>tf-serving部署</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-p: 指定主机到docker容器的端口映射</span><br><span class="line">--mount: 表示要进行挂载,其中</span><br><span class="line">	type=bind: 是选择挂载模式，</span><br><span class="line">	source: 要部署模型的存储路径，也就是挂载的源（必须是绝对路径），</span><br><span class="line">	target: 要挂载的目标位置，模型挂载到docker容器中的位置，也就是docker容器中的目录（放在集装箱的哪里）</span><br><span class="line">-t: 指定的是挂载到哪个容器</span><br><span class="line">-e: 环境变量 </span><br><span class="line">	MODEL_NAME: 必须与target指定路径的最后一个文件夹名称相同</span><br><span class="line">--per_process_gpu_memory_fraction: 运行时所需的GPU显存资源最大比率的值设定</span><br><span class="line"></span><br><span class="line">-v:</span><br><span class="line">	path1:path2 分别指模型在机器种储存的路径（必须是绝对路径），模型在容器中储存的路径（放在集装箱的哪里）</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8500:8500 \</span><br><span class="line">    --mount type=bind,source=/Users/coreyzhong/workspace/tensorflow/saved_model/,target=/models/test-model \</span><br><span class="line">    -t tensorflow/serving:1.15.0 \</span><br><span class="line">    -e MODEL_NAME=test-model --model_base_path=/models/test-model/ &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model_path=&quot;/Users/havorld/jupyter/model_save/&quot;</span><br><span class="line">docker run -t --rm -p 8500:8500 -p 8501:8501 \</span><br><span class="line">  -v &quot;$model_path/din:/models/tf_saved_models&quot; \</span><br><span class="line">  -e MODEL_NAME=tf_saved_models \</span><br><span class="line">  tensorflow/serving &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">查看TensorFlow-Serving状态： curl http://localhost:8501/v1/models/$&#123;model_name&#125;</span><br><span class="line">查看TensorFlow-Serving模型信息： curl http://localhost:8501/v1/models/$&#123;model_name&#125;/metadata</span><br><span class="line">查看模型信息: saved_model_cli show --dir=&#x27;./$&#123;model_path&#125;/20220422104620&#x27; --all</span><br><span class="line">使用Http请求进行模型预测： </span><br><span class="line">curl -d &#x27;&#123;&quot;instances&quot;: [1,2,3,4,5]&#125;&#x27; -X POST http://localhost:8501/v1/models/$&#123;model_name&#125;:predict</span><br><span class="line">其中instances的value为模型输入Tensor的字符串形式，矩阵维度需要和Tensor对应。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">docker run -t --rm -p 8501:8501 \</span><br><span class="line">    -v &quot;/home/Personas/havorld/tfserving/tf_saved_models:/models/tf_saved_models&quot; \</span><br><span class="line">    -e MODEL_NAME=tf_saved_models \</span><br><span class="line">    tensorflow/serving</span><br><span class="line"></span><br><span class="line">docker run -t --rm -p 8501:8501 \</span><br><span class="line">-v &quot;/Users/haopeng.meng/jupyter/tf_saved_models:/models/tf_saved_models&quot; \</span><br><span class="line">-e MODEL_NAME=tf_saved_models \</span><br><span class="line">tensorflow/serving</span><br><span class="line"></span><br><span class="line">cat /opt/logs/rec-feed-api/access.log | grep &quot;feed recommend-&gt; uid:55&quot; | grep &quot;id=34174686&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo docker run -t --rm -p 8501:8501 -p 8500:8500 \</span><br><span class="line">    -v &quot;/home/meng.haopeng/tfserving/tf_saved_models:/models/tf_saved_models&quot; \</span><br><span class="line">    -e MODEL_NAME=tf_saved_models \</span><br><span class="line">    tensorflow/serving</span><br><span class="line"></span><br><span class="line">docker run -p 8501:8501 -p 8500:8500 \</span><br><span class="line">	--mount type=bind,source=/Users/haopeng.meng/jupyter/tf_saved_models,target=/models/tf_saved_models \</span><br><span class="line">	-e MODEL_NAME=tf_saved_models \</span><br><span class="line">	-t tensorflow/serving</span><br><span class="line"></span><br><span class="line">docker run -p 8500:8500 \</span><br><span class="line">      --mount type=bind,source=./intent/,target=/models/intent_score \</span><br><span class="line">      -e MODEL_NAME=intent_score -t tensorflow/serving:1.10.0</span><br><span class="line"></span><br><span class="line">docker run -p 8501:8501 -p 8500:8500 --mount type=bind,source=/my/model/path/m,target=/models/m -e MODEL_NAME=m -t tensorflow/serving:2.1.0</span><br><span class="line"></span><br><span class="line">sudo docker run -t --rm -p 8501:8501 -p 8500:8500 \</span><br><span class="line">    -v &quot;/home/meng.haopeng/tfserving/tf_saved_models:/models/tf_saved_models&quot; \</span><br><span class="line">    -e MODEL_NAME=tf_saved_models \</span><br><span class="line">    tensorflow/serving</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">docker run -t -p 443:8500 -p 8500:8501 -v <span class="string">&quot;/data/lsj/dmp/SavedModel/:/models/&quot;</span> tensorflow/serving --model_config_file=/models/models.config --model_config_file_poll_wait_seconds=300</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> run use container</span></span><br><span class="line">docker run -t -p 8501:8500 --name=tf_serving_multi_version_01 -v &quot;/data/tf-model/models/:/models/&quot; tensorflow/serving --model_config_file=/models/models.config --model_config_file_poll_wait_seconds=300 --allow_version_labels_for_unavailable_models=true --enable_batching=true --batching_parameters_file=/models/batch.config</span><br><span class="line"></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> tf-serving部署</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -t --rm -p 8501:8501 \</span><br><span class="line">-v &quot;/Users/haopeng.meng/jupyter/tf_saved_models:/models/tf_saved_models&quot; \</span><br><span class="line">-e MODEL_NAME=tf_saved_models \</span><br><span class="line">tensorflow/serving</span><br><span class="line"></span><br><span class="line">docker run -p 8501:8501 -p 8500:8500 \</span><br><span class="line">	--mount type=bind,source=/Users/haopeng.meng/jupyter/tf_saved_models,target=/models/tf_saved_models \</span><br><span class="line">	-e MODEL_NAME=tf_saved_models \</span><br><span class="line">	-t tensorflow/serving</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">sudo docker run -t --rm -p 8501:8501 -p 8500:8500 \</span><br><span class="line">    -v &quot;/home/meng.haopeng/tfserving/tf_saved_models:/models/tf_saved_models&quot; \</span><br><span class="line">    -e MODEL_NAME=tf_saved_models \</span><br><span class="line">    tensorflow/serving</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo docker run --name feed -t --rm -p 8700:8500 -p 8701:8501 \</span><br><span class="line">    -v &quot;/home/meng.haopeng/tfserving/tf_saved_models:/models/tf_saved_models&quot; \</span><br><span class="line">    -e MODEL_NAME=tf_saved_models \</span><br><span class="line">    tensorflow/serving</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run --name feed -t --rm -p 8701:8501 -p 8700:8500 \</span><br><span class="line">	--mount type=bind,source=/home/Personas/havorld/tfserving/model_save,target=/models/model_save \</span><br><span class="line">	-e MODEL_NAME=model_save \</span><br><span class="line">	-t tensorflow/serving:latest-gpu </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run --name feed -t --rm -p 8700:8500 -p 8701:8501 \</span><br><span class="line">	--mount type=bind,source=/Users/haopeng.meng/Desktop/recommend/rec-alg-feed/model_save/din/serving/,target=/models/serving \</span><br><span class="line">	-e MODEL_NAME=serving \</span><br><span class="line">	-t tensorflow/serving</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">docker run --name feed -t --rm -p 8700:8500 -p 8701:8501 \</span><br><span class="line">        --mount type=bind,source=/Users/haopeng.meng/Desktop/recommend/serving/din/,target=/models/serving \</span><br><span class="line">        -e MODEL_NAME=serving \</span><br><span class="line">        -t tensorflow/serving</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://hicode360.github.io/1c41d072cac63725dbd48a1273b2fd97" title="docker常用命令" target="_blank" rel="external">https://hicode360.github.io/1c41d072cac63725dbd48a1273b2fd97</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://www.hicode365.com/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://www.hicode365.com/" target="_blank"><span class="text-dark">hicode</span><small class="ml-1x">Algorithms &amp; Engineer</small></a></h3>
+        <div>Open shared and free</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/cmlw761pi0006jyduevioewag" title="python中的数据类型"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/cmlw761pe0003jydud59o7y5y" title="git常用命令"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <!-- 隐藏主题版权信息 -->
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:hicode360.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

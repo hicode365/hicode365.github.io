@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>python中的数据类型 | hicode365</title>
+  <meta name="description" content="Python中的数据类型可变数据类型对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。 不可变数据类型对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。 也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变 常用数据类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中的数据类型">
+<meta property="og:url" content="https://hicode360.github.io/cmlw761pi0006jyduevioewag">
+<meta property="og:site_name" content="hicode">
+<meta property="og:description" content="Python中的数据类型可变数据类型对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。 不可变数据类型对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。 也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变 常用数据类型">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-15T02:10:06.000Z">
+<meta property="article:modified_time" content="2026-01-01T15:46:05.612Z">
+<meta property="article:author" content="hicode365">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="数据类型">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://hicode360.github.io/cmlw761pi0006jyduevioewag.html">
+  
+    <link rel="alternate" href="/atom.xml" title="hicode" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-black# 主题颜色 theme-black theme-blue theme-green theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://www.hicode365.com/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">hicode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Algorithms &amp; Engineer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Peking, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/tfserving/" style="font-size: 13px;">tfserving</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 13px;">命令</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cmlw761pi0006jyduevioewag" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a>
+              </p>
+              <p class="item-title">
+                <a href="/cmlw761pi0006jyduevioewag" class="title">python中的数据类型</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-08-15T02:10:06.000Z" itemprop="datePublished">2023-08-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/1c41d072cac63725dbd48a1273b2fd97" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/docker/">docker</a>
+              </p>
+              <p class="item-title">
+                <a href="/1c41d072cac63725dbd48a1273b2fd97" class="title">docker常用命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-27T14:28:39.000Z" itemprop="datePublished">2022-11-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cmlw761pe0003jydud59o7y5y" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/git/">git</a>
+              </p>
+              <p class="item-title">
+                <a href="/cmlw761pe0003jydud59o7y5y" class="title">git常用命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-28T03:05:35.000Z" itemprop="datePublished">2021-09-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">Python中的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">可变数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">不可变数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">常用数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95"><span class="toc-number">1.4.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C%E5%92%8C%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.5.</span> <span class="toc-text">常见数据类型的操作和转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#list%E5%88%97%E8%A1%A8"><span class="toc-number">1.5.1.</span> <span class="toc-text">list列表[ ]</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#list%E7%9A%84%E7%94%9F%E6%88%90"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">list的生成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list%E5%85%83%E7%B4%A0%E5%8F%8D%E8%BD%AC%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%AC%A1%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">list元素反转、排序和次数统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list%E5%85%83%E7%B4%A0%E7%9A%84%E6%B7%BB%E5%8A%A0%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E5%8F%96%E5%80%BC"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">list元素的添加、删除和取值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list%E6%B7%BB%E5%8A%A0%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0%E3%80%81list%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">1.5.1.4.</span> <span class="toc-text">list添加多个元素、list的合并</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">1.5.1.5.</span> <span class="toc-text">list的遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%88%87%E7%89%87-slice-%E5%8F%96%E5%80%BC"><span class="toc-number">1.5.1.6.</span> <span class="toc-text">list中使用切片(slice)取值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list%E7%9A%84%E6%B7%B1copy%E5%92%8C%E6%B5%85copy"><span class="toc-number">1.5.1.7.</span> <span class="toc-text">list的深copy和浅copy</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set%E9%9B%86%E5%90%88"><span class="toc-number">1.5.2.</span> <span class="toc-text">set集合{ }</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#set%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">set的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set%E5%85%83%E7%B4%A0%E7%9A%84%E6%B7%BB%E5%8A%A0%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E5%8F%96%E5%80%BC"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">set元素的添加、删除和取值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set%E5%8F%96%E5%B9%B6%E9%9B%86%E5%92%8C%E4%BA%A4%E9%9B%86"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">set取并集和交集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set%E9%81%8D%E5%8E%86"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">set遍历</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dict%E5%AD%97%E5%85%B8"><span class="toc-number">1.5.3.</span> <span class="toc-text">dict字典{ }</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dict%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">dict的创建和增删改查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dict%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">dict的遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dict%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">1.5.3.3.</span> <span class="toc-text">dict的合并</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dict%E5%92%8Clist%E7%9A%84%E5%BC%82%E5%90%8C"><span class="toc-number">1.5.3.4.</span> <span class="toc-text">dict和list的异同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dict%E7%9A%84%E6%8E%92%E5%BA%8F"><span class="toc-number">1.5.3.5.</span> <span class="toc-text">dict的排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tuple%E5%85%83%E7%BB%84"><span class="toc-number">1.5.4.</span> <span class="toc-text">tuple元组( )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tuple%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">tuple的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tuple%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">1.5.4.2.</span> <span class="toc-text">tuple中元素的增删改查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tuple%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">1.5.4.3.</span> <span class="toc-text">tuple的遍历</span></a></li></ol></li></ol></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-工程与实战/Python中的数据类型" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python中的数据类型
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <!-- <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/cmlw761pi0006jyduevioewag" class="article-date">
+	  <time datetime="2023-08-15T02:10:06.000Z" itemprop="datePublished">2023-08-15</time>
+	</a>
+</span> -->
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/python/" rel="tag">python</a>, <a class="article-tag-link-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/cmlw761pi0006jyduevioewag#comments" class="article-comment-link">评论</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Python中的数据类型"><a href="#Python中的数据类型" class="headerlink" title="Python中的数据类型"></a>Python中的数据类型</h1><h2 id="可变数据类型"><a href="#可变数据类型" class="headerlink" title="可变数据类型"></a>可变数据类型</h2><p>对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。</p>
+<h2 id="不可变数据类型"><a href="#不可变数据类型" class="headerlink" title="不可变数据类型"></a>不可变数据类型</h2><p>对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。</p>
+<p>也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变</p>
+<h2 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>是否是可变数据类型</th>
+<th>是否有序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>None (空)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>int (整数)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>float (浮点)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bool (布尔)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>str (字符串)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tuple (元组)</td>
+<td>不可变</td>
+<td>序列类型，有序</td>
+</tr>
+<tr>
+<td>list (列表)</td>
+<td>可变</td>
+<td>序列类型，有序</td>
+</tr>
+<tr>
+<td>set (集合)</td>
+<td>可变</td>
+<td>序列类型，无序，不可重复</td>
+</tr>
+<tr>
+<td>dict (字典)</td>
+<td>可变</td>
+<td>映射类型，v3.6及以后无有序, 前面版本无序</td>
+</tr>
+</tbody></table>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>是否是可变数据类型</th>
+<th>是否有序</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bytes</td>
+<td>不可变</td>
+<td>-</td>
+<td>定义字节：b’hello’,bytes(5)</td>
+</tr>
+<tr>
+<td>bytearray</td>
+<td>可变</td>
+<td>-</td>
+<td>定义字节数组：bytearray(b’hello’), bytearray(10)</td>
+</tr>
+<tr>
+<td>complex (复数)</td>
+<td>不可变</td>
+<td>-</td>
+<td>由一个实数和一个虚数组合构成，如：4+3j</td>
+</tr>
+<tr>
+<td>frozenset (冻结的set)</td>
+<td>不可变</td>
+<td>无序</td>
+<td>冻结的set初始化后不能再添加或删除元素</td>
+</tr>
+<tr>
+<td>array (数组)</td>
+<td>可变</td>
+<td>有序</td>
+<td>数组中的元素必须是同一类型</td>
+</tr>
+<tr>
+<td>OrderedDict</td>
+<td>可变</td>
+<td>有序</td>
+<td>key有序，setdefault取值key不存在也不报错</td>
+</tr>
+<tr>
+<td>defaultdict</td>
+<td>可变</td>
+<td>有序</td>
+<td>取值时Key不存在也不会抛出KeyError异常</td>
+</tr>
+<tr>
+<td>deque</td>
+<td>可变</td>
+<td>有序</td>
+<td>高效插入和删除的<strong>双向队列列表</strong></td>
+</tr>
+</tbody></table>
+<h2 id="常见数据类型的操作和转换"><a href="#常见数据类型的操作和转换" class="headerlink" title="常见数据类型的操作和转换"></a>常见数据类型的操作和转换</h2><h3 id="list列表"><a href="#list列表" class="headerlink" title="list列表[ ]"></a>list列表[ ]</h3><p>list是**==可变==<strong>、</strong>==可重复==<strong>的</strong>==有序==**列表，里面的元素的数据类型也可以不同(也可以是另一个list)。list可根据索引号取其中的数据。</p>
+<h4 id="list的生成"><a href="#list的生成" class="headerlink" title="list的生成"></a>list的生成</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, <span class="built_in">list</span>(list1)) <span class="comment"># 输出： list1:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line">list2 = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list2: &quot;</span>, <span class="built_in">list</span>(list2))</span><br><span class="line">list3 = [i*i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list3: &quot;</span>, <span class="built_in">list</span>(list3))</span><br><span class="line">list4 = (<span class="built_in">str</span>(i) + j <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&quot;xyz&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list4: &quot;</span>, <span class="built_in">list</span>(list4))</span><br></pre></td></tr></table></figure>
+<h4 id="list元素反转、排序和次数统计"><a href="#list元素反转、排序和次数统计" class="headerlink" title="list元素反转、排序和次数统计"></a>list元素反转、排序和次数统计</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">list1.reverse()  <span class="comment"># 元素顺序反转</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list reverse: &quot;</span>, list1)</span><br><span class="line">list1.sort(reverse=<span class="literal">False</span>)  <span class="comment"># 排序</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list sort: &quot;</span>, list1)</span><br><span class="line">list1 = <span class="built_in">sorted</span>(list1, reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list sort: &quot;</span>, list1)</span><br><span class="line">times = list1.count(<span class="number">5</span>)  <span class="comment"># 查看list中的元素出现的次数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;times: &quot;</span>, times)</span><br></pre></td></tr></table></figure>
+<h4 id="list元素的添加、删除和取值"><a href="#list元素的添加、删除和取值" class="headerlink" title="list元素的添加、删除和取值"></a>list元素的添加、删除和取值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">list1.append(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;append value: &quot;</span>, list1)  <span class="comment"># 添加元素</span></span><br><span class="line">list1.insert(<span class="number">1</span>, <span class="number">10</span>)  <span class="comment"># 在指定位置添加元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;insert value: &quot;</span>, list1)</span><br><span class="line">list1.remove(<span class="number">10</span>)  <span class="comment"># 删除指定value元素(第一个匹配的元素)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;remove value: &quot;</span>, list1)</span><br><span class="line">value = list1.pop(<span class="number">12</span>)  <span class="comment"># 删除指定index的元素并返回删除的值</span></span><br><span class="line">list1.pop()  <span class="comment"># 不指定index时默认删除最后一个元素</span></span><br><span class="line">list1.pop(-<span class="number">2</span>)  <span class="comment"># 删除倒数第二个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;remove index: &quot;</span>, list1)</span><br><span class="line"></span><br><span class="line">index_value = list1.index(<span class="number">3</span>)  <span class="comment"># 查找第一个value为100的index值，如果不存在报TypeError异常</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;index_value: &quot;</span>, index_value)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line">index_value = list1.index(<span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>)  <span class="comment"># 指定范围，从第7(包括)个到第9(不包括)个元素之间查找value为5的index</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;index_value: &quot;</span>, index_value)</span><br></pre></td></tr></table></figure>
+<h4 id="list添加多个元素、list的合并"><a href="#list添加多个元素、list的合并" class="headerlink" title="list添加多个元素、list的合并"></a>list添加多个元素、list的合并</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list2 = [<span class="number">100</span>, <span class="number">101</span>, <span class="number">102</span>]</span><br><span class="line"><span class="comment"># list1 = list1 + list2</span></span><br><span class="line">list1.extend(list2)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="list的遍历"><a href="#list的遍历" class="headerlink" title="list的遍历"></a>list的遍历</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> list1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;value: %i&quot;</span> % value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(list1)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, list1[index]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(list1):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, value))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(list1, <span class="number">100</span>):  <span class="comment"># index从100开始</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, value))</span><br></pre></td></tr></table></figure>
+
+<h4 id="list中使用切片-slice-取值"><a href="#list中使用切片-slice-取值" class="headerlink" title="list中使用切片(slice)取值"></a>list中使用切片(slice)取值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">elements = list1[<span class="number">0</span>:<span class="number">3</span>]  <span class="comment"># 取第0到3条元素(包括头不包括尾)</span></span><br><span class="line"><span class="comment"># elements = list1[:3]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">1</span>:]  <span class="comment"># 取第1到最后一个元素(包括头也包括尾)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[-<span class="number">2</span>]  <span class="comment"># 取倒数第二条</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">4</span>:-<span class="number">2</span>]  <span class="comment"># 取第四条到倒数第二条(包括头不包括尾)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">0</span>:<span class="number">6</span>:<span class="number">2</span>]  <span class="comment"># 取第0条到第6条中每2个取一个</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[:]  <span class="comment"># 取所有元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br></pre></td></tr></table></figure>
+<p><strong>==列表、元组和字符串==都可以使用切片进行操作</strong></p>
+<h4 id="list的深copy和浅copy"><a href="#list的深copy和浅copy" class="headerlink" title="list的深copy和浅copy"></a>list的深copy和浅copy</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 浅拷贝只拷贝了引用，没有拷贝内容</span></span><br><span class="line">list2 = list1</span><br><span class="line">list2[<span class="number">1</span>] = <span class="number">1000</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list2: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(list1), <span class="built_in">id</span>(list2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 深拷贝是对于一个对象所有层次的拷贝(递归拷贝)</span></span><br><span class="line">list3 = list1.copy()</span><br><span class="line"><span class="comment"># import copy</span></span><br><span class="line"><span class="comment"># list3 = copy.copy(list1)</span></span><br><span class="line"><span class="comment"># list3 = copy.deepcopy(list1)</span></span><br><span class="line">list1[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list3: &quot;</span>, list3)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(list1), <span class="built_in">id</span>(list3))</span><br></pre></td></tr></table></figure>
+
+<h3 id="set集合"><a href="#set集合" class="headerlink" title="set集合{ }"></a>set集合{ }</h3><p>set是**==可变==**、==<strong>不可重复</strong>==的==<strong>无序</strong>==列表。 ==<strong>set中不可以放入可变对象</strong>==，因为无法判断两个可变对象是否相等而去重。</p>
+<h4 id="set的定义"><a href="#set的定义" class="headerlink" title="set的定义"></a>set的定义</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">set0 = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;  <span class="comment"># 直接定义set集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)  <span class="comment"># 输出 set0:  &#123;0,1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line">set1 = <span class="built_in">set</span>([<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])  <span class="comment"># 通过list定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set1: &quot;</span>, set1)</span><br><span class="line"></span><br><span class="line">set2 = <span class="built_in">set</span>((<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>))  <span class="comment"># 通过tuple定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set2: &quot;</span>, set2)</span><br><span class="line"></span><br><span class="line">set3 = <span class="built_in">set</span>(&#123;<span class="string">&quot;x&quot;</span>: <span class="number">2</span>, <span class="number">10</span>: <span class="string">&quot;b&quot;</span>&#125;)  <span class="comment"># 通过dict定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set3: &quot;</span>, set3)  <span class="comment"># 输出 set3:  &#123;10, &#x27;x&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line">my_list = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">set4 = <span class="built_in">set</span>(my_list)  <span class="comment"># set中不可以放入可变对象,然而为何放入list却不报错?</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set4: &quot;</span>, set4)  <span class="comment"># 输出 set4:  &#123;0, 1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由下面操作可以得出结论,set是先把list做遍历得到不可变的int对象类型后再放入set中</span></span><br><span class="line">my_list[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set4 with my_list changed: &quot;</span>, set4)  <span class="comment"># 输出 &#123;0, 1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line">my_list.append([<span class="number">10</span>, <span class="number">20</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;my_list: &quot;</span>, my_list)</span><br><span class="line">set5 = <span class="built_in">set</span>(my_list)  <span class="comment"># 在list再放入list,此时将报错</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set5: &quot;</span>, set5)</span><br></pre></td></tr></table></figure>
+
+<h4 id="set元素的添加、删除和取值"><a href="#set元素的添加、删除和取值" class="headerlink" title="set元素的添加、删除和取值"></a>set元素的添加、删除和取值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">set0 = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line">set0.add(<span class="string">&quot;cn&quot;</span>)  <span class="comment"># 添加单个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"></span><br><span class="line">set0.update([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>])  <span class="comment"># 添加多个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"></span><br><span class="line">set0.add((<span class="string">&quot;com&quot;</span>, <span class="string">&quot;cn&quot;</span>))  <span class="comment"># 添加元组(元组是不可变数据类型)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"><span class="comment"># set0.add([10, 20])  # 添加list报错,不能添加可变的数据类型(不能添加,但可以使用list创建set)</span></span><br><span class="line"><span class="comment"># set0.add(&#123;10, 20&#125;)  # 添加set报错,(可是使用不可变的frozenset添加:set0.add(frozenset(&#123;10, 20&#125;)))</span></span><br><span class="line"><span class="comment"># set0.add(&#123;&quot;x&quot;: 2, 10: &quot;b&quot;&#125;)  # 添加dict报错,不能添加可变的数据类型(不能添加,但可以使用dict创建set)</span></span><br><span class="line"></span><br><span class="line">set0.remove(<span class="string">&quot;cn&quot;</span>)  <span class="comment"># 根据值删除元素(set不能根据索引删除)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br></pre></td></tr></table></figure>
+
+<h4 id="set取并集和交集"><a href="#set取并集和交集" class="headerlink" title="set取并集和交集"></a>set取并集和交集</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set1 = &#123;<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">100</span>&#125;</span><br><span class="line">my_set = set0 | set1  <span class="comment"># 取并集</span></span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br><span class="line">my_set = set0 &amp; set1  <span class="comment"># 取交集</span></span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br></pre></td></tr></table></figure>
+
+<h4 id="set遍历"><a href="#set遍历" class="headerlink" title="set遍历"></a>set遍历</h4><p>注：set的遍历同list</p>
+<h3 id="dict字典"><a href="#dict字典" class="headerlink" title="dict字典{ }"></a>dict字典{ }</h3><p>dict是**==无序==<strong>，key==<strong>不可重复</strong>==、</strong>==不可变==**内容以key-value键值对形式存在的映射</p>
+<p><strong>dict中的key只能是不可变对象且唯一</strong>, 一个key对应一个value，多次对一个key设置value，后面的值会把前面的冲掉。</p>
+<blockquote>
+<p>dict一般用在需要高速查找的很多地方。dict的key必须是不可变对象，这是因为dict根据key来计算value的存储位置，如果每次计算相同的key得出的结果不同，那dict内部就完全混乱了。这种通过key计算位置的算法称为哈希算法（Hash）。要保证hash的正确性，作为key的对象就不能变。在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list、set是可变的，所以就不能作为key。</p>
+</blockquote>
+<h4 id="dict的创建和增删改查"><a href="#dict的创建和增删改查" class="headerlink" title="dict的创建和增删改查"></a>dict的创建和增删改查</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">&quot;addr&quot;</span>: <span class="string">&quot;北京&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">18</span>, <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;女&quot;</span>&#125;</span><br><span class="line">dict1[<span class="string">&quot;height&quot;</span>] = <span class="number">1.77</span>  <span class="comment"># 添加元素</span></span><br><span class="line">dict1.pop(<span class="string">&quot;age&quot;</span>)  <span class="comment"># 删除元素输出</span></span><br><span class="line">item_del = dict1.popitem()  <span class="comment"># 产出dict中的最后一个item并返回</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;item_del: &quot;</span>, item_del)</span><br><span class="line">dict1[<span class="string">&quot;addr&quot;</span>] = <span class="string">&quot;深圳&quot;</span>  <span class="comment"># 修改元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict1: &quot;</span>, dict1)</span><br><span class="line"></span><br><span class="line">keys = dict1.keys()  <span class="comment"># 获取dict的所有key</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;keys: &quot;</span>, keys)  <span class="comment"># dict_keys([&#x27;add&#x27;, &#x27;height&#x27;])</span></span><br><span class="line">addr = dict1.get(<span class="string">&quot;addr&quot;</span>)  <span class="comment"># 根据key获取value,若key不存在报异常(defaultdict字典不报异常)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;addr: &quot;</span>, addr)</span><br><span class="line">addr = dict1.setdefault(<span class="string">&quot;addr&quot;</span>)  <span class="comment"># 根据key获取value,若key不存返回None,也可设置默认返回值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;addr: &quot;</span>, addr)</span><br><span class="line">name = dict1.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;unknow&quot;</span>)  <span class="comment"># 根据key获取value,若key不存返回默认值&#x27;unknow&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;name: &quot;</span>, name)</span><br></pre></td></tr></table></figure>
+
+<h4 id="dict的遍历"><a href="#dict的遍历" class="headerlink" title="dict的遍历"></a>dict的遍历</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dict的遍历</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dict1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;key: %s, value: %s&quot;</span> % (key, dict1[key]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict1.values():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;value: &quot;</span>, value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;key: %s, value: %s&quot;</span> % (key, value))</span><br></pre></td></tr></table></figure>
+
+<h4 id="dict的合并"><a href="#dict的合并" class="headerlink" title="dict的合并"></a>dict的合并</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict2 = &#123;<span class="string">&quot;mobel&quot;</span>: <span class="number">15888888888</span>, <span class="string">&quot;postal_code&quot;</span>: <span class="number">10000</span>&#125;  <span class="comment"># 合并两个dict</span></span><br><span class="line">dict1.update(dict2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict1: &quot;</span>, dict1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="dict和list的异同"><a href="#dict和list的异同" class="headerlink" title="dict和list的异同"></a>dict和list的异同</h4><blockquote>
+<p><strong>list</strong>查找和插入的时间随着元素的增加而增加；<br>占用空间小，浪费内存很少</p>
+</blockquote>
+<blockquote>
+<p><strong>dict</strong>查找和插入的速度极快，不会随着key的增加而变慢；<br>需要占用大量的内存，内存浪费多。<br>所以，dict是用空间来换取时间的一种方法。</p>
+</blockquote>
+<h4 id="dict的排序"><a href="#dict的排序" class="headerlink" title="dict的排序"></a>dict的排序</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dict排序</span></span><br><span class="line">dict3 = &#123;<span class="string">&#x27;sh&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;hz&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;tj&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;bj&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;gz&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;sz&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;wh&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认排序，并仅返回key</span></span><br><span class="line">key_rank1 = <span class="built_in">sorted</span>(dict3.keys(), reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;key_rank1: &quot;</span>, key_rank1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认排序(以key来排序)，并返回key和value</span></span><br><span class="line">dict_key_rank1 = <span class="built_in">sorted</span>(dict3.items(), reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_key_rank1: &quot;</span>, <span class="built_in">dict</span>(dict_key_rank1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以key排序</span></span><br><span class="line">dict_key_rank2 = <span class="built_in">sorted</span>(dict3.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">0</span>], reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_key_rank2: &quot;</span>, <span class="built_in">dict</span>(dict_key_rank2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以value排序</span></span><br><span class="line">dict_value_rank1 = <span class="built_in">sorted</span>(dict3.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_value_rank1: &quot;</span>, <span class="built_in">dict</span>(dict_value_rank1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以value排序</span></span><br><span class="line">dict4 = &#123;<span class="string">&#x27;上海&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;杭州&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;天津&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;北京&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;广州&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;深圳&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;武汉&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line">dict_value_rank2 = <span class="built_in">sorted</span>(dict4.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_value_rank2: &quot;</span>, <span class="built_in">dict</span>(dict_value_rank2))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="tuple元组"><a href="#tuple元组" class="headerlink" title="tuple元组( )"></a>tuple元组( )</h3><p>tuple是**==不可变==<strong>、</strong>==有序==**的列表，所以一般在定义tuple时就进行初始化赋值。</p>
+<p>注意：</p>
+<ul>
+<li><p>在定义只有一个元素的tuple时其元素后面要加逗号</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tuple0 = ()  <span class="comment"># 创建空元祖</span></span><br><span class="line">tuple0 = (<span class="number">1</span>)  <span class="comment"># 不是tuple，会当成括号处理</span></span><br><span class="line">tuple0 = (<span class="number">1</span>,)  <span class="comment"># 正确的tuple</span></span><br></pre></td></tr></table></figure></li>
+<li><p>tuple虽然不可变但tuple中的元素对象却是可变的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&quot;x&quot;</span>, <span class="string">&quot;y&quot;</span>]</span><br><span class="line">tuple1 = (<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, my_list)  <span class="comment"># tuple包含list,list变化时,tuple1也就跟着变化</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple1: &quot;</span>, tuple1)  <span class="comment"># tuple1:  (&#x27;a&#x27;, &#x27;b&#x27;, [&#x27;x&#x27;, &#x27;y&#x27;])</span></span><br><span class="line">my_list.append(<span class="string">&quot;z&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple1 with my_list changed: &quot;</span>, tuple1)  <span class="comment"># tuple1变为(&#x27;a&#x27;, &#x27;b&#x27;, [&#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;])</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="tuple的创建"><a href="#tuple的创建" class="headerlink" title="tuple的创建"></a>tuple的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tuple2 = (<span class="number">1</span>, <span class="string">&quot;good&quot;</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">&quot;good&quot;</span>, <span class="literal">True</span>)  <span class="comment"># 创建元组,里面的元素类型可以不同</span></span><br><span class="line">tuple3 = (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, *tuple2, <span class="number">4</span>, <span class="number">5</span>)  <span class="comment"># 元组引用另一个数组中的所有元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple3: &quot;</span>, tuple3)</span><br></pre></td></tr></table></figure>
+
+<h4 id="tuple中元素的增删改查"><a href="#tuple中元素的增删改查" class="headerlink" title="tuple中元素的增删改查"></a>tuple中元素的增删改查</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">element = tuple2[<span class="number">4</span>]  <span class="comment"># 根据索引获取元组中的元素</span></span><br><span class="line">element = tuple2[-<span class="number">2</span>]  <span class="comment"># 使用索引获取元组中的元素</span></span><br><span class="line">index = tuple2.index(<span class="string">&quot;good&quot;</span>)  <span class="comment"># 获取第一个匹配给定值的index值</span></span><br><span class="line"><span class="keyword">del</span> tuple2  <span class="comment"># 删除元组</span></span><br><span class="line"><span class="comment"># tuple2[4] = &quot;well&quot; # 修改元组的元素,报错</span></span><br><span class="line"></span><br><span class="line">tuple4 = (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple4: &quot;</span>, tuple4)</span><br><span class="line"><span class="comment"># tuple4[-1] = [10, 20, 30] #报错</span></span><br><span class="line">tuple4[-<span class="number">1</span>][<span class="number">0</span>] = <span class="number">100</span>  <span class="comment"># 可以通过修改元组中的list,从而改变元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple4: &quot;</span>, tuple4) <span class="comment"># tuple4:  (&#x27;a&#x27;, &#x27;b&#x27;, 4, 5, [100, 7, 8])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="tuple的遍历"><a href="#tuple的遍历" class="headerlink" title="tuple的遍历"></a>tuple的遍历</h4><p>注：tuple的遍历同list</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://hicode360.github.io/cmlw761pi0006jyduevioewag" title="python中的数据类型" target="_blank" rel="external">https://hicode360.github.io/cmlw761pi0006jyduevioewag</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://www.hicode365.com/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://www.hicode365.com/" target="_blank"><span class="text-dark">hicode</span><small class="ml-1x">Algorithms &amp; Engineer</small></a></h3>
+        <div>Open shared and free</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/1c41d072cac63725dbd48a1273b2fd97" title="docker常用命令"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <!-- 隐藏主题版权信息 -->
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:hicode360.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
