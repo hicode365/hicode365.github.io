@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git常用命令</title>
+    <url>/cuidrRz6-aJ020Ll6zs2_iuIT.html</url>
+    <content><![CDATA[<h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/username/project.github.io.git #拉取代码(master/main)</span><br><span class="line">git clone -b _dev https://github.com/username/project.github.io.git  #拉取分支(非master或main分支)</span><br><span class="line">git checkout --track origin/_remote  #获取指定的远程分支到本地</span><br><span class="line"></span><br><span class="line">git branch #查看本地分支</span><br><span class="line">git branch -a #查看远程分支</span><br><span class="line">git branch -vv#查看分支的绑定信息</span><br><span class="line"></span><br><span class="line">git branch _local #创建本地分支</span><br><span class="line">git branch -d _local #删除本地分支(当前分支不能停留在要删除的分支上)</span><br><span class="line">git checkout _local #切换到本地分支</span><br><span class="line">git checkout -b _local # 创建并切换到本地创建的分支</span><br><span class="line"></span><br><span class="line">git push --set-upstream origin _remote #创建远程分支</span><br><span class="line">git branch -r -d origin/_remote  #删除远程分支(记得push一下 git push origin _remote)</span><br><span class="line">git checkout -b _local origin/_remote #创建本地分支绑定远程分支</span><br><span class="line"></span><br><span class="line">git status #查看修改过代码的类</span><br><span class="line">git diff #查看修改的代码</span><br><span class="line"></span><br><span class="line">git add src/main/java/com/so/alg/RecommendServiceImpl.java #添加修改的代码</span><br><span class="line">git commit -m &quot;recommend feed modified&quot; #给修改的代码添加注释</span><br><span class="line">git pull origin _remote #从远程更新变动的代码</span><br><span class="line">git push origin _local:_remote #提交</span><br><span class="line"></span><br><span class="line">git merge _remote #合并分支到master上(需要先切换到master分支上,在执行合并)</span><br><span class="line"></span><br><span class="line">git tag -a 2020071801 -m &#x27;v2.0部署&#x27; #添加tag</span><br><span class="line">git show 2020071801 #展示tag</span><br><span class="line">git push --tags  #提交tag</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="git配置SSH公钥和私钥"><a href="#git配置SSH公钥和私钥" class="headerlink" title="git配置SSH公钥和私钥"></a>git配置SSH公钥和私钥</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.生成公钥和私钥(邮箱为github注册邮箱)</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxxxx@gmail.com&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.设置公钥私钥key的保存位置(可以直接确认则保存在默认位置)</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/username/.ssh/id_rsa):</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3.输入、重复输入密钥盐值</span></span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">4.复制打印的公钥内容，并在github-&gt;Settings-&gt;SSH and GPG keys-&gt;New SSH Key中设置(title随意起)</span></span><br><span class="line">cat .ssh\id_rsa.pub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">5.查看密钥是否配置成功(会提示输入盐值)</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line">Enter passphrase for key &#x27;/Users/username/.ssh/id_rsa&#x27;:</span><br><span class="line">Hi hicode360! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">6.配置全局git信息</span></span><br><span class="line">git config --global user.name &quot;username&quot; # github用户名</span><br><span class="line">git config --global user.email  &quot;xxxxxx@gmail.com&quot; #github注册邮箱</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker常用命令</title>
     <url>/1c41d072cac63725dbd48a1273b2fd97.html</url>
     <content><![CDATA[<h1 id="docker常用命令"><a href="#docker常用命令" class="headerlink" title="docker常用命令"></a>docker常用命令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull tensorflow/serving #从仓库拉取镜像</span><br><span class="line">docker pull tensorflow/serving:latest-gpu #从仓库拉取GPU镜像</span><br><span class="line">docker pull tensorflow/serving:2.8.3-gpu #从仓库拉取GPU镜像</span><br><span class="line">docker run -it tensorflow/serving #进入到镜像中</span><br><span class="line">exit #退出镜像</span><br><span class="line">docker run tensorflow/serving #运行某个容器</span><br><span class="line">docker ps // 查看所有正在运行容器</span><br><span class="line">docker stop containerId // containerId 是容器的ID</span><br><span class="line"></span><br><span class="line">docker ps -a // 查看所有容器</span><br><span class="line">docker ps -a -q // 查看所有容器ID</span><br><span class="line"></span><br><span class="line">docker stop $(docker ps -a -q) //  stop停止所有容器</span><br><span class="line">docker rm $(docker ps -a -q) //   remove删除所有容器</span><br><span class="line">docker rm/rmi #删除容器/镜像</span><br><span class="line">docker cp local_files containerId:docker_files #本地文件复制到docker</span><br></pre></td></tr></table></figure>
@@ -36,26 +54,8 @@
       </tags>
   </entry>
   <entry>
-    <title>git常用命令</title>
-    <url>/cuidlmfzy1MSoiqCbSKadWfhK.html</url>
-    <content><![CDATA[<h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/username/project.github.io.git #拉取代码(master/main)</span><br><span class="line">git clone -b _dev https://github.com/username/project.github.io.git  #拉取分支(非master或main分支)</span><br><span class="line">git checkout --track origin/_remote  #获取指定的远程分支到本地</span><br><span class="line"></span><br><span class="line">git branch #查看本地分支</span><br><span class="line">git branch -a #查看远程分支</span><br><span class="line">git branch -vv#查看分支的绑定信息</span><br><span class="line"></span><br><span class="line">git branch _local #创建本地分支</span><br><span class="line">git branch -d _local #删除本地分支(当前分支不能停留在要删除的分支上)</span><br><span class="line">git checkout _local #切换到本地分支</span><br><span class="line">git checkout -b _local # 创建并切换到本地创建的分支</span><br><span class="line"></span><br><span class="line">git push --set-upstream origin _remote #创建远程分支</span><br><span class="line">git branch -r -d origin/_remote  #删除远程分支(记得push一下 git push origin _remote)</span><br><span class="line">git checkout -b _local origin/_remote #创建本地分支绑定远程分支</span><br><span class="line"></span><br><span class="line">git status #查看修改过代码的类</span><br><span class="line">git diff #查看修改的代码</span><br><span class="line"></span><br><span class="line">git add src/main/java/com/so/alg/RecommendServiceImpl.java #添加修改的代码</span><br><span class="line">git commit -m &quot;recommend feed modified&quot; #给修改的代码添加注释</span><br><span class="line">git pull origin _remote #从远程更新变动的代码</span><br><span class="line">git push origin _local:_remote #提交</span><br><span class="line"></span><br><span class="line">git merge _remote #合并分支到master上(需要先切换到master分支上,在执行合并)</span><br><span class="line"></span><br><span class="line">git tag -a 2020071801 -m &#x27;v2.0部署&#x27; #添加tag</span><br><span class="line">git show 2020071801 #展示tag</span><br><span class="line">git push --tags  #提交tag</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="git配置SSH公钥和私钥"><a href="#git配置SSH公钥和私钥" class="headerlink" title="git配置SSH公钥和私钥"></a>git配置SSH公钥和私钥</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.生成公钥和私钥(邮箱为github注册邮箱)</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxxxx@gmail.com&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.设置公钥私钥key的保存位置(可以直接确认则保存在默认位置)</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/username/.ssh/id_rsa):</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3.输入、重复输入密钥盐值</span></span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">4.复制打印的公钥内容，并在github-&gt;Settings-&gt;SSH and GPG keys-&gt;New SSH Key中设置(title随意起)</span></span><br><span class="line">cat .ssh\id_rsa.pub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">5.查看密钥是否配置成功(会提示输入盐值)</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line">Enter passphrase for key &#x27;/Users/username/.ssh/id_rsa&#x27;:</span><br><span class="line">Hi hicode360! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">6.配置全局git信息</span></span><br><span class="line">git config --global user.name &quot;username&quot; # github用户名</span><br><span class="line">git config --global user.email  &quot;xxxxxx@gmail.com&quot; #github注册邮箱</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python中的数据类型</title>
-    <url>/cuidmfvM_9n7FjCXkacL1g47j.html</url>
+    <url>/cuidDZEK6Bgd97PUqFs0w-F_G.html</url>
     <content><![CDATA[<h1 id="Python中的数据类型"><a href="#Python中的数据类型" class="headerlink" title="Python中的数据类型"></a>Python中的数据类型</h1><h2 id="可变数据类型"><a href="#可变数据类型" class="headerlink" title="可变数据类型"></a>可变数据类型</h2><p>对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。</p>
 <h2 id="不可变数据类型"><a href="#不可变数据类型" class="headerlink" title="不可变数据类型"></a>不可变数据类型</h2><p>对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。</p>
 <p>也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变</p>
@@ -237,17 +237,563 @@
       </tags>
   </entry>
   <entry>
+    <title>SVM支持向量机</title>
+    <url>/cuid9ineUcg_C5I5d5AUzIiOJ.html</url>
+    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>支持向量机（Support Vector Machine, SVM）是一种经典的二分类模型，它的核心思想是：<strong>在特征空间中寻找一个决策边界（超平面），使得两类样本被正确分开，并且离决策边界最近的样本点（即支持向量）到该边界的距离尽可能大</strong>。这个距离被称为<strong>间隔（Margin）</strong>，SVM因此也被称为<strong>最大间隔分类器</strong>。</p>
+<h1 id="决策函数"><a href="#决策函数" class="headerlink" title="决策函数"></a>决策函数</h1><p>$$
+\left\{
+(x_1^{(1)}, x_2^{(1)}, \ldots, x_n^{(1)}),
+(x_1^{(2)}, x_2^{(2)}, \ldots, x_n^{(2)}),
+\ldots,
+(x_1^{(m)}, x_2^{(m)}, \ldots, x_n^{(m)})
+\right\}
+$$</p>
+<p>这是一个样本集，包含 $ m $ 个样本，每个样本有 $ n $ 个特征。</p>
+<ul>
+<li>第 $ i $ 个样本为：$(x_1^{(i)}, x_2^{(i)}, \ldots, x_n^{(i)})$</li>
+<li>上标 $(i)$ 表示第 $ i $ 个样本</li>
+<li>下标 $ j $ 表示该样本的第 $ j $ 个特征</li>
+<li>所以 $ x_j^{(i)} $ 表示 <strong>第 $ i $ 个样本的第 $ j $ 个特征值</strong></li>
+</ul>
+<p>矩阵表示法(每一行是一个样本，每一列是一个特征)：<br>$$
+\mathbf{X} =
+\begin{bmatrix}
+x_1^{(1)} & x_2^{(1)} & \cdots & x_n^{(1)} \\
+x_1^{(2)} & x_2^{(2)} & \cdots & x_n^{(2)} \\
+\vdots   & \vdots   & \ddots & \vdots   \\
+x_1^{(m)} & x_2^{(m)} & \cdots & x_n^{(m)}
+\end{bmatrix}
+$$</p>
+<p>SVM的决策函数为线性函数：</p>
+<p>$$
+f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b
+$$</p>
+<p>其中 $\mathbf{w} \in \mathbb{R}^n$ 是权重向量（法向量），$b \in \mathbb{R}$ 是偏置项。决策边界（超平面）由方程 $\mathbf{w}^\top \mathbf{x} + b = 0$ 定义。</p>
+<p>对于二维情况，决策边界是一条直线；对于三维情况，它是一个平面；更高维则称为超平面，如：</p>
+<p>当样本有两个特征时（即2维），决策边界为直线：</p>
+<img src="/images/v2-319cb9929efe5025d7ee029ac7e60098_r.png" alt="v2-319cb9929efe5025d7ee029ac7e60098_r" style="zoom:40%;" />
+$$
+w_1x_1 + w_2x_2 + b = 0
+$$
+
+<p>当三个（或多个）特征时，决策边界为平面：<br>$$
+w_1x_1 + w_2x_2 + w_3x_3 + b = 0
+$$</p>
+<p>分类规则：把 $x^{(i)}$ 代入决策方程：</p>
+<ul>
+<li><p>得到的值$\mathbf{w}^\top \mathbf{x} + b > 0$：  $y^{(i)}$ 为正例，$y^{(i)} = +1$； </p>
+</li>
+<li><p>得到的值$\mathbf{w}^\top \mathbf{x} + b < 0$ ：  $y^{(i)}$ 为负例，$y^{(i)} = -1$；</p>
+</li>
+</ul>
+<p>因此，正确分类的样本满足 $y^{(i)}(\mathbf{w}^\top \mathbf{x}^{(i)} + b) > 0$。</p>
+<h1 id="间隔（Margin）与优化目标"><a href="#间隔（Margin）与优化目标" class="headerlink" title="间隔（Margin）与优化目标"></a>间隔（Margin）与优化目标</h1><h2 id="距离计算"><a href="#距离计算" class="headerlink" title="距离计算"></a>距离计算</h2><h3 id="点到直线的距离"><a href="#点到直线的距离" class="headerlink" title="点到直线的距离"></a>点到直线的距离</h3><p>在二维空间中，假设有一条直线的方程为 $ ax + by + c = 0 $，以及一个点 $P(x_0, y_0) $。该点到直线的距离 $d $ 可以通过以下公式计算：</p>
+<p>$$
+d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}
+$$<br>这里，$a, b, c $ 是直线方程的系数，而 $x_0, y_0 $ 是点的坐标。</p>
+<h3 id="点到平面的距离"><a href="#点到平面的距离" class="headerlink" title="点到平面的距离"></a>点到平面的距离</h3><p>在三维空间中，假设有一个平面的方程为 $Ax + By + Cz + D = 0 $，以及一个点 $P(x_0, y_0, z_0) $。该点到平面的距离 $d $ 可以通过以下公式计算：</p>
+<p>$$
+d = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+$$<br>这里，$A, B, C, D $ 是平面方程的系数，而 $x_0, y_0, z_0 $ 是点的坐标。</p>
+<p>注：</p>
+<ul>
+<li>在这两个公式中，分子部分表示的是点代入直线或平面方程后的值的绝对值，它反映了点相对于直线或平面的位置。</li>
+<li>分母部分是对直线或平面法向量长度的计算（即向量 $(a, b) $ 或 $(A, B, C) $ 的模长），用于标准化距离。</li>
+</ul>
+<h2 id="函数间隔"><a href="#函数间隔" class="headerlink" title="函数间隔"></a>函数间隔</h2><p>函数间隔（Functional Margin）的定义</p>
+<p>对于一个样本 $(\mathbf{x}^{(i)}, y^{(i)})$，其中 $y^{(i)} \in \{+1, -1\}$，我们定义其<strong>函数间隔</strong>为：</p>
+<p>$$
+\hat{\gamma}_i = y^{(i)} (\mathbf{w}^\top \mathbf{x}^{(i)} + b)
+$$</p>
+<ul>
+<li>$\mathbf{w}^\top \mathbf{x}^{(i)} + b$ 是模型对样本 $\mathbf{x}^{(i)}$ 的<strong>原始打分（score）</strong>。</li>
+<li>如果分类正确$ y^{(i)}$ 与 $ \mathbf{w}^\top \mathbf{x}^{(i)} + b$ 同号，它的绝对值越大，说明分类的置信度越高。</li>
+</ul>
+<h2 id="几何间隔（优化目标）"><a href="#几何间隔（优化目标）" class="headerlink" title="几何间隔（优化目标）"></a>几何间隔（优化目标）</h2><p>我们以二维决策边界为例：<br>$$
+w_1x_1 + w_2x_2 + b = 0，其中 \mathbf{w}=[w_1,w_2]
+$$<br>点到决策边界直线的距离为：<br>$$
+\gamma_i = d_i= \frac{|w_1x_1^{(i)} + w_2x_1^{(i)} + b|}{\sqrt{w_1^2 + w_2^2}} = y^{(i)} \frac{w_1x_1^{(i)} + w_2x_1^{(i)} + b}{\sqrt{w_1^2 + w_2^2}} = y^{(i)} \frac{\mathbf{wx} + b}{\sqrt{w_1^2 + w_2^2}} =  = y^{(i)} \frac{\mathbf{wx} + b}{\|\mathbf{w}\|}
+$$</p>
+<p>$\|\mathbf{w}\|$ 为<strong>L2范数</strong>（也称为欧几里得范数）定义为:  $\|\mathbf{w}\| = \sqrt{w_1^2 + w_2^2}$ ， 表示的是<strong>权重向量 $ \mathbf{w} $ 的长度。</strong></p>
+<p>所以几何间隔为：<br>$$
+\gamma_i = y^{(i)} \frac{\mathbf{wx} + b}{\|\mathbf{w}\|} = \frac{1}{\|\mathbf{w}\|}  y^{(i)}{(\mathbf{wx} + b)} = \frac{1}{\|\mathbf{w}\|} \hat{\gamma}_i
+$$<br>我们的优化目标是最大化距离决策边界最小的样本的间隔值。</p>
+<h2 id="函数间隔VS几何间隔"><a href="#函数间隔VS几何间隔" class="headerlink" title="函数间隔VS几何间隔"></a>函数间隔VS几何间隔</h2><p>$$
+\gamma_i = \frac{\hat{\gamma}_i}{\|\mathbf{w}\|}
+$$</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>函数间隔 $\hat{\gamma}_i$</th>
+<th>几何间隔 $\gamma_i$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否依赖 $\mathbf{w}$ 的尺度</td>
+<td>是（可任意缩放）</td>
+<td>否（尺度不变）</td>
+</tr>
+<tr>
+<td>是否表示真实距离</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>优化目标</td>
+<td>不直接用于最大化（因可缩放）</td>
+<td>用于 SVM 的核心目标：<strong>最大化最小几何间隔</strong></td>
+</tr>
+</tbody></table>
+<p><strong>示例</strong>：</p>
+<p>假设 $\mathbf{w} = (2, 2), b = -2$，对某个样本 $\mathbf{x} = (1,1), y=+1$：</p>
+<ul>
+<li>函数间隔：$\hat{\gamma} = 1 \cdot (2*1 + 2*1 - 2) = 2$</li>
+<li>几何间隔：$\gamma = 2 / \sqrt{2^2 + 2^2} = 2 / \sqrt{8} = \frac{1}{\sqrt{2}}$</li>
+</ul>
+<p>现在把 $\mathbf{w}, b$ 都乘以 10：</p>
+<ul>
+<li>$\mathbf{w}' = (20,20), b' = -20$</li>
+<li>函数间隔变为：$20$（变大了！）</li>
+<li>但几何间隔仍是：$20 / \sqrt{800} = 20 / (10\sqrt{8}) = 2 / \sqrt{8} = \frac{1}{\sqrt{2}}$</li>
+</ul>
+<p><strong>几何间隔不变，函数间隔随参数缩放而变</strong>。</p>
+<h2 id="最大间隔思想"><a href="#最大间隔思想" class="headerlink" title="最大间隔思想"></a>最大间隔思想</h2><p>SVM的目标是：<strong>找到一个超平面 $(\mathbf{w},b)$，使得所有样本中离它最近的那个样本的几何间隔尽可能大</strong>。这个最近的样本点就是<strong>支持向量（Support Vector）</strong>。</p>
+<p>整个数据集的几何间隔定义为：</p>
+<p>$$
+\gamma = \min_{i=1,\dots,m} \gamma_i
+$$</p>
+<p>优化问题即为：</p>
+<p>$$
+\max_{\mathbf{w},b} \gamma = \max_{\mathbf{w},b} \min_{i} \frac{y^{(i)}(\mathbf{w}^\top \mathbf{x}^{(i)} + b)}{\|\mathbf{w}\|}
+$$</p>
+<h2 id="目标函数与化简"><a href="#目标函数与化简" class="headerlink" title="目标函数与化简"></a>目标函数与化简</h2><p>SVM 的核心思想是：<strong>找到一个决策边界，使得所有样本中离它最近的那个样本（即支持向量）的距离尽可能大</strong>。</p>
+<ul>
+<li><p>单个样本的几何间隔：<br>$$
+  \gamma_i = \frac{1}{\|\mathbf{w}\|} y^{(i)}(\mathbf{w}^\top \mathbf{x}_i + b)
+  $$</p>
+</li>
+<li><p>整个数据集的几何间隔是所有样本中<strong>最小的那个</strong>：<br>$$
+   \gamma = \min_{i=1,\dots,m} \gamma_i 
+  $$</p>
+</li>
+<li><p>我们的目标是找到能最大化这个最小几何间隔的参数：<br>$$
+  \max_{\mathbf{w}, b} \gamma = \max_{\mathbf{w}, b} \min_{i=1,\dots,m} \frac{1}{\|\mathbf{w}\|} y^{(i)}(\mathbf{w}^\top \mathbf{x}_i + b)
+  $$</p>
+</li>
+<li><p>对间隔进行<strong>缩放</strong>：</p>
+<p>性质：对同一超平面，对参数（$\mathbf{w}$ 和 $b$ ）同时进行缩放，几何间隔保持不变，函数间隔发生变化。</p>
+</li>
+</ul>
+<p>$$
+\gamma_i = \frac{1}{\|\mathbf{w}\|} y^{(i)}(\mathbf{w}^\top \mathbf{x}_i + b)
+$$</p>
+<ul>
+<li><p>设对任意正实数 $c>0$，把参数变为 $(\mathbf w',b')=(c\mathbf w,c b)$。</p>
+<ul>
+<li><p>超平面方程由 $\mathbf w^\top \mathbf x + b =0$ 变为 $(c\mathbf w)^\top \mathbf x + c b = c(\mathbf w^\top \mathbf x + b)$。零点集不变，因此<strong>超平面本身不变</strong>（同一条直线&#x2F;平面）。</p>
+</li>
+<li><p>函数边距变为<br>$$
+    \hat\gamma_i' = y_i((c\mathbf w)^\top \mathbf x_i + c b) = c, y_i(\mathbf w^\top \mathbf x_i + b) = c,\hat\gamma_i.
+    $$<br>所以函数边距按同样因子 (c) 缩放。</p>
+</li>
+<li><p>$\mathbf w 的范数变成 |\mathbf w'|=|c\mathbf w| = c|\mathbf w|$。</p>
+</li>
+<li><p>几何边距变为<br>$$
+    \gamma_i' = \frac{\hat\gamma_i'}{|\mathbf w'|} = \frac{c\hat\gamma_i}{c|\mathbf w|} = \frac{\hat\gamma_i}{|\mathbf w|} = \gamma_i.
+    $$</p>
+</li>
+<li><p>也就是说，<strong>几何边距不变，函数间隔变为原来的c倍</strong>。</p>
+</li>
+<li><p>我们对 $\max_{\mathbf{w}, b} \gamma = \max_{\mathbf{w}, b} \min_{i=1,\dots,m} \frac{1}{\|\mathbf{w}\|} y^{(i)}(\mathbf{w}^\top \mathbf{x}_i + b)$ 中的$\frac{1}{\|\mathbf{w}\|} y^{(i)}(\mathbf{w}^\top \mathbf{x}_i + b)$  进行缩放（不会改变原来的结果值）,缩放到 $y^{(i)}(\mathbf{w}^\top \mathbf{x}_i + b) \ge 1$，此时：<br>$$
+    \begin{aligned}
+    &\max_{\mathbf{w}, b} \gamma = \max_{\mathbf{w}, b} \min_{i=1,\dots,m} \frac{1}{\|\mathbf{w}\|} y^{(i)}(\mathbf{w}^\top \mathbf{x}_i + b) =  \max_{\mathbf{w}, b} \min_{i=1,\dots,m} \frac{1}{\|\mathbf{w}\|} \cdot 1 = \max_{\mathbf{w}, b}\frac{1}{\|\mathbf{w}\|} = \min_{\mathbf{w}, b}{\|\mathbf{w}\|} =  \min_{\mathbf{w}, b}\frac{1}{2}{\|\mathbf{w}\|}^2 \\
+    &\text{s.t.}\quad y_i(\mathbf w^\top \mathbf x_i + b) \ge 1,\quad i=1,\dots,m.
+    \end{aligned}
+    $$<br>所以，<strong>SVM优化目标的的原始形式为：</strong><br>$$
+    \begin{aligned}
+    &\min_{\mathbf{w}, b}\frac{1}{2}{\|\mathbf{w}\|}^2 \\
+    &\text{s.t.}\quad y_i(\mathbf w^\top \mathbf x_i + b) \ge 1,\quad i=1,\dots,m.
+    \end{aligned}
+    $$<br>加入软间隔，在目标里加上松弛项并<strong>引入松弛变量 $\xi_i$ 的优化目标形式为</strong>：<br>$$
+    \begin{aligned}
+    &\min \tfrac{1}{2}|\mathbf w|^2 + C\sum_{i=1}^n\xi_i \\
+    &\text{s.t.}\quad y_i(\mathbf w^\top \mathbf x_i + b) \ge 1-\xi_i,\ \xi_i\ge 0, \quad i=1,\dots,m.
+    \end{aligned}
+    $$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="硬间隔与软间隔"><a href="#硬间隔与软间隔" class="headerlink" title="硬间隔与软间隔"></a>硬间隔与软间隔</h2><img src="/images/ScreenShot_2025-10-25_161439_348.png" alt="ScreenShot_2025-10-25_161439_348" style="zoom: 25%;" />
+
+<h3 id="硬间隔"><a href="#硬间隔" class="headerlink" title="硬间隔"></a>硬间隔</h3><ul>
+<li><strong>前提</strong>：数据完全线性可分。</li>
+<li><strong>目标</strong>：找到一个超平面，使得所有样本被正确分类，且间隔最大。</li>
+<li><strong>数学形式</strong>：</li>
+</ul>
+<p>$$
+\begin{aligned}
+  &\min_{\mathbf{w}, b} \frac{1}{2} \|\mathbf{w}\|^2 \\
+  &\text{s.t. } y_i(\mathbf{w}^\top \mathbf{x}_i + b) \geq 1,\quad i=1,\dots,m
+  \end{aligned}
+$$</p>
+<p>  其中 $y_i \in \{-1, +1\}$</p>
+<h3 id="软间隔"><a href="#软间隔" class="headerlink" title="软间隔"></a>软间隔</h3><ul>
+<li><p><strong>现实情况</strong>：数据可能含噪声或轻微不可分。</p>
+</li>
+<li><p>引入<strong>松弛变量 $\xi_i \geq 0$</strong>，允许部分样本违反约束。</p>
+</li>
+<li><p><strong>目标函数加入正则项</strong>（控制间隔与误分类的权衡）：<br>$$
+  \begin{aligned}
+  &\min_{\mathbf{w}, b, \xi} \frac{1}{2} \|\mathbf{w}\|^2 + C \sum_{i=1}^m \xi_i \\
+  &\text{s.t. } y_i(\mathbf{w}^\top \mathbf{x}_i + b) \geq 1 - \xi_i,\quad \xi_i \geq 0
+  \end{aligned}
+  $$</p>
+<ul>
+<li>$C$ 是<strong>惩罚系数</strong>：$C$ 越大，对误分类越敏感（趋向硬间隔）；$C$ 小则容忍更多误分类。</li>
+<li>如果 $ ξ_i = 0 $，点被正确分类且在间隔之外。</li>
+<li>如果 $ 0 < ξ_i <= 1 $，点被正确分类但在间隔之内。</li>
+<li>如果 $ ξ_i > 1 $，点被错误分类。</li>
+</ul>
+</li>
+</ul>
+<h1 id="拉格朗日对偶求解（硬间隔）"><a href="#拉格朗日对偶求解（硬间隔）" class="headerlink" title="拉格朗日对偶求解（硬间隔）"></a>拉格朗日对偶求解（硬间隔）</h1><h2 id="拉格朗日函数"><a href="#拉格朗日函数" class="headerlink" title="拉格朗日函数"></a>拉格朗日函数</h2><p>上述我们已经得到SVM的优化目标函数为:<br>$$
+\begin{aligned}
+  &\min_{\mathbf{w}, b} \frac{1}{2} \|\mathbf{w}\|^2 \\
+  &\text{s.t. } y_i(\mathbf{w}^\top \mathbf{x}_i + b) - 1 \geq 0,\quad i=1,\dots,m
+  \end{aligned}
+$$<br>目标函数是一个带不等式约束的凸二次规划（QP）问题。我们可以用拉格朗日乘子法将其转化为一个更易于求解的对偶问题。</p>
+<p><strong>步骤 1： 引入拉格朗日函数</strong></p>
+<p>为每个不等式约束引入一个拉格朗日乘子 $\alpha_i \ge 0$，构建拉格朗日函数：<br>$$
+\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) = \frac{1}{2} \|\mathbf{w}\|^2 - \sum_{i=1}^m \alpha_i \left[ y_i (\mathbf{w}^T \mathbf{x}_i + b) - 1 \right]
+$$</p>
+<ul>
+<li>$\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_m)^T$</li>
+<li>从上述式子不难看出：$\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) \leq \frac{1}{2} \|\mathbf{w}\|^2$</li>
+</ul>
+<p>根据拉格朗日乘子法的性质，原始问题等价于以下<strong>无约束的极小极大问题</strong>，所以目标函数转换为：<br>$$
+\min_{\mathbf{w}, b} \max_{\boldsymbol{\alpha} \ge 0} \mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})
+$$<br><strong>步骤 2： 转化为对偶问题（Dual Problem）</strong></p>
+<p>原始问题是 $\min_{\mathbf{w}, b} \max_{\boldsymbol{\alpha} \ge 0} \mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})$。在满足KKT条件的情况下，我们可以等价地求解它的对偶问题：<br>$$
+\min_{\mathbf{w}, b} \max_{\boldsymbol{\alpha} \ge 0} \mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})
+\ → \
+\max_{\boldsymbol{\alpha} \ge 0} \min_{\mathbf{w}, b} \mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})
+$$</p>
+<p><strong>首先，求解内层的最小化问题：</strong> $\min_{\mathbf{w}, b} \mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})$</p>
+<p>分别对 $\mathbf{w}$ 和 $b$ 求偏导并令其为零：<br>$$
+\nabla_{\mathbf{w}} \mathcal{L} = \mathbf{w} - \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i = 0 \quad \Rightarrow \quad \mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i
+$$</p>
+<p>$$
+\nabla_{\mathbf{b}} \mathcal{L} = \frac{\partial \mathcal{L}}{\partial b} = - \sum_{i=1}^m \alpha_i y_i = 0 \quad \Rightarrow \quad \sum_{i=1}^m \alpha_i y_i = 0
+$$</p>
+<p>将这两个结果代回拉格朗日函数 $\mathcal{L}$：</p>
+<p>$$
+\begin{aligned}
+\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) &= \frac{1}{2} \left( \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i \right)^T \left( \sum_{j=1}^m \alpha_j y_j \mathbf{x}_j \right) - \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i^T \left( \sum_{j=1}^m \alpha_j y_j \mathbf{x}_j \right) - b \sum_{i=1}^m \alpha_i y_i + \sum_{i=1}^m \alpha_i \\
+&= \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j - \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j + \sum_{i=1}^m \alpha_i \\
+&= -\frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j + \sum_{i=1}^m \alpha_i
+\end{aligned}
+$$<br>（注意：中间项 $- b \sum_{i=1}^m \alpha_i y_i$ 因为 $\sum \alpha_i y_i = 0$ 而消失了。）</p>
+<p><strong>步骤 3： 得到对偶问题</strong></p>
+<p>现在，我们的目标变成了最大化上面这个结果，同时要满足约束：<br>$$
+\begin{aligned}
+& \max_{\boldsymbol{\alpha}} \quad -\frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j + \sum_{i=1}^m \alpha_i \\
+& \text{s.t.} \quad \sum_{i=1}^m \alpha_i y_i = 0, \\
+& \quad \quad \alpha_i \ge 0, \quad i = 1, \dots, m
+\end{aligned}
+$$<br>通常我们将最大化转换为最小化，得到SVM标准对偶问题的最终形式：</p>
+<p>$$
+\begin{aligned}
+& \min_{\boldsymbol{\alpha}} \quad \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j - \sum_{i=1}^m \alpha_i \\
+& \text{s.t.} \quad \sum_{i=1}^m \alpha_i y_i = 0, \\
+& \quad \quad \alpha_i \ge 0, \quad i = 1, \dots, m
+\end{aligned}
+$$</p>
+<p>然后就是根据所有样本的值带入上式（还有约束条件），求得 $\alpha$，再根据 $w$ 与$\alpha$的关系求得 $w$值。</p>
+<p>在根据 $y = \mathbf{w}^\top \mathbf{x}_i + b$  随边找一个样本点带入求得 $b$ 值。</p>
+<p><strong>$\alpha$的意义：</strong></p>
+<p>所有$\alpha_i$ 不为零的点就是支持向量，也就是位于边界上的点，非边界上的点$\alpha = 0$ </p>
+<h2 id="KKT条件与支持向量"><a href="#KKT条件与支持向量" class="headerlink" title="KKT条件与支持向量"></a>KKT条件与支持向量</h2><p>求解上述对偶问题后，我们得到最优的拉格朗日乘子 $\boldsymbol{\alpha}^*$。此时，KKT条件（最优解必须满足的条件）起着关键作用，特别是其中的<strong>互补松弛条件</strong>：<br>$$
+\alpha_i^* \left[ y_i (\mathbf{w}^T \mathbf{x}_i + b) - 1 \right] = 0, \quad \forall i
+$$<br>这个条件意味着：</p>
+<ol>
+<li>如果 $\alpha_i^* = 0$，那么对应的样本点不会对 $\mathbf{w}$ 的计算产生影响（见 $\mathbf{w} = \sum \alpha_i y_i \mathbf{x}_i$）。</li>
+<li>如果 $\alpha_i^* > 0$，那么必然有 $y_i (\mathbf{w}^T \mathbf{x}_i + b) = 1$。这意味着这个样本点<strong>正好在最大间隔边界上</strong>！</li>
+</ol>
+<p>这些 $\alpha_i^* > 0$ 所对应的样本点，就是<strong>支持向量（Support Vectors）</strong>。它们决定了最终的超平面。</p>
+<p><strong>求解 $\mathbf{w}$ 和 $b$：</strong></p>
+<ul>
+<li><p>$\mathbf{w}$： 我们已经从导数为零的条件得到了：<br>$$
+  \mathbf{w}^* = \sum_{i=1}^m \alpha_i^* y_i \mathbf{x}_i
+  $$<br>实际上，我们只需要支持向量（即 $\alpha_i^* > 0$ 的点）来计算：<br>$$
+  \mathbf{w}^* = \sum_{i \in SV} \alpha_i^* y_i \mathbf{x}_i
+  $$</p>
+</li>
+<li><p>$b$： 利用任何一个支持向量 $(\mathbf{x}_s, y_s)$（即满足 $\alpha_s^* > 0$ 的点），根据互补松弛条件：<br>$$
+  y_s (\mathbf{w}^{*T} \mathbf{x}_s + b^*) = 1
+  $$<br>可以解出：<br>$$
+  b^* = y_s - \mathbf{w}^{*T} \mathbf{x}_s
+  $$<br>为了数值稳定性，通常使用所有支持向量计算出的 $b$ 的平均值。</p>
+</li>
+</ul>
+<h1 id="拉格朗日对偶与求解（软间隔）"><a href="#拉格朗日对偶与求解（软间隔）" class="headerlink" title="拉格朗日对偶与求解（软间隔）"></a>拉格朗日对偶与求解（软间隔）</h1><h2 id="松弛变量与惩罚参数"><a href="#松弛变量与惩罚参数" class="headerlink" title="松弛变量与惩罚参数"></a>松弛变量与惩罚参数</h2><p><strong>优化问题（原始问题，Primal Problem with Soft Margin）：</strong></p>
+<p>由于数据可能不是线性可分的，我们引入<strong>松弛变量（Slack Variables）</strong> $\xi_i \ge 0$ 来允许一些样本犯错误。同时，在目标函数中加入对这些错误的惩罚项。优化问题变为：</p>
+<p>$$
+\begin{aligned}
+& \min_{\mathbf{w}, b, \boldsymbol{\xi}} \quad \frac{1}{2} \|\mathbf{w}\|^2 + C \sum_{i=1}^m \xi_i \\
+& \text{s.t.} \quad y_i (\mathbf{w}^T \mathbf{x}_i + b) \ge 1 - \xi_i, \quad i = 1, \dots, m \\
+& \quad \quad \xi_i \ge 0, \quad i = 1, \dots, m
+\end{aligned}
+$$</p>
+<p>这里：</p>
+<ul>
+<li>$\xi_i$ 是松弛变量。$\xi_i = 0$ 表示样本 $x_i$ 被正确分类且位于间隔边界之外；$0 < \xi_i \le 1$ 表示样本位于间隔内部，但在正确的一侧；$\xi_i > 1$ 表示样本被错误分类。</li>
+<li>$C > 0$ 是<strong>惩罚参数</strong>，由用户指定。它控制了我们对分类错误的容忍度：<ul>
+<li>$C$ 越大，对错误的惩罚越重，间隔带越“硬”，可能过拟合。</li>
+<li>$C$ 越小，对错误的惩罚越轻，间隔带越“宽软”，可能欠拟合。</li>
+</ul>
+</li>
+</ul>
+<p><strong>构建拉格朗日函数：</strong></p>
+<p>我们现在有两个不等式约束，因此引入两组拉格朗日乘子：$\alpha_i \ge 0$ 和 $\mu_i \ge 0$。</p>
+<p>$$
+\mathcal{L}(\mathbf{w}, b, \boldsymbol{\xi}, \boldsymbol{\alpha}, \boldsymbol{\mu}) = \frac{1}{2} \|\mathbf{w}\|^2 + C \sum_{i=1}^m \xi_i - \sum_{i=1}^m \alpha_i \left[ y_i (\mathbf{w}^T \mathbf{x}_i + b) - 1 + \xi_i \right] - \sum_{i=1}^m \mu_i \xi_i
+$$</p>
+<p><strong>转化为对偶问题：</strong></p>
+<p>同样，我们求解 $\min_{\mathbf{w}, b, \boldsymbol{\xi}} \max_{\boldsymbol{\alpha}, \boldsymbol{\mu} \ge 0} \mathcal{L}$ 的对偶问题 $\max_{\boldsymbol{\alpha}, \boldsymbol{\mu} \ge 0} \min_{\mathbf{w}, b, \boldsymbol{\xi}} \mathcal{L}$。</p>
+<ol>
+<li><p><strong>对 $\mathbf{w}, b, \xi_i$ 求偏导并令为零：</strong><br>$$
+   \nabla_{\mathbf{w}} \mathcal{L} = \mathbf{w} - \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i = 0 \quad \Rightarrow \quad \mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i
+   $$</p>
+<p>$$
+   \frac{\partial \mathcal{L}}{\partial b} = - \sum_{i=1}^m \alpha_i y_i = 0 \quad \Rightarrow \quad \sum_{i=1}^m \alpha_i y_i = 0
+   $$</p>
+<p>$$
+   \frac{\partial \mathcal{L}}{\partial \xi_i} = C - \alpha_i - \mu_i = 0 \quad \Rightarrow \quad \alpha_i + \mu_i = C
+   $$</p>
+</li>
+<li><p><strong>将结果代回拉格朗日函数：</strong><br>将 $\mathbf{w} = \sum \alpha_i y_i \mathbf{x}_i$， $\mu_i = C - \alpha_i$ 代入 $\mathcal{L}$。经过与硬间隔类似的化简过程（注意包含 $\xi_i$ 的项会相互抵消），我们得到：</p>
+</li>
+</ol>
+<p><strong>对偶问题（Dual Problem with Soft Margin）：</strong><br>$$
+\boxed{
+\begin{aligned}
+& \min_{\boldsymbol{\alpha}} \quad \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j - \sum_{i=1}^m \alpha_i \\
+& \text{s.t.} \quad \sum_{i=1}^m \alpha_i y_i = 0, \\
+& \quad \quad 0 \le \alpha_i \le C, \quad i = 1, \dots, m
+\end{aligned}
+}
+$$</p>
+<p><strong>关键变化：</strong> 与硬间隔相比，软间隔的对偶问题唯一的变化是约束条件从 $\alpha_i \ge 0$ 变成了 $0 \le \alpha_i \le C$。这个上界 $C$ 来自于关系式 $\alpha_i = C - \mu_i$ 和 $\mu_i \ge 0$。</p>
+<hr>
+<h2 id="KKT条件与支持向量-1"><a href="#KKT条件与支持向量-1" class="headerlink" title="KKT条件与支持向量"></a>KKT条件与支持向量</h2><p>对于软间隔SVM，KKT条件（最优解必须满足的条件）变得更加丰富，它们完整地描述了支持向量的不同类型。</p>
+<p><strong>KKT条件：</strong></p>
+<ol>
+<li><p><strong>平稳性：</strong> $\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i$, $\sum_{i=1}^m \alpha_i y_i = 0$, $\alpha_i + \mu_i = C$.</p>
+</li>
+<li><p><strong>原始可行性：</strong> $y_i (\mathbf{w}^T \mathbf{x}_i + b) \ge 1 - \xi_i$, $\xi_i \ge 0$.</p>
+</li>
+<li><p><strong>对偶可行性：</strong> $\alpha_i \ge 0$, $\mu_i \ge 0$.</p>
+</li>
+<li><p><strong>互补松弛性：</strong><br>$$
+   \alpha_i \left[ y_i (\mathbf{w}^T \mathbf{x}_i + b) - 1 + \xi_i \right] = 0
+   $$</p>
+<p>$$
+   \mu_i \xi_i = 0
+   $$</p>
+</li>
+</ol>
+<p>根据这些KKT条件，我们可以将样本点分为三类：</p>
+<table>
+<thead>
+<tr>
+<th align="left">$\alpha_i$ 的值</th>
+<th align="left">$\xi_i$ 的值</th>
+<th align="left">几何位置</th>
+<th align="left">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$\alpha_i = 0$</td>
+<td align="left">$\xi_i = 0$</td>
+<td align="left">被正确分类，<strong>在间隔边界之外</strong></td>
+<td align="left"><strong>非支持向量</strong></td>
+</tr>
+<tr>
+<td align="left">$0 < \alpha_i < C$</td>
+<td align="left">$\xi_i = 0$</td>
+<td align="left">恰好落在<strong>间隔边界</strong>上 ($y_i(\mathbf{w}^T\mathbf{x}_i + b) = 1$)</td>
+<td align="left"><strong>标准支持向量</strong></td>
+</tr>
+<tr>
+<td align="left">$\alpha_i = C$</td>
+<td align="left">$0 < \xi_i \le 1$</td>
+<td align="left">位于<strong>间隔内部</strong>，但在正确的一侧</td>
+<td align="left"><strong>边界支持向量</strong></td>
+</tr>
+<tr>
+<td align="left">$\alpha_i = C$</td>
+<td align="left">$\xi_i > 1$</td>
+<td align="left">在<strong>错误的一侧</strong>，被误分类</td>
+<td align="left"><strong>误分类支持向量</strong></td>
+</tr>
+</tbody></table>
+<p><strong>求解 $\mathbf{w}$ 和 $b$：</strong></p>
+<ul>
+<li><p>$\mathbf{w}^*$ 的求解与硬间隔相同，只依赖于支持向量 ($\alpha_i > 0$)：<br>$$
+  \mathbf{w}^* = \sum_{i=1}^m \alpha_i^* y_i \mathbf{x}_i = \sum_{i \in SV} \alpha_i^* y_i \mathbf{x}_i
+  $$</p>
+</li>
+<li><p>$b^*$ 的求解：在硬间隔中，我们使用任意一个支持向量。在软间隔中，为了数值稳定性，我们通常使用<strong>所有标准支持向量</strong> ($0 < \alpha_i < C$) 来计算 $b$ 的平均值。<br>对于任何一个标准支持向量，由于 $\xi_i = 0$ 且 $0 < \alpha_i < C$，根据互补松弛条件有：<br>$$
+  y_i (\mathbf{w}^{*T} \mathbf{x}_i + b^*) = 1
+  $$<br>因此，<br>$$
+  b^* = \frac{1}{|S|} \sum_{i \in S} (y_i - \mathbf{w}^{*T} \mathbf{x}_i)
+  $$<br>其中 $S = \{ i | 0 < \alpha_i < C \}$ 是所有标准支持向量的集合。</p>
+</li>
+</ul>
+<hr>
+<h1 id="最终的决策函数（软间隔版本）"><a href="#最终的决策函数（软间隔版本）" class="headerlink" title="最终的决策函数（软间隔版本）"></a>最终的决策函数（软间隔版本）</h1><p>软间隔SVM的最终决策函数在形式上与硬间隔完全相同：</p>
+<p>$$
+f(\mathbf{x}) = \text{sign}(\mathbf{w}^{*T} \mathbf{x} + b^*)
+$$</p>
+<p>将 $\mathbf{w}^* = \sum_{i \in SV} \alpha_i^* y_i \mathbf{x}_i$ 代入：</p>
+<p>$$
+\boxed{
+f(\mathbf{x}) = \text{sign}\left( \sum_{i \in SV} \alpha_i^* y_i \mathbf{x}_i^T \mathbf{x} + b^* \right)
+}
+$$</p>
+<p><strong>关键点：</strong></p>
+<ol>
+<li><strong>形式不变</strong>：决策函数仍然是支持向量的线性组合。</li>
+<li><strong>支持向量更多样</strong>：支持向量集合 $SV$ 现在包含了所有 $\alpha_i > 0$ 的样本，即标准支持向量和那些被允许“犯错”的边界&#x2F;误分类支持向量。正是这些“犯错”的样本使得模型获得了鲁棒性。</li>
+<li><strong>核函数应用</strong>：同样，我们可以将内积 $\mathbf{x}_i^T \mathbf{x}$ 替换为核函数 $K(\mathbf{x}_i, \mathbf{x})$，从而将软间隔SVM应用于非线性分类问题，这被称为<strong>非线性软间隔SVM</strong>。</li>
+</ol>
+<h2 id="软间隔-vs-硬间隔"><a href="#软间隔-vs-硬间隔" class="headerlink" title="软间隔 vs.硬间隔"></a>软间隔 vs.硬间隔</h2><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">硬间隔SVM</th>
+<th align="left">软间隔SVM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>适用场景</strong></td>
+<td align="left">数据严格线性可分</td>
+<td align="left">数据近似线性可分或存在噪声</td>
+</tr>
+<tr>
+<td align="left"><strong>优化目标</strong></td>
+<td align="left">$\min \frac{1}{2}\|\mathbf{w}\|^2$</td>
+<td align="left">$\min \frac{1}{2}\|\mathbf{w}\|^2 + C \sum \xi_i$</td>
+</tr>
+<tr>
+<td align="left"><strong>对偶约束</strong></td>
+<td align="left">$0 \le \alpha_i$</td>
+<td align="left">$0 \le \alpha_i \le C$</td>
+</tr>
+<tr>
+<td align="left"><strong>支持向量</strong></td>
+<td align="left">都在间隔边界上</td>
+<td align="left">在间隔边界上、内部或误分点</td>
+</tr>
+<tr>
+<td align="left"><strong>参数</strong></td>
+<td align="left">无</td>
+<td align="left">惩罚参数 $C$</td>
+</tr>
+</tbody></table>
+<h1 id="核函数（Kernel-Function）"><a href="#核函数（Kernel-Function）" class="headerlink" title="核函数（Kernel Function）"></a>核函数（Kernel Function）</h1><h2 id="低维不可分与高维映射"><a href="#低维不可分与高维映射" class="headerlink" title="低维不可分与高维映射"></a>低维不可分与高维映射</h2><img src="/images/ScreenShot_2026-02-22_185554_909.png" alt="ScreenShot_2026-02-22_185554_909" style="zoom:40%;" />
+
+<p>当数据在原始特征空间中线性不可分时，一个自然的想法是将数据映射到更高维的空间，使其变得线性可分。设映射函数为 $\phi(\mathbf{x})$，则在高维空间中的决策函数为：<br>$$
+f(\mathbf{x}) = \mathbf{w}^\top \phi(\mathbf{x}) + b
+$$</p>
+<h2 id="核技巧（Kernel-Trick）"><a href="#核技巧（Kernel-Trick）" class="headerlink" title="核技巧（Kernel Trick）"></a>核技巧（Kernel Trick）</h2><p>直接计算 $\phi(\mathbf{x})$ 可能非常复杂，甚至无限维。但注意到在对偶问题中，所有涉及样本的地方都是以内积形式出现：$(\mathbf{x}^{(i)})^\top \mathbf{x}^{(j)}$。如果存在一个函数 $K(\cdot,\cdot)$，使得：</p>
+<p>$$
+K(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \phi(\mathbf{x}^{(i)})^\top \phi(\mathbf{x}^{(j)})
+$$</p>
+<p>那么我们就可以<strong>在低维空间中计算核函数 $K$</strong>，而无需显式地计算高维映射 $\phi$，从而大大降低计算量。这就是<strong>核技巧</strong>。</p>
+<h2 id="常用核函数"><a href="#常用核函数" class="headerlink" title="常用核函数"></a>常用核函数</h2><ul>
+<li><strong>线性核</strong>：$K(\mathbf{x}_i, \mathbf{x}_j) = \mathbf{x}_i^\top \mathbf{x}_j$（即无映射，用于线性可分情况）</li>
+<li><strong>多项式核</strong>：$K(\mathbf{x}_i, \mathbf{x}_j) = (\gamma \mathbf{x}_i^\top \mathbf{x}_j + r)^d$</li>
+<li><strong>高斯核（RBF核）</strong>：$K(\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)$（最常用，可将特征映射到无穷维）</li>
+<li><strong>Sigmoid核</strong>：$K(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \mathbf{x}_i^\top \mathbf{x}_j + r)$</li>
+</ul>
+<p>核函数的选择通常依赖领域知识或交叉验证。</p>
+<h2 id="核函数的选取原则"><a href="#核函数的选取原则" class="headerlink" title="核函数的选取原则"></a>核函数的选取原则</h2><ul>
+<li>若特征数 $n$ 很大，而样本数 $m$ 较小，通常使用线性核（避免过拟合）；</li>
+<li>若 $n$ 适中，$m$ 也适中，可尝试高斯核；</li>
+<li>若 $n$ 很小，$m$ 很大，需要先手工增加特征，再考虑线性核。</li>
+</ul>
+<hr>
+<h1 id="硬间隔、软间隔、核函数对比"><a href="#硬间隔、软间隔、核函数对比" class="headerlink" title="硬间隔、软间隔、核函数对比"></a>硬间隔、软间隔、核函数对比</h1><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>硬间隔SVM</th>
+<th>软间隔SVM</th>
+<th>核SVM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>适用场景</td>
+<td>数据严格线性可分</td>
+<td>数据近似线性可分或含噪声</td>
+<td>非线性可分数据</td>
+</tr>
+<tr>
+<td>优化目标</td>
+<td>$\min \frac12\|\mathbf{w}\|^2$</td>
+<td>$\min \frac12\|\mathbf{w}\|^2 + C\sum\xi_i$</td>
+<td>在核空间中间接优化</td>
+</tr>
+<tr>
+<td>对偶约束</td>
+<td>$\alpha_i \ge 0$</td>
+<td>$0 \le \alpha_i \le C$</td>
+<td>同上，但内积换为核函数</td>
+</tr>
+<tr>
+<td>支持向量</td>
+<td>仅在间隔边界上</td>
+<td>包括边界、内部、误分类点</td>
+<td>核空间中的支持向量</td>
+</tr>
+<tr>
+<td>关键参数</td>
+<td>无</td>
+<td>惩罚参数 $C$</td>
+<td>核参数（如 $\gamma$）及 $C$</td>
+</tr>
+</tbody></table>
+<p>SVM通过最大化间隔获得良好的泛化能力，引入软间隔和核函数后能处理各种复杂数据，是机器学习中非常经典的算法。理解其背后的对偶推导和KKT条件，有助于深入掌握支持向量机的精髓。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>SVM</tag>
+        <tag>支持向量积</tag>
+        <tag>核函数</tag>
+        <tag>软间隔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器学习导论</title>
-    <url>/cuidTAjpFL1jgG8htCNrnBlxi.html</url>
+    <url>/cuidh5iGsdDS3Iq6RawHOWB5J.html</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在传统的编程范式中，我们输入数据和规则，通过计算机得到答案。而机器学习（Machine Learning）则不同，我们向计算机输入数据和答案（即最终的结果），让计算机自己去发现其中的学习模型、发现规律，从而构建能够进行预测的数学模型。简而言之，<strong>机器学习是一门研究如何让计算机从数据中自动获取规律，并利用这些规律来预测未知、辅助决策的科学。</strong></p>
 <p>机器学习是一门交叉学科，根据不同的视角可以被划分为多种范式，如： </p>
 <p>从<strong>统计推断的哲学思想</strong>划分，机器学习模型可以划分为：<strong>频率学派与贝叶斯学派</strong>。前者认为模型的参数是固定但未知的“常数”，学习的过程就是通过优化方法寻找这个最优值；而后者则认为参数本身服从某种分布，学习的过程是在观察数据后，对先验信念进行更新。</p>
 <p>若从<strong>建模的最终目标</strong>划分，算法模型又可分为<strong>判别式模型与生成式模型</strong>。判别式模型关注的是寻找不同类别之间的决策边界，直接学习如何划分数据；而生成式模型则试图理解数据本身的产生过程，通过学习联合分布来间接进行预测。</p>
 <h1 id="按统计推断划分"><a href="#按统计推断划分" class="headerlink" title="按统计推断划分"></a>按统计推断划分</h1><h2 id="频率学派"><a href="#频率学派" class="headerlink" title="频率学派"></a>频率学派</h2><h3 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h3><p>频率派（Frequentist）将概率解释为事件在长期重复试验中发生的频率。在这一框架下，模型参数 $ \theta $ 被视为一个确定的未知常量，虽然我们不知道它的具体值，但它本身并不具有随机性。我们只能通过观测数据来估计这个常量的值。</p>
 <h3 id="最大似然估计"><a href="#最大似然估计" class="headerlink" title="最大似然估计"></a>最大似然估计</h3><p>给定观测数据集 $ X $，所有样本的联合概率为：</p>
-<p>$$p(X|\theta) = \prod_{i=1}^N p(x_i|\theta)$$</p>
+<p>$$
+p(X|\theta) = \prod_{i=1}^N p(x_i|\theta)
+$$</p>
 <p>这个联合概率被称为<strong>似然函数</strong>（Likelihood Function），它衡量了在特定参数 $ \theta $ 下观测到当前数据的可能性。频率派的估计方法就是寻找能使似然函数最大化的参数值，即<strong>最大似然估计</strong>（Maximum Likelihood Estimation, MLE）：</p>
-<p>$$\theta_{MLE} = \arg\max_{\theta} p(X|\theta) = \arg\max_{\theta} \sum_{i=1}^N \log p(x_i|\theta)$$</p>
+<p>$$
+\theta_{MLE} = \arg\max_{\theta} p(X|\theta) = \arg\max_{\theta} \sum_{i=1}^N \log p(x_i|\theta)
+$$</p>
 <p>由于对数函数是单调递增的，且能将连乘转化为连加便于计算，实际中通常使用对数似然。</p>
 <h3 id="频率派与机器学习"><a href="#频率派与机器学习" class="headerlink" title="频率派与机器学习"></a>频率派与机器学习</h3><p>频率派的思想深刻影响了<strong>统计机器学习</strong>的发展。许多经典算法都可以从MLE的角度理解：</p>
 <ul>
@@ -305,7 +851,9 @@
 </tbody></table>
 <h2 id="贝叶斯学派"><a href="#贝叶斯学派" class="headerlink" title="贝叶斯学派"></a>贝叶斯学派</h2><h3 id="核心思想-1"><a href="#核心思想-1" class="headerlink" title="核心思想"></a>核心思想</h3><p>贝叶斯派（Bayesian）将概率解释为对事件发生的不确定性的度量，这种不确定性可以是主观的信念。在这一框架下，参数 $ \theta $ 被视为一个随机变量，服从某个先验分布 $ p(\theta) $，这个先验分布反映了我们在看到数据之前对参数的认知。</p>
 <h3 id="贝叶斯定理与后验分布"><a href="#贝叶斯定理与后验分布" class="headerlink" title="贝叶斯定理与后验分布"></a>贝叶斯定理与后验分布</h3><p>当我们观测到数据 $ X $ 后，根据贝叶斯定理，我们可以更新对参数的认知，得到<strong>后验分布</strong>（Posterior Distribution）：</p>
-<p>$$p(\theta|X) = \frac{p(X|\theta) \cdot p(\theta)}{p(X)} = \frac{p(X|\theta) \cdot p(\theta)}{\int p(X|\theta) \cdot p(\theta) \, d\theta}$$</p>
+<p>$$
+p(\theta|X) = \frac{p(X|\theta) \cdot p(\theta)}{p(X)} = \frac{p(X|\theta) \cdot p(\theta)}{\int p(X|\theta) \cdot p(\theta) \, d\theta}
+$$</p>
 <p>其中：</p>
 <ul>
 <li>$ p(X|\theta) $ 是似然函数，与频率派中的定义相同</li>
@@ -313,10 +861,14 @@
 <li>$ p(X) = \int p(X|\theta)p(\theta)d\theta $ 是边缘似然，也称为证据（Evidence），作为归一化常数确保后验概率之和为1</li>
 </ul>
 <h3 id="最大后验估计"><a href="#最大后验估计" class="headerlink" title="最大后验估计"></a>最大后验估计</h3><p>虽然贝叶斯派的完整结果是整个后验分布，但在实际应用中有时也需要一个点估计。这时可以采用<strong>最大后验估计</strong>（Maximum A Posteriori, MAP）：</p>
-<p>$$\theta_{MAP} = \arg\max_{\theta} p(\theta|X) = \arg\max_{\theta} p(X|\theta) \cdot p(\theta) \tag{4}$$</p>
+<p>$$
+\theta_{MAP} = \arg\max_{\theta} p(\theta|X) = \arg\max_{\theta} p(X|\theta) \cdot p(\theta) \tag{4}
+$$</p>
 <p>MAP估计巧妙地结合了似然函数和先验信息。从优化的角度看，先验分布起到了<strong>正则化</strong>的作用：例如，高斯先验对应L2正则化，拉普拉斯先验对应L1正则化。</p>
 <h3 id="贝叶斯预测"><a href="#贝叶斯预测" class="headerlink" title="贝叶斯预测"></a>贝叶斯预测</h3><p>贝叶斯方法真正的优势在于其能够进行概率预测。当我们得到后验分布后，对于新样本 $ x_{new} $ 的预测分布可以通过对参数空间进行积分得到：</p>
-<p>$$p(x_{new}|X) = \int p(x_{new}|\theta) \cdot p(\theta|X) \, d\theta \tag{5}$$</p>
+<p>$$
+p(x_{new}|X) = \int p(x_{new}|\theta) \cdot p(\theta|X) \, d\theta \tag{5}
+$$</p>
 <p>这个过程被称为<strong>贝叶斯模型平均</strong>（Bayesian Model Averaging）。与频率派只使用单一最优参数不同，贝叶斯方法考虑了所有可能的参数值，并依据后验概率进行加权平均，从而自然地体现了模型的不确定性。</p>
 <h3 id="贝叶斯派与机器学习"><a href="#贝叶斯派与机器学习" class="headerlink" title="贝叶斯派与机器学习"></a>贝叶斯派与机器学习</h3><p>贝叶斯派思想催生了**概率图模型（Probabilistic Graphical Models）**这一重要领域，包括：</p>
 <ul>
@@ -354,7 +906,7 @@
 </tr>
 <tr>
 <td><strong>变分推断 (VI)</strong></td>
-<td>将推断问题转化为<strong>优化问题</strong>   寻找一个简单分布 $q(\theta)$ 最小化 $KL(q | p$</td>
+<td>将推断问题转化为<strong>优化问题</strong>   寻找一个简单分布 $q(\theta)$ 最小化 $KL(q \| p$</td>
 <td><strong>近似解析分布</strong></td>
 <td>牺牲了一定精度换取速度。是大规模深度贝叶斯学习（如 VAE）的核心。</td>
 </tr>
@@ -489,8 +1041,12 @@
 <li><strong>多标签分类</strong>：一个样本可能属于多个类别</li>
 </ul>
 <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>给定输入特征向量 $\mathbf{x} \in \mathbb{R}^d$，分类问题的目标是预测其所属的<strong>离散类别标签</strong> $y \in \{1, 2, ..., K\}$。</p>
-<p>从概率视角看，我们需要计算<strong>后验概率</strong>（posterior probability）：<br>$$<br>P(y &#x3D; k \mid \mathbf{x}), \quad k &#x3D; 1,2,…,K<br>$$</p>
-<p>所有分类模型最终都采用<strong>最大后验决策规则</strong>（MAP decision rule）进行预测：<br>$$<br>\hat{y} &#x3D; \arg\max_{k} P(y &#x3D; k \mid \mathbf{x})<br>$$<br>即选择使后验概率最大的类别作为预测结果。</p>
+<p>从概率视角看，我们需要计算<strong>后验概率</strong>（posterior probability）：<br>$$
+P(y = k \mid \mathbf{x}), \quad k = 1,2,...,K
+$$</p>
+<p>所有分类模型最终都采用<strong>最大后验决策规则</strong>（MAP decision rule）进行预测：<br>$$
+\hat{y} = \arg\max_{k} P(y = k \mid \mathbf{x})
+$$<br>即选择使后验概率最大的类别作为预测结果。</p>
 <h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><h4 id="判别式学习建模（Discriminative）"><a href="#判别式学习建模（Discriminative）" class="headerlink" title="判别式学习建模（Discriminative）"></a>判别式学习建模（Discriminative）</h4><ul>
 <li><strong>直接建模</strong> $P(y|\mathbf{x})$</li>
 <li>关注决策边界，不关心数据本身的分布</li>
@@ -500,8 +1056,12 @@
 <li>通过贝叶斯定理计算后验：$ P(y|\mathbf{x}) = \frac{P(y)P(\mathbf{x}|y)}{\sum_{k=1}^K P(y=k)P(\mathbf{x}|y=k)} $</li>
 </ul>
 <h3 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h3><p>无论采用判别式还是生成式方法，模型都包含需要从数据中学习的参数 $\theta$。参数估计主要有两种方法：</p>
-<h4 id="频率派的最大似然估计（MLE）"><a href="#频率派的最大似然估计（MLE）" class="headerlink" title="频率派的最大似然估计（MLE）"></a>频率派的<strong>最大似然估计（MLE）</strong></h4><p>​		将参数视为确定的未知常量，寻找使训练数据似然函数最大化的参数值：<br>$$<br>\theta_{MLE} &#x3D; \arg\max_\theta \prod_{i&#x3D;1}^N P(y_i|\mathbf{x}_i, \theta)<br>$$<br>​		等价于最小化经验风险。</p>
-<h4 id="贝叶斯派的最大后验估计（MAP）"><a href="#贝叶斯派的最大后验估计（MAP）" class="headerlink" title="贝叶斯派的最大后验估计（MAP）"></a>贝叶斯派的<strong>最大后验估计（MAP）</strong></h4><p>​		将参数视为随机变量，在MLE的基础上引入了参数的先验分布$p(\theta)$，通过贝叶斯定理求使<strong>后验概率</strong>最大的参数值：<br>$$<br>\theta_{MAP} &#x3D; \arg\max_\theta \prod_{i&#x3D;1}^N P(y_i|\mathbf{x}_i, \theta) \cdot p(\theta)<br>$$</p>
+<h4 id="频率派的最大似然估计（MLE）"><a href="#频率派的最大似然估计（MLE）" class="headerlink" title="频率派的最大似然估计（MLE）"></a>频率派的<strong>最大似然估计（MLE）</strong></h4><p>​		将参数视为确定的未知常量，寻找使训练数据似然函数最大化的参数值：<br>$$
+\theta_{MLE} = \arg\max_\theta \prod_{i=1}^N P(y_i|\mathbf{x}_i, \theta)
+$$<br>​		等价于最小化经验风险。</p>
+<h4 id="贝叶斯派的最大后验估计（MAP）"><a href="#贝叶斯派的最大后验估计（MAP）" class="headerlink" title="贝叶斯派的最大后验估计（MAP）"></a>贝叶斯派的<strong>最大后验估计（MAP）</strong></h4><p>​		将参数视为随机变量，在MLE的基础上引入了参数的先验分布$p(\theta)$，通过贝叶斯定理求使<strong>后验概率</strong>最大的参数值：<br>$$
+\theta_{MAP} = \arg\max_\theta \prod_{i=1}^N P(y_i|\mathbf{x}_i, \theta) \cdot p(\theta)
+$$</p>
 <ul>
 <li><strong>正则化效应</strong>：先验分布 $p(\theta)$ 等价于对参数施加约束，防止过拟合<ul>
 <li>高斯先验 $p(\theta) \sim \mathcal{N}(0, \sigma^2)$ ↔ L2 正则化</li>
