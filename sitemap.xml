@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.hicode365.com/cuiddkt9gfQ2CHs2DJB4zDlSF</loc>
+    <loc>https://www.hicode365.com/cuidoJbT3CxBKq6GN_8yRPhUF</loc>
     
     <lastmod>2026-02-22</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://www.hicode365.com/cuidE3N3yPZPwlwuDHdu4UrZd</loc>
+    <loc>https://www.hicode365.com/cuidjjGhKf00NbW7ycIsJFt6m</loc>
     
     <lastmod>2026-01-01</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://www.hicode365.com/cuidAoCCa2Y1y3mSfmdcomPoP</loc>
+    <loc>https://www.hicode365.com/cuidUDNcydk4MBYkxZe1gJsQH</loc>
     
     <lastmod>2023-08-15</lastmod>
     
@@ -88,34 +88,6 @@
   </url>
   
   <url>
-    <loc>https://www.hicode365.com/tags/git/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hicode365.com/tags/%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hicode365.com/tags/python/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hicode365.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.hicode365.com/tags/%E9%A2%91%E7%8E%87%E5%AD%A6%E6%B4%BE/</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -157,10 +129,45 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://www.hicode365.com/tags/git/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hicode365.com/tags/%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hicode365.com/tags/python/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hicode365.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://www.hicode365.com/categories/docker/</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hicode365.com/categories/ml/</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -175,13 +182,6 @@
   
   <url>
     <loc>https://www.hicode365.com/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hicode365.com/categories/ml/</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
