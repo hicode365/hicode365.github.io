@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Transformer详解</title>
+    <url>/cuide0qw0JN9OzZGOyEEcgXQ0.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>大模型与Agent</category>
+      </categories>
+      <tags>
+        <tag>Transformer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>投资理财实战</title>
+    <url>/cuidqoddKQWSK4da-34-RPnwL.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习与成长</category>
+      </categories>
+      <tags>
+        <tag>投资</tag>
+        <tag>理财</tag>
+        <tag>股票</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DeepFM排序</title>
+    <url>/cuidyxfzOqaF0G_KHs9IMavuU.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>深度学习与推荐系统</category>
+      </categories>
+      <tags>
+        <tag>DeepFM</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python中的数据类型</title>
-    <url>/cuidpFp7mxpJTUohk7iuiK79-.html</url>
+    <url>/cuid4Z7eKTacGlzA4xP0-EnZN.html</url>
     <content><![CDATA[<h1 id="Python中的数据类型"><a href="#Python中的数据类型" class="headerlink" title="Python中的数据类型"></a>Python中的数据类型</h1><h2 id="可变数据类型"><a href="#可变数据类型" class="headerlink" title="可变数据类型"></a>可变数据类型</h2><p>对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。</p>
 <h2 id="不可变数据类型"><a href="#不可变数据类型" class="headerlink" title="不可变数据类型"></a>不可变数据类型</h2><p>对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。</p>
 <p>也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变</p>
@@ -185,7 +221,7 @@
   </entry>
   <entry>
     <title>DecisionTree决策树原理、公式与实战.md</title>
-    <url>/cuido_v7wYpCQ6o2sO5wUhhto.html</url>
+    <url>/cuidsmAmLgPlnk5ynVRCmZWhv.html</url>
     <content><![CDATA[<h1 id="决策树（DecisionTree）原理、公式与实战"><a href="#决策树（DecisionTree）原理、公式与实战" class="headerlink" title="决策树（DecisionTree）原理、公式与实战"></a>决策树（DecisionTree）原理、公式与实战</h1><p>决策树（Decision Tree）是机器学习中最直观、可解释性最强且应用最广泛的算法之一，它模拟人类做决策的过程——通过一系列”是与否”的判断，逐步缩小范围，最终得出结论。集成算法如：RF、GBDT、Xgboost、LightGBM都是以决策树为基础构建的。</p>
 <p>决策树本质上是<strong>用一系列超平面对特征空间进行递归划分</strong>的方法。每一次分裂，都把当前空间一分为二，最终每个叶子节点都对应特征空间中一个不相交的区域。预测时，样本从根节点出发，根据每一维特征的取值不断向下走，最终落入某个叶子节点，这个叶子节点的类别（或数值）就是模型给出的预测结果。用一句话概括：<strong>决策树是从根节点到叶子节点的一条决策路径，所有训练数据最终都会落入某个叶子节点中。</strong></p>
 <p>决策树的三个组成部分：</p>
@@ -894,7 +930,7 @@
   </entry>
   <entry>
     <title>SVM支持向量机全景拆解</title>
-    <url>/cuid37pCYPYqsJ4MoUoPrduvn.html</url>
+    <url>/cuidhIXUGlDrbQJV_aW9rv0vJ.html</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>支持向量机（Support Vector Machine, SVM）是一种经典的二分类模型，它的核心思想是：<strong>在特征空间中寻找一个决策边界（超平面），使得两类样本被正确分开，并且离决策边界最近的样本点（即支持向量）到该边界的距离尽可能大</strong>。这个距离被称为<strong>间隔（Margin）</strong>，SVM因此也被称为<strong>最大间隔分类器</strong>。</p>
 <h1 id="决策函数"><a href="#决策函数" class="headerlink" title="决策函数"></a>决策函数</h1><p>$$
 \left\{
@@ -1436,7 +1472,7 @@ $$</p>
   </entry>
   <entry>
     <title>机器学习导论</title>
-    <url>/cuidCqvToLMJlAef-TpNwdsTB.html</url>
+    <url>/cuidiylQ8na0pgo4DaFWZP18f.html</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在传统的编程范式中，我们输入数据和规则，通过计算机得到答案。而机器学习（Machine Learning）则不同，我们向计算机输入数据和答案（即最终的结果），让计算机自己去发现其中的学习模型、发现规律，从而构建能够进行预测的数学模型。简而言之，<strong>机器学习是一门研究如何让计算机从数据中自动获取规律，并利用这些规律来预测未知、辅助决策的科学。</strong></p>
 <p>机器学习是一门交叉学科，根据不同的视角可以被划分为多种范式，如： </p>
 <p>从<strong>统计推断的哲学思想</strong>划分，机器学习模型可以划分为：<strong>频率学派与贝叶斯学派</strong>。前者认为模型的参数是固定但未知的“常数”，学习的过程就是通过优化方法寻找这个最优值；而后者则认为参数本身服从某种分布，学习的过程是在观察数据后，对先验信念进行更新。</p>
@@ -1912,5 +1948,159 @@ $$</p>
         <tag>回归</tag>
         <tag>分类</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>降维</title>
+    <url>/cuidtGs3ze6mXI4swBtG1hJvX.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>数据降维</tag>
+        <tag>降维算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性回归</title>
+    <url>/cuidg7UBWxxeOaEPK5Yer9NYu.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>回归</tag>
+        <tag>线性回归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逻辑回归</title>
+    <url>/cuid89ablAK-JrL_EYTDr9LvD.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>逻辑回归</tag>
+        <tag>分类算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何做好技术型管理</title>
+    <url>/cuidIjZZHLconhnECrrbYAhKL.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>管理与思考</category>
+      </categories>
+      <tags>
+        <tag>技术管理</tag>
+        <tag>管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集成学习之随机森林RandomForest</title>
+    <url>/cuidhuA4fZ95Eio_sVsvcjgkc.html</url>
+    <content><![CDATA[<h1 id="集成学习概述"><a href="#集成学习概述" class="headerlink" title="集成学习概述"></a>集成学习概述</h1><h2 id="随机森林（Random-forest）"><a href="#随机森林（Random-forest）" class="headerlink" title="随机森林（Random forest）"></a>随机森林（Random forest）</h2>]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>决策树</tag>
+        <tag>树模型</tag>
+        <tag>随机森林</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DecisionTree决策树</title>
+    <url>/cuidEHo4EAwsjMwu8egA2A-Db.html</url>
+    <content><![CDATA[<h1 id="信息熵（Information-Entropy）"><a href="#信息熵（Information-Entropy）" class="headerlink" title="信息熵（Information Entropy）"></a>信息熵（Information Entropy）</h1><p>熵是随机变量或系统不确定性的度量。<strong>熵越大不确定性越大，熵越低纯度越高越稳定</strong></p>
+<p>在决策树中熵用来衡量样本的纯度。<br>$$
+H(Y) = -\sum_{i=0}^{c-1}P(Y=y_i)log_2P(Y=y_i)
+$$<br>一般情况下当p为y所有取值情况n的倒数时1&#x2F;n，熵取得最大值，不确定性最强。</p>
+<h1 id="条件熵（Conditional-entropy）"><a href="#条件熵（Conditional-entropy）" class="headerlink" title="条件熵（Conditional entropy）"></a>条件熵（Conditional entropy）</h1><p>条件熵表示在一个条件下，随机变量的不确定性。</p>
+<p>给定条件X的情况下，(所有不同X值情况下)随机变量Y的信息熵，记作H(Y|X)。<br>$$
+H(Y|X) = \sum_{x_i\in X}^{}P(X=x_i)H(Y|X=x_i)
+$$<br>把H(Y|X&#x3D;x)代入熵公式H(Y)得：<br>$$
+H(Y|X=x_i) = -\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y|X=x_i)
+$$<br>最终得到条件熵的公式为：<br>$$
+H(Y|X) = - \sum_{x\in X}^{}P(X=x_i)\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y=|X=x_i)
+$$</p>
+<h1 id="信息增益（Information-Gain）"><a href="#信息增益（Information-Gain）" class="headerlink" title="信息增益（Information Gain）"></a>信息增益（Information Gain）</h1><p>信息增益是用于衡量一个特征在给定条件下对于减少不确定性（或熵减）的贡献程度。我们需要<strong>最大化信息增益</strong> ，同时最小化熵。</p>
+<p>在特征选择中，信息增益用于衡量一个特征将训练数据划分为不同类别的能力，它计算了在使用特征划分数据之前和之后的熵之差。信息增益越高，表示使用该特征进行划分后，不确定性减少得越多，因此该特征更具有区分性。</p>
+<p><strong>信息增益 &#x3D; 信息熵 - 条件熵</strong><br>$$
+Gain(Y,X) = ΔH = H(Y) - H(Y|X)
+$$</p>
+<h1 id="信息增益率（Information-Gain-Ratio）"><a href="#信息增益率（Information-Gain-Ratio）" class="headerlink" title="信息增益率（Information Gain Ratio）"></a>信息增益率（Information Gain Ratio）</h1><p>信息增益率是对信息增益的一种改进（信息增益倾向于选择具有更多可能取值的特征，因为它们可以更多地减少不确定性），它考虑了属性自身固有的信息量，避免了某些属性取值数目较多而导致的信息增益偏大的问题。<br>$$
+Gain\_rate(Y,X) = \frac{Gain(Y,X)}{H(X)}= \frac{H(Y) - H(Y|X)}{H(X)}
+$$</p>
+<h1 id="基尼系数-Gini-index-不纯度"><a href="#基尼系数-Gini-index-不纯度" class="headerlink" title="基尼系数(Gini index) &#x2F; 不纯度"></a>基尼系数(Gini index) &#x2F; 不纯度</h1><p>基尼系数（Gini Index），也称为基尼不纯度（Gini Impurity），是用于衡量一个数据集中样本类别不纯度的指标。</p>
+<p><strong>取值范围在0到1之间，其中0表示数据集完全纯净（所有数据点都属于同一类别），而1表示数据集最不纯（各类别的数据点均匀分布）</strong></p>
+<p>数据集类别的基尼系数计算：<br>$$
+Gini(D) = 1-\sum_{i=1}^{n}p(i)^2 = 1-\sum_{i=1}^{n}(\frac{\left |D_i \right | }{\left |D \right | })^{2}
+$$</p>
+<ul>
+<li>D 表示数据集。</li>
+<li>n 表示类别的总数。</li>
+<li>p(i)表示数据集中属于第 i 个类别的样本的占比</li>
+</ul>
+<p>数据集在指定属性特征下的基尼系数的计算：<br>$$
+Gini(D,X) = \sum_{i=1}^{n}\frac{\left |X_i \right | }{\left |X \right |}Gini(D)
+$$</p>
+<ul>
+<li>基尼系数是用于衡量数据集不纯度的指标，范围在0和1之间。</li>
+<li>在决策树算法中，基尼系数常用于特征选择和节点划分，选择能够<strong>最大程度降低不纯度的特征</strong>。</li>
+<li>基尼系数越低，表示数据集越纯净，决策树节点的划分越好。</li>
+</ul>
+<p>在决策树中根据Gini系数的变动大小决定分裂特征：<br>$$
+ΔGini = Gini(D)-Gini(D,X)
+$$</p>
+]]></content>
+      <categories>
+        <category>算法中的数学</category>
+      </categories>
+      <tags>
+        <tag>信息增益率</tag>
+        <tag>基尼系数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DecisionTree决策树</title>
+    <url>/cuidrIsDo__tX5gkdDal18ZtL.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法中的数学</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DecisionTree决策树</title>
+    <url>/cuid-318Z8YgFnqs94p8v9Qf6.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法中的数学</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DecisionTree决策树</title>
+    <url>/cuid43KRkFJElL7PFlbZJZnBe.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法中的数学</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DecisionTree决策树</title>
+    <url>/cuidAPyWB_KK9XBkQeaZ56gjk.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法中的数学</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DecisionTree决策树</title>
+    <url>/cuiddg9TaqAgk4VD5LMVavOaq.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法中的数学</category>
+      </categories>
   </entry>
 </search>
