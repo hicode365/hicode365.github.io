@@ -18,8 +18,8 @@
   
   <entry>
     <title>Transformer详解</title>
-    <link href="https://www.hicode365.com/cuidjOLZZupUR0_OGTDuf7Ug5"/>
-    <id>https://www.hicode365.com/cuidjOLZZupUR0_OGTDuf7Ug5</id>
+    <link href="https://www.hicode365.com/cuidc6gt9QcozKg_Qs_Rjz2B9"/>
+    <id>https://www.hicode365.com/cuidc6gt9QcozKg_Qs_Rjz2B9</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-29T17:55:21.789Z</updated>
     
@@ -34,9 +34,148 @@
   </entry>
   
   <entry>
+    <title>DecisionTree决策树</title>
+    <link href="https://www.hicode365.com/cuidE2x4vW4NRfutGQDlaxJxR"/>
+    <id>https://www.hicode365.com/cuidE2x4vW4NRfutGQDlaxJxR</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-02-22T13:33:29.609Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DecisionTree决策树</title>
+    <link href="https://www.hicode365.com/cuidMal_O5tihAA-zFY_1f1c5"/>
+    <id>https://www.hicode365.com/cuidMal_O5tihAA-zFY_1f1c5</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-02-22T13:33:29.609Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DecisionTree决策树</title>
+    <link href="https://www.hicode365.com/cuid-xvgLwejdfWY5UnCUUq86"/>
+    <id>https://www.hicode365.com/cuid-xvgLwejdfWY5UnCUUq86</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-02-22T13:33:29.609Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DecisionTree决策树</title>
+    <link href="https://www.hicode365.com/cuidKwlTc4JuK5FF6cy_synmP"/>
+    <id>https://www.hicode365.com/cuidKwlTc4JuK5FF6cy_synmP</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-02-22T13:33:29.609Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DecisionTree决策树</title>
+    <link href="https://www.hicode365.com/cuido5ZQMLVt1tk5iARn5ekju"/>
+    <id>https://www.hicode365.com/cuido5ZQMLVt1tk5iARn5ekju</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-02-22T13:33:29.609Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DecisionTree决策树</title>
+    <link href="https://www.hicode365.com/cuidlvhzzy-j9vE8gHzTk-F3C"/>
+    <id>https://www.hicode365.com/cuidlvhzzy-j9vE8gHzTk-F3C</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-02-22T13:38:04.651Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="信息熵（Information-Entropy）"><a href="#信息熵（Information-Entropy）" class="headerlink" title="信息熵（Information Entropy）"></a>信息熵（Information Entropy）</h1><p>熵是随机变量或系统不确定性的度量。<strong>熵越大不确定性越大，熵越低纯度越高越稳定</strong></p><p>在决策树中熵用来衡量样本的纯度。<br>$$H(Y) = -\sum_{i=0}^{c-1}P(Y=y_i)log_2P(Y=y_i)$$<br>一般情况下当p为y所有取值情况n的倒数时1&#x2F;n，熵取得最大值，不确定性最强。</p><h1 id="条件熵（Conditional-entropy）"><a href="#条件熵（Conditional-entropy）" class="headerlink" title="条件熵（Conditional entropy）"></a>条件熵（Conditional entropy）</h1><p>条件熵表示在一个条件下，随机变量的不确定性。</p><p>给定条件X的情况下，(所有不同X值情况下)随机变量Y的信息熵，记作H(Y|X)。<br>$$H(Y|X) = \sum_{x_i\in X}^{}P(X=x_i)H(Y|X=x_i)$$<br>把H(Y|X&#x3D;x)代入熵公式H(Y)得：<br>$$H(Y|X=x_i) = -\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y|X=x_i)$$<br>最终得到条件熵的公式为：<br>$$H(Y|X) = - \sum_{x\in X}^{}P(X=x_i)\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y=|X=x_i)$$</p><h1 id="信息增益（Information-Gain）"><a href="#信息增益（Information-Gain）" class="headerlink" title="信息增益（Information Gain）"></a>信息增益（Information Gain）</h1><p>信息增益是用于衡量一个特征在给定条件下对于减少不确定性（或熵减）的贡献程度。我们需要<strong>最大化信息增益</strong> ，同时最小化熵。</p><p>在特征选择中，信息增益用于衡量一个特征将训练数据划分为不同类别的能力，它计算了在使用特征划分数据之前和之后的熵之差。信息增益越高，表示使用该特征进行划分后，不确定性减少得越多，因此该特征更具有区分性。</p><p><strong>信息增益 &#x3D; 信息熵 - 条件熵</strong><br>$$Gain(Y,X) = ΔH = H(Y) - H(Y|X)$$</p><h1 id="信息增益率（Information-Gain-Ratio）"><a href="#信息增益率（Information-Gain-Ratio）" class="headerlink" title="信息增益率（Information Gain Ratio）"></a>信息增益率（Information Gain Ratio）</h1><p>信息增益率是对信息增益的一种改进（信息增益倾向于选择具有更多可能取值的特征，因为它们可以更多地减少不确定性），它考虑了属性自身固有的信息量，避免了某些属性取值数目较多而导致的信息增益偏大的问题。<br>$$Gain\_rate(Y,X) = \frac{Gain(Y,X)}{H(X)}= \frac{H(Y) - H(Y|X)}{H(X)}$$</p><h1 id="基尼系数-Gini-index-不纯度"><a href="#基尼系数-Gini-index-不纯度" class="headerlink" title="基尼系数(Gini index) &#x2F; 不纯度"></a>基尼系数(Gini index) &#x2F; 不纯度</h1><p>基尼系数（Gini Index），也称为基尼不纯度（Gini Impurity），是用于衡量一个数据集中样本类别不纯度的指标。</p><p><strong>取值范围在0到1之间，其中0表示数据集完全纯净（所有数据点都属于同一类别），而1表示数据集最不纯（各类别的数据点均匀分布）</strong></p><p>数据集类别的基尼系数计算：<br>$$Gini(D) = 1-\sum_{i=1}^{n}p(i)^2 = 1-\sum_{i=1}^{n}(\frac{\left |D_i \right | }{\left |D \right | })^{2}$$</p><ul><li>D 表示数据集。</li><li>n 表示类别的总数。</li><li>p(i)表示数据集中属于第 i 个类别的样本的占比</li></ul><p>数据集在指定属性特征下的基尼系数的计算：<br>$$Gini(D,X) = \sum_{i=1}^{n}\frac{\left |X_i \right | }{\left |X \right |}Gini(D)$$</p><ul><li>基尼系数是用于衡量数据集不纯度的指标，范围在0和1之间。</li><li>在决策树算法中，基尼系数常用于特征选择和节点划分，选择能够<strong>最大程度降低不纯度的特征</strong>。</li><li>基尼系数越低，表示数据集越纯净，决策树节点的划分越好。</li></ul><p>在决策树中根据Gini系数的变动大小决定分裂特征：<br>$$ΔGini = Gini(D)-Gini(D,X)$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;信息熵（Information-Entropy）&quot;&gt;&lt;a href=&quot;#信息熵（Information-Entropy）&quot; class=&quot;headerlink&quot; title=&quot;信息熵（Information Entropy）&quot;&gt;&lt;/a&gt;信息熵（Informatio</summary>
+      
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="信息增益率" scheme="https://www.hicode365.com/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/"/>
+    
+    <category term="基尼系数" scheme="https://www.hicode365.com/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据的降维</title>
+    <link href="https://www.hicode365.com/cuidOQaRFVIKGjGzZdVuYHbTP"/>
+    <id>https://www.hicode365.com/cuidOQaRFVIKGjGzZdVuYHbTP</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T18:16:01.425Z</updated>
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    
+    
+    <category term="数据降维" scheme="https://www.hicode365.com/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
+    
+    <category term="降维算法" scheme="https://www.hicode365.com/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性回归</title>
+    <link href="https://www.hicode365.com/cuidCPLdcgoA3E6f4JsWQfX_c"/>
+    <id>https://www.hicode365.com/cuidCPLdcgoA3E6f4JsWQfX_c</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T17:52:39.599Z</updated>
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    
+    
+    <category term="回归" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92/"/>
+    
+    <category term="线性回归" scheme="https://www.hicode365.com/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DecisionTree决策树原理、公式与实战</title>
-    <link href="https://www.hicode365.com/cuidZvi3KTC7wO5yjvzppeENN"/>
-    <id>https://www.hicode365.com/cuidZvi3KTC7wO5yjvzppeENN</id>
+    <link href="https://www.hicode365.com/cuid31Jw2IYT5F3vu3rT90Uoo"/>
+    <id>https://www.hicode365.com/cuid31Jw2IYT5F3vu3rT90Uoo</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-30T02:19:02.447Z</updated>
     
@@ -66,66 +205,9 @@
   </entry>
   
   <entry>
-    <title>数据的降维</title>
-    <link href="https://www.hicode365.com/cuidwsK2F189nQnJ6L2e_SmaH"/>
-    <id>https://www.hicode365.com/cuidwsK2F189nQnJ6L2e_SmaH</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:16:01.425Z</updated>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
-    
-    
-    <category term="数据降维" scheme="https://www.hicode365.com/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
-    
-    <category term="降维算法" scheme="https://www.hicode365.com/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线性回归</title>
-    <link href="https://www.hicode365.com/cuidnQjF5yDkDWyKEnXVYt9K0"/>
-    <id>https://www.hicode365.com/cuidnQjF5yDkDWyKEnXVYt9K0</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:52:39.599Z</updated>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
-    
-    
-    <category term="回归" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92/"/>
-    
-    <category term="线性回归" scheme="https://www.hicode365.com/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DeepFM排序</title>
-    <link href="https://www.hicode365.com/cuidJdlQKB7MhNgG6A07mc--B"/>
-    <id>https://www.hicode365.com/cuidJdlQKB7MhNgG6A07mc--B</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:02:21.106Z</updated>
-    
-    
-    
-    
-    <category term="深度学习与推荐系统" scheme="https://www.hicode365.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="DeepFM" scheme="https://www.hicode365.com/tags/DeepFM/"/>
-    
-    <category term="排序" scheme="https://www.hicode365.com/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>逻辑回归</title>
-    <link href="https://www.hicode365.com/cuid0_rhf35fPQvlNGLuOFt5f"/>
-    <id>https://www.hicode365.com/cuid0_rhf35fPQvlNGLuOFt5f</id>
+    <link href="https://www.hicode365.com/cuid-uCjizziUl6WPsWLQz7Nh"/>
+    <id>https://www.hicode365.com/cuid-uCjizziUl6WPsWLQz7Nh</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-29T17:54:15.373Z</updated>
     
@@ -142,182 +224,9 @@
   </entry>
   
   <entry>
-    <title>FM因子分解机中的特征交叉</title>
-    <link href="https://www.hicode365.com/cuidxpsi8i9hviIRY2kgF4fsw"/>
-    <id>https://www.hicode365.com/cuidxpsi8i9hviIRY2kgF4fsw</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-30T02:17:39.340Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="FM因子分解机中的特征交叉"><a href="#FM因子分解机中的特征交叉" class="headerlink" title="FM因子分解机中的特征交叉"></a>FM因子分解机中的特征交叉</h1><p>从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。</p><p>比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步都是在补上一个前作留下的窟窿。今天就把这条演进链彻底捋一遍。</p><h2 id="经典线性模型"><a href="#经典线性模型" class="headerlink" title="经典线性模型"></a>经典线性模型</h2><p>最朴素的做法是LR（逻辑回归的线性打分部分）：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i$$</p><p>其中n是样本的特征数量，$x_i$是第i个特征的取值，$w_i$是它对应的系数。</p><p>这个模型简单、训练快、权重可解释，工业界用了很多年，至今仍是很多场景里的baseline。但它有个致命假设——<strong>所有特征都是独立起作用的</strong>，谁也不影响谁，模型只是把每个特征的贡献线性加总。现实世界显然不是这样：年龄和职业会互相影响购买意愿，时间和地点会互相影响用户的行为模式。LR对这些交互统统视而不见，这是它天生的表达能力上限。</p><h2 id="加个交叉项——POLY2"><a href="#加个交叉项——POLY2" class="headerlink" title="加个交叉项——POLY2"></a>加个交叉项——POLY2</h2><p>既然问题出在”看不到交互”，那最直接的补救办法就是把两两特征的乘积也当成一个新特征，单独学一个权重，这就是POLY2：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{ij} x_i x_j$$</p><p>这里$w_0, w_i, w_{ij}$都是待学习的参数，思路很直接：只要$x_i$和$x_j$同时不为0，这一项就会生效，模型就有机会学到这对特征组合的权重。</p><p>听起来合理，用起来却处处碰壁，原因出在两个地方，一个是理论上的参数规模问题，一个是实际训练中的稀疏性问题。</p><p><strong>第一，参数爆炸。</strong> 特征一旦做了one-hot编码（推荐、广告场景里几乎是标配），维度轻松上万甚至上百万，交叉项的数量是$n + \frac{n(n-1)}{2}$级别，n一大，这个数字直接爆炸式增长，模型的存储和训练开销都变得难以承受。</p><p><strong>第二，数据稀疏导致求解困难。</strong> 这一点比参数量爆炸更致命。one-hot之后数据变得极为稀疏，$x_i$和$x_j$同时不为0的样本少之又少。这会带来一连串连锁反应：</p><ul><li>很多交叉项对应的$w_{ij}$根本没有足够的样本去训练；</li><li>在梯度下降过程中，这些参数的梯度大量时候都是0，参数几乎不更新；</li><li>最终的结果是，即便理论上POLY2能表达特征交互，实际上大部分交叉权重都学不出来，模型学不到有意义的交互关系。</li></ul><p>POLY2在理论上没问题，但一到高维稀疏场景就水土不服，正是这两个局限，直接催生了FM。</p><h2 id="FM因子分解机——用隐向量做参数共享"><a href="#FM因子分解机——用隐向量做参数共享" class="headerlink" title="FM因子分解机——用隐向量做参数共享"></a>FM因子分解机——用隐向量做参数共享</h2><p>FM（Factorization Machine，因子分解机）的核心思想，是借助<strong>矩阵分解</strong>的方法，给每个特征引入一个k维的隐向量，用两个隐向量的内积去近似原来POLY2里那个独立的交叉权重，从而解决多项式扩展在稀疏特征下的求解难题。相比POLY2，FM具有线性的计算复杂度，并且能同时处理连续特征和离散特征。</p><p>完整的FM公式是：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{i,j}x_i x_j =  w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n \langle V_i, V_j \rangle x_i x_j$$</p><p>各符号的含义：</p><ul><li>$w_0$：全局偏置项；</li><li>$w_i$：一阶特征权重；</li><li>k：隐向量的维度，是一个需要人工设定的超参数；</li><li>V：一个维度为(one-hot之后的特征数, k)的矩阵；</li><li>$V_i$：特征i对应的k维隐向量；</li><li>$\langle V_i, V_j \rangle$：两个隐向量的内积。</li></ul><h3 id="为什么用内积去近似$w_{ij}$"><a href="#为什么用内积去近似$w_{ij}$" class="headerlink" title="为什么用内积去近似$w_{ij}$"></a>为什么用内积去近似$w_{ij}$</h3><p>POLY2里每一对特征组合都单独存一个$w_{ij}$，FM换了个思路：给每个特征$x_i$引入一个k维的辅助向量</p><p>$$V_i = (v_{i1}, v_{i2}, \cdots, v_{ik})$$</p><p>然后用两个隐向量的内积去近似原来的交叉权重：</p><p>$$w_{ij} \approx V_i V_j^T$$</p><p>内积的具体计算方式是：</p><p>$$\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}$$</p><p>这一步转换看着不大，实际上是整个方法的核心。在POLY2里，$w_{ij}$和$w_{ik}$是两个毫不相干的参数，各学各的，谁也帮不了谁；但引入隐向量之后，$w_{ij} = \langle V_i, V_j \rangle$和$w_{ik} = \langle V_i, V_k \rangle$共享着同一个$V_i$，两者之间就建立起了关联。也就是说，<strong>只要样本里出现过特征i和任意一个非零特征j的组合（即存在某个$j \neq i$使得$x_i x_j \neq 0$），这条样本就能拿来训练$V_i$</strong>，而不需要恰好凑齐$(i,j)$这个特定的组合才行。稀疏性带来的训练不足问题，就这样被参数共享绕开了。</p><p>这还带来一个额外的好处：<strong>泛化能力变强了</strong>。哪怕训练集里从没同时出现过某两个特征，只要它们各自的隐向量都学得不错，FM依然可以通过两个k维隐向量的内积，算出一个合理的组合特征权重。这是POLY2完全做不到的——POLY2里没见过的组合，权重就是学不出来。</p><h2 id="FM中的两处优化"><a href="#FM中的两处优化" class="headerlink" title="FM中的两处优化"></a>FM中的两处优化</h2><p>FM之所以能真正落地，靠的是两处优化，一处是参数规模的压缩，一处是计算复杂度的压缩，两者是分开的两件事，容易被混在一起说，这里拆开讲清楚。</p><p><strong>优化一：参数规模从$n^2$降到$nk$。</strong> 通过引入特征隐向量替代原有权重的方式$w_{ij} = \langle v_i, v_j \rangle$，把原先$n^2$级别（准确说是$n(n-1)/2$个）的权重参数，降低到了$n \times k$的级别。因为通常$k$远小于$n$（k取几十到几百，n在one-hot之后可能是百万级），这一步就已经把参数量压缩了一个甚至几个数量级。</p><p><strong>优化二：训练复杂度从$O(kn^2)$降到$O(kn)$。</strong> 这一步是通过转换目标函数的数学形式实现的，也是接下来要重点推导的部分。相比POLY2，这一步进一步极大地降低了训练开销，是FM能在工业界大规模落地的关键。</p><h3 id="公式化简"><a href="#公式化简" class="headerlink" title="公式化简"></a>公式化简</h3><p>下面我们来看一下二阶交叉项是怎么从O(n²)降到O(kn)的。原始的二阶交互项长这样：<br>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j$$</p><p>其中$\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}$。直接算这个双重求和，需要遍历所有的$(i,j)$对，复杂度是$O(n^2k)$，特征数一大就扛不住。下面一步步把它化简掉。</p><p><strong>第一步，展开内积求和。</strong> 把内积展开成隐向量各维度的乘积和，再交换求和顺序：</p><p>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} \left( \sum_{f=1}^k v_{i,f} v_{j,f} \right) x_i x_j = \sum_{f=1}^k \left( \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j \right)$$</p><p><strong>第二步，利用平方恒等式。</strong> 这里用到一个很基础的代数恒等式：$ab = \frac{1}{2}[(a+b)^2-(a^2+b^2)]$，推广到多项就是：</p><p>$$\left( \sum_{i=1}^n v_{i,f} x_i \right)^2 = \sum_{i=1}^n v_{i,f}^2 x_i^2 + 2 \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j$$</p><p>直观上看，左边是”n个数先求和再平方”，右边拆开后，平方项里既包含每个数自己的平方（$i=j$的部分），也包含所有两两交叉项的和（乘了2，因为$ij$和$ji$是同一项算了两次）。把等式移项，就能把我们要的那个双重求和单独解出来：</p><p>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j = \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p><strong>第三步，代入并合并所有维度。</strong> 把这个结果代回第一步的求和式中：</p><p>$$\sum_{f=1}^k \left( \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right) \right) = \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p><strong>二阶项最终的化简结果：</strong></p><p>$$\frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p>代入完整公式，<strong>化简后最终的FM公式</strong>是：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i + \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p>需要特别说明一句：<strong>实际项目里的代码实现，用的都是这个化简后的公式，而不是最开始那个双重求和的原始形式</strong>。</p><p>对每个隐向量维度f，先算出$\sum_{i=1}^n v_{i,f} x_i$（相当于把所有特征在这一维上的贡献先加总），这一步对所有f一起算是$O(kn)$；接下来平方求和是$O(k)$；再减去对角线上$i=j$那部分自乘项（也是$O(kn)$），把无效的自交叉排除出去。整体加起来，总复杂度就是$O(kn)$，和特征数n只是线性关系，而不是原始形式那种平方关系。</p><p>从直观上理解这三步分别在干什么：</p><ul><li><strong>平方项</strong>：捕获的是所有特征在隐空间某一维度上的联合贡献；</li><li><strong>减去平方和</strong>：是为了消除特征自身的重复计算，也就是把$i=j$这种无意义的”自己和自己交叉”项去掉；</li><li><strong>隐向量维度k</strong>：控制的是交互能表达的潜在语义空间大小，k越大表达能力越强，但计算量和过拟合风险也随之上升。</li></ul><p>这个数学变换是整个FM方法里最值得记住的一步，没有它，FM大概率也就停留在论文里，不会在工业界大规模落地。</p><h2 id="FM的复杂度分析"><a href="#FM的复杂度分析" class="headerlink" title="FM的复杂度分析"></a>FM的复杂度分析</h2><p>把参数复杂度、训练复杂度、推理复杂度分开看一遍。</p><p><strong>参数复杂度：$O(kn)$。</strong> 对比一下POLY2：POLY2需要为每对特征组合单独存储参数$w_{ij}$，参数量是组合数$\frac{n(n-1)}{2}$（二阶项部分）；FM改为给每个特征学一个k维隐向量$V_i$，二阶项的参数量变成$kn$。当$k \ll n$时（k通常取几十到几百，n是one-hot之后的特征总数），参数量大幅减少。</p><p><strong>训练时间复杂度：$O(kn)$。</strong> 这是前面推导的直接结果。</p><p><strong>推理（预测）计算复杂度：$O(kn)$。</strong> 预测公式可以拆成两部分看：</p><p>$$y = w_0 + \underbrace{\sum_{i=1}^n w_i x_i}_{\text{一阶项，} O(n)} + \underbrace{\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j}_{\text{二阶项，优化后为} O(kn)}$$</p><p>二阶项在化简之后：</p><p>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j = \frac{1}{2} \left( \sum_{f=1}^k \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n \sum_{f=1}^k (v_{i,f} x_i)^2 \right)$$</p><p>具体分三步：先计算每个隐向量维度f的求和$\sum_i v_{i,f} x_i$，复杂度$O(kn)$；再平方后求和，复杂度$O(k)$；最后减去对角线项，复杂度$O(kn)$。三步加起来总复杂度还是$O(kn)$，和特征数n、隐向量维度k都只是线性关系，这才是FM能扛住工业级高维稀疏数据的根本原因。</p><h2 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p><strong>参数共享机制。</strong> 用隐向量内积近似代替单独的参数$w_{ij} \approx \langle V_i, V_j \rangle$，二阶项参数量从POLY2的$\frac{n(n-1)}{2}$降为$kn$，这是前面反复强调的核心机制。</p><p><strong>解决了稀疏性问题。</strong> 共享隐向量使得所有包含特征i的交互项都能用来训练$V_i$。即便某些特征组合在训练集里从未出现过，仍然可以通过隐向量内积算出它的权重——比如$w_{ij} = \langle V_i,V_j\rangle$和$w_{ik} = \langle V_i,V_k\rangle$共享了$V_i$，所有包含$V_i$的非零组合特征都可以用来学习$V_i$，这在数据稀疏的场景下是决定性的优势。</p><p><strong>泛化能力提升。</strong> FM可以预测训练数据中从未出现过的特征组合，靠的是隐向量内积计算新组合的权重，而不是依赖独立的、必须见过才能学到的参数。这是它相对POLY2最本质的进步。</p><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p><strong>高阶特征交叉能力有限。</strong> FM默认只建模特征的两两交互（二阶多项式），没法直接捕获三阶及以上的特征组合关系。虽然理论上可以扩展出高阶FM，但计算复杂度会显著增加，性价比不高。这个短板后来主要靠DeepFM、xDeepFM这类模型来补，它们结合深度神经网络去捕捉高阶的非线性特征交互。</p><p><strong>隐向量维度k需要人工选择。</strong> k是一个预设的超参数，大小直接影响模型表现：k太小，特征交叉的表达能力不够，容易欠拟合；k太大，计算开销上升，还可能过拟合。这个超参数没有解析解，只能靠交叉验证去调，增加了训练的复杂度和成本。</p><p><strong>对非稀疏数据提升有限。</strong> FM的优势场景主要是稀疏数据，比如推荐系统、CTR预估里大量one-hot编码之后的类别特征。对于本身就是稠密特征的场景（比如图像、音频），FM的表现未必比得过神经网络一类的模型。另外，如果特征本身已经包含了显式的交互信息（比如人工构造好的组合特征），FM的隐式交叉反而可能带来不必要的冗余计算。</p><p><strong>隐向量解释性较弱。</strong> 隐向量$V_i$本身的物理意义不直观，很难说清楚$\langle V_i, V_j \rangle$到底对应什么具体的业务逻辑，这是一种黑箱性。相比之下，线性模型的权重$w_i$，或者决策树的分裂规则，解释起来要直接得多。</p><p><strong>计算效率的权衡。</strong> FM相比POLY2已经好了很多，但也不是没有上限。它把二阶参数量从$O(n^2)$降到了$O(kn)$，可当特征数n极大时（比如百万维的稀疏特征），计算和存储隐向量仍然需要不小的资源。工业级场景里，往往还要结合哈希技巧或者模型压缩之类的手段进一步优化。</p><h2 id="FM的升级版FFM"><a href="#FM的升级版FFM" class="headerlink" title="FM的升级版FFM"></a>FM的升级版FFM</h2><p>FM还有一层局限：同一个特征$V_i$在跟不同特征交叉的时候，用的都是同一个隐向量，没有区分”对方是什么类型的特征”。FFM（Field-aware Factorization Machine）在这一点上做了升级：让每个特征在f个不同的”域”（field）上，各自学一个k维隐向量，交叉特征的权重由两个特征分别在对方所在域上的隐向量做内积得到。这样一来权重数量变成了$n \times k \times f$个，表达能力更强了，代价也很直接：FFM的二次项没法像FM那样通过数学恒等式化简，训练复杂度回到了$kn^2$。是否划算，取决于具体业务场景对精度提升和训练成本之间的权衡，没有绝对的优劣，只有适不适合。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>从LR到POLY2再到FM，这条演进路线其实是同一个诉求推着走的：怎么在不引爆参数量、不被数据稀疏性卡死的前提下，把特征交叉的信息用起来。LR最先暴露了”特征独立假设”的短板；POLY2给出了正确的方向——显式引入交叉项——但没能解决工程上的两个硬伤，参数爆炸和稀疏训练不足；FM用隐向量的参数共享机制解决了稀疏性问题，又用一个漂亮的数学恒等式把复杂度从$O(n^2)$压到了$O(n)$级别，这才让”自动学习特征交叉”这件事真正在工业界跑了起来。FFM则是在表达能力上又往前推了一步，用训练成本的上升换取了区分”域”的能力。</p><p>理解这条推导逻辑，再去看DeepFM、xDeepFM乃至后面一大批基于Embedding的推荐模型，会顺畅很多——它们本质上都是在FM打下的这个地基上，继续往高阶和非线性方向添砖加瓦。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;FM因子分解机中的特征交叉&quot;&gt;&lt;a href=&quot;#FM因子分解机中的特征交叉&quot; class=&quot;headerlink&quot; title=&quot;FM因子分解机中的特征交叉&quot;&gt;&lt;/a&gt;FM因子分解机中的特征交叉&lt;/h1&gt;&lt;p&gt;从事推荐和广告算法的同学，大概都绕不开一个话题：怎么</summary>
-      
-    
-    
-    
-    <category term="深度学习与推荐系统" scheme="https://www.hicode365.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="排序" scheme="https://www.hicode365.com/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-    <category term="FM" scheme="https://www.hicode365.com/tags/FM/"/>
-    
-    <category term="因子分解机" scheme="https://www.hicode365.com/tags/%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA/"/>
-    
-    <category term="特征交叉" scheme="https://www.hicode365.com/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"/>
-    
-    <category term="召回" scheme="https://www.hicode365.com/tags/%E5%8F%AC%E5%9B%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DecisionTree决策树</title>
-    <link href="https://www.hicode365.com/cuidMTY-F_xDtLUWBmfJJHptJ"/>
-    <id>https://www.hicode365.com/cuidMTY-F_xDtLUWBmfJJHptJ</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-02-22T13:33:29.609Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DecisionTree决策树</title>
-    <link href="https://www.hicode365.com/cuidQtRKVL02c3dBP5Mq4eURb"/>
-    <id>https://www.hicode365.com/cuidQtRKVL02c3dBP5Mq4eURb</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-02-22T13:38:04.651Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="信息熵（Information-Entropy）"><a href="#信息熵（Information-Entropy）" class="headerlink" title="信息熵（Information Entropy）"></a>信息熵（Information Entropy）</h1><p>熵是随机变量或系统不确定性的度量。<strong>熵越大不确定性越大，熵越低纯度越高越稳定</strong></p><p>在决策树中熵用来衡量样本的纯度。<br>$$H(Y) = -\sum_{i=0}^{c-1}P(Y=y_i)log_2P(Y=y_i)$$<br>一般情况下当p为y所有取值情况n的倒数时1&#x2F;n，熵取得最大值，不确定性最强。</p><h1 id="条件熵（Conditional-entropy）"><a href="#条件熵（Conditional-entropy）" class="headerlink" title="条件熵（Conditional entropy）"></a>条件熵（Conditional entropy）</h1><p>条件熵表示在一个条件下，随机变量的不确定性。</p><p>给定条件X的情况下，(所有不同X值情况下)随机变量Y的信息熵，记作H(Y|X)。<br>$$H(Y|X) = \sum_{x_i\in X}^{}P(X=x_i)H(Y|X=x_i)$$<br>把H(Y|X&#x3D;x)代入熵公式H(Y)得：<br>$$H(Y|X=x_i) = -\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y|X=x_i)$$<br>最终得到条件熵的公式为：<br>$$H(Y|X) = - \sum_{x\in X}^{}P(X=x_i)\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y=|X=x_i)$$</p><h1 id="信息增益（Information-Gain）"><a href="#信息增益（Information-Gain）" class="headerlink" title="信息增益（Information Gain）"></a>信息增益（Information Gain）</h1><p>信息增益是用于衡量一个特征在给定条件下对于减少不确定性（或熵减）的贡献程度。我们需要<strong>最大化信息增益</strong> ，同时最小化熵。</p><p>在特征选择中，信息增益用于衡量一个特征将训练数据划分为不同类别的能力，它计算了在使用特征划分数据之前和之后的熵之差。信息增益越高，表示使用该特征进行划分后，不确定性减少得越多，因此该特征更具有区分性。</p><p><strong>信息增益 &#x3D; 信息熵 - 条件熵</strong><br>$$Gain(Y,X) = ΔH = H(Y) - H(Y|X)$$</p><h1 id="信息增益率（Information-Gain-Ratio）"><a href="#信息增益率（Information-Gain-Ratio）" class="headerlink" title="信息增益率（Information Gain Ratio）"></a>信息增益率（Information Gain Ratio）</h1><p>信息增益率是对信息增益的一种改进（信息增益倾向于选择具有更多可能取值的特征，因为它们可以更多地减少不确定性），它考虑了属性自身固有的信息量，避免了某些属性取值数目较多而导致的信息增益偏大的问题。<br>$$Gain\_rate(Y,X) = \frac{Gain(Y,X)}{H(X)}= \frac{H(Y) - H(Y|X)}{H(X)}$$</p><h1 id="基尼系数-Gini-index-不纯度"><a href="#基尼系数-Gini-index-不纯度" class="headerlink" title="基尼系数(Gini index) &#x2F; 不纯度"></a>基尼系数(Gini index) &#x2F; 不纯度</h1><p>基尼系数（Gini Index），也称为基尼不纯度（Gini Impurity），是用于衡量一个数据集中样本类别不纯度的指标。</p><p><strong>取值范围在0到1之间，其中0表示数据集完全纯净（所有数据点都属于同一类别），而1表示数据集最不纯（各类别的数据点均匀分布）</strong></p><p>数据集类别的基尼系数计算：<br>$$Gini(D) = 1-\sum_{i=1}^{n}p(i)^2 = 1-\sum_{i=1}^{n}(\frac{\left |D_i \right | }{\left |D \right | })^{2}$$</p><ul><li>D 表示数据集。</li><li>n 表示类别的总数。</li><li>p(i)表示数据集中属于第 i 个类别的样本的占比</li></ul><p>数据集在指定属性特征下的基尼系数的计算：<br>$$Gini(D,X) = \sum_{i=1}^{n}\frac{\left |X_i \right | }{\left |X \right |}Gini(D)$$</p><ul><li>基尼系数是用于衡量数据集不纯度的指标，范围在0和1之间。</li><li>在决策树算法中，基尼系数常用于特征选择和节点划分，选择能够<strong>最大程度降低不纯度的特征</strong>。</li><li>基尼系数越低，表示数据集越纯净，决策树节点的划分越好。</li></ul><p>在决策树中根据Gini系数的变动大小决定分裂特征：<br>$$ΔGini = Gini(D)-Gini(D,X)$$</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;信息熵（Information-Entropy）&quot;&gt;&lt;a href=&quot;#信息熵（Information-Entropy）&quot; class=&quot;headerlink&quot; title=&quot;信息熵（Information Entropy）&quot;&gt;&lt;/a&gt;信息熵（Informatio</summary>
-      
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="信息增益率" scheme="https://www.hicode365.com/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/"/>
-    
-    <category term="基尼系数" scheme="https://www.hicode365.com/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DecisionTree决策树</title>
-    <link href="https://www.hicode365.com/cuidwUemXiA_4ZDx4h9Twz3dw"/>
-    <id>https://www.hicode365.com/cuidwUemXiA_4ZDx4h9Twz3dw</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-02-22T13:33:29.609Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DecisionTree决策树</title>
-    <link href="https://www.hicode365.com/cuidhT7WhHqBtGTVV02WaMgZ2"/>
-    <id>https://www.hicode365.com/cuidhT7WhHqBtGTVV02WaMgZ2</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-02-22T13:33:29.609Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DecisionTree决策树</title>
-    <link href="https://www.hicode365.com/cuidG6FBxWC3u02w-lPPGeJdg"/>
-    <id>https://www.hicode365.com/cuidG6FBxWC3u02w-lPPGeJdg</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-02-22T13:33:29.609Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DecisionTree决策树</title>
-    <link href="https://www.hicode365.com/cuidpIWnCFbB_KWSjhZ0Wk95d"/>
-    <id>https://www.hicode365.com/cuidpIWnCFbB_KWSjhZ0Wk95d</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-02-22T13:33:29.609Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>投资理财实战</title>
-    <link href="https://www.hicode365.com/cuidpVs0mQQMqFfH0re-Qk1GU"/>
-    <id>https://www.hicode365.com/cuidpVs0mQQMqFfH0re-Qk1GU</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:01:06.619Z</updated>
-    
-    
-    
-    
-    <category term="学习与成长" scheme="https://www.hicode365.com/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/"/>
-    
-    
-    <category term="投资" scheme="https://www.hicode365.com/tags/%E6%8A%95%E8%B5%84/"/>
-    
-    <category term="理财" scheme="https://www.hicode365.com/tags/%E7%90%86%E8%B4%A2/"/>
-    
-    <category term="股票" scheme="https://www.hicode365.com/tags/%E8%82%A1%E7%A5%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何做好技术型管理</title>
-    <link href="https://www.hicode365.com/cuidAWJu63ArUwruvyI4Dp4xu"/>
-    <id>https://www.hicode365.com/cuidAWJu63ArUwruvyI4Dp4xu</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:00:13.953Z</updated>
-    
-    
-    
-    
-    <category term="管理与思考" scheme="https://www.hicode365.com/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/"/>
-    
-    
-    <category term="技术管理" scheme="https://www.hicode365.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="管理" scheme="https://www.hicode365.com/tags/%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>集成学习之随机森林RandomForest</title>
-    <link href="https://www.hicode365.com/cuidsli_t5mLfx4vasbMrmQc4"/>
-    <id>https://www.hicode365.com/cuidsli_t5mLfx4vasbMrmQc4</id>
+    <link href="https://www.hicode365.com/cuidmcn9YQFk7CuEKf0oy2SeR"/>
+    <id>https://www.hicode365.com/cuidmcn9YQFk7CuEKf0oy2SeR</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-29T17:51:13.150Z</updated>
     
@@ -343,9 +252,100 @@
   </entry>
   
   <entry>
+    <title>投资理财实战</title>
+    <link href="https://www.hicode365.com/cuidFlfpaAf8X-fLy8Oap9HYT"/>
+    <id>https://www.hicode365.com/cuidFlfpaAf8X-fLy8Oap9HYT</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T18:01:06.619Z</updated>
+    
+    
+    
+    
+    <category term="学习与成长" scheme="https://www.hicode365.com/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/"/>
+    
+    
+    <category term="投资" scheme="https://www.hicode365.com/tags/%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="理财" scheme="https://www.hicode365.com/tags/%E7%90%86%E8%B4%A2/"/>
+    
+    <category term="股票" scheme="https://www.hicode365.com/tags/%E8%82%A1%E7%A5%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何做好技术型管理</title>
+    <link href="https://www.hicode365.com/cuidSou6e2UUx-OsbRZEmK0tK"/>
+    <id>https://www.hicode365.com/cuidSou6e2UUx-OsbRZEmK0tK</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T18:00:13.953Z</updated>
+    
+    
+    
+    
+    <category term="管理与思考" scheme="https://www.hicode365.com/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="技术管理" scheme="https://www.hicode365.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="管理" scheme="https://www.hicode365.com/tags/%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DeepFM排序</title>
+    <link href="https://www.hicode365.com/cuidjGqHqUE2O7nFn-lhoHzAb"/>
+    <id>https://www.hicode365.com/cuidjGqHqUE2O7nFn-lhoHzAb</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T18:02:21.106Z</updated>
+    
+    
+    
+    
+    <category term="深度学习与推荐系统" scheme="https://www.hicode365.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="DeepFM" scheme="https://www.hicode365.com/tags/DeepFM/"/>
+    
+    <category term="排序" scheme="https://www.hicode365.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FM因子分解机中的特征交叉</title>
+    <link href="https://www.hicode365.com/cuidSj5xtSkZf75VCK1CIvajU"/>
+    <id>https://www.hicode365.com/cuidSj5xtSkZf75VCK1CIvajU</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-30T07:48:33.732Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="FM因子分解机中的特征交叉"><a href="#FM因子分解机中的特征交叉" class="headerlink" title="FM因子分解机中的特征交叉"></a>FM因子分解机中的特征交叉</h1><p>从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。</p><p>比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步都是在补上一个前作留下的窟窿。今天就把这条演进链彻底捋一遍。</p><h2 id="基础线性模型"><a href="#基础线性模型" class="headerlink" title="基础线性模型"></a>基础线性模型</h2><p>最朴素的做法是LR（逻辑回归的线性打分部分）：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i$$</p><p>其中n是样本的特征数量，$x_i$是第i个特征的取值，$w_i$是它对应的系数。</p><p>这个模型简单、训练快、权重可解释，工业界用了很多年，至今仍是很多场景里的baseline。但它有个致命假设——<strong>所有特征都是独立起作用的</strong>，谁也不影响谁，模型只是把每个特征的贡献线性加总。现实世界显然不是这样：年龄和职业会互相影响购买意愿，时间和地点会互相影响用户的行为模式。LR对这些交互统统视而不见，这是它天生的表达能力上限。</p><h2 id="加个交叉项——POLY2"><a href="#加个交叉项——POLY2" class="headerlink" title="加个交叉项——POLY2"></a>加个交叉项——POLY2</h2><p>既然问题出在”看不到交互”，那最直接的补救办法就是把两两特征的乘积也当成一个新特征，单独学一个权重，这就是POLY2：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{ij} x_i x_j$$</p><p>这里$w_0, w_i, w_{ij}$都是待学习的参数，思路很直接：只要$x_i$和$x_j$同时不为0，这一项就会生效，模型就有机会学到这对特征组合的权重。</p><p>听起来合理，用起来却处处碰壁，原因出在两个地方，一个是理论上的参数规模问题，一个是实际训练中的稀疏性问题。</p><p><strong>第一，参数爆炸。</strong> 特征一旦做了one-hot编码（推荐、广告场景里几乎是标配），维度轻松上万甚至上百万，交叉项的数量是$n + \frac{n(n-1)}{2}$级别，n一大，这个数字直接爆炸式增长，模型的存储和训练开销都变得难以承受。</p><p><strong>第二，数据稀疏导致求解困难。</strong> 这一点比参数量爆炸更致命。one-hot之后数据变得极为稀疏，$x_i$和$x_j$同时不为0的样本少之又少。这会带来一连串连锁反应：</p><ul><li>很多交叉项对应的$w_{ij}$根本没有足够的样本去训练；</li><li>在梯度下降过程中，这些参数的梯度大量时候都是0，参数几乎不更新；</li><li>最终的结果是，即便理论上POLY2能表达特征交互，实际上大部分交叉权重都学不出来，模型学不到有意义的交互关系。</li></ul><p>POLY2在理论上没问题，但一到高维稀疏场景就水土不服，正是这两个局限，直接催生了FM。</p><h2 id="FM因子分解机——用隐向量做参数共享"><a href="#FM因子分解机——用隐向量做参数共享" class="headerlink" title="FM因子分解机——用隐向量做参数共享"></a>FM因子分解机——用隐向量做参数共享</h2><p>FM（Factorization Machine，因子分解机）的核心思想，是借助<strong>矩阵分解</strong>的方法，给每个特征引入一个k维的隐向量，用两个隐向量的内积去近似原来POLY2里那个独立的交叉权重，从而解决多项式扩展在稀疏特征下的求解难题。相比POLY2，FM具有线性的计算复杂度，并且能同时处理连续特征和离散特征。</p><p>完整的FM公式是：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{i,j}x_i x_j =  w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n \langle V_i, V_j \rangle x_i x_j$$</p><p>各符号的含义：</p><ul><li>$w_0$：全局偏置项；</li><li>$w_i$：一阶特征权重；</li><li>k：隐向量的维度，是一个需要人工设定的超参数；</li><li>V：一个维度为(one-hot之后的特征数, k)的矩阵；</li><li>$V_i$：特征i对应的k维隐向量；</li><li>$\langle V_i, V_j \rangle$：两个隐向量的内积。</li></ul><h3 id="为什么用内积去近似$w_{ij}$"><a href="#为什么用内积去近似$w_{ij}$" class="headerlink" title="为什么用内积去近似$w_{ij}$"></a>为什么用内积去近似$w_{ij}$</h3><p>POLY2里每一对特征组合都单独存一个$w_{ij}$，FM换了个思路：给每个特征$x_i$引入一个k维的辅助向量</p><p>$$V_i = (v_{i1}, v_{i2}, \cdots, v_{ik})$$</p><p>然后用两个隐向量的内积去近似原来的交叉权重：</p><p>$$w_{ij} \approx V_i V_j^T$$</p><p>内积的具体计算方式是：</p><p>$$\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}$$</p><p>这一步转换看着不大，实际上是整个方法的核心。在POLY2里，$w_{ij}$和$w_{ik}$是两个毫不相干的参数，各学各的，谁也帮不了谁；但引入隐向量之后，$w_{ij} = \langle V_i, V_j \rangle$和$w_{ik} = \langle V_i, V_k \rangle$共享着同一个$V_i$，两者之间就建立起了关联。也就是说，<strong>只要样本里出现过特征i和任意一个非零特征j的组合（即存在某个$j \neq i$使得$x_i x_j \neq 0$），这条样本就能拿来训练$V_i$</strong>，而不需要恰好凑齐$(i,j)$这个特定的组合才行。稀疏性带来的训练不足问题，就这样被参数共享绕开了。</p><p>这还带来一个额外的好处：<strong>泛化能力变强了</strong>。哪怕训练集里从没同时出现过某两个特征，只要它们各自的隐向量都学得不错，FM依然可以通过两个k维隐向量的内积，算出一个合理的组合特征权重。这是POLY2完全做不到的——POLY2里没见过的组合，权重就是学不出来。</p><h2 id="FM中的两处优化"><a href="#FM中的两处优化" class="headerlink" title="FM中的两处优化"></a>FM中的两处优化</h2><p>FM之所以能真正落地，靠的是两处优化，一处是参数规模的压缩，一处是计算复杂度的压缩，两者是分开的两件事，容易被混在一起说，这里拆开讲清楚。</p><p><strong>优化一：参数规模从$n^2$降到$nk$。</strong> 通过引入特征隐向量替代原有权重的方式$w_{ij} = \langle v_i, v_j \rangle$，把原先$n^2$级别（准确说是$n(n-1)/2$个）的权重参数，降低到了$n \times k$的级别。因为通常$k$远小于$n$（k取几十到几百，n在one-hot之后可能是百万级），这一步就已经把参数量压缩了一个甚至几个数量级。</p><p><strong>优化二：训练复杂度从$O(kn^2)$降到$O(kn)$。</strong> 这一步是通过转换目标函数的数学形式实现的，也是接下来要重点推导的部分。相比POLY2，这一步进一步极大地降低了训练开销，是FM能在工业界大规模落地的关键。</p><h3 id="公式化简"><a href="#公式化简" class="headerlink" title="公式化简"></a>公式化简</h3><p>下面我们来看一下二阶交叉项是怎么从O(n²)降到O(kn)的。原始的二阶交互项长这样：<br>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j$$</p><p>其中$\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}$。直接算这个双重求和，需要遍历所有的$(i,j)$对，复杂度是$O(n^2k)$，特征数一大就扛不住。下面一步步把它化简掉。</p><p><strong>第一步，展开内积求和。</strong> 把内积展开成隐向量各维度的乘积和，再交换求和顺序：</p><p>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} \left( \sum_{f=1}^k v_{i,f} v_{j,f} \right) x_i x_j = \sum_{f=1}^k \left( \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j \right)$$</p><p><strong>第二步，利用平方恒等式。</strong> 这里用到一个很基础的代数恒等式：$ab = \frac{1}{2}[(a+b)^2-(a^2+b^2)]$，推广到多项就是：</p><p>$$\left( \sum_{i=1}^n v_{i,f} x_i \right)^2 = \sum_{i=1}^n v_{i,f}^2 x_i^2 + 2 \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j$$</p><p>直观上看，左边是”n个数先求和再平方”，右边拆开后，平方项里既包含每个数自己的平方（$i=j$的部分），也包含所有两两交叉项的和（乘了2，因为$ij$和$ji$是同一项算了两次）。把等式移项，就能把我们要的那个双重求和单独解出来：</p><p>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j = \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p><strong>第三步，代入并合并所有维度。</strong> 把这个结果代回第一步的求和式中：</p><p>$$\sum_{f=1}^k \left( \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right) \right) = \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p><strong>二阶项最终的化简结果：</strong></p><p>$$\frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p>代入完整公式，<strong>化简后最终的FM公式</strong>是：</p><p>$$y = w_0 + \sum_{i=1}^n w_i x_i + \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)$$</p><p>需要特别说明一句：<strong>实际项目里的代码实现，用的都是这个化简后的公式，而不是最开始那个双重求和的原始形式</strong>。</p><p>对每个隐向量维度f，先算出$\sum_{i=1}^n v_{i,f} x_i$（相当于把所有特征在这一维上的贡献先加总），这一步对所有f一起算是$O(kn)$；接下来平方求和是$O(k)$；再减去对角线上$i=j$那部分自乘项（也是$O(kn)$），把无效的自交叉排除出去。整体加起来，总复杂度就是$O(kn)$，和特征数n只是线性关系，而不是原始形式那种平方关系。</p><p>从直观上理解这三步分别在干什么：</p><ul><li><strong>平方项</strong>：捕获的是所有特征在隐空间某一维度上的联合贡献；</li><li><strong>减去平方和</strong>：是为了消除特征自身的重复计算，也就是把$i=j$这种无意义的”自己和自己交叉”项去掉；</li><li><strong>隐向量维度k</strong>：控制的是交互能表达的潜在语义空间大小，k越大表达能力越强，但计算量和过拟合风险也随之上升。</li></ul><p>这个数学变换是整个FM方法里最值得记住的一步，没有它，FM大概率也就停留在论文里，不会在工业界大规模落地。</p><h2 id="FM的复杂度分析"><a href="#FM的复杂度分析" class="headerlink" title="FM的复杂度分析"></a>FM的复杂度分析</h2><p>把参数复杂度、训练复杂度、推理复杂度分开看一遍。</p><p><strong>参数复杂度：$O(kn)$。</strong> 对比一下POLY2：POLY2需要为每对特征组合单独存储参数$w_{ij}$，参数量是组合数$\frac{n(n-1)}{2}$（二阶项部分）；FM改为给每个特征学一个k维隐向量$V_i$，二阶项的参数量变成$kn$。当$k \ll n$时（k通常取几十到几百，n是one-hot之后的特征总数），参数量大幅减少。</p><p><strong>训练时间复杂度：$O(kn)$。</strong> 这是前面推导的直接结果。</p><p><strong>推理（预测）计算复杂度：$O(kn)$。</strong> 预测公式可以拆成两部分看：</p><p>$$y = w_0 + \underbrace{\sum_{i=1}^n w_i x_i}_{\text{一阶项，} O(n)} + \underbrace{\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j}_{\text{二阶项，优化后为} O(kn)}$$</p><p>二阶项在化简之后：</p><p>$$\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j = \frac{1}{2} \left( \sum_{f=1}^k \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n \sum_{f=1}^k (v_{i,f} x_i)^2 \right)$$</p><p>具体分三步：先计算每个隐向量维度f的求和$\sum_i v_{i,f} x_i$，复杂度$O(kn)$；再平方后求和，复杂度$O(k)$；最后减去对角线项，复杂度$O(kn)$。三步加起来总复杂度还是$O(kn)$，和特征数n、隐向量维度k都只是线性关系，这才是FM能扛住工业级高维稀疏数据的根本原因。</p><h2 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p><strong>参数共享机制。</strong> 用隐向量内积近似代替单独的参数$w_{ij} \approx \langle V_i, V_j \rangle$，二阶项参数量从POLY2的$\frac{n(n-1)}{2}$降为$kn$，这是前面反复强调的核心机制。</p><p><strong>解决了稀疏性问题。</strong> 共享隐向量使得所有包含特征i的交互项都能用来训练$V_i$。即便某些特征组合在训练集里从未出现过，仍然可以通过隐向量内积算出它的权重——比如$w_{ij} = \langle V_i,V_j\rangle$和$w_{ik} = \langle V_i,V_k\rangle$共享了$V_i$，所有包含$V_i$的非零组合特征都可以用来学习$V_i$，这在数据稀疏的场景下是决定性的优势。</p><p><strong>泛化能力提升。</strong> FM可以预测训练数据中从未出现过的特征组合，靠的是隐向量内积计算新组合的权重，而不是依赖独立的、必须见过才能学到的参数。这是它相对POLY2最本质的进步。</p><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p><strong>高阶特征交叉能力有限。</strong> FM默认只建模特征的两两交互（二阶多项式），没法直接捕获三阶及以上的特征组合关系。虽然理论上可以扩展出高阶FM，但计算复杂度会显著增加，性价比不高。这个短板后来主要靠DeepFM、xDeepFM这类模型来补，它们结合深度神经网络去捕捉高阶的非线性特征交互。</p><p><strong>隐向量维度k需要人工选择。</strong> k是一个预设的超参数，大小直接影响模型表现：k太小，特征交叉的表达能力不够，容易欠拟合；k太大，计算开销上升，还可能过拟合。这个超参数没有解析解，只能靠交叉验证去调，增加了训练的复杂度和成本。</p><p><strong>对非稀疏数据提升有限。</strong> FM的优势场景主要是稀疏数据，比如推荐系统、CTR预估里大量one-hot编码之后的类别特征。对于本身就是稠密特征的场景（比如图像、音频），FM的表现未必比得过神经网络一类的模型。另外，如果特征本身已经包含了显式的交互信息（比如人工构造好的组合特征），FM的隐式交叉反而可能带来不必要的冗余计算。</p><p><strong>隐向量解释性较弱。</strong> 隐向量$V_i$本身的物理意义不直观，很难说清楚$\langle V_i, V_j \rangle$到底对应什么具体的业务逻辑，这是一种黑箱性。相比之下，线性模型的权重$w_i$，或者决策树的分裂规则，解释起来要直接得多。</p><p><strong>计算效率的权衡。</strong> FM相比POLY2已经好了很多，但也不是没有上限。它把二阶参数量从$O(n^2)$降到了$O(kn)$，可当特征数n极大时（比如百万维的稀疏特征），计算和存储隐向量仍然需要不小的资源。工业级场景里，往往还要结合哈希技巧或者模型压缩之类的手段进一步优化。</p><h2 id="FFM引入特征域的FM"><a href="#FFM引入特征域的FM" class="headerlink" title="FFM引入特征域的FM"></a>FFM引入特征域的FM</h2><p> FFM（Field-aware Factorization Machine）相比FM（Factorization Machine）的核心优化，在于引入了<strong>特征域（Field）</strong> 的概念，让模型能够更细致地刻画特征间的交互。</p><p>简单来说，FM为每个特征学习一个隐向量，而FFM为每个特征<strong>针对不同域</strong>学习多个隐向量。</p><h3 id="FM-的做法与局限"><a href="#FM-的做法与局限" class="headerlink" title="FM 的做法与局限"></a>FM 的做法与局限</h3><p>FM（Factorization Machine）的数学表达式为：</p><p>$$y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j$$</p><p>关键在于隐向量 $ \mathbf{v}_i $。每个特征 $ i $ <strong>只对应一个固定的隐向量</strong> $ \mathbf{v}_i $。当特征 $ i $ 与任何特征 $ j $ 交互时，都使用这同一个向量 $ \mathbf{v}_i $ 去计算内积。</p><p>这带来一个问题：特征的“身份”在不同上下文里其实不一样，FM用同一个向量去参与这两种截然不同的交互，就会产生信息混淆，限制了模型的表达能力。</p><h3 id="FFM-的优化：场感知"><a href="#FFM-的优化：场感知" class="headerlink" title="FFM 的优化：场感知"></a>FFM 的优化：场感知</h3><p>FFM 的表达式改进为：</p><p>$$y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j$$</p><p>这里的核心变化是 $ \mathbf{v}_{i, f_j} $。其中 $ f_j $ 代表特征 $ j $ 所属的<strong>域（Field）</strong>。</p><p>这意味着，特征 $ i $ 不再只有一个隐向量，而是<strong>为每一个域</strong>都维护一个独立的隐向量。具体来说：</p><ul><li>当计算特征“周末”与“快餐”（域&#x3D;菜品类型）的交互时，会用“周末”针对“菜品类型”域的隐向量。</li><li>当计算特征“周末”与“高端餐厅”（同样属于域&#x3D;菜品类型）的交互时，会用同样的向量。</li><li>但当计算特征“周末”与“北京”（域&#x3D;城市）的交互时，则会切换到“周末”针对“城市”域的另一个隐向量。</li></ul><p>这让模型能根据交互对象的“域”来动态调整特征的表示，从而更精确地捕捉复杂关系。</p><p>FM的优化在于“用向量代替标量”，而FFM的优化在于“用一组向量代替单一向量”，让同一个特征在面对不同域的特征时，能拿出最合适的那一面来交互。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>从LR到POLY2再到FM，这条演进路线其实是同一个诉求推着走的：怎么在不引爆参数量、不被数据稀疏性卡死的前提下，把特征交叉的信息用起来。LR最先暴露了”特征独立假设”的短板；POLY2给出了正确的方向——显式引入交叉项——但没能解决工程上的两个硬伤，参数爆炸和稀疏训练不足；FM用隐向量的参数共享机制解决了稀疏性问题，又用一个漂亮的数学恒等式把复杂度从$O(n^2)$压到了$O(n)$级别，这才让”自动学习特征交叉”这件事真正在工业界跑了起来。FFM则是在表达能力上又往前推了一步，用训练成本的上升换取了区分”域”的能力。</p><p>理解这条推导逻辑，再去看DeepFM、xDeepFM乃至后面一大批基于Embedding的推荐模型，会顺畅很多——它们本质上都是在FM打下的这个地基上，继续往高阶和非线性方向添砖加瓦。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;FM因子分解机中的特征交叉&quot;&gt;&lt;a href=&quot;#FM因子分解机中的特征交叉&quot; class=&quot;headerlink&quot; title=&quot;FM因子分解机中的特征交叉&quot;&gt;&lt;/a&gt;FM因子分解机中的特征交叉&lt;/h1&gt;&lt;p&gt;从事推荐和广告算法的同学，大概都绕不开一个话题：怎么</summary>
+      
+    
+    
+    
+    <category term="深度学习与推荐系统" scheme="https://www.hicode365.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="排序" scheme="https://www.hicode365.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+    <category term="FM" scheme="https://www.hicode365.com/tags/FM/"/>
+    
+    <category term="因子分解机" scheme="https://www.hicode365.com/tags/%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA/"/>
+    
+    <category term="特征交叉" scheme="https://www.hicode365.com/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"/>
+    
+    <category term="召回" scheme="https://www.hicode365.com/tags/%E5%8F%AC%E5%9B%9E/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SVM支持向量机全景拆解</title>
-    <link href="https://www.hicode365.com/cuidyj9fzUjCv8J6mRQseoYeg"/>
-    <id>https://www.hicode365.com/cuidyj9fzUjCv8J6mRQseoYeg</id>
+    <link href="https://www.hicode365.com/cuid6nNj60xNDYTqLvvuDZt-1"/>
+    <id>https://www.hicode365.com/cuid6nNj60xNDYTqLvvuDZt-1</id>
     <published>2026-02-22T09:48:39.749Z</published>
     <updated>2026-07-29T17:46:50.700Z</updated>
     
@@ -374,8 +374,8 @@
   
   <entry>
     <title>机器学习导论</title>
-    <link href="https://www.hicode365.com/cuidD0S2g5VTC2lFT7o-e53u4"/>
-    <id>https://www.hicode365.com/cuidD0S2g5VTC2lFT7o-e53u4</id>
+    <link href="https://www.hicode365.com/cuid1nLpsjHO1_agOWCsDJeYA"/>
+    <id>https://www.hicode365.com/cuid1nLpsjHO1_agOWCsDJeYA</id>
     <published>2026-02-22T01:35:12.017Z</published>
     <updated>2026-02-22T07:05:54.959Z</updated>
     
@@ -408,8 +408,8 @@
   
   <entry>
     <title>python中的数据类型</title>
-    <link href="https://www.hicode365.com/cuidtpxGW4TwvrVlXd-gFodI7"/>
-    <id>https://www.hicode365.com/cuidtpxGW4TwvrVlXd-gFodI7</id>
+    <link href="https://www.hicode365.com/cuidhjqyzj4wptUvQEWsby8qh"/>
+    <id>https://www.hicode365.com/cuidhjqyzj4wptUvQEWsby8qh</id>
     <published>2023-08-15T02:10:06.000Z</published>
     <updated>2026-01-01T15:46:05.612Z</updated>
     
