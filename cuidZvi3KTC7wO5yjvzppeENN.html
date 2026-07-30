@@ -21,12 +21,12 @@
   <meta name="description" content="决策树（DecisionTree）原理、公式与实战决策树（Decision Tree）是机器学习中最直观、可解释性最强且应用最广泛的算法之一，它模拟人类做决策的过程——通过一系列”是与否”的判断，逐步缩小范围，最终得出结论。集成算法如：RF、GBDT、Xgboost、LightGBM都是以决策树为基础构建的。 决策树本质上是用一系列超平面对特征空间进行递归划分的方法。每一次分裂，都把当前空间一分为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DecisionTree决策树原理、公式与实战">
-<meta property="og:url" content="https://www.hicode365.com/cuidEGiaZXBcPj3jDdJy_sPKd">
+<meta property="og:url" content="https://www.hicode365.com/cuidZvi3KTC7wO5yjvzppeENN">
 <meta property="og:site_name" content="hicode">
 <meta property="og:description" content="决策树（DecisionTree）原理、公式与实战决策树（Decision Tree）是机器学习中最直观、可解释性最强且应用最广泛的算法之一，它模拟人类做决策的过程——通过一系列”是与否”的判断，逐步缩小范围，最终得出结论。集成算法如：RF、GBDT、Xgboost、LightGBM都是以决策树为基础构建的。 决策树本质上是用一系列超平面对特征空间进行递归划分的方法。每一次分裂，都把当前空间一分为">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-02-22T13:23:58.226Z">
-<meta property="article:modified_time" content="2026-07-29T18:17:08.104Z">
+<meta property="article:modified_time" content="2026-07-30T02:19:02.447Z">
 <meta property="article:author" content="hicode365">
 <meta property="article:tag" content="信息增益">
 <meta property="article:tag" content="决策树">
@@ -35,7 +35,7 @@
 <meta property="article:tag" content="树模型">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.hicode365.com/cuidEGiaZXBcPj3jDdJy_sPKd.html">
+  <link rel="canonical" href="https://www.hicode365.com/cuidZvi3KTC7wO5yjvzppeENN.html">
   
     <link rel="alternate" href="/atom.xml" title="hicode" type="application/atom+xml">
   
@@ -158,7 +158,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/">学习与成长</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ml/">机器学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/">算法中的数学</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/">管理与思考</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/">学习与成长</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ml/">机器学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/">算法中的数学</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/">管理与思考</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -168,7 +168,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/DeepFM/" style="font-size: 13px;">DeepFM</a> <a href="/tags/SVM/" style="font-size: 13px;">SVM</a> <a href="/tags/Transformer/" style="font-size: 13px;">Transformer</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" style="font-size: 13px;">信息增益</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/" style="font-size: 13px;">信息增益率</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 13px;">分类</a> <a href="/tags/%E5%88%86%E7%B1%BB%E6%A0%91/" style="font-size: 13px;">分类树</a> <a href="/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/" style="font-size: 13px;">分类算法</a> <a href="/tags/%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">判别式模型</a> <a href="/tags/%E5%9B%9E%E5%BD%92/" style="font-size: 14px;">回归</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 13px;">回归树</a> <a href="/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" style="font-size: 13px;">基尼系数</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/" style="font-size: 13px;">技术管理</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E7%A7%AF/" style="font-size: 13px;">支持向量积</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/" style="font-size: 13px;">数据降维</a> <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/" style="font-size: 14px;">树模型</a> <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/" style="font-size: 13px;">核函数</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13px;">理财</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">生成式模型</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13px;">管理</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">线性回归</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 13px;">股票</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">贝叶斯学派</a> <a href="/tags/%E8%BD%AF%E9%97%B4%E9%9A%94/" style="font-size: 13px;">软间隔</a> <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">逻辑回归</a> <a href="/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/" style="font-size: 13px;">降维算法</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" style="font-size: 13px;">随机森林</a> <a href="/tags/%E9%A2%91%E7%8E%87%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">频率学派</a>
+      <a href="/tags/DeepFM/" style="font-size: 13px;">DeepFM</a> <a href="/tags/FM/" style="font-size: 13px;">FM</a> <a href="/tags/SVM/" style="font-size: 13px;">SVM</a> <a href="/tags/Transformer/" style="font-size: 13px;">Transformer</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" style="font-size: 13px;">信息增益</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/" style="font-size: 13px;">信息增益率</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 13px;">分类</a> <a href="/tags/%E5%88%86%E7%B1%BB%E6%A0%91/" style="font-size: 13px;">分类树</a> <a href="/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/" style="font-size: 13px;">分类算法</a> <a href="/tags/%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">判别式模型</a> <a href="/tags/%E5%8F%AC%E5%9B%9E/" style="font-size: 13px;">召回</a> <a href="/tags/%E5%9B%9E%E5%BD%92/" style="font-size: 14px;">回归</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 13px;">回归树</a> <a href="/tags/%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA/" style="font-size: 13px;">因子分解机</a> <a href="/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" style="font-size: 13px;">基尼系数</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/" style="font-size: 13px;">技术管理</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 14px;">排序</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E7%A7%AF/" style="font-size: 13px;">支持向量积</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/" style="font-size: 13px;">数据降维</a> <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/" style="font-size: 14px;">树模型</a> <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/" style="font-size: 13px;">核函数</a> <a href="/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/" style="font-size: 13px;">特征交叉</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13px;">理财</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">生成式模型</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13px;">管理</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">线性回归</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 13px;">股票</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">贝叶斯学派</a> <a href="/tags/%E8%BD%AF%E9%97%B4%E9%9A%94/" style="font-size: 13px;">软间隔</a> <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">逻辑回归</a> <a href="/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/" style="font-size: 13px;">降维算法</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" style="font-size: 13px;">随机森林</a> <a href="/tags/%E9%A2%91%E7%8E%87%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">频率学派</a>
     </div>
   </div>
 
@@ -182,7 +182,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuid-kw82LxsSVgawSExsZ9d8" class="thumb">
+              <a href="/cuidjOLZZupUR0_OGTDuf7Ug5" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -196,7 +196,7 @@
                 <a class="category-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a>
               </p>
               <p class="item-title">
-                <a href="/cuid-kw82LxsSVgawSExsZ9d8" class="title">Transformer详解</a>
+                <a href="/cuidjOLZZupUR0_OGTDuf7Ug5" class="title">Transformer详解</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -207,7 +207,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuidV4MYHzao5L1Bq_FBI7cfr" class="thumb">
+              <a href="/cuidZvi3KTC7wO5yjvzppeENN" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -221,7 +221,7 @@
                 <a class="category-link" href="/categories/ml/">机器学习</a>
               </p>
               <p class="item-title">
-                <a href="/cuidV4MYHzao5L1Bq_FBI7cfr" class="title">数据的降维</a>
+                <a href="/cuidZvi3KTC7wO5yjvzppeENN" class="title">DecisionTree决策树原理、公式与实战</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -232,7 +232,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuidEGiaZXBcPj3jDdJy_sPKd" class="thumb">
+              <a href="/cuidwsK2F189nQnJ6L2e_SmaH" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -246,7 +246,7 @@
                 <a class="category-link" href="/categories/ml/">机器学习</a>
               </p>
               <p class="item-title">
-                <a href="/cuidEGiaZXBcPj3jDdJy_sPKd" class="title">DecisionTree决策树原理、公式与实战</a>
+                <a href="/cuidwsK2F189nQnJ6L2e_SmaH" class="title">数据的降维</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -257,7 +257,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuidX92Rb9DBMRC6Bbr0zrRxX" class="thumb">
+              <a href="/cuidnQjF5yDkDWyKEnXVYt9K0" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -271,7 +271,7 @@
                 <a class="category-link" href="/categories/ml/">机器学习</a>
               </p>
               <p class="item-title">
-                <a href="/cuidX92Rb9DBMRC6Bbr0zrRxX" class="title">线性回归</a>
+                <a href="/cuidnQjF5yDkDWyKEnXVYt9K0" class="title">线性回归</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -282,7 +282,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuidGn3lhXSSwjqeKEGk0v3Gd" class="thumb">
+              <a href="/cuidJdlQKB7MhNgG6A07mc--B" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -293,10 +293,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/ml/">机器学习</a>
+                <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a>
               </p>
               <p class="item-title">
-                <a href="/cuidGn3lhXSSwjqeKEGk0v3Gd" class="title">逻辑回归</a>
+                <a href="/cuidJdlQKB7MhNgG6A07mc--B" class="title">DeepFM排序</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -319,7 +319,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%EF%BC%88DecisionTree%EF%BC%89%E5%8E%9F%E7%90%86%E3%80%81%E5%85%AC%E5%BC%8F%E4%B8%8E%E5%AE%9E%E6%88%98"><span class="toc-number">1.</span> <span class="toc-text">决策树（DecisionTree）原理、公式与实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%EF%BC%9A%E4%BF%A1%E6%81%AF%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">前置知识：信息论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">信息量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5%EF%BC%88Entropy%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">信息熵（Entropy）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%86%B5"><span class="toc-number">1.1.3.</span> <span class="toc-text">联合熵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E7%86%B5"><span class="toc-number">1.1.4.</span> <span class="toc-text">条件熵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">决策树的构建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">1.2.1.</span> <span class="toc-text">连续特征的处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">决策树的损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E6%98%AF%E5%81%9C%E6%AD%A2%E7%94%9F%E9%95%BF%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">决策树是停止生长的条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%86%B3%E7%AD%96%E6%A0%91%EF%BC%9AID3%E3%80%81C4-5%E3%80%81CART"><span class="toc-number">1.3.</span> <span class="toc-text">经典决策树：ID3、C4.5、CART</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ID3%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A"><span class="toc-number">1.3.1.</span> <span class="toc-text">ID3：信息增益</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ID3-%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">ID3 的缺陷</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-5%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87"><span class="toc-number">1.3.2.</span> <span class="toc-text">C4.5：信息增益率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#C4-5-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">C4.5 如何处理缺失值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CART%EF%BC%9A%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0"><span class="toc-number">1.3.3.</span> <span class="toc-text">CART：基尼系数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID3%E3%80%81C4-5%E3%80%81CART-%E6%A0%91%E5%AF%B9%E6%AF%94"><span class="toc-number">1.3.4.</span> <span class="toc-text">ID3、C4.5、CART 树对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%89%AA%E6%9E%9D%EF%BC%9A%E9%98%B2%E6%AD%A2%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">1.4.</span> <span class="toc-text">决策树的剪枝：防止过拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%89%AA%E6%9E%9D%EF%BC%88Pre-Pruning%EF%BC%8C%E5%B7%A5%E4%B8%9A%E7%95%8C%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">预剪枝（Pre-Pruning，工业界常用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%89%AA%E6%9E%9D%EF%BC%88Post-Pruning%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">后剪枝（Post-Pruning）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%81%9A%E9%A2%84%E6%B5%8B"><span class="toc-number">1.5.</span> <span class="toc-text">决策树做预测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A0%91"><span class="toc-number">1.6.</span> <span class="toc-text">回归树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A0%91%E7%9A%84%E5%88%86%E8%A3%82%E5%8E%9F%E7%90%86"><span class="toc-number">1.6.1.</span> <span class="toc-text">回归树的分裂原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A0%91%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">1.6.2.</span> <span class="toc-text">回归树与线性回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E6%A0%91-vs-%E5%9B%9E%E5%BD%92%E6%A0%91"><span class="toc-number">1.7.</span> <span class="toc-text">分类树 vs 回归树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.8.</span> <span class="toc-text">决策树构建实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E6%9E%84%E5%BB%BA%E5%88%86%E7%B1%BB%E6%A0%91"><span class="toc-number">1.8.1.</span> <span class="toc-text">用信息增益构建分类树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E5%9B%9E%E5%BD%92%E6%A0%91"><span class="toc-number">1.8.2.</span> <span class="toc-text">构建最小二乘回归树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E6%80%BB%E7%BB%93"><span class="toc-number">1.9.</span> <span class="toc-text">决策树总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.9.1.</span> <span class="toc-text">优点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%BC%BA"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">可解释性强</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E5%A4%84%E7%90%86%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%B3%E7%B3%BB"><span class="toc-number">1.9.1.2.</span> <span class="toc-text">可以处理非线性关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E9%9C%80%E8%A6%81%E7%89%B9%E5%BE%81%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-number">1.9.1.3.</span> <span class="toc-text">不需要特征归一化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.9.2.</span> <span class="toc-text">缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E6%98%93%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">容易过拟合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96%E6%95%8F%E6%84%9F"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">对数据变化敏感</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E9%A2%97%E5%86%B3%E7%AD%96%E6%A0%91%E6%B3%9B%E5%8C%96%E8%83%BD%E5%8A%9B%E6%9C%89%E9%99%90"><span class="toc-number">1.9.2.3.</span> <span class="toc-text">单颗决策树泛化能力有限</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%EF%BC%88DecisionTree%EF%BC%89%E5%8E%9F%E7%90%86%E3%80%81%E5%85%AC%E5%BC%8F%E4%B8%8E%E5%AE%9E%E6%88%98"><span class="toc-number">1.</span> <span class="toc-text">决策树（DecisionTree）原理、公式与实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%EF%BC%9A%E4%BF%A1%E6%81%AF%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">前置知识：信息论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">信息量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5%EF%BC%88Entropy%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">信息熵（Entropy）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%86%B5"><span class="toc-number">1.1.3.</span> <span class="toc-text">联合熵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E7%86%B5"><span class="toc-number">1.1.4.</span> <span class="toc-text">条件熵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">决策树的构建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">1.2.1.</span> <span class="toc-text">连续特征的处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">决策树的损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E6%98%AF%E5%81%9C%E6%AD%A2%E7%94%9F%E9%95%BF%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">决策树是停止生长的条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%86%B3%E7%AD%96%E6%A0%91%EF%BC%9AID3%E3%80%81C4-5%E3%80%81CART"><span class="toc-number">1.3.</span> <span class="toc-text">经典决策树：ID3、C4.5、CART</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ID3%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A"><span class="toc-number">1.3.1.</span> <span class="toc-text">ID3：信息增益</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ID3-%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">ID3 的缺陷</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-5%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87"><span class="toc-number">1.3.2.</span> <span class="toc-text">C4.5：信息增益率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#C4-5-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">C4.5 如何处理缺失值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CART%EF%BC%9A%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0"><span class="toc-number">1.3.3.</span> <span class="toc-text">CART：基尼系数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID3%E3%80%81C4-5%E3%80%81CART-%E6%A0%91%E5%AF%B9%E6%AF%94"><span class="toc-number">1.3.4.</span> <span class="toc-text">ID3、C4.5、CART 树对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%89%AA%E6%9E%9D%EF%BC%9A%E9%98%B2%E6%AD%A2%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">1.4.</span> <span class="toc-text">决策树的剪枝：防止过拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%89%AA%E6%9E%9D%EF%BC%88Pre-Pruning%EF%BC%8C%E5%B7%A5%E4%B8%9A%E7%95%8C%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">预剪枝（Pre-Pruning，工业界常用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%89%AA%E6%9E%9D%EF%BC%88Post-Pruning%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">后剪枝（Post-Pruning）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%81%9A%E9%A2%84%E6%B5%8B"><span class="toc-number">1.5.</span> <span class="toc-text">决策树做预测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A0%91"><span class="toc-number">1.6.</span> <span class="toc-text">回归树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A0%91%E7%9A%84%E5%88%86%E8%A3%82%E5%8E%9F%E7%90%86"><span class="toc-number">1.6.1.</span> <span class="toc-text">回归树的分裂原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A0%91%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">1.6.2.</span> <span class="toc-text">回归树与线性回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E6%A0%91-vs-%E5%9B%9E%E5%BD%92%E6%A0%91"><span class="toc-number">1.7.</span> <span class="toc-text">分类树 vs 回归树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.8.</span> <span class="toc-text">决策树构建实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E6%9E%84%E5%BB%BA%E5%88%86%E7%B1%BB%E6%A0%91"><span class="toc-number">1.8.1.</span> <span class="toc-text">用信息增益构建分类树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E5%9B%9E%E5%BD%92%E6%A0%91"><span class="toc-number">1.8.2.</span> <span class="toc-text">构建最小二乘回归树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">1.9.</span> <span class="toc-text">优缺点分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.9.1.</span> <span class="toc-text">优点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%BC%BA"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">可解释性强</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E5%A4%84%E7%90%86%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%B3%E7%B3%BB"><span class="toc-number">1.9.1.2.</span> <span class="toc-text">可以处理非线性关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E9%9C%80%E8%A6%81%E7%89%B9%E5%BE%81%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-number">1.9.1.3.</span> <span class="toc-text">不需要特征归一化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.9.2.</span> <span class="toc-text">缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E6%98%93%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">容易过拟合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96%E6%95%8F%E6%84%9F"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">对数据变化敏感</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E9%A2%97%E5%86%B3%E7%AD%96%E6%A0%91%E6%B3%9B%E5%8C%96%E8%83%BD%E5%8A%9B%E6%9C%89%E9%99%90"><span class="toc-number">1.9.2.3.</span> <span class="toc-text">单颗决策树泛化能力有限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.10.</span> <span class="toc-text">小结</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -341,7 +341,7 @@
       <div class="article-meta">
         <!-- <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/cuidEGiaZXBcPj3jDdJy_sPKd" class="article-date">
+	<a href="/cuidZvi3KTC7wO5yjvzppeENN" class="article-date">
 	  <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
 	</a>
 </span> -->
@@ -360,7 +360,7 @@
 
         
 
-        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/cuidEGiaZXBcPj3jDdJy_sPKd#comments" class="article-comment-link">评论</a></span> -->
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/cuidZvi3KTC7wO5yjvzppeENN#comments" class="article-comment-link">评论</a></span> -->
         
       </div>
     </div>
@@ -1045,7 +1045,14 @@
 <p>假设在生成 3 个区域之后停止划分，那么最终生成的回归树形式如下：</p>
 <p>$$T(x) = \begin{cases} 5.72 & x \le 3.5 \\ 6.75 & 3.5 < x \le 6.5 \\ 8.91 & x > 6.5 \end{cases}$$</p>
 <hr>
-<h2 id="决策树总结"><a href="#决策树总结" class="headerlink" title="决策树总结"></a>决策树总结</h2><ul>
+<h2 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="可解释性强"><a href="#可解释性强" class="headerlink" title="可解释性强"></a>可解释性强</h4><p>决策过程天然符合人的思考方式，业务人员可以直接理解模型原因。</p>
+<h4 id="可以处理非线性关系"><a href="#可以处理非线性关系" class="headerlink" title="可以处理非线性关系"></a>可以处理非线性关系</h4><p>线性模型<code>y = wx+b</code>只能学习线性边界，而决策树可以形成复杂非线性边界。</p>
+<h4 id="不需要特征归一化"><a href="#不需要特征归一化" class="headerlink" title="不需要特征归一化"></a>不需要特征归一化</h4><p>决策树只关心<code>x &lt; threshold</code>，不关心具体数值尺度。 </p>
+<hr>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="容易过拟合"><a href="#容易过拟合" class="headerlink" title="容易过拟合"></a>容易过拟合</h4><p>如果树不断生长，模型可能记住训练数据，而不是学习规律。</p>
+<h4 id="对数据变化敏感"><a href="#对数据变化敏感" class="headerlink" title="对数据变化敏感"></a>对数据变化敏感</h4><p>训练数据稍微变化，树结构可能完全改变。</p>
+<h4 id="单颗决策树泛化能力有限"><a href="#单颗决策树泛化能力有限" class="headerlink" title="单颗决策树泛化能力有限"></a>单颗决策树泛化能力有限</h4><p>实际工业中通常不会直接使用单棵树，一般会使用基于决策树的集成算法。如：RF、GBDT、Xgboost、LightGBM</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
 <li>决策树是用超平面递归划分特征空间的有监督学习算法，既能分类也能回归；</li>
 <li>判断分裂效果的核心是信息论中的<strong>信息熵、条件熵</strong>，由此衍生出**信息增益（ID3）→ 信息增益率（C4.5）→ 基尼系数（CART）**三代分裂标准，一代比一代更成熟；</li>
 <li>决策树天然容易过拟合，必须依靠<strong>预剪枝</strong>（建树过程中限制深度&#x2F;样本数&#x2F;节点数）或<strong>后剪枝</strong>（建完整树后自底向上评估是否剪枝）来控制模型复杂度；</li>
@@ -1053,13 +1060,6 @@
 <li>回归树用 MSE 作为分裂评价指标，叶子节点预测值取均值，本质是用分段常数函数逼近真实的回归关系；</li>
 <li>实际工程中，<strong>CART 是应用最广泛的决策树算法</strong>，也是随机森林、GBDT、XGBoost 等集成模型的基础组件——吃透单棵决策树的原理，是理解这些更强大模型的第一步。</li>
 </ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="可解释性强"><a href="#可解释性强" class="headerlink" title="可解释性强"></a>可解释性强</h4><p>决策过程天然符合人的思考方式，业务人员可以直接理解模型原因。</p>
-<h4 id="可以处理非线性关系"><a href="#可以处理非线性关系" class="headerlink" title="可以处理非线性关系"></a>可以处理非线性关系</h4><p>线性模型<code>y = wx+b</code>只能学习线性边界，而决策树可以形成复杂非线性边界。</p>
-<h4 id="不需要特征归一化"><a href="#不需要特征归一化" class="headerlink" title="不需要特征归一化"></a>不需要特征归一化</h4><p>决策树只关心<code>x &lt; threshold</code>，不关心具体数值尺度。 </p>
-<hr>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="容易过拟合"><a href="#容易过拟合" class="headerlink" title="容易过拟合"></a>容易过拟合</h4><p>如果树不断生长，模型可能记住训练数据，而不是学习规律。</p>
-<h4 id="对数据变化敏感"><a href="#对数据变化敏感" class="headerlink" title="对数据变化敏感"></a>对数据变化敏感</h4><p>训练数据稍微变化，树结构可能完全改变。</p>
-<h4 id="单颗决策树泛化能力有限"><a href="#单颗决策树泛化能力有限" class="headerlink" title="单颗决策树泛化能力有限"></a>单颗决策树泛化能力有限</h4><p>实际工业中通常不会直接使用单棵树，一般会使用基于决策树的集成算法。如：RF、GBDT、Xgboost、LightGBM</p>
 
       
     </div>
@@ -1069,7 +1069,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.hicode365.com/cuidEGiaZXBcPj3jDdJy_sPKd" title="DecisionTree决策树原理、公式与实战" target="_blank" rel="external">https://www.hicode365.com/cuidEGiaZXBcPj3jDdJy_sPKd</a>
+      <a href="https://www.hicode365.com/cuidZvi3KTC7wO5yjvzppeENN" title="DecisionTree决策树原理、公式与实战" target="_blank" rel="external">https://www.hicode365.com/cuidZvi3KTC7wO5yjvzppeENN</a>
     </li>
     
     <li class="post-copyright-license">
@@ -1114,12 +1114,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/cuidV4MYHzao5L1Bq_FBI7cfr" title="数据的降维"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/cuidjOLZZupUR0_OGTDuf7Ug5" title="Transformer详解"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/cuidX92Rb9DBMRC6Bbr0zrRxX" title="线性回归"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/cuidwsK2F189nQnJ6L2e_SmaH" title="数据的降维"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
