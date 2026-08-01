@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Transformer详解</title>
-    <url>/cuidgCWLhDimaY-1IwSAYCAo5.html</url>
+    <url>/cuid3NzgTmZgKLQcPcW4ighc1.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>大模型与Agent</category>
@@ -12,8 +12,21 @@
       </tags>
   </entry>
   <entry>
+    <title>投资理财实战</title>
+    <url>/cuidjkAV01JvXS8HOUfR01MTz.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习与成长</category>
+      </categories>
+      <tags>
+        <tag>投资</tag>
+        <tag>理财</tag>
+        <tag>股票</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python中的数据类型</title>
-    <url>/cuidtmEPrOOxvGn4-pPuUBjB9.html</url>
+    <url>/cuidK5ByaKOx_1bLd6Vz_geQu.html</url>
     <content><![CDATA[<h1 id="Python中的数据类型"><a href="#Python中的数据类型" class="headerlink" title="Python中的数据类型"></a>Python中的数据类型</h1><h2 id="可变数据类型"><a href="#可变数据类型" class="headerlink" title="可变数据类型"></a>可变数据类型</h2><p>对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。</p>
 <h2 id="不可变数据类型"><a href="#不可变数据类型" class="headerlink" title="不可变数据类型"></a>不可变数据类型</h2><p>对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。</p>
 <p>也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变</p>
@@ -195,8 +208,562 @@
       </tags>
   </entry>
   <entry>
+    <title>DeepFM推荐领域深度学习的Baseline</title>
+    <url>/cuid2sap6UxqRFTt_bWOKYrXG.html</url>
+    <content><![CDATA[<h1 id="DeepFM推荐领域深度学习的Baseline"><a href="#DeepFM推荐领域深度学习的Baseline" class="headerlink" title="DeepFM推荐领域深度学习的Baseline"></a>DeepFM推荐领域深度学习的Baseline</h1><blockquote>
+<p>CTR（点击率）预估是推荐系统、广告系统和搜索排序的核心环节，而特征交叉（Feature Interaction）的建模能力，直接决定了模型效果的上限。DeepFM 由华为诺亚方舟实验室于 2017 年提出，凭借”无需人工特征工程、无需预训练、同时捕捉低阶与高阶特征交叉”三大优势，成为工业界落地最广的 CTR 模型之一。</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>在电商、信息流、短视频等场景中，用户每刷新一次页面，系统都要回答一个问题：<strong>把哪些内容排在最前面？</strong></p>
+<p>CTR 模型输出的 pCTR 决定了内容的展示顺序，哪怕是一点点 AUC 的提升，都可能带来较大的营收变化。所以CTR 建模能力是推荐系统的核心竞争力，而 CTR 建模的本质难题，是<strong>特征交叉</strong>。举几个直观的例子：</p>
+<ul>
+<li>用户性别 &#x3D; 女 × 品类 &#x3D; 母婴 → 高点击</li>
+<li>用户年龄 &#x3D; 30 岁 × 商品价格 &#x3D; 高价 → 低点击</li>
+<li>用户所在城市 &#x3D; 北京 × 天气 &#x3D; 雨天 → 打车 App 高活跃</li>
+</ul>
+<p>单独看任何一个特征都无法捕捉这些规律，<strong>只有把多个特征组合起来才有意义</strong>。于是，”如何自动、高效、充分地学习特征交叉”，就成了 CTR 模型演进的主线。</p>
+<hr>
+<h2 id="模型的演进"><a href="#模型的演进" class="headerlink" title="模型的演进"></a>模型的演进</h2><p>在理解 DeepFM 之前，有必要先梳理一下它之前的技术脉络——因为 DeepFM 的每一处设计，几乎都是针对前人模型痛点的”对症下药”。</p>
+<h3 id="LR：线性模型的无奈"><a href="#LR：线性模型的无奈" class="headerlink" title="LR：线性模型的无奈"></a>LR：线性模型的无奈</h3><p>逻辑回归（LR）是工业界最早大规模使用的 CTR 模型，优点是简单、可解释、易上线，但它<strong>只能学习一阶特征</strong>，对特征交叉无能为力。传统做法是人工构造交叉特征（如”性别_品类”组合）后再喂给 LR，代价是海量的人工特征工程投入，且难以穷举所有有效组合。</p>
+<h3 id="FM：二阶交叉的优雅解"><a href="#FM：二阶交叉的优雅解" class="headerlink" title="FM：二阶交叉的优雅解"></a>FM：二阶交叉的优雅解</h3><p>因子分解机（Factorization Machine）用隐向量（Embedding）的技巧解决了二阶交叉在高维稀疏场景下的参数估计问题：</p>
+<p>$$ y_{FM} = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n}\sum_{j=i+1}^{n} \langle v_i, v_j \rangle x_i x_j $$</p>
+<p>每个特征 $i$ 学习一个 $k$ 维隐向量 $v_i$，二阶交叉项用内积 $\langle v_i, v_j \rangle$ 度量。这种隐向量机制使得<strong>即便某两个特征从未在训练集中共现过，模型依然可以通过向量相似度进行泛化</strong>，从而很好地缓解了稀疏场景下的参数估计难题。但 FM 的表达能力止步于二阶交叉，更高阶的非线性关系它无能为力。</p>
+<h3 id="FNN-PNN：神经网络登场"><a href="#FNN-PNN：神经网络登场" class="headerlink" title="FNN &#x2F; PNN：神经网络登场"></a>FNN &#x2F; PNN：神经网络登场</h3><p>FNN（2016）尝试用 FM 预训练得到的隐向量去初始化 DNN 的 Embedding 层，再通过全连接网络学习高阶交叉，但它<strong>依赖 FM 预训练</strong>，两阶段的训练流程相互割裂，难以联合优化。</p>
+<p>PNN（2016）在 Embedding 层之后引入内积（IPNN）或外积（OPNN）运算来显式建模特征交叉，但更高阶的交叉仍然依赖 DNN 的隐式学习，且外积运算的计算开销较大。</p>
+<h3 id="Wide-Deep：记忆与泛化的结合"><a href="#Wide-Deep：记忆与泛化的结合" class="headerlink" title="Wide &amp; Deep：记忆与泛化的结合"></a>Wide &amp; Deep：记忆与泛化的结合</h3><p>Google 提出的 Wide &amp; Deep（2016）把 LR（Wide 部分，负责”记忆”）与 DNN（Deep 部分，负责”泛化”）并联训练，是业界影响力很大的一次架构创新。但它的问题也很明显：<strong>Wide 部分仍然依赖人工设计的交叉特征</strong>（Cross-Product Transformation），自动化程度不足；同时 Wide 与 Deep 两侧使用不同的输入特征表示，需要精心设计，工程复杂度较高。</p>
+<h3 id="不同模型对比"><a href="#不同模型对比" class="headerlink" title="不同模型对比"></a>不同模型对比</h3><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>低阶交叉</th>
+<th>高阶交叉</th>
+<th>无需人工特征工程</th>
+<th>无需预训练</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LR</td>
+<td>✓（人工构造）</td>
+<td>✘</td>
+<td>✘</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>FM</td>
+<td>✓</td>
+<td>✘</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>FNN</td>
+<td>✘</td>
+<td>✓</td>
+<td>✘（需预训练）</td>
+<td>✘</td>
+</tr>
+<tr>
+<td>PNN</td>
+<td>✘</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Wide &amp; Deep</td>
+<td>✓（人工构造）</td>
+<td>✓</td>
+<td>✘（Wide侧需要）</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>DeepFM</strong></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody></table>
+<p>可以看到，此前的每一个模型都在某个维度上有所妥协。而 DeepFM 的目标非常明确：<strong>全都要</strong>——既要低阶交叉，又要高阶交叉；既不需要人工特征工程，也不需要预训练。</p>
+<h2 id="DeepFM-模型详解"><a href="#DeepFM-模型详解" class="headerlink" title="DeepFM 模型详解"></a>DeepFM 模型详解</h2><blockquote>
+<p>DeepFM模型由FM + DNN组成，<strong>FM 部分</strong>负责低阶特征交叉提取，<strong>Deep 部分</strong>负责高阶特征交叉提取，两者<strong>共享同一个 Embedding 层</strong>，端到端联合训练。</p>
+</blockquote>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p>DeepFM 的核心结构由两部分并行组成：<strong>FM 组件（FM Component）</strong> 和 <strong>Deep 组件（Deep Component）</strong>，两部分共享同一套输入与 Embedding 层，其预测结果相加后经过 Sigmoid 得到最终的 CTR：</p>
+<img src="/images/image-20250725002017499.png" alt="image-20250725002017499" style="zoom:80%;" />
+
+<p>最终预测公式为：<br>$$
+\hat{y} = \sigma\left( y_{FM} + y_{DNN} \right)
+$$<br>其中 $\sigma$ 是 Sigmoid 函数，$y_{FM}$ 是 FM 部分的输出（包含一阶项和二阶交叉），$y_{DNN}$ 是 Deep 部分的输出（高阶交叉）。两个部分接收相同的原始特征输入，也共享同一个 Embedding 层——这正是 DeepFM 相较于 Wide &amp; Deep 的关键改进之一。</p>
+<h3 id="共享-Embedding-层：最精妙的设计"><a href="#共享-Embedding-层：最精妙的设计" class="headerlink" title="共享 Embedding 层：最精妙的设计"></a>共享 Embedding 层：最精妙的设计</h3><img src="/images/image-20250725002612407.png" alt="image-20250725002612407" style="zoom:80%;" />
+
+<ul>
+<li><p>Field表示原始特征(每个Field表示一个特征 如，Field1：性别，Field2：年龄段)；</p>
+</li>
+<li><p>通过one-hot操作把原始特征展开，所以一个Filed有多个稀疏值也就是Sparse Features；</p>
+</li>
+<li><p>Sparse Features通过Embedding层（词嵌入矩阵）也就是图上没有展示的权重$W$转相乘得到稠密矩阵也就是Dense Embedding，其中权重参数$W$就是FM二阶(one-hot后的特征)引入的辅助隐向量矩阵$ V $，Dense Layer就是$V_i，V_j,...,V_n$向量。</p>
+</li>
+</ul>
+<p>原始输入通常是若干个稀疏 Field（字段）经过 One-Hot 或 Multi-Hot 编码后拼接而成，例如：</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>取值示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户性别</td>
+<td>[男, 女]</td>
+</tr>
+<tr>
+<td>用户年龄段</td>
+<td>[18-24, 25-34, 35-44, …]</td>
+</tr>
+<tr>
+<td>商品品类</td>
+<td>[美妆, 数码, 服饰, …]</td>
+</tr>
+<tr>
+<td>广告位</td>
+<td>[首页, 详情页, 购物车]</td>
+</tr>
+</tbody></table>
+<p>每个 Field 的非零取值通过查表映射为一个稠密的 $k$ 维隐向量（Embedding）。DeepFM 设计中最精妙的一点在于：<strong>FM 部分用于计算二阶交叉的隐向量，与 Deep 部分作为网络输入的 Embedding，是完全共享的同一组参数</strong>。</p>
+<p>这样设计带来两个显著好处：</p>
+<ol>
+<li><strong>表达一致性</strong>：FM 与 Deep 学到的是同一套特征语义表示，不会出现两部分”各自为政”导致的语义漂移；</li>
+<li><strong>训练更高效</strong>：Embedding 向量同时接受来自 FM 和 DNN 两侧的梯度更新，低阶交叉的信息可以直接辅助高阶部分的学习，反之亦然；同时无需像 Wide &amp; Deep 那样为两个组件分别维护独立的特征表示，大幅降低了参数量与训练复杂度，也无需像 FNN 那样先做 FM 预训练——两个组件从一开始就在同一个特征空间里联合训练。</li>
+</ol>
+<h3 id="FM-部分：负责低阶特征交叉"><a href="#FM-部分：负责低阶特征交叉" class="headerlink" title="FM 部分：负责低阶特征交叉"></a>FM 部分：负责低阶特征交叉</h3><img src="/images/image-20250725002314210.png" alt="image-20250725002314210" style="zoom:80%;" />
+
+<p>FM 部分本质上是一个标准的因子分解机，负责抽取一阶线性特征与二阶特征交叉：</p>
+<p>$$ y_{FM} = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n}\sum_{j=i+1}^{n} \langle v_i, v_j \rangle x_i x_j $$</p>
+<ul>
+<li><strong>一阶部分</strong>：累加单个特征的线性权重 $w_i \cdot x_i$，相当于一个 LR；</li>
+<li><strong>二阶部分</strong>：利用隐向量内积 $\langle v_i, v_j \rangle$ 自动计算任意两个特征之间的交叉强度，无需人工指定哪些特征需要交叉。</li>
+</ul>
+<p>由于输入是稀疏的 One-Hot 特征，实际计算时只需遍历<strong>非零特征</strong>。同时，二阶交叉项还有一个经典的数学优化技巧：</p>
+<p>$$ \sum_{i=1}^{n}\sum_{j=i+1}^{n} \langle v_i, v_j \rangle x_i x_j = \frac{1}{2} \sum_{f=1}^{k} \left[ \left( \sum_{i=1}^{n} v_{i,f} x_i \right)^2 - \sum_{i=1}^{n} v_{i,f}^2 x_i^2 \right] $$</p>
+<p>这一化简把原本 $O(kn^2)$ 的双重循环计算复杂度降低到 $O(kn)$（结合稀疏性可进一步降为 $O(kN_z)$，$N_z$ 为非零特征数），是 FM 及 DeepFM 能够支撑亿级样本高效训练的关键工程基础。</p>
+<ul>
+<li><p>Field是数据特征的原始值，如：$i$为性别（男，女），$j$为年龄段（少年，中年，老年）</p>
+</li>
+<li><p>Sparse Features为原始特征经过one-hot转换之后的稀疏特征，如（一个35岁的中年男人）：$i$为 [0,1]，$j$为 [0,1,0]</p>
+</li>
+<li><p>Sparse Features层与Dense Embedding层中间的权重$W$:</p>
+<ul>
+<li><p>在架构图中权重$W$也就是Embedding矩阵没有展示，省略了。</p>
+</li>
+<li><p>$i$的维度为$(2,k)$， $j$的维度为$(3,k)$，拼接后维度大小为$(5,k)$，也就是$W_{5,k}$</p>
+</li>
+<li><p>$k$为二阶隐向量的大小</p>
+</li>
+<li><p>$W$为FM二阶隐向量矩阵$V$</p>
+</li>
+</ul>
+</li>
+<li><p>Dense Embedding层为Embedding矩阵（也就是权重$W$）与经过one-hot的特征通过embedding-lookup查找后的向量：$ V_{i}$的纬度为$(1,k)$，$ V_{j}$的纬度为$(1,k)$，拼接起来$\left [ V_{i},V_{j} \right ]$ 的维度为$(1,2k)$。</p>
+</li>
+<li><p>在FM Layer，来自Sparse Features层的一阶与来自Dense Embedding层的二阶（二阶内部先进行内积计算）进行求和得到一个标量。</p>
+<ul>
+<li>一阶公式：$  \sum_{i=1}^n w_i x_i  $ 【在架构图中$w_i$没有展示，省略了】</li>
+<li>二阶公式：$  \sum_{i=1}^{n-1} \sum_{j=i+1}^n \langle V_i, V_j \rangle x_i x_j $ 【在架构图中$x_i x_j$没有体现是因为当两者都为1时整个项才有意义，乘以1可以忽略】</li>
+</ul>
+</li>
+</ul>
+<h4 id="FM中二阶的部分"><a href="#FM中二阶的部分" class="headerlink" title="FM中二阶的部分"></a>FM中二阶的部分</h4><p>每个特征称为一个Field, 每个特征通过one-hot编码之后会包含多个列，也就是每个Field包含多个稀疏的列(Sparse Features)，每个Field中的值只有一个是1 如：[0,1,0,0], [0,0,01]</p>
+<ul>
+<li>field_size：Field的大小，也就是特征one-hot编码之前的大小</li>
+<li>feature_size：特征经过one-hot之后的大小</li>
+<li>k：FM二阶交叉隐向量v的维度</li>
+</ul>
+<p>稀疏的Field通过embedding层之后得到Dense Vector。也就是Field通过embedding_lookup词向量矩阵(嵌入矩阵)得到稠密的向量（把词向量矩阵作为权重W与Field相乘）</p>
+<p>在DeepFM中是拿FM当中的二维矩阵V来作为词向量矩阵作为权重W，所以W的shape为(feature_size, k) ，而模型的input是feature_size维的0、1向量，所以在input与W相乘后就得到了(feature_size, k)维的dense vector了。</p>
+<h3 id="Deep-部分：负责高阶非线性特征学习"><a href="#Deep-部分：负责高阶非线性特征学习" class="headerlink" title="Deep 部分：负责高阶非线性特征学习"></a>Deep 部分：负责高阶非线性特征学习</h3><img src="/images/image-20250725002331596.png" alt="image-20250725002331596" style="zoom:80%;" />
+
+<ul>
+<li>DNN在共享的Dense Embedding层上通过Hidden Layer计算得到一个标量值</li>
+<li>DNN与左侧的FM共享Embedding向量。</li>
+</ul>
+<p>Deep 部分是一个多层前馈神经网络（DNN），用于拟合更复杂的高阶非线性特征交叉。具体做法是先将各 Field 对应的 Embedding 向量拼接（Concatenate）成一个稠密向量：</p>
+<p>$$ a^{(0)} = [e_1, e_2, \dots, e_m] $$</p>
+<p>其中 $e_i$ 是第 $i$ 个 Field 的 Embedding 向量，$m$ 是 Field 的数量。随后向量经过若干层全连接网络逐层进行非线性映射：</p>
+<p>$$ a^{(l+1)} = \sigma\left( W^{(l)} a^{(l)} + b^{(l)} \right) $$</p>
+<p>激活函数通常使用 ReLU。原始论文中采用的是 <strong>3 层、每层 400 个神经元</strong>的结构（即 400-400-400），最后一层输出一个标量 $y_{DNN}$。深层网络通过层层非线性变换，<strong>隐式地</strong>捕捉三阶、四阶乃至更高阶的特征组合关系，这是 FM 无法做到的。</p>
+<h3 id="DeepFM中连续特征的处理方式"><a href="#DeepFM中连续特征的处理方式" class="headerlink" title="DeepFM中连续特征的处理方式"></a>DeepFM中连续特征的处理方式</h3><p>DeepFM中连续特征有多种处理方式，提供以下几种作为参考：</p>
+<ul>
+<li>连续特征直接作为DNN的输入，不参与FM的输入。</li>
+<li>连续特征直接作为DNN的输入，参与FM一阶的计算，不参与二阶交叉。（DeepCTR就是这么实现的）</li>
+<li>也可以把连续特征离散化后，同时作为DNN和FM的输入。【推荐】</li>
+<li>连续特征做规划化，通过embedding向量乘以数值，让连续特征自然地融入FM的交叉计算里，相当于对embedding做了缩放。</li>
+</ul>
+<h2 id="主流-CTR-模型横向对比"><a href="#主流-CTR-模型横向对比" class="headerlink" title="主流 CTR 模型横向对比"></a>主流 CTR 模型横向对比</h2><p>结合前文的分析，我们可以把 DeepFM 与业界几个经典模型放在一起做一个更完整的横向对比：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>低阶特征学习</th>
+<th>高阶特征学习</th>
+<th>是否需要人工特征工程</th>
+<th>是否共享 Embedding</th>
+<th>是否需要预训练</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LR</td>
+<td>一阶</td>
+<td>无</td>
+<td>是</td>
+<td>-</td>
+<td>否</td>
+</tr>
+<tr>
+<td>FM</td>
+<td>一阶 + 二阶</td>
+<td>无</td>
+<td>否</td>
+<td>-</td>
+<td>否</td>
+</tr>
+<tr>
+<td>FNN</td>
+<td>无</td>
+<td>高阶</td>
+<td>否</td>
+<td>-</td>
+<td>是（FM 预训练）</td>
+</tr>
+<tr>
+<td>PNN</td>
+<td>无</td>
+<td>高阶</td>
+<td>否</td>
+<td>-</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Wide &amp; Deep</td>
+<td>一阶 + 二阶</td>
+<td>高阶</td>
+<td>是（Wide 侧需要）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><strong>DeepFM</strong></td>
+<td><strong>一阶 + 二阶</strong></td>
+<td><strong>高阶</strong></td>
+<td><strong>完全不需要</strong></td>
+<td><strong>是</strong></td>
+<td><strong>否</strong></td>
+</tr>
+</tbody></table>
+<p>可以清晰地看到，DeepFM 是表格中唯一一个在所有维度上都拿到”最优解”的模型——这也是它能够迅速成为工业界默认基线的核心原因。</p>
+<hr>
+<h2 id="DeepFM-工业落地"><a href="#DeepFM-工业落地" class="headerlink" title="DeepFM 工业落地"></a>DeepFM 工业落地</h2><p>回顾 DeepFM 能被大规模部署的核心原因，可以归纳为四点：</p>
+<ol>
+<li><strong>开箱即用</strong>：稀疏特征可直接输入模型，无需特征工程、无需预训练，接入成本极低；</li>
+<li><strong>表达能力均衡</strong>：低阶交叉（FM）负责”记忆”用户的具体偏好模式，高阶交叉（DNN）负责”泛化”到训练集中未曾见过的特征组合，二者互补；</li>
+<li><strong>训练高效</strong>：共享 Embedding 让参数利用率更高，二阶项的数学优化也让训练速度更快，能够支撑亿级样本量的工业级训练；</li>
+<li><strong>易于扩展</strong>：多值特征的池化处理、连续特征的分桶 Embedding、注意力机制等技巧都能无缝叠加在 DeepFM 框架之上，社区生态也相对成熟。</li>
+</ol>
+<p>在具体工程实践中，还有几个经验值得关注：</p>
+<ul>
+<li><strong>Embedding 维度</strong>：一般设置在 8～64 之间，需结合特征基数、样本规模和线上推理延迟综合权衡，维度过大容易过拟合、增加推理耗时；</li>
+<li><strong>Deep 层的深度与宽度</strong>：通常 2～3 层全连接（如 <code>[256, 128, 64]</code> 或论文中的 <code>[400, 400, 400]</code>）便能覆盖大部分场景的拟合需求；</li>
+<li><strong>正则化</strong>：推荐系统数据天然极其稀疏，在 Deep 部分适当加入 Dropout（0.2～0.5）或 $L_2$ 正则，能显著提升模型的泛化能力；</li>
+<li><strong>与序列特征结合</strong>：在真实业务中，DeepFM 常与用户行为序列建模（如 DIN、DIEN 中的注意力机制）结合使用，进一步提升效果，这也是 DeepFM 之后一系列改进工作的重要方向。</li>
+</ul>
+<p>正因如此，DeepFM 至今仍是许多公司（尤其是中小团队）上线 CTR 模型时的<strong>默认基线</strong>，也常被用作衡量新模型效果的对比基准。</p>
+<h2 id="局限与后续演进"><a href="#局限与后续演进" class="headerlink" title="局限与后续演进"></a>局限与后续演进</h2><p>当然，DeepFM 并非完美无缺，它也存在一些明显的局限：</p>
+<ul>
+<li><strong>高阶交叉是隐式的</strong>：DNN 学习到的高阶特征交叉不具备可解释性，也不一定是最优的交叉方式；</li>
+<li><strong>二阶交叉粒度较为粗糙</strong>：所有特征对共享同一个 Embedding 维度 $k$，无法自适应地区分不同特征交叉的重要程度；</li>
+<li><strong>Embedding 维度固定</strong>：不同 Field 的稀疏度和信息量差异巨大，统一的 Embedding 维度往往不是最优选择。</li>
+</ul>
+<p>围绕这些短板，学术界和工业界近年提出了不少改进方向：</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>代表工作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>显式高阶交叉</td>
+<td>xDeepFM（CIN 网络）、DCN &#x2F; DCN-V2（特征交叉网络）</td>
+</tr>
+<tr>
+<td>交叉重要性建模</td>
+<td>AFM（注意力 FM）、FiBiNet（SENet + 双线性交互）</td>
+</tr>
+<tr>
+<td>自适应维度</td>
+<td>AutoField、AutoEmb（NAS 搜索维度）</td>
+</tr>
+<tr>
+<td>结构化特征交互</td>
+<td>FmFM（Field-aware 矩阵分解）、FinalMLP</td>
+</tr>
+<tr>
+<td>多任务融合</td>
+<td>与 ESMM、MMoE 等结合，同时优化 CTR 与 CVR</td>
+</tr>
+</tbody></table>
+<p>其中比较值得一提的是 <strong>xDeepFM</strong>：它把 FM 中向量外积的思想推广到高阶，用 CIN（Compressed Interaction Network）<strong>显式地</strong>学习任意阶特征交叉，在表达能力和可解释性上又前进了一步。不过，DeepFM 结构简洁、性价比高的特点，依然让它成为大多数团队”先用起来”的最优选择。</p>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>DeepFM 的设计哲学可以用一句话概括：</p>
+<blockquote>
+<p><strong>让 FM 做它擅长的事（低阶交叉），让 DNN 做它擅长的事（高阶交叉），再用共享 Embedding 把它们”缝”在一起，端到端联合训练。</strong></p>
+</blockquote>
+<p>它把 CTR 建模从”人工特征工程 + 两阶段训练”的繁琐流程中解放出来，用一套优雅且高效的架构，同时拿到了模型的<strong>记忆能力</strong>与<strong>泛化能力</strong>。理解 DeepFM，不仅是掌握一个具体模型，更是理解<strong>特征交叉建模</strong>这一推荐系统核心命题的一把钥匙——后续的 xDeepFM、DCN、FiBiNet 等一系列进阶模型，几乎都是在这个框架基础上演进而来的。</p>
+]]></content>
+      <categories>
+        <category>深度学习与推荐系统</category>
+      </categories>
+      <tags>
+        <tag>推荐算法</tag>
+        <tag>排序</tag>
+        <tag>DeepFM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FM因子分解机中的特征交叉</title>
+    <url>/cuidp8fxL56v0msO5q0-zx6wP.html</url>
+    <content><![CDATA[<h1 id="FM因子分解机中的特征交叉"><a href="#FM因子分解机中的特征交叉" class="headerlink" title="FM因子分解机中的特征交叉"></a>FM因子分解机中的特征交叉</h1><p>从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。</p>
+<p>比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步都是在补上一个前作留下的窟窿。今天就把这条演进链彻底捋一遍。</p>
+<h2 id="基础线性模型LR"><a href="#基础线性模型LR" class="headerlink" title="基础线性模型LR"></a>基础线性模型LR</h2><p>最朴素的做法是LR（逻辑回归的线性打分部分）：</p>
+<p>$$
+y = w_0 + \sum_{i=1}^n w_i x_i
+$$</p>
+<p>其中n是样本的特征数量，$x_i$是第i个特征的取值，$w_i$是它对应的系数。</p>
+<p>这个模型简单、训练快、权重可解释，工业界用了很多年，至今仍是很多场景里的baseline。但它有个致命假设——<strong>所有特征都是独立起作用的</strong>，谁也不影响谁，模型只是把每个特征的贡献线性加总。现实世界显然不是这样：年龄和职业会互相影响购买意愿，时间和地点会互相影响用户的行为模式。LR对这些交互统统视而不见，这是它天生的表达能力上限。</p>
+<h2 id="二阶特征叉POLY2"><a href="#二阶特征叉POLY2" class="headerlink" title="二阶特征叉POLY2"></a>二阶特征叉POLY2</h2><p>既然问题出在”看不到交互”，那最直接的补救办法就是把两两特征的乘积也当成一个新特征，单独学一个权重，这就是POLY2：</p>
+<p>$$
+y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{ij} x_i x_j
+$$</p>
+<p>这里$w_0, w_i, w_{ij}$都是待学习的参数，思路很直接：只要$x_i$和$x_j$同时不为0，这一项就会生效，模型就有机会学到这对特征组合的权重。</p>
+<p>听起来合理，用起来却处处碰壁，原因出在两个地方，一个是理论上的参数规模问题，一个是实际训练中的稀疏性问题。</p>
+<p><strong>第一，参数爆炸。</strong> 特征一旦做了one-hot编码（推荐、广告场景里几乎是标配），维度轻松上万甚至上百万，交叉项的数量是$n + \frac{n(n-1)}{2}$级别，n一大，这个数字直接爆炸式增长，模型的存储和训练开销都变得难以承受。</p>
+<p><strong>第二，数据稀疏导致求解困难。</strong> 这一点比参数量爆炸更致命。one-hot之后数据变得极为稀疏，$x_i$和$x_j$同时不为0的样本少之又少。这会带来一连串连锁反应：</p>
+<ul>
+<li>很多交叉项对应的$w_{ij}$根本没有足够的样本去训练；</li>
+<li>在梯度下降过程中，这些参数的梯度大量时候都是0，参数几乎不更新；</li>
+<li>最终的结果是，即便理论上POLY2能表达特征交互，实际上大部分交叉权重都学不出来，模型学不到有意义的交互关系。</li>
+</ul>
+<p>POLY2在理论上没问题，但一到高维稀疏场景就水土不服，正是这两个局限，直接催生了FM。</p>
+<h2 id="FM-因子分解机-用隐向量做参数共享"><a href="#FM-因子分解机-用隐向量做参数共享" class="headerlink" title="FM (因子分解机) 用隐向量做参数共享"></a>FM (因子分解机) 用隐向量做参数共享</h2><p>FM（Factorization Machine，因子分解机）的核心思想，是借助<strong>矩阵分解</strong>的方法，给每个特征引入一个k维的隐向量，用两个隐向量的内积去近似原来POLY2里那个独立的交叉权重，从而解决多项式扩展在稀疏特征下的求解难题。相比POLY2，FM具有线性的计算复杂度，并且能同时处理连续特征和离散特征。</p>
+<p>完整的FM公式是：</p>
+<p>$$
+y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{i,j}x_i x_j =  w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n \langle V_i, V_j \rangle x_i x_j
+$$</p>
+<p>各符号的含义：</p>
+<ul>
+<li>$w_0$：全局偏置项；</li>
+<li>$w_i$：一阶特征权重；</li>
+<li>k：隐向量的维度，是一个需要人工设定的超参数；</li>
+<li>V：一个维度为(one-hot之后的特征数, k)的矩阵；</li>
+<li>$V_i$：特征i对应的k维隐向量；</li>
+<li>$\langle V_i, V_j \rangle$：两个隐向量的内积。</li>
+</ul>
+<h3 id="为什么用内积去近似$w_{ij}$"><a href="#为什么用内积去近似$w_{ij}$" class="headerlink" title="为什么用内积去近似$w_{ij}$"></a>为什么用内积去近似$w_{ij}$</h3><p>POLY2里每一对特征组合都单独存一个$w_{ij}$，FM换了个思路：给每个特征$x_i$引入一个k维的辅助向量</p>
+<p>$$
+V_i = (v_{i1}, v_{i2}, \cdots, v_{ik})
+$$</p>
+<p>然后用两个隐向量的内积去近似原来的交叉权重：</p>
+<p>$$
+w_{ij} \approx V_i V_j^T
+$$</p>
+<p>内积的具体计算方式是：</p>
+<p>$$
+\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}
+$$</p>
+<p>这一步转换看着不大，实际上是整个方法的核心。在POLY2里，$w_{ij}$和$w_{ik}$是两个毫不相干的参数，各学各的，谁也帮不了谁；但引入隐向量之后，$w_{ij} = \langle V_i, V_j \rangle$和$w_{ik} = \langle V_i, V_k \rangle$共享着同一个$V_i$，两者之间就建立起了关联。也就是说，<strong>只要样本里出现过特征i和任意一个非零特征j的组合（即存在某个$j \neq i$使得$x_i x_j \neq 0$），这条样本就能拿来训练$V_i$</strong>，而不需要恰好凑齐$(i,j)$这个特定的组合才行。稀疏性带来的训练不足问题，就这样被参数共享绕开了。</p>
+<p>这还带来一个额外的好处：<strong>泛化能力变强了</strong>。哪怕训练集里从没同时出现过某两个特征，只要它们各自的隐向量都学得不错，FM依然可以通过两个k维隐向量的内积，算出一个合理的组合特征权重。这是POLY2完全做不到的——POLY2里没见过的组合，权重就是学不出来。</p>
+<h3 id="FM中的两处优化"><a href="#FM中的两处优化" class="headerlink" title="FM中的两处优化"></a>FM中的两处优化</h3><p>FM之所以能真正落地，靠的是两处优化，一处是参数规模的压缩，一处是计算复杂度的压缩，两者是分开的两件事，容易被混在一起说，这里拆开讲清楚。</p>
+<p><strong>优化一：参数规模从$n^2$降到$nk$。</strong> 通过引入特征隐向量替代原有权重的方式$w_{ij} = \langle v_i, v_j \rangle$，把原先$n^2$级别（准确说是$n(n-1)/2$个）的权重参数，降低到了$n \times k$的级别。因为通常$k$远小于$n$（k取几十到几百，n在one-hot之后可能是百万级），这一步就已经把参数量压缩了一个甚至几个数量级。</p>
+<p><strong>优化二：训练复杂度从$O(kn^2)$降到$O(kn)$。</strong> 这一步是通过转换目标函数的数学形式实现的，也是接下来要重点推导的部分。相比POLY2，这一步进一步极大地降低了训练开销，是FM能在工业界大规模落地的关键。</p>
+<h4 id="公式化简"><a href="#公式化简" class="headerlink" title="公式化简"></a>公式化简</h4><p>下面我们来看一下二阶交叉项是怎么从O(n²)降到O(kn)的。原始的二阶交互项长这样：<br>$$
+\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j
+$$</p>
+<p>其中$\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}$。直接算这个双重求和，需要遍历所有的$(i,j)$对，复杂度是$O(n^2k)$，特征数一大就扛不住。下面一步步把它化简掉。</p>
+<p><strong>第一步，展开内积求和。</strong> 把内积展开成隐向量各维度的乘积和，再交换求和顺序：</p>
+<p>$$
+\sum_{i=1}^{n} \sum_{j=i+1}^{n} \left( \sum_{f=1}^k v_{i,f} v_{j,f} \right) x_i x_j = \sum_{f=1}^k \left( \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j \right)
+$$</p>
+<p><strong>第二步，利用平方恒等式。</strong> 这里用到一个很基础的代数恒等式：$ab = \frac{1}{2}[(a+b)^2-(a^2+b^2)]$，推广到多项就是：</p>
+<p>$$
+\left( \sum_{i=1}^n v_{i,f} x_i \right)^2 = \sum_{i=1}^n v_{i,f}^2 x_i^2 + 2 \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j
+$$</p>
+<p>直观上看，左边是”n个数先求和再平方”，右边拆开后，平方项里既包含每个数自己的平方（$i=j$的部分），也包含所有两两交叉项的和（乘了2，因为$ij$和$ji$是同一项算了两次）。把等式移项，就能把我们要的那个双重求和单独解出来：</p>
+<p>$$
+\sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j = \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
+$$</p>
+<p><strong>第三步，代入并合并所有维度。</strong> 把这个结果代回第一步的求和式中：</p>
+<p>$$
+\sum_{f=1}^k \left( \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right) \right) = \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
+$$</p>
+<p><strong>二阶项最终的化简结果：</strong></p>
+<p>$$
+\frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
+$$</p>
+<p>代入完整公式，<strong>化简后最终的FM公式</strong>是：</p>
+<p>$$
+y = w_0 + \sum_{i=1}^n w_i x_i + \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
+$$</p>
+<p>需要特别说明一句：<strong>实际项目里的代码实现，用的都是这个化简后的公式，而不是最开始那个双重求和的原始形式</strong>。</p>
+<p>对每个隐向量维度f，先算出$\sum_{i=1}^n v_{i,f} x_i$（相当于把所有特征在这一维上的贡献先加总），这一步对所有f一起算是$O(kn)$；接下来平方求和是$O(k)$；再减去对角线上$i=j$那部分自乘项（也是$O(kn)$），把无效的自交叉排除出去。整体加起来，总复杂度就是$O(kn)$，和特征数n只是线性关系，而不是原始形式那种平方关系。</p>
+<p>从直观上理解这三步分别在干什么：</p>
+<ul>
+<li><strong>平方项</strong>：捕获的是所有特征在隐空间某一维度上的联合贡献；</li>
+<li><strong>减去平方和</strong>：是为了消除特征自身的重复计算，也就是把$i=j$这种无意义的”自己和自己交叉”项去掉；</li>
+<li><strong>隐向量维度k</strong>：控制的是交互能表达的潜在语义空间大小，k越大表达能力越强，但计算量和过拟合风险也随之上升。</li>
+</ul>
+<p>这个数学变换是整个FM方法里最值得记住的一步，没有它，FM大概率也就停留在论文里，不会在工业界大规模落地。</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>把参数复杂度、训练复杂度、推理复杂度分开看一遍。</p>
+<p><strong>参数复杂度：$O(kn)$。</strong> 对比一下POLY2：POLY2需要为每对特征组合单独存储参数$w_{ij}$，参数量是组合数$\frac{n(n-1)}{2}$（二阶项部分）；FM改为给每个特征学一个k维隐向量$V_i$，二阶项的参数量变成$kn$。当$k \ll n$时（k通常取几十到几百，n是one-hot之后的特征总数），参数量大幅减少。</p>
+<p><strong>训练时间复杂度：$O(kn)$。</strong> 这是前面推导的直接结果。</p>
+<p><strong>推理（预测）计算复杂度：$O(kn)$。</strong> 预测公式可以拆成两部分看：</p>
+<p>$$
+y = w_0 + \underbrace{\sum_{i=1}^n w_i x_i}_{\text{一阶项，} O(n)} + \underbrace{\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j}_{\text{二阶项，优化后为} O(kn)}
+$$</p>
+<p>二阶项在化简之后：</p>
+<p>$$
+\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j = \frac{1}{2} \left( \sum_{f=1}^k \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n \sum_{f=1}^k (v_{i,f} x_i)^2 \right)
+$$</p>
+<p>具体分三步：先计算每个隐向量维度f的求和$\sum_i v_{i,f} x_i$，复杂度$O(kn)$；再平方后求和，复杂度$O(k)$；最后减去对角线项，复杂度$O(kn)$。三步加起来总复杂度还是$O(kn)$，和特征数n、隐向量维度k都只是线性关系，这才是FM能扛住工业级高维稀疏数据的根本原因。</p>
+<h3 id="FM中的特征分配"><a href="#FM中的特征分配" class="headerlink" title="FM中的特征分配"></a>FM中的特征分配</h3><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">连续特征（如：身高、存款）、中低基数类别特征（如：性别、学历、颜色偏好）、高基数类别特征（如：用户ID、城市ID）</span><br></pre></td></tr></table></figure>
+
+<h4 id="FM一阶特征"><a href="#FM一阶特征" class="headerlink" title="FM一阶特征"></a>FM一阶特征</h4><ul>
+<li>连续特征：身高（归一化、离散化+One-hot）、存款（归一化、离散化+One-hot）</li>
+<li>中低基数类别特征：性别（One-hot）、学历（One-hot 、Label Encoding顺序编码 + 归一化）、颜色偏好（Multi-hot）</li>
+<li>高基数类别特征：城市ID（高频&#x2F;热门城市 One-hot，低频归为 <code>UNK</code>）【可选，也可以只放二阶】</li>
+</ul>
+<p>注：</p>
+<ol>
+<li><p>关于学历编码：</p>
+<ul>
+<li><p>如果学历（专科、本科、硕士、博士）做Label Encoding顺序编码，则需要再归一化为 $[0, 1]$ 的连续值，因为顺序编码强行假设了“本科是专科的2倍，硕士是专科的3倍”这种等差线性关系。</p>
+</li>
+<li><p>如果做One-hot处理，虽然丢失了学历间天然的递进关系，但当它进入 FM 的二阶交叉层时，每个学历分配的低维密集向量可以表征这些关系，如：$Cos(V_{专科}, V_{本科}) >  Cos(V_{专科}, V_{博士}$)  </p>
+</li>
+<li><p>一阶做顺序编码+归一化，二阶One-hot，既保留递进顺序，又享受独立表达的灵活度，兼顾全局单调性与局部非线性搭配。</p>
+</li>
+<li><p>累加编码 &#x2F; 阈值编码（Thermometer Encoding &#x2F; Target Encoding），温度计编码能完美保留顺序：</p>
+<ul>
+<li>专科：<code>[1, 0, 0, 0]</code>（满足 &gt;&#x3D; 专科）</li>
+<li>本科：<code>[1, 1, 0, 0]</code>（满足 &gt;&#x3D; 专科，&gt;&#x3D; 本科）</li>
+<li>硕士：<code>[1, 1, 1, 0]</code>（满足 &gt;&#x3D; 专科，&gt;&#x3D; 本科，&gt;&#x3D; 硕士）</li>
+<li>博士：<code>[1, 1, 1, 1]</code></li>
+</ul>
+<p><em>这样计算向量点积时，硕士自然包含了本科和专科的全部基础表达，同时多了一个“硕士特有”的维度。</em></p>
+</li>
+</ul>
+</li>
+<li><p>高基数特征不能直接 One-hot 到一阶，会导致百万级别的稀疏参数，导致<strong>模型过拟合</strong>，且一阶参数极其稀疏难以收敛。</p>
+</li>
+<li><p>连续特征在做了离散化后，还需要进行One-hot处理，否则会强行引入了不合理的线性假设。</p>
+</li>
+</ol>
+<h4 id="FM二阶特征："><a href="#FM二阶特征：" class="headerlink" title="FM二阶特征："></a>FM二阶特征：</h4><ul>
+<li>连续特征：如果做的是离散化处理，则在二阶均可完美适用；如果进行了归一化，则可只放一阶，若要放二阶则其隐向量与离散特征隐向量做标量乘法。</li>
+<li>中低基数类别特征：处理方式与一阶共享（相同），再与其他变量做交叉。</li>
+<li>高基数类别特征：用户ID（One-hot）、城市ID（One-hot），再与其他变量做交叉。</li>
+</ul>
+<h3 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p><strong>参数共享机制。</strong> 用隐向量内积近似代替单独的参数$w_{ij} \approx \langle V_i, V_j \rangle$，二阶项参数量从POLY2的$\frac{n(n-1)}{2}$降为$kn$，这是前面反复强调的核心机制。</p>
+<p><strong>解决了稀疏性问题。</strong> 共享隐向量使得所有包含特征i的交互项都能用来训练$V_i$。即便某些特征组合在训练集里从未出现过，仍然可以通过隐向量内积算出它的权重——比如$w_{ij} = \langle V_i,V_j\rangle$和$w_{ik} = \langle V_i,V_k\rangle$共享了$V_i$，所有包含$V_i$的非零组合特征都可以用来学习$V_i$，这在数据稀疏的场景下是决定性的优势。</p>
+<p><strong>泛化能力提升。</strong> FM可以预测训练数据中从未出现过的特征组合，靠的是隐向量内积计算新组合的权重，而不是依赖独立的、必须见过才能学到的参数。这是它相对POLY2最本质的进步。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p><strong>高阶特征交叉能力有限。</strong> FM默认只建模特征的两两交互（二阶多项式），没法直接捕获三阶及以上的特征组合关系。虽然理论上可以扩展出高阶FM，但计算复杂度会显著增加，性价比不高。这个短板后来主要靠DeepFM、xDeepFM这类模型来补，它们结合深度神经网络去捕捉高阶的非线性特征交互。</p>
+<p><strong>隐向量维度k需要人工选择。</strong> k是一个预设的超参数，大小直接影响模型表现：k太小，特征交叉的表达能力不够，容易欠拟合；k太大，计算开销上升，还可能过拟合。这个超参数没有解析解，只能靠交叉验证去调，增加了训练的复杂度和成本。</p>
+<p><strong>对非稀疏数据提升有限。</strong> FM的优势场景主要是稀疏数据，比如推荐系统、CTR预估里大量one-hot编码之后的类别特征。对于本身就是稠密特征的场景（比如图像、音频），FM的表现未必比得过神经网络一类的模型。另外，如果特征本身已经包含了显式的交互信息（比如人工构造好的组合特征），FM的隐式交叉反而可能带来不必要的冗余计算。</p>
+<p><strong>隐向量解释性较弱。</strong> 隐向量$V_i$本身的物理意义不直观，很难说清楚$\langle V_i, V_j \rangle$到底对应什么具体的业务逻辑，这是一种黑箱性。相比之下，线性模型的权重$w_i$，或者决策树的分裂规则，解释起来要直接得多。</p>
+<p><strong>计算效率的权衡。</strong> FM相比POLY2已经好了很多，但也不是没有上限。它把二阶参数量从$O(n^2)$降到了$O(kn)$，可当特征数n极大时（比如百万维的稀疏特征），计算和存储隐向量仍然需要不小的资源。工业级场景里，往往还要结合哈希技巧或者模型压缩之类的手段进一步优化。</p>
+<h2 id="FFM引入特征域的FM"><a href="#FFM引入特征域的FM" class="headerlink" title="FFM引入特征域的FM"></a>FFM引入特征域的FM</h2><p> FFM（Field-aware Factorization Machine）相比FM（Factorization Machine）的核心优化，在于引入了<strong>特征域（Field）</strong> 的概念，让模型能够更细致地刻画特征间的交互。</p>
+<p>简单来说，FM为每个特征学习一个隐向量，而FFM为每个特征<strong>针对不同域</strong>学习多个隐向量。</p>
+<h3 id="FM-的局限"><a href="#FM-的局限" class="headerlink" title="FM 的局限"></a>FM 的局限</h3><p>FM（Factorization Machine）的数学表达式为：</p>
+<p>$$
+y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j
+$$</p>
+<p>关键在于隐向量 $ \mathbf{v}_i $。每个特征 $ i $ <strong>只对应一个固定的隐向量</strong> $ \mathbf{v}_i $。当特征 $ i $ 与任何特征 $ j $ 交互时，都使用这同一个向量 $ \mathbf{v}_i $ 去计算内积。</p>
+<p>这带来一个问题：特征的“身份”在不同上下文里其实不一样，FM用同一个向量去参与这两种截然不同的交互，就会产生信息混淆，限制了模型的表达能力。</p>
+<h3 id="FFM-的优化"><a href="#FFM-的优化" class="headerlink" title="FFM 的优化"></a>FFM 的优化</h3><p>FFM 的表达式改进为：</p>
+<p>$$
+y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j
+$$</p>
+<p>这里的核心变化是 $ \mathbf{v}_{i, f_j} $。其中 $ f_j $ 代表特征 $ j $ 所属的<strong>域（Field）</strong>。</p>
+<p>这意味着，特征 $ i $ 不再只有一个隐向量，而是<strong>为每一个域</strong>都维护一个独立的隐向量。具体来说：</p>
+<ul>
+<li>当计算特征“周末”与“快餐”（域&#x3D;菜品类型）的交互时，会用“周末”针对“菜品类型”域的隐向量。</li>
+<li>当计算特征“周末”与“高端餐厅”（同样属于域&#x3D;菜品类型）的交互时，会用同样的向量。</li>
+<li>但当计算特征“周末”与“北京”（域&#x3D;城市）的交互时，则会切换到“周末”针对“城市”域的另一个隐向量。</li>
+</ul>
+<p>这让模型能根据交互对象的“域”来动态调整特征的表示，从而更精确地捕捉复杂关系。</p>
+<p>FM的优化在于“用向量代替标量”，而FFM的优化在于“用一组向量代替单一向量”，让同一个特征在面对不同域的特征时，能拿出最合适的那一面来交互。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>从LR到POLY2再到FM，这条演进路线其实是同一个诉求推着走的：怎么在不引爆参数量、不被数据稀疏性卡死的前提下，把特征交叉的信息用起来。LR最先暴露了”特征独立假设”的短板；POLY2给出了正确的方向——显式引入交叉项——但没能解决工程上的两个硬伤，参数爆炸和稀疏训练不足；FM用隐向量的参数共享机制解决了稀疏性问题，又用一个漂亮的数学恒等式把复杂度从$O(n^2)$压到了$O(n)$级别，这才让”自动学习特征交叉”这件事真正在工业界跑了起来。FFM则是在表达能力上又往前推了一步，用训练成本的上升换取了区分”域”的能力。</p>
+<p>理解这条推导逻辑，再去看DeepFM、xDeepFM乃至后面一大批基于Embedding的推荐模型，会顺畅很多——它们本质上都是在FM打下的这个地基上，继续往高阶和非线性方向添砖加瓦。</p>
+]]></content>
+      <categories>
+        <category>深度学习与推荐系统</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+        <tag>FM</tag>
+        <tag>因子分解机</tag>
+        <tag>特征交叉</tag>
+        <tag>召回</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GBDT+LR</title>
+    <url>/cuid87eUHz7MXeoDa0vWjngrs.html</url>
+    <content><![CDATA[<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT+LR"></a>GBDT+LR</h1><p>CTR预估场景涉及到大量高维稀疏特征，树模型并不适合处理这些高维稀疏特征（因此实际上会将dense特征或者低维的离散特征给GBDT，剩余高维稀疏特征拼接上GBDT阶段输出的稀疏特征，然后放到在LR阶段进行训练。GBDT的核心任务是特征组合，擅长自动发现非线性交叉关系。</p>
+<ul>
+<li>传统决策树模型不适合处理稀疏特征，效果和效率通常明显逊色于LR、SVM 或深度学习模型。</li>
+<li>现代 GBDT（如 XGBoost、LightGBM）针对稀疏数据进行了专门优化（稀疏特征计算,不是稀疏特征泛化），能够处理稀疏特征。但需要频繁构建直方图或进行排序，内存占用和计算开销依然远大于基于梯度下降的线性模型。</li>
+<li>超高维特征或高基数特征如用户ID、广告ID等，树模型不适合直接处理。可以使用开启了 smoothing 和 cross-fitting的TargetEncoder进行编码。或者使用GBDT + LR。</li>
+</ul>
+<h1 id="稀疏、稠密特征处理"><a href="#稀疏、稠密特征处理" class="headerlink" title="稀疏、稠密特征处理"></a>稀疏、稠密特征处理</h1><p>FM擅长做稀疏特征处理</p>
+<ul>
+<li>FM二阶做稀疏处理</li>
+<li>FM一阶做稠密处理</li>
+<li>GBDT擅长做稠密特征处理</li>
+<li>DNN可以处理稠密特征、稀疏特征，不擅长做高维稀疏特征，如：uid，可以通过embedding的方式进行处理。【DNN中的连续特征：优先做归一化&#x2F;标准化，在推荐&#x2F;广告中分桶更常见。】</li>
+<li>适合分桶的连续特征：<ul>
+<li>长尾分布</li>
+<li>明显非线性，如用户年龄：18岁、30岁、60岁，不同年龄段行为差异明显。</li>
+<li>业务上有区间意义，如价格：低价商品、中价商品、高价商品</li>
+</ul>
+</li>
+<li>适合归一化&#x2F;表转化的连续特征：<ul>
+<li>数值统计特征：过去7天点击次数、平均停留时间。尤其是连续、分布稳定、没有明显业务区间的特征，通常做log(x+1)变换后再进行归一化&#x2F;标准化</li>
+</ul>
+</li>
+</ul>
+<h1 id="GBDT-FM"><a href="#GBDT-FM" class="headerlink" title="GBDT+FM"></a>GBDT+FM</h1><p>使用GBDT+FM替换升级GBDT+LR，GBDT+FM一般会比直接单纯使用GBDT效果要好。</p>
+<p>尝试L-BFGS、SGD和FTRL三种优化算法求解，其中FTRL最优秀。</p>
+<p>在稀疏特征建模里,凡是可以用”多个个体共享的属性组合”来替代”每个个体独有的身份标识”的地方,都应该优先这么做。<br>用一组可复用、跨用户共享的行为&#x2F;属性特征去替代一个不可复用、高度个体化的ID，去刻画用户。</p>
+<p>[user_id字段(如果保留,做低权重embedding)] </p>
+<ul>
+<li>[观看历史标签字段: 悬疑&#x3D;0.42, 犯罪&#x3D;0.21, 惊悚&#x3D;0.21, 爱情&#x3D;0.28, 韩剧&#x3D;0.35, 其余&#x3D;0]  (500维,大部分为0,是稀疏的)</li>
+<li>[兴趣偏好标签字段: 快节奏&#x3D;0.6, 高分内容&#x3D;0.8, 其余&#x3D;0]  (200维,同样稀疏)</li>
+<li>[其他字段: 年龄段、地域、性别…]</li>
+</ul>
+<p>这个思路不只适用于FM,后来的深度学习推荐系统(比如很多工业界的双塔模型、DSSM变体)也普遍采用类似思路——不直接用user_id&#x2F;item_id做embedding,而是用用户的多维画像特征(年龄段、地域、兴趣类目、行为序列统计等)拼接后过embedding,道理是完全一样的:牺牲一定的个体区分度,换取参数被更充分训练、对长尾和新用户更友好的泛化能力。</p>
+<p>当然这也有权衡取舍——纯ID embedding的好处是理论上能捕捉到”千人千面”里最细粒度的个体差异(比如两个兴趣标签完全一样的用户,实际口味可能仍有细微不同),所以工业界很多系统会两者结合:主特征用标签&#x2F;行为统计这类可复用特征保证泛化能力和冷启动效果,同时保留一个低权重&#x2F;低维度的ID embedding作为补充,去捕捉标签体系覆盖不到的个性化残差信息。这也是为什么现在很多系统会把”频次高的头部ID单独保留embedding,长尾ID统一映射到一个UNK&#x2F;兜底embedding”作为一种折中方案。</p>
+]]></content>
+      <categories>
+        <category>深度学习与推荐系统</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+        <tag>特征交叉</tag>
+        <tag>GBDT</tag>
+        <tag>LR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SVM支持向量机全景拆解</title>
-    <url>/cuidcmgUVCX-zbx0qZhVHtSR2.html</url>
+    <url>/cuidWh7kzWRkD-uXlp23dWTKQ.html</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>支持向量机（Support Vector Machine, SVM）是一种经典的二分类模型，它的核心思想是：<strong>在特征空间中寻找一个决策边界（超平面），使得两类样本被正确分开，并且离决策边界最近的样本点（即支持向量）到该边界的距离尽可能大</strong>。这个距离被称为<strong>间隔（Margin）</strong>，SVM因此也被称为<strong>最大间隔分类器</strong>。</p>
 <h1 id="决策函数"><a href="#决策函数" class="headerlink" title="决策函数"></a>决策函数</h1><p>$$
 \left\{
@@ -737,32 +1304,20 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>线性回归</title>
-    <url>/cuidssyfB1Jq2yvdfbHbKj0XN.html</url>
+    <title>数据的降维</title>
+    <url>/cuidD263Es-iO6n2up-Y-NO3q.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>线性回归</tag>
-        <tag>回归</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>逻辑回归</title>
-    <url>/cuidjTbTzmolAH54BPETnUgnG.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>逻辑回归</tag>
-        <tag>分类算法</tag>
+        <tag>数据降维</tag>
+        <tag>降维算法</tag>
       </tags>
   </entry>
   <entry>
     <title>DecisionTree决策树原理、公式与实战</title>
-    <url>/cuidQfkJ8n2rCgD6ciI3iVFkM.html</url>
+    <url>/cuidgptx8d9CGaEKHk2YtD1qD.html</url>
     <content><![CDATA[<h1 id="决策树（DecisionTree）原理、公式与实战"><a href="#决策树（DecisionTree）原理、公式与实战" class="headerlink" title="决策树（DecisionTree）原理、公式与实战"></a>决策树（DecisionTree）原理、公式与实战</h1><p>决策树（Decision Tree）是机器学习中最直观、可解释性最强且应用最广泛的算法之一，它模拟人类做决策的过程——通过一系列”是与否”的判断，逐步缩小范围，最终得出结论。集成算法如：RF、GBDT、Xgboost、LightGBM都是以决策树为基础构建的。</p>
 <p>决策树本质上是<strong>用一系列超平面对特征空间进行递归划分</strong>的方法。每一次分裂，都把当前空间一分为二，最终每个叶子节点都对应特征空间中一个不相交的区域。预测时，样本从根节点出发，根据每一维特征的取值不断向下走，最终落入某个叶子节点，这个叶子节点的类别（或数值）就是模型给出的预测结果。用一句话概括：<strong>决策树是从根节点到叶子节点的一条决策路径，所有训练数据最终都会落入某个叶子节点中。</strong></p>
 <p>决策树的三个组成部分：</p>
@@ -1470,259 +2025,8 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>集成学习之随机森林RandomForest</title>
-    <url>/cuidYt8U2sQDIlZd42qJGmTBK.html</url>
-    <content><![CDATA[<h1 id="集成学习概述"><a href="#集成学习概述" class="headerlink" title="集成学习概述"></a>集成学习概述</h1><h2 id="随机森林（Random-forest）"><a href="#随机森林（Random-forest）" class="headerlink" title="随机森林（Random forest）"></a>随机森林（Random forest）</h2>]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>决策树</tag>
-        <tag>树模型</tag>
-        <tag>随机森林</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DeepFM排序</title>
-    <url>/cuidFvdK_7yIDn2TFEpv7vSps.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>深度学习与推荐系统</category>
-      </categories>
-      <tags>
-        <tag>推荐算法</tag>
-        <tag>排序</tag>
-        <tag>DeepFM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>FM因子分解机中的特征交叉</title>
-    <url>/cuidfReoeYBfQ3Hl4dBFbU1Hn.html</url>
-    <content><![CDATA[<h1 id="FM因子分解机中的特征交叉"><a href="#FM因子分解机中的特征交叉" class="headerlink" title="FM因子分解机中的特征交叉"></a>FM因子分解机中的特征交叉</h1><p>从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。</p>
-<p>比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步都是在补上一个前作留下的窟窿。今天就把这条演进链彻底捋一遍。</p>
-<h2 id="基础线性模型LR"><a href="#基础线性模型LR" class="headerlink" title="基础线性模型LR"></a>基础线性模型LR</h2><p>最朴素的做法是LR（逻辑回归的线性打分部分）：</p>
-<p>$$
-y = w_0 + \sum_{i=1}^n w_i x_i
-$$</p>
-<p>其中n是样本的特征数量，$x_i$是第i个特征的取值，$w_i$是它对应的系数。</p>
-<p>这个模型简单、训练快、权重可解释，工业界用了很多年，至今仍是很多场景里的baseline。但它有个致命假设——<strong>所有特征都是独立起作用的</strong>，谁也不影响谁，模型只是把每个特征的贡献线性加总。现实世界显然不是这样：年龄和职业会互相影响购买意愿，时间和地点会互相影响用户的行为模式。LR对这些交互统统视而不见，这是它天生的表达能力上限。</p>
-<h2 id="二阶特征叉POLY2"><a href="#二阶特征叉POLY2" class="headerlink" title="二阶特征叉POLY2"></a>二阶特征叉POLY2</h2><p>既然问题出在”看不到交互”，那最直接的补救办法就是把两两特征的乘积也当成一个新特征，单独学一个权重，这就是POLY2：</p>
-<p>$$
-y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{ij} x_i x_j
-$$</p>
-<p>这里$w_0, w_i, w_{ij}$都是待学习的参数，思路很直接：只要$x_i$和$x_j$同时不为0，这一项就会生效，模型就有机会学到这对特征组合的权重。</p>
-<p>听起来合理，用起来却处处碰壁，原因出在两个地方，一个是理论上的参数规模问题，一个是实际训练中的稀疏性问题。</p>
-<p><strong>第一，参数爆炸。</strong> 特征一旦做了one-hot编码（推荐、广告场景里几乎是标配），维度轻松上万甚至上百万，交叉项的数量是$n + \frac{n(n-1)}{2}$级别，n一大，这个数字直接爆炸式增长，模型的存储和训练开销都变得难以承受。</p>
-<p><strong>第二，数据稀疏导致求解困难。</strong> 这一点比参数量爆炸更致命。one-hot之后数据变得极为稀疏，$x_i$和$x_j$同时不为0的样本少之又少。这会带来一连串连锁反应：</p>
-<ul>
-<li>很多交叉项对应的$w_{ij}$根本没有足够的样本去训练；</li>
-<li>在梯度下降过程中，这些参数的梯度大量时候都是0，参数几乎不更新；</li>
-<li>最终的结果是，即便理论上POLY2能表达特征交互，实际上大部分交叉权重都学不出来，模型学不到有意义的交互关系。</li>
-</ul>
-<p>POLY2在理论上没问题，但一到高维稀疏场景就水土不服，正是这两个局限，直接催生了FM。</p>
-<h2 id="FM-因子分解机-用隐向量做参数共享"><a href="#FM-因子分解机-用隐向量做参数共享" class="headerlink" title="FM (因子分解机) 用隐向量做参数共享"></a>FM (因子分解机) 用隐向量做参数共享</h2><p>FM（Factorization Machine，因子分解机）的核心思想，是借助<strong>矩阵分解</strong>的方法，给每个特征引入一个k维的隐向量，用两个隐向量的内积去近似原来POLY2里那个独立的交叉权重，从而解决多项式扩展在稀疏特征下的求解难题。相比POLY2，FM具有线性的计算复杂度，并且能同时处理连续特征和离散特征。</p>
-<p>完整的FM公式是：</p>
-<p>$$
-y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{i,j}x_i x_j =  w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n \langle V_i, V_j \rangle x_i x_j
-$$</p>
-<p>各符号的含义：</p>
-<ul>
-<li>$w_0$：全局偏置项；</li>
-<li>$w_i$：一阶特征权重；</li>
-<li>k：隐向量的维度，是一个需要人工设定的超参数；</li>
-<li>V：一个维度为(one-hot之后的特征数, k)的矩阵；</li>
-<li>$V_i$：特征i对应的k维隐向量；</li>
-<li>$\langle V_i, V_j \rangle$：两个隐向量的内积。</li>
-</ul>
-<h3 id="为什么用内积去近似$w_{ij}$"><a href="#为什么用内积去近似$w_{ij}$" class="headerlink" title="为什么用内积去近似$w_{ij}$"></a>为什么用内积去近似$w_{ij}$</h3><p>POLY2里每一对特征组合都单独存一个$w_{ij}$，FM换了个思路：给每个特征$x_i$引入一个k维的辅助向量</p>
-<p>$$
-V_i = (v_{i1}, v_{i2}, \cdots, v_{ik})
-$$</p>
-<p>然后用两个隐向量的内积去近似原来的交叉权重：</p>
-<p>$$
-w_{ij} \approx V_i V_j^T
-$$</p>
-<p>内积的具体计算方式是：</p>
-<p>$$
-\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}
-$$</p>
-<p>这一步转换看着不大，实际上是整个方法的核心。在POLY2里，$w_{ij}$和$w_{ik}$是两个毫不相干的参数，各学各的，谁也帮不了谁；但引入隐向量之后，$w_{ij} = \langle V_i, V_j \rangle$和$w_{ik} = \langle V_i, V_k \rangle$共享着同一个$V_i$，两者之间就建立起了关联。也就是说，<strong>只要样本里出现过特征i和任意一个非零特征j的组合（即存在某个$j \neq i$使得$x_i x_j \neq 0$），这条样本就能拿来训练$V_i$</strong>，而不需要恰好凑齐$(i,j)$这个特定的组合才行。稀疏性带来的训练不足问题，就这样被参数共享绕开了。</p>
-<p>这还带来一个额外的好处：<strong>泛化能力变强了</strong>。哪怕训练集里从没同时出现过某两个特征，只要它们各自的隐向量都学得不错，FM依然可以通过两个k维隐向量的内积，算出一个合理的组合特征权重。这是POLY2完全做不到的——POLY2里没见过的组合，权重就是学不出来。</p>
-<h3 id="FM中的两处优化"><a href="#FM中的两处优化" class="headerlink" title="FM中的两处优化"></a>FM中的两处优化</h3><p>FM之所以能真正落地，靠的是两处优化，一处是参数规模的压缩，一处是计算复杂度的压缩，两者是分开的两件事，容易被混在一起说，这里拆开讲清楚。</p>
-<p><strong>优化一：参数规模从$n^2$降到$nk$。</strong> 通过引入特征隐向量替代原有权重的方式$w_{ij} = \langle v_i, v_j \rangle$，把原先$n^2$级别（准确说是$n(n-1)/2$个）的权重参数，降低到了$n \times k$的级别。因为通常$k$远小于$n$（k取几十到几百，n在one-hot之后可能是百万级），这一步就已经把参数量压缩了一个甚至几个数量级。</p>
-<p><strong>优化二：训练复杂度从$O(kn^2)$降到$O(kn)$。</strong> 这一步是通过转换目标函数的数学形式实现的，也是接下来要重点推导的部分。相比POLY2，这一步进一步极大地降低了训练开销，是FM能在工业界大规模落地的关键。</p>
-<h4 id="公式化简"><a href="#公式化简" class="headerlink" title="公式化简"></a>公式化简</h4><p>下面我们来看一下二阶交叉项是怎么从O(n²)降到O(kn)的。原始的二阶交互项长这样：<br>$$
-\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j
-$$</p>
-<p>其中$\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}$。直接算这个双重求和，需要遍历所有的$(i,j)$对，复杂度是$O(n^2k)$，特征数一大就扛不住。下面一步步把它化简掉。</p>
-<p><strong>第一步，展开内积求和。</strong> 把内积展开成隐向量各维度的乘积和，再交换求和顺序：</p>
-<p>$$
-\sum_{i=1}^{n} \sum_{j=i+1}^{n} \left( \sum_{f=1}^k v_{i,f} v_{j,f} \right) x_i x_j = \sum_{f=1}^k \left( \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j \right)
-$$</p>
-<p><strong>第二步，利用平方恒等式。</strong> 这里用到一个很基础的代数恒等式：$ab = \frac{1}{2}[(a+b)^2-(a^2+b^2)]$，推广到多项就是：</p>
-<p>$$
-\left( \sum_{i=1}^n v_{i,f} x_i \right)^2 = \sum_{i=1}^n v_{i,f}^2 x_i^2 + 2 \sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j
-$$</p>
-<p>直观上看，左边是”n个数先求和再平方”，右边拆开后，平方项里既包含每个数自己的平方（$i=j$的部分），也包含所有两两交叉项的和（乘了2，因为$ij$和$ji$是同一项算了两次）。把等式移项，就能把我们要的那个双重求和单独解出来：</p>
-<p>$$
-\sum_{i=1}^{n} \sum_{j=i+1}^{n} v_{i,f} v_{j,f} x_i x_j = \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
-$$</p>
-<p><strong>第三步，代入并合并所有维度。</strong> 把这个结果代回第一步的求和式中：</p>
-<p>$$
-\sum_{f=1}^k \left( \frac{1}{2} \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right) \right) = \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
-$$</p>
-<p><strong>二阶项最终的化简结果：</strong></p>
-<p>$$
-\frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
-$$</p>
-<p>代入完整公式，<strong>化简后最终的FM公式</strong>是：</p>
-<p>$$
-y = w_0 + \sum_{i=1}^n w_i x_i + \frac{1}{2} \sum_{f=1}^k \left( \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n v_{i,f}^2 x_i^2 \right)
-$$</p>
-<p>需要特别说明一句：<strong>实际项目里的代码实现，用的都是这个化简后的公式，而不是最开始那个双重求和的原始形式</strong>。</p>
-<p>对每个隐向量维度f，先算出$\sum_{i=1}^n v_{i,f} x_i$（相当于把所有特征在这一维上的贡献先加总），这一步对所有f一起算是$O(kn)$；接下来平方求和是$O(k)$；再减去对角线上$i=j$那部分自乘项（也是$O(kn)$），把无效的自交叉排除出去。整体加起来，总复杂度就是$O(kn)$，和特征数n只是线性关系，而不是原始形式那种平方关系。</p>
-<p>从直观上理解这三步分别在干什么：</p>
-<ul>
-<li><strong>平方项</strong>：捕获的是所有特征在隐空间某一维度上的联合贡献；</li>
-<li><strong>减去平方和</strong>：是为了消除特征自身的重复计算，也就是把$i=j$这种无意义的”自己和自己交叉”项去掉；</li>
-<li><strong>隐向量维度k</strong>：控制的是交互能表达的潜在语义空间大小，k越大表达能力越强，但计算量和过拟合风险也随之上升。</li>
-</ul>
-<p>这个数学变换是整个FM方法里最值得记住的一步，没有它，FM大概率也就停留在论文里，不会在工业界大规模落地。</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>把参数复杂度、训练复杂度、推理复杂度分开看一遍。</p>
-<p><strong>参数复杂度：$O(kn)$。</strong> 对比一下POLY2：POLY2需要为每对特征组合单独存储参数$w_{ij}$，参数量是组合数$\frac{n(n-1)}{2}$（二阶项部分）；FM改为给每个特征学一个k维隐向量$V_i$，二阶项的参数量变成$kn$。当$k \ll n$时（k通常取几十到几百，n是one-hot之后的特征总数），参数量大幅减少。</p>
-<p><strong>训练时间复杂度：$O(kn)$。</strong> 这是前面推导的直接结果。</p>
-<p><strong>推理（预测）计算复杂度：$O(kn)$。</strong> 预测公式可以拆成两部分看：</p>
-<p>$$
-y = w_0 + \underbrace{\sum_{i=1}^n w_i x_i}_{\text{一阶项，} O(n)} + \underbrace{\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j}_{\text{二阶项，优化后为} O(kn)}
-$$</p>
-<p>二阶项在化简之后：</p>
-<p>$$
-\sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j = \frac{1}{2} \left( \sum_{f=1}^k \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n \sum_{f=1}^k (v_{i,f} x_i)^2 \right)
-$$</p>
-<p>具体分三步：先计算每个隐向量维度f的求和$\sum_i v_{i,f} x_i$，复杂度$O(kn)$；再平方后求和，复杂度$O(k)$；最后减去对角线项，复杂度$O(kn)$。三步加起来总复杂度还是$O(kn)$，和特征数n、隐向量维度k都只是线性关系，这才是FM能扛住工业级高维稀疏数据的根本原因。</p>
-<h3 id="FM中的特征分配"><a href="#FM中的特征分配" class="headerlink" title="FM中的特征分配"></a>FM中的特征分配</h3><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">连续特征（如：身高、存款）、中低基数类别特征（如：性别、学历、颜色偏好）、高基数类别特征（如：用户ID、城市ID）</span><br></pre></td></tr></table></figure>
-
-<h4 id="FM一阶特征"><a href="#FM一阶特征" class="headerlink" title="FM一阶特征"></a>FM一阶特征</h4><ul>
-<li>连续特征：身高（归一化、离散化+One-hot）、存款（归一化、离散化+One-hot）</li>
-<li>中低基数类别特征：性别（One-hot）、学历（One-hot 、Label Encoding顺序编码 + 归一化）、颜色偏好（Multi-hot）</li>
-<li>高基数类别特征：城市ID（高频&#x2F;热门城市 One-hot，低频归为 <code>UNK</code>）【可选，也可以只放二阶】</li>
-</ul>
-<p>注：</p>
-<ol>
-<li><p>关于学历编码：</p>
-<ul>
-<li><p>如果学历（专科、本科、硕士、博士）做Label Encoding顺序编码，则需要再归一化为 $[0, 1]$ 的连续值，因为顺序编码强行假设了“本科是专科的2倍，硕士是专科的3倍”这种等差线性关系。</p>
-</li>
-<li><p>如果做One-hot处理，虽然丢失了学历间天然的递进关系，但当它进入 FM 的二阶交叉层时，每个学历分配的低维密集向量可以表征这些关系，如：$Cos(V_{专科}, V_{本科}) >  Cos(V_{专科}, V_{博士}$)  </p>
-</li>
-<li><p>一阶做顺序编码+归一化，二阶One-hot，既保留递进顺序，又享受独立表达的灵活度，兼顾全局单调性与局部非线性搭配。</p>
-</li>
-<li><p>累加编码 &#x2F; 阈值编码（Thermometer Encoding &#x2F; Target Encoding），温度计编码能完美保留顺序：</p>
-<ul>
-<li>专科：<code>[1, 0, 0, 0]</code>（满足 &gt;&#x3D; 专科）</li>
-<li>本科：<code>[1, 1, 0, 0]</code>（满足 &gt;&#x3D; 专科，&gt;&#x3D; 本科）</li>
-<li>硕士：<code>[1, 1, 1, 0]</code>（满足 &gt;&#x3D; 专科，&gt;&#x3D; 本科，&gt;&#x3D; 硕士）</li>
-<li>博士：<code>[1, 1, 1, 1]</code></li>
-</ul>
-<p><em>这样计算向量点积时，硕士自然包含了本科和专科的全部基础表达，同时多了一个“硕士特有”的维度。</em></p>
-</li>
-</ul>
-</li>
-<li><p>高基数特征不能直接 One-hot 到一阶，会导致百万级别的稀疏参数，导致<strong>模型过拟合</strong>，且一阶参数极其稀疏难以收敛。</p>
-</li>
-<li><p>连续特征在做了离散化后，还需要进行One-hot处理，否则会强行引入了不合理的线性假设。</p>
-</li>
-</ol>
-<h4 id="FM二阶特征："><a href="#FM二阶特征：" class="headerlink" title="FM二阶特征："></a>FM二阶特征：</h4><ul>
-<li>连续特征：如果做的是离散化处理，则在二阶均可完美适用；如果进行了归一化，则可只放一阶，若要放二阶则其隐向量与离散特征隐向量做标量乘法。</li>
-<li>中低基数类别特征：处理方式与一阶共享（相同），再与其他变量做交叉。</li>
-<li>高基数类别特征：用户ID（One-hot）、城市ID（One-hot），再与其他变量做交叉。</li>
-</ul>
-<h3 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p><strong>参数共享机制。</strong> 用隐向量内积近似代替单独的参数$w_{ij} \approx \langle V_i, V_j \rangle$，二阶项参数量从POLY2的$\frac{n(n-1)}{2}$降为$kn$，这是前面反复强调的核心机制。</p>
-<p><strong>解决了稀疏性问题。</strong> 共享隐向量使得所有包含特征i的交互项都能用来训练$V_i$。即便某些特征组合在训练集里从未出现过，仍然可以通过隐向量内积算出它的权重——比如$w_{ij} = \langle V_i,V_j\rangle$和$w_{ik} = \langle V_i,V_k\rangle$共享了$V_i$，所有包含$V_i$的非零组合特征都可以用来学习$V_i$，这在数据稀疏的场景下是决定性的优势。</p>
-<p><strong>泛化能力提升。</strong> FM可以预测训练数据中从未出现过的特征组合，靠的是隐向量内积计算新组合的权重，而不是依赖独立的、必须见过才能学到的参数。这是它相对POLY2最本质的进步。</p>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p><strong>高阶特征交叉能力有限。</strong> FM默认只建模特征的两两交互（二阶多项式），没法直接捕获三阶及以上的特征组合关系。虽然理论上可以扩展出高阶FM，但计算复杂度会显著增加，性价比不高。这个短板后来主要靠DeepFM、xDeepFM这类模型来补，它们结合深度神经网络去捕捉高阶的非线性特征交互。</p>
-<p><strong>隐向量维度k需要人工选择。</strong> k是一个预设的超参数，大小直接影响模型表现：k太小，特征交叉的表达能力不够，容易欠拟合；k太大，计算开销上升，还可能过拟合。这个超参数没有解析解，只能靠交叉验证去调，增加了训练的复杂度和成本。</p>
-<p><strong>对非稀疏数据提升有限。</strong> FM的优势场景主要是稀疏数据，比如推荐系统、CTR预估里大量one-hot编码之后的类别特征。对于本身就是稠密特征的场景（比如图像、音频），FM的表现未必比得过神经网络一类的模型。另外，如果特征本身已经包含了显式的交互信息（比如人工构造好的组合特征），FM的隐式交叉反而可能带来不必要的冗余计算。</p>
-<p><strong>隐向量解释性较弱。</strong> 隐向量$V_i$本身的物理意义不直观，很难说清楚$\langle V_i, V_j \rangle$到底对应什么具体的业务逻辑，这是一种黑箱性。相比之下，线性模型的权重$w_i$，或者决策树的分裂规则，解释起来要直接得多。</p>
-<p><strong>计算效率的权衡。</strong> FM相比POLY2已经好了很多，但也不是没有上限。它把二阶参数量从$O(n^2)$降到了$O(kn)$，可当特征数n极大时（比如百万维的稀疏特征），计算和存储隐向量仍然需要不小的资源。工业级场景里，往往还要结合哈希技巧或者模型压缩之类的手段进一步优化。</p>
-<h2 id="FFM引入特征域的FM"><a href="#FFM引入特征域的FM" class="headerlink" title="FFM引入特征域的FM"></a>FFM引入特征域的FM</h2><p> FFM（Field-aware Factorization Machine）相比FM（Factorization Machine）的核心优化，在于引入了<strong>特征域（Field）</strong> 的概念，让模型能够更细致地刻画特征间的交互。</p>
-<p>简单来说，FM为每个特征学习一个隐向量，而FFM为每个特征<strong>针对不同域</strong>学习多个隐向量。</p>
-<h3 id="FM-的局限"><a href="#FM-的局限" class="headerlink" title="FM 的局限"></a>FM 的局限</h3><p>FM（Factorization Machine）的数学表达式为：</p>
-<p>$$
-y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j
-$$</p>
-<p>关键在于隐向量 $ \mathbf{v}_i $。每个特征 $ i $ <strong>只对应一个固定的隐向量</strong> $ \mathbf{v}_i $。当特征 $ i $ 与任何特征 $ j $ 交互时，都使用这同一个向量 $ \mathbf{v}_i $ 去计算内积。</p>
-<p>这带来一个问题：特征的“身份”在不同上下文里其实不一样，FM用同一个向量去参与这两种截然不同的交互，就会产生信息混淆，限制了模型的表达能力。</p>
-<h3 id="FFM-的优化"><a href="#FFM-的优化" class="headerlink" title="FFM 的优化"></a>FFM 的优化</h3><p>FFM 的表达式改进为：</p>
-<p>$$
-y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j
-$$</p>
-<p>这里的核心变化是 $ \mathbf{v}_{i, f_j} $。其中 $ f_j $ 代表特征 $ j $ 所属的<strong>域（Field）</strong>。</p>
-<p>这意味着，特征 $ i $ 不再只有一个隐向量，而是<strong>为每一个域</strong>都维护一个独立的隐向量。具体来说：</p>
-<ul>
-<li>当计算特征“周末”与“快餐”（域&#x3D;菜品类型）的交互时，会用“周末”针对“菜品类型”域的隐向量。</li>
-<li>当计算特征“周末”与“高端餐厅”（同样属于域&#x3D;菜品类型）的交互时，会用同样的向量。</li>
-<li>但当计算特征“周末”与“北京”（域&#x3D;城市）的交互时，则会切换到“周末”针对“城市”域的另一个隐向量。</li>
-</ul>
-<p>这让模型能根据交互对象的“域”来动态调整特征的表示，从而更精确地捕捉复杂关系。</p>
-<p>FM的优化在于“用向量代替标量”，而FFM的优化在于“用一组向量代替单一向量”，让同一个特征在面对不同域的特征时，能拿出最合适的那一面来交互。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>从LR到POLY2再到FM，这条演进路线其实是同一个诉求推着走的：怎么在不引爆参数量、不被数据稀疏性卡死的前提下，把特征交叉的信息用起来。LR最先暴露了”特征独立假设”的短板；POLY2给出了正确的方向——显式引入交叉项——但没能解决工程上的两个硬伤，参数爆炸和稀疏训练不足；FM用隐向量的参数共享机制解决了稀疏性问题，又用一个漂亮的数学恒等式把复杂度从$O(n^2)$压到了$O(n)$级别，这才让”自动学习特征交叉”这件事真正在工业界跑了起来。FFM则是在表达能力上又往前推了一步，用训练成本的上升换取了区分”域”的能力。</p>
-<p>理解这条推导逻辑，再去看DeepFM、xDeepFM乃至后面一大批基于Embedding的推荐模型，会顺畅很多——它们本质上都是在FM打下的这个地基上，继续往高阶和非线性方向添砖加瓦。</p>
-]]></content>
-      <categories>
-        <category>深度学习与推荐系统</category>
-      </categories>
-      <tags>
-        <tag>排序</tag>
-        <tag>FM</tag>
-        <tag>因子分解机</tag>
-        <tag>特征交叉</tag>
-        <tag>召回</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GBDT+LR</title>
-    <url>/cuidRtzX3P3A8t6L6bfIYJV3x.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>深度学习与推荐系统</category>
-      </categories>
-      <tags>
-        <tag>排序</tag>
-        <tag>特征交叉</tag>
-        <tag>GBDT</tag>
-        <tag>LR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>投资理财实战</title>
-    <url>/cuidw5hQBniesf0G9i3FuUZqQ.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>学习与成长</category>
-      </categories>
-      <tags>
-        <tag>投资</tag>
-        <tag>理财</tag>
-        <tag>股票</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据的降维</title>
-    <url>/cuidyXpzR6ceRGI-BXVhAjZ_n.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>数据降维</tag>
-        <tag>降维算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>机器学习导论</title>
-    <url>/cuidtgpiSrU6-K3V_-2S4ZaHX.html</url>
+    <url>/cuidXcGAeSIoiwMxitvBWz-4R.html</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在传统的编程范式中，我们输入数据和规则，通过计算机得到答案。而机器学习（Machine Learning）则不同，我们向计算机输入数据和答案（即最终的结果），让计算机自己去发现其中的学习模型、发现规律，从而构建能够进行预测的数学模型。简而言之，<strong>机器学习是一门研究如何让计算机从数据中自动获取规律，并利用这些规律来预测未知、辅助决策的科学。</strong></p>
 <p>机器学习是一门交叉学科，根据不同的视角可以被划分为多种范式，如： </p>
 <p>从<strong>统计推断的哲学思想</strong>划分，机器学习模型可以划分为：<strong>频率学派与贝叶斯学派</strong>。前者认为模型的参数是固定但未知的“常数”，学习的过程就是通过优化方法寻找这个最优值；而后者则认为参数本身服从某种分布，学习的过程是在观察数据后，对先验信念进行更新。</p>
@@ -2191,17 +2495,66 @@ $$</p>
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>回归</tag>
         <tag>频率学派</tag>
         <tag>贝叶斯学派</tag>
         <tag>判别式模型</tag>
         <tag>生成式模型</tag>
+        <tag>回归</tag>
         <tag>分类</tag>
       </tags>
   </entry>
   <entry>
+    <title>线性回归</title>
+    <url>/cuid5b5TAupvG-2Y0lAfbdKmB.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>回归</tag>
+        <tag>线性回归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逻辑回归</title>
+    <url>/cuidr1GCk3Mmi1Zw9kztNSB7q.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>逻辑回归</tag>
+        <tag>分类算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集成学习之随机森林RandomForest</title>
+    <url>/cuidXS2vne9az-_OH6aTKZ2zT.html</url>
+    <content><![CDATA[<h1 id="集成学习概述"><a href="#集成学习概述" class="headerlink" title="集成学习概述"></a>集成学习概述</h1><h2 id="随机森林（Random-forest）"><a href="#随机森林（Random-forest）" class="headerlink" title="随机森林（Random forest）"></a>随机森林（Random forest）</h2>]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>决策树</tag>
+        <tag>树模型</tag>
+        <tag>随机森林</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何做好技术型管理</title>
+    <url>/cuiduItyEryD9XhiSbNoigvHJ.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>管理与思考</category>
+      </categories>
+      <tags>
+        <tag>技术管理</tag>
+        <tag>管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>信息论</title>
-    <url>/cuidwlFBjxxCcBEmGcJVs96Rn.html</url>
+    <url>/cuidHl6VscbxZtABT7g-4tT8r.html</url>
     <content><![CDATA[<h1 id="信息熵（Information-Entropy）"><a href="#信息熵（Information-Entropy）" class="headerlink" title="信息熵（Information Entropy）"></a>信息熵（Information Entropy）</h1><p>熵是随机变量或系统不确定性的度量。<strong>熵越大不确定性越大，熵越低纯度越高越稳定</strong></p>
 <p>在决策树中熵用来衡量样本的纯度。<br>$$
 H(Y) = -\sum_{i=0}^{c-1}P(Y=y_i)log_2P(Y=y_i)
@@ -2254,7 +2607,7 @@ $$</p>
   </entry>
   <entry>
     <title>向量</title>
-    <url>/cuidnrkZl0iBs8AogJ6OeH5lC.html</url>
+    <url>/cuidwVKzwxJ64FB7xC-GldM9L.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2262,7 +2615,7 @@ $$</p>
   </entry>
   <entry>
     <title>概率统计</title>
-    <url>/cuidAcB2Asrgs3Sq-Z05kOSEC.html</url>
+    <url>/cuidNsqNCOCpNzC0e3pHi8-05.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2270,7 +2623,7 @@ $$</p>
   </entry>
   <entry>
     <title>特征值与特征向量</title>
-    <url>/cuidtR5vZmIq_O1zezlsxzQCN.html</url>
+    <url>/cuidwCdkOLYkXsbVNuvVvLNjU.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2278,7 +2631,7 @@ $$</p>
   </entry>
   <entry>
     <title>矩阵</title>
-    <url>/cuidjtOrXe0tiZ7uEcopezrBX.html</url>
+    <url>/cuidy1841x6ZIlDQrPJOXx_jK.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2286,22 +2639,10 @@ $$</p>
   </entry>
   <entry>
     <title>高等数学</title>
-    <url>/cuidfaTi1N0e105c9_SBOP7qg.html</url>
+    <url>/cuidzK7m-SgNVgptW1svFl5AJ.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
       </categories>
-  </entry>
-  <entry>
-    <title>如何做好技术型管理</title>
-    <url>/cuideMV_-bm3r_OVIdCHxVn-Q.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>管理与思考</category>
-      </categories>
-      <tags>
-        <tag>技术管理</tag>
-        <tag>管理</tag>
-      </tags>
   </entry>
 </search>

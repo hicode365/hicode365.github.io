@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>DeepFM推荐领域深度学习的Baseline | hicode365</title>
+  <meta name="description" content="DeepFM推荐领域深度学习的Baseline CTR（点击率）预估是推荐系统、广告系统和搜索排序的核心环节，而特征交叉（Feature Interaction）的建模能力，直接决定了模型效果的上限。DeepFM 由华为诺亚方舟实验室于 2017 年提出，凭借”无需人工特征工程、无需预训练、同时捕捉低阶与高阶特征交叉”三大优势，成为工业界落地最广的 CTR 模型之一。  在电商、信息流、短视频等场">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepFM推荐领域深度学习的Baseline">
+<meta property="og:url" content="https://www.hicode365.com/cuid2sap6UxqRFTt_bWOKYrXG">
+<meta property="og:site_name" content="hicode">
+<meta property="og:description" content="DeepFM推荐领域深度学习的Baseline CTR（点击率）预估是推荐系统、广告系统和搜索排序的核心环节，而特征交叉（Feature Interaction）的建模能力，直接决定了模型效果的上限。DeepFM 由华为诺亚方舟实验室于 2017 年提出，凭借”无需人工特征工程、无需预训练、同时捕捉低阶与高阶特征交叉”三大优势，成为工业界落地最广的 CTR 模型之一。  在电商、信息流、短视频等场">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.hicode365.com/images/image-20250725002017499.png">
+<meta property="og:image" content="https://www.hicode365.com/images/image-20250725002612407.png">
+<meta property="og:image" content="https://www.hicode365.com/images/image-20250725002314210.png">
+<meta property="og:image" content="https://www.hicode365.com/images/image-20250725002331596.png">
+<meta property="article:published_time" content="2026-02-22T13:23:58.226Z">
+<meta property="article:modified_time" content="2026-08-01T03:24:01.530Z">
+<meta property="article:author" content="hicode365">
+<meta property="article:tag" content="DeepFM">
+<meta property="article:tag" content="排序">
+<meta property="article:tag" content="推荐算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.hicode365.com/images/image-20250725002017499.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://www.hicode365.com/cuid2sap6UxqRFTt_bWOKYrXG.html">
+  
+    <link rel="alternate" href="/atom.xml" title="hicode" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body class="main-center theme-black# 主题颜色 theme-black theme-blue theme-green theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://www.hicode365.com/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">hicode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Algorithms Engineer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Peking, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/">学习与成长</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ml/">机器学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/">算法中的数学</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/">管理与思考</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/DeepFM/" style="font-size: 13px;">DeepFM</a> <a href="/tags/FM/" style="font-size: 13px;">FM</a> <a href="/tags/GBDT/" style="font-size: 13px;">GBDT</a> <a href="/tags/LR/" style="font-size: 13px;">LR</a> <a href="/tags/SVM/" style="font-size: 13px;">SVM</a> <a href="/tags/Transformer/" style="font-size: 13px;">Transformer</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" style="font-size: 13px;">信息增益</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/" style="font-size: 13px;">信息增益率</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 13.5px;">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 13px;">分类</a> <a href="/tags/%E5%88%86%E7%B1%BB%E6%A0%91/" style="font-size: 13px;">分类树</a> <a href="/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/" style="font-size: 13px;">分类算法</a> <a href="/tags/%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">判别式模型</a> <a href="/tags/%E5%8F%AC%E5%9B%9E/" style="font-size: 13px;">召回</a> <a href="/tags/%E5%9B%9E%E5%BD%92/" style="font-size: 13.5px;">回归</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 13px;">回归树</a> <a href="/tags/%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA/" style="font-size: 13px;">因子分解机</a> <a href="/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" style="font-size: 13px;">基尼系数</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/" style="font-size: 13px;">技术管理</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 14px;">排序</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/" style="font-size: 13px;">推荐算法</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E7%A7%AF/" style="font-size: 13px;">支持向量积</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/" style="font-size: 13px;">数据降维</a> <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/" style="font-size: 13.5px;">树模型</a> <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/" style="font-size: 13px;">核函数</a> <a href="/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/" style="font-size: 13.5px;">特征交叉</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13px;">理财</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">生成式模型</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13px;">管理</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">线性回归</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 13px;">股票</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">贝叶斯学派</a> <a href="/tags/%E8%BD%AF%E9%97%B4%E9%9A%94/" style="font-size: 13px;">软间隔</a> <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">逻辑回归</a> <a href="/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/" style="font-size: 13px;">降维算法</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" style="font-size: 13px;">随机森林</a> <a href="/tags/%E9%A2%91%E7%8E%87%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">频率学派</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cuid3NzgTmZgKLQcPcW4ighc1" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a>
+              </p>
+              <p class="item-title">
+                <a href="/cuid3NzgTmZgKLQcPcW4ighc1" class="title">Transformer详解</a>
+              </p>
+              <p class="item-date" style="display:none;">
+                <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cuidjkAV01JvXS8HOUfR01MTz" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/">学习与成长</a>
+              </p>
+              <p class="item-title">
+                <a href="/cuidjkAV01JvXS8HOUfR01MTz" class="title">投资理财实战</a>
+              </p>
+              <p class="item-date" style="display:none;">
+                <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cuid2sap6UxqRFTt_bWOKYrXG" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/cuid2sap6UxqRFTt_bWOKYrXG" class="title">DeepFM推荐领域深度学习的Baseline</a>
+              </p>
+              <p class="item-date" style="display:none;">
+                <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cuidp8fxL56v0msO5q0-zx6wP" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/cuidp8fxL56v0msO5q0-zx6wP" class="title">FM因子分解机中的特征交叉</a>
+              </p>
+              <p class="item-date" style="display:none;">
+                <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cuid87eUHz7MXeoDa0vWjngrs" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/cuid87eUHz7MXeoDa0vWjngrs" class="title">GBDT+LR</a>
+              </p>
+              <p class="item-date" style="display:none;">
+                <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DeepFM%E6%8E%A8%E8%8D%90%E9%A2%86%E5%9F%9F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84Baseline"><span class="toc-number">1.</span> <span class="toc-text">DeepFM推荐领域深度学习的Baseline</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="toc-number">1.2.</span> <span class="toc-text">模型的演进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LR%EF%BC%9A%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%97%A0%E5%A5%88"><span class="toc-number">1.2.1.</span> <span class="toc-text">LR：线性模型的无奈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FM%EF%BC%9A%E4%BA%8C%E9%98%B6%E4%BA%A4%E5%8F%89%E7%9A%84%E4%BC%98%E9%9B%85%E8%A7%A3"><span class="toc-number">1.2.2.</span> <span class="toc-text">FM：二阶交叉的优雅解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FNN-PNN%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%99%BB%E5%9C%BA"><span class="toc-number">1.2.3.</span> <span class="toc-text">FNN &#x2F; PNN：神经网络登场</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wide-Deep%EF%BC%9A%E8%AE%B0%E5%BF%86%E4%B8%8E%E6%B3%9B%E5%8C%96%E7%9A%84%E7%BB%93%E5%90%88"><span class="toc-number">1.2.4.</span> <span class="toc-text">Wide &amp; Deep：记忆与泛化的结合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.5.</span> <span class="toc-text">不同模型对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DeepFM-%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">DeepFM 模型详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">整体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB-Embedding-%E5%B1%82%EF%BC%9A%E6%9C%80%E7%B2%BE%E5%A6%99%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.2.</span> <span class="toc-text">共享 Embedding 层：最精妙的设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FM-%E9%83%A8%E5%88%86%EF%BC%9A%E8%B4%9F%E8%B4%A3%E4%BD%8E%E9%98%B6%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89"><span class="toc-number">1.3.3.</span> <span class="toc-text">FM 部分：负责低阶特征交叉</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FM%E4%B8%AD%E4%BA%8C%E9%98%B6%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">FM中二阶的部分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-%E9%83%A8%E5%88%86%EF%BC%9A%E8%B4%9F%E8%B4%A3%E9%AB%98%E9%98%B6%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.3.4.</span> <span class="toc-text">Deep 部分：负责高阶非线性特征学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepFM%E4%B8%AD%E8%BF%9E%E7%BB%AD%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.5.</span> <span class="toc-text">DeepFM中连续特征的处理方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%B5%81-CTR-%E6%A8%A1%E5%9E%8B%E6%A8%AA%E5%90%91%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.</span> <span class="toc-text">主流 CTR 模型横向对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DeepFM-%E5%B7%A5%E4%B8%9A%E8%90%BD%E5%9C%B0"><span class="toc-number">1.5.</span> <span class="toc-text">DeepFM 工业落地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%99%90%E4%B8%8E%E5%90%8E%E7%BB%AD%E6%BC%94%E8%BF%9B"><span class="toc-number">1.6.</span> <span class="toc-text">局限与后续演进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.7.</span> <span class="toc-text">小结</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-深度学习与推荐系统/DeepFM排序" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DeepFM推荐领域深度学习的Baseline
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <!-- <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/cuid2sap6UxqRFTt_bWOKYrXG" class="article-date">
+	  <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
+	</a>
+</span> -->
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/DeepFM/" rel="tag">DeepFM</a>, <a class="article-tag-link-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a>, <a class="article-tag-link-link" href="/tags/%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/" rel="tag">推荐算法</a>
+  </span>
+
+
+        
+
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/cuid2sap6UxqRFTt_bWOKYrXG#comments" class="article-comment-link">评论</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="DeepFM推荐领域深度学习的Baseline"><a href="#DeepFM推荐领域深度学习的Baseline" class="headerlink" title="DeepFM推荐领域深度学习的Baseline"></a>DeepFM推荐领域深度学习的Baseline</h1><blockquote>
+<p>CTR（点击率）预估是推荐系统、广告系统和搜索排序的核心环节，而特征交叉（Feature Interaction）的建模能力，直接决定了模型效果的上限。DeepFM 由华为诺亚方舟实验室于 2017 年提出，凭借”无需人工特征工程、无需预训练、同时捕捉低阶与高阶特征交叉”三大优势，成为工业界落地最广的 CTR 模型之一。</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>在电商、信息流、短视频等场景中，用户每刷新一次页面，系统都要回答一个问题：<strong>把哪些内容排在最前面？</strong></p>
+<p>CTR 模型输出的 pCTR 决定了内容的展示顺序，哪怕是一点点 AUC 的提升，都可能带来较大的营收变化。所以CTR 建模能力是推荐系统的核心竞争力，而 CTR 建模的本质难题，是<strong>特征交叉</strong>。举几个直观的例子：</p>
+<ul>
+<li>用户性别 &#x3D; 女 × 品类 &#x3D; 母婴 → 高点击</li>
+<li>用户年龄 &#x3D; 30 岁 × 商品价格 &#x3D; 高价 → 低点击</li>
+<li>用户所在城市 &#x3D; 北京 × 天气 &#x3D; 雨天 → 打车 App 高活跃</li>
+</ul>
+<p>单独看任何一个特征都无法捕捉这些规律，<strong>只有把多个特征组合起来才有意义</strong>。于是，”如何自动、高效、充分地学习特征交叉”，就成了 CTR 模型演进的主线。</p>
+<hr>
+<h2 id="模型的演进"><a href="#模型的演进" class="headerlink" title="模型的演进"></a>模型的演进</h2><p>在理解 DeepFM 之前，有必要先梳理一下它之前的技术脉络——因为 DeepFM 的每一处设计，几乎都是针对前人模型痛点的”对症下药”。</p>
+<h3 id="LR：线性模型的无奈"><a href="#LR：线性模型的无奈" class="headerlink" title="LR：线性模型的无奈"></a>LR：线性模型的无奈</h3><p>逻辑回归（LR）是工业界最早大规模使用的 CTR 模型，优点是简单、可解释、易上线，但它<strong>只能学习一阶特征</strong>，对特征交叉无能为力。传统做法是人工构造交叉特征（如”性别_品类”组合）后再喂给 LR，代价是海量的人工特征工程投入，且难以穷举所有有效组合。</p>
+<h3 id="FM：二阶交叉的优雅解"><a href="#FM：二阶交叉的优雅解" class="headerlink" title="FM：二阶交叉的优雅解"></a>FM：二阶交叉的优雅解</h3><p>因子分解机（Factorization Machine）用隐向量（Embedding）的技巧解决了二阶交叉在高维稀疏场景下的参数估计问题：</p>
+<p>$$ y_{FM} = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n}\sum_{j=i+1}^{n} \langle v_i, v_j \rangle x_i x_j $$</p>
+<p>每个特征 $i$ 学习一个 $k$ 维隐向量 $v_i$，二阶交叉项用内积 $\langle v_i, v_j \rangle$ 度量。这种隐向量机制使得<strong>即便某两个特征从未在训练集中共现过，模型依然可以通过向量相似度进行泛化</strong>，从而很好地缓解了稀疏场景下的参数估计难题。但 FM 的表达能力止步于二阶交叉，更高阶的非线性关系它无能为力。</p>
+<h3 id="FNN-PNN：神经网络登场"><a href="#FNN-PNN：神经网络登场" class="headerlink" title="FNN &#x2F; PNN：神经网络登场"></a>FNN &#x2F; PNN：神经网络登场</h3><p>FNN（2016）尝试用 FM 预训练得到的隐向量去初始化 DNN 的 Embedding 层，再通过全连接网络学习高阶交叉，但它<strong>依赖 FM 预训练</strong>，两阶段的训练流程相互割裂，难以联合优化。</p>
+<p>PNN（2016）在 Embedding 层之后引入内积（IPNN）或外积（OPNN）运算来显式建模特征交叉，但更高阶的交叉仍然依赖 DNN 的隐式学习，且外积运算的计算开销较大。</p>
+<h3 id="Wide-Deep：记忆与泛化的结合"><a href="#Wide-Deep：记忆与泛化的结合" class="headerlink" title="Wide &amp; Deep：记忆与泛化的结合"></a>Wide &amp; Deep：记忆与泛化的结合</h3><p>Google 提出的 Wide &amp; Deep（2016）把 LR（Wide 部分，负责”记忆”）与 DNN（Deep 部分，负责”泛化”）并联训练，是业界影响力很大的一次架构创新。但它的问题也很明显：<strong>Wide 部分仍然依赖人工设计的交叉特征</strong>（Cross-Product Transformation），自动化程度不足；同时 Wide 与 Deep 两侧使用不同的输入特征表示，需要精心设计，工程复杂度较高。</p>
+<h3 id="不同模型对比"><a href="#不同模型对比" class="headerlink" title="不同模型对比"></a>不同模型对比</h3><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>低阶交叉</th>
+<th>高阶交叉</th>
+<th>无需人工特征工程</th>
+<th>无需预训练</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LR</td>
+<td>✓（人工构造）</td>
+<td>✘</td>
+<td>✘</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>FM</td>
+<td>✓</td>
+<td>✘</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>FNN</td>
+<td>✘</td>
+<td>✓</td>
+<td>✘（需预训练）</td>
+<td>✘</td>
+</tr>
+<tr>
+<td>PNN</td>
+<td>✘</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Wide &amp; Deep</td>
+<td>✓（人工构造）</td>
+<td>✓</td>
+<td>✘（Wide侧需要）</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>DeepFM</strong></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody></table>
+<p>可以看到，此前的每一个模型都在某个维度上有所妥协。而 DeepFM 的目标非常明确：<strong>全都要</strong>——既要低阶交叉，又要高阶交叉；既不需要人工特征工程，也不需要预训练。</p>
+<h2 id="DeepFM-模型详解"><a href="#DeepFM-模型详解" class="headerlink" title="DeepFM 模型详解"></a>DeepFM 模型详解</h2><blockquote>
+<p>DeepFM模型由FM + DNN组成，<strong>FM 部分</strong>负责低阶特征交叉提取，<strong>Deep 部分</strong>负责高阶特征交叉提取，两者<strong>共享同一个 Embedding 层</strong>，端到端联合训练。</p>
+</blockquote>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p>DeepFM 的核心结构由两部分并行组成：<strong>FM 组件（FM Component）</strong> 和 <strong>Deep 组件（Deep Component）</strong>，两部分共享同一套输入与 Embedding 层，其预测结果相加后经过 Sigmoid 得到最终的 CTR：</p>
+<img src="/images/image-20250725002017499.png" alt="image-20250725002017499" style="zoom:80%;" />
+
+<p>最终预测公式为：<br>$$
+\hat{y} = \sigma\left( y_{FM} + y_{DNN} \right)
+$$<br>其中 $\sigma$ 是 Sigmoid 函数，$y_{FM}$ 是 FM 部分的输出（包含一阶项和二阶交叉），$y_{DNN}$ 是 Deep 部分的输出（高阶交叉）。两个部分接收相同的原始特征输入，也共享同一个 Embedding 层——这正是 DeepFM 相较于 Wide &amp; Deep 的关键改进之一。</p>
+<h3 id="共享-Embedding-层：最精妙的设计"><a href="#共享-Embedding-层：最精妙的设计" class="headerlink" title="共享 Embedding 层：最精妙的设计"></a>共享 Embedding 层：最精妙的设计</h3><img src="/images/image-20250725002612407.png" alt="image-20250725002612407" style="zoom:80%;" />
+
+<ul>
+<li><p>Field表示原始特征(每个Field表示一个特征 如，Field1：性别，Field2：年龄段)；</p>
+</li>
+<li><p>通过one-hot操作把原始特征展开，所以一个Filed有多个稀疏值也就是Sparse Features；</p>
+</li>
+<li><p>Sparse Features通过Embedding层（词嵌入矩阵）也就是图上没有展示的权重$W$转相乘得到稠密矩阵也就是Dense Embedding，其中权重参数$W$就是FM二阶(one-hot后的特征)引入的辅助隐向量矩阵$ V $，Dense Layer就是$V_i，V_j,...,V_n$向量。</p>
+</li>
+</ul>
+<p>原始输入通常是若干个稀疏 Field（字段）经过 One-Hot 或 Multi-Hot 编码后拼接而成，例如：</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>取值示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户性别</td>
+<td>[男, 女]</td>
+</tr>
+<tr>
+<td>用户年龄段</td>
+<td>[18-24, 25-34, 35-44, …]</td>
+</tr>
+<tr>
+<td>商品品类</td>
+<td>[美妆, 数码, 服饰, …]</td>
+</tr>
+<tr>
+<td>广告位</td>
+<td>[首页, 详情页, 购物车]</td>
+</tr>
+</tbody></table>
+<p>每个 Field 的非零取值通过查表映射为一个稠密的 $k$ 维隐向量（Embedding）。DeepFM 设计中最精妙的一点在于：<strong>FM 部分用于计算二阶交叉的隐向量，与 Deep 部分作为网络输入的 Embedding，是完全共享的同一组参数</strong>。</p>
+<p>这样设计带来两个显著好处：</p>
+<ol>
+<li><strong>表达一致性</strong>：FM 与 Deep 学到的是同一套特征语义表示，不会出现两部分”各自为政”导致的语义漂移；</li>
+<li><strong>训练更高效</strong>：Embedding 向量同时接受来自 FM 和 DNN 两侧的梯度更新，低阶交叉的信息可以直接辅助高阶部分的学习，反之亦然；同时无需像 Wide &amp; Deep 那样为两个组件分别维护独立的特征表示，大幅降低了参数量与训练复杂度，也无需像 FNN 那样先做 FM 预训练——两个组件从一开始就在同一个特征空间里联合训练。</li>
+</ol>
+<h3 id="FM-部分：负责低阶特征交叉"><a href="#FM-部分：负责低阶特征交叉" class="headerlink" title="FM 部分：负责低阶特征交叉"></a>FM 部分：负责低阶特征交叉</h3><img src="/images/image-20250725002314210.png" alt="image-20250725002314210" style="zoom:80%;" />
+
+<p>FM 部分本质上是一个标准的因子分解机，负责抽取一阶线性特征与二阶特征交叉：</p>
+<p>$$ y_{FM} = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n}\sum_{j=i+1}^{n} \langle v_i, v_j \rangle x_i x_j $$</p>
+<ul>
+<li><strong>一阶部分</strong>：累加单个特征的线性权重 $w_i \cdot x_i$，相当于一个 LR；</li>
+<li><strong>二阶部分</strong>：利用隐向量内积 $\langle v_i, v_j \rangle$ 自动计算任意两个特征之间的交叉强度，无需人工指定哪些特征需要交叉。</li>
+</ul>
+<p>由于输入是稀疏的 One-Hot 特征，实际计算时只需遍历<strong>非零特征</strong>。同时，二阶交叉项还有一个经典的数学优化技巧：</p>
+<p>$$ \sum_{i=1}^{n}\sum_{j=i+1}^{n} \langle v_i, v_j \rangle x_i x_j = \frac{1}{2} \sum_{f=1}^{k} \left[ \left( \sum_{i=1}^{n} v_{i,f} x_i \right)^2 - \sum_{i=1}^{n} v_{i,f}^2 x_i^2 \right] $$</p>
+<p>这一化简把原本 $O(kn^2)$ 的双重循环计算复杂度降低到 $O(kn)$（结合稀疏性可进一步降为 $O(kN_z)$，$N_z$ 为非零特征数），是 FM 及 DeepFM 能够支撑亿级样本高效训练的关键工程基础。</p>
+<ul>
+<li><p>Field是数据特征的原始值，如：$i$为性别（男，女），$j$为年龄段（少年，中年，老年）</p>
+</li>
+<li><p>Sparse Features为原始特征经过one-hot转换之后的稀疏特征，如（一个35岁的中年男人）：$i$为 [0,1]，$j$为 [0,1,0]</p>
+</li>
+<li><p>Sparse Features层与Dense Embedding层中间的权重$W$:</p>
+<ul>
+<li><p>在架构图中权重$W$也就是Embedding矩阵没有展示，省略了。</p>
+</li>
+<li><p>$i$的维度为$(2,k)$， $j$的维度为$(3,k)$，拼接后维度大小为$(5,k)$，也就是$W_{5,k}$</p>
+</li>
+<li><p>$k$为二阶隐向量的大小</p>
+</li>
+<li><p>$W$为FM二阶隐向量矩阵$V$</p>
+</li>
+</ul>
+</li>
+<li><p>Dense Embedding层为Embedding矩阵（也就是权重$W$）与经过one-hot的特征通过embedding-lookup查找后的向量：$ V_{i}$的纬度为$(1,k)$，$ V_{j}$的纬度为$(1,k)$，拼接起来$\left [ V_{i},V_{j} \right ]$ 的维度为$(1,2k)$。</p>
+</li>
+<li><p>在FM Layer，来自Sparse Features层的一阶与来自Dense Embedding层的二阶（二阶内部先进行内积计算）进行求和得到一个标量。</p>
+<ul>
+<li>一阶公式：$  \sum_{i=1}^n w_i x_i  $ 【在架构图中$w_i$没有展示，省略了】</li>
+<li>二阶公式：$  \sum_{i=1}^{n-1} \sum_{j=i+1}^n \langle V_i, V_j \rangle x_i x_j $ 【在架构图中$x_i x_j$没有体现是因为当两者都为1时整个项才有意义，乘以1可以忽略】</li>
+</ul>
+</li>
+</ul>
+<h4 id="FM中二阶的部分"><a href="#FM中二阶的部分" class="headerlink" title="FM中二阶的部分"></a>FM中二阶的部分</h4><p>每个特征称为一个Field, 每个特征通过one-hot编码之后会包含多个列，也就是每个Field包含多个稀疏的列(Sparse Features)，每个Field中的值只有一个是1 如：[0,1,0,0], [0,0,01]</p>
+<ul>
+<li>field_size：Field的大小，也就是特征one-hot编码之前的大小</li>
+<li>feature_size：特征经过one-hot之后的大小</li>
+<li>k：FM二阶交叉隐向量v的维度</li>
+</ul>
+<p>稀疏的Field通过embedding层之后得到Dense Vector。也就是Field通过embedding_lookup词向量矩阵(嵌入矩阵)得到稠密的向量（把词向量矩阵作为权重W与Field相乘）</p>
+<p>在DeepFM中是拿FM当中的二维矩阵V来作为词向量矩阵作为权重W，所以W的shape为(feature_size, k) ，而模型的input是feature_size维的0、1向量，所以在input与W相乘后就得到了(feature_size, k)维的dense vector了。</p>
+<h3 id="Deep-部分：负责高阶非线性特征学习"><a href="#Deep-部分：负责高阶非线性特征学习" class="headerlink" title="Deep 部分：负责高阶非线性特征学习"></a>Deep 部分：负责高阶非线性特征学习</h3><img src="/images/image-20250725002331596.png" alt="image-20250725002331596" style="zoom:80%;" />
+
+<ul>
+<li>DNN在共享的Dense Embedding层上通过Hidden Layer计算得到一个标量值</li>
+<li>DNN与左侧的FM共享Embedding向量。</li>
+</ul>
+<p>Deep 部分是一个多层前馈神经网络（DNN），用于拟合更复杂的高阶非线性特征交叉。具体做法是先将各 Field 对应的 Embedding 向量拼接（Concatenate）成一个稠密向量：</p>
+<p>$$ a^{(0)} = [e_1, e_2, \dots, e_m] $$</p>
+<p>其中 $e_i$ 是第 $i$ 个 Field 的 Embedding 向量，$m$ 是 Field 的数量。随后向量经过若干层全连接网络逐层进行非线性映射：</p>
+<p>$$ a^{(l+1)} = \sigma\left( W^{(l)} a^{(l)} + b^{(l)} \right) $$</p>
+<p>激活函数通常使用 ReLU。原始论文中采用的是 <strong>3 层、每层 400 个神经元</strong>的结构（即 400-400-400），最后一层输出一个标量 $y_{DNN}$。深层网络通过层层非线性变换，<strong>隐式地</strong>捕捉三阶、四阶乃至更高阶的特征组合关系，这是 FM 无法做到的。</p>
+<h3 id="DeepFM中连续特征的处理方式"><a href="#DeepFM中连续特征的处理方式" class="headerlink" title="DeepFM中连续特征的处理方式"></a>DeepFM中连续特征的处理方式</h3><p>DeepFM中连续特征有多种处理方式，提供以下几种作为参考：</p>
+<ul>
+<li>连续特征直接作为DNN的输入，不参与FM的输入。</li>
+<li>连续特征直接作为DNN的输入，参与FM一阶的计算，不参与二阶交叉。（DeepCTR就是这么实现的）</li>
+<li>也可以把连续特征离散化后，同时作为DNN和FM的输入。【推荐】</li>
+<li>连续特征做规划化，通过embedding向量乘以数值，让连续特征自然地融入FM的交叉计算里，相当于对embedding做了缩放。</li>
+</ul>
+<h2 id="主流-CTR-模型横向对比"><a href="#主流-CTR-模型横向对比" class="headerlink" title="主流 CTR 模型横向对比"></a>主流 CTR 模型横向对比</h2><p>结合前文的分析，我们可以把 DeepFM 与业界几个经典模型放在一起做一个更完整的横向对比：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>低阶特征学习</th>
+<th>高阶特征学习</th>
+<th>是否需要人工特征工程</th>
+<th>是否共享 Embedding</th>
+<th>是否需要预训练</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LR</td>
+<td>一阶</td>
+<td>无</td>
+<td>是</td>
+<td>-</td>
+<td>否</td>
+</tr>
+<tr>
+<td>FM</td>
+<td>一阶 + 二阶</td>
+<td>无</td>
+<td>否</td>
+<td>-</td>
+<td>否</td>
+</tr>
+<tr>
+<td>FNN</td>
+<td>无</td>
+<td>高阶</td>
+<td>否</td>
+<td>-</td>
+<td>是（FM 预训练）</td>
+</tr>
+<tr>
+<td>PNN</td>
+<td>无</td>
+<td>高阶</td>
+<td>否</td>
+<td>-</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Wide &amp; Deep</td>
+<td>一阶 + 二阶</td>
+<td>高阶</td>
+<td>是（Wide 侧需要）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><strong>DeepFM</strong></td>
+<td><strong>一阶 + 二阶</strong></td>
+<td><strong>高阶</strong></td>
+<td><strong>完全不需要</strong></td>
+<td><strong>是</strong></td>
+<td><strong>否</strong></td>
+</tr>
+</tbody></table>
+<p>可以清晰地看到，DeepFM 是表格中唯一一个在所有维度上都拿到”最优解”的模型——这也是它能够迅速成为工业界默认基线的核心原因。</p>
+<hr>
+<h2 id="DeepFM-工业落地"><a href="#DeepFM-工业落地" class="headerlink" title="DeepFM 工业落地"></a>DeepFM 工业落地</h2><p>回顾 DeepFM 能被大规模部署的核心原因，可以归纳为四点：</p>
+<ol>
+<li><strong>开箱即用</strong>：稀疏特征可直接输入模型，无需特征工程、无需预训练，接入成本极低；</li>
+<li><strong>表达能力均衡</strong>：低阶交叉（FM）负责”记忆”用户的具体偏好模式，高阶交叉（DNN）负责”泛化”到训练集中未曾见过的特征组合，二者互补；</li>
+<li><strong>训练高效</strong>：共享 Embedding 让参数利用率更高，二阶项的数学优化也让训练速度更快，能够支撑亿级样本量的工业级训练；</li>
+<li><strong>易于扩展</strong>：多值特征的池化处理、连续特征的分桶 Embedding、注意力机制等技巧都能无缝叠加在 DeepFM 框架之上，社区生态也相对成熟。</li>
+</ol>
+<p>在具体工程实践中，还有几个经验值得关注：</p>
+<ul>
+<li><strong>Embedding 维度</strong>：一般设置在 8～64 之间，需结合特征基数、样本规模和线上推理延迟综合权衡，维度过大容易过拟合、增加推理耗时；</li>
+<li><strong>Deep 层的深度与宽度</strong>：通常 2～3 层全连接（如 <code>[256, 128, 64]</code> 或论文中的 <code>[400, 400, 400]</code>）便能覆盖大部分场景的拟合需求；</li>
+<li><strong>正则化</strong>：推荐系统数据天然极其稀疏，在 Deep 部分适当加入 Dropout（0.2～0.5）或 $L_2$ 正则，能显著提升模型的泛化能力；</li>
+<li><strong>与序列特征结合</strong>：在真实业务中，DeepFM 常与用户行为序列建模（如 DIN、DIEN 中的注意力机制）结合使用，进一步提升效果，这也是 DeepFM 之后一系列改进工作的重要方向。</li>
+</ul>
+<p>正因如此，DeepFM 至今仍是许多公司（尤其是中小团队）上线 CTR 模型时的<strong>默认基线</strong>，也常被用作衡量新模型效果的对比基准。</p>
+<h2 id="局限与后续演进"><a href="#局限与后续演进" class="headerlink" title="局限与后续演进"></a>局限与后续演进</h2><p>当然，DeepFM 并非完美无缺，它也存在一些明显的局限：</p>
+<ul>
+<li><strong>高阶交叉是隐式的</strong>：DNN 学习到的高阶特征交叉不具备可解释性，也不一定是最优的交叉方式；</li>
+<li><strong>二阶交叉粒度较为粗糙</strong>：所有特征对共享同一个 Embedding 维度 $k$，无法自适应地区分不同特征交叉的重要程度；</li>
+<li><strong>Embedding 维度固定</strong>：不同 Field 的稀疏度和信息量差异巨大，统一的 Embedding 维度往往不是最优选择。</li>
+</ul>
+<p>围绕这些短板，学术界和工业界近年提出了不少改进方向：</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>代表工作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>显式高阶交叉</td>
+<td>xDeepFM（CIN 网络）、DCN &#x2F; DCN-V2（特征交叉网络）</td>
+</tr>
+<tr>
+<td>交叉重要性建模</td>
+<td>AFM（注意力 FM）、FiBiNet（SENet + 双线性交互）</td>
+</tr>
+<tr>
+<td>自适应维度</td>
+<td>AutoField、AutoEmb（NAS 搜索维度）</td>
+</tr>
+<tr>
+<td>结构化特征交互</td>
+<td>FmFM（Field-aware 矩阵分解）、FinalMLP</td>
+</tr>
+<tr>
+<td>多任务融合</td>
+<td>与 ESMM、MMoE 等结合，同时优化 CTR 与 CVR</td>
+</tr>
+</tbody></table>
+<p>其中比较值得一提的是 <strong>xDeepFM</strong>：它把 FM 中向量外积的思想推广到高阶，用 CIN（Compressed Interaction Network）<strong>显式地</strong>学习任意阶特征交叉，在表达能力和可解释性上又前进了一步。不过，DeepFM 结构简洁、性价比高的特点，依然让它成为大多数团队”先用起来”的最优选择。</p>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>DeepFM 的设计哲学可以用一句话概括：</p>
+<blockquote>
+<p><strong>让 FM 做它擅长的事（低阶交叉），让 DNN 做它擅长的事（高阶交叉），再用共享 Embedding 把它们”缝”在一起，端到端联合训练。</strong></p>
+</blockquote>
+<p>它把 CTR 建模从”人工特征工程 + 两阶段训练”的繁琐流程中解放出来，用一套优雅且高效的架构，同时拿到了模型的<strong>记忆能力</strong>与<strong>泛化能力</strong>。理解 DeepFM，不仅是掌握一个具体模型，更是理解<strong>特征交叉建模</strong>这一推荐系统核心命题的一把钥匙——后续的 xDeepFM、DCN、FiBiNet 等一系列进阶模型，几乎都是在这个框架基础上演进而来的。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://www.hicode365.com/cuid2sap6UxqRFTt_bWOKYrXG" title="DeepFM推荐领域深度学习的Baseline" target="_blank" rel="external">https://www.hicode365.com/cuid2sap6UxqRFTt_bWOKYrXG</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://www.hicode365.com/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://www.hicode365.com/" target="_blank"><span class="text-dark">hicode</span><small class="ml-1x">Algorithms Engineer</small></a></h3>
+        <div>Open shared and free</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/cuidjkAV01JvXS8HOUfR01MTz" title="投资理财实战"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/cuidp8fxL56v0msO5q0-zx6wP" title="FM因子分解机中的特征交叉"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpay.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <!-- 隐藏主题版权信息 -->
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:www.hicode365.com ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+   <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true,
+    tags: 'ams'
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
