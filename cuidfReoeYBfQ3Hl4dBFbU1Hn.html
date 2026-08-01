@@ -21,12 +21,12 @@
   <meta name="description" content="FM因子分解机中的特征交叉从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。 比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FM因子分解机中的特征交叉">
-<meta property="og:url" content="https://www.hicode365.com/cuidGFTMGNx8tjEo-aqRGs6Is">
+<meta property="og:url" content="https://www.hicode365.com/cuidfReoeYBfQ3Hl4dBFbU1Hn">
 <meta property="og:site_name" content="hicode">
 <meta property="og:description" content="FM因子分解机中的特征交叉从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。 比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-02-22T13:23:58.226Z">
-<meta property="article:modified_time" content="2026-07-30T07:48:33.732Z">
+<meta property="article:modified_time" content="2026-08-01T01:17:28.299Z">
 <meta property="article:author" content="hicode365">
 <meta property="article:tag" content="FM">
 <meta property="article:tag" content="召回">
@@ -35,7 +35,7 @@
 <meta property="article:tag" content="特征交叉">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.hicode365.com/cuidGFTMGNx8tjEo-aqRGs6Is.html">
+  <link rel="canonical" href="https://www.hicode365.com/cuidfReoeYBfQ3Hl4dBFbU1Hn.html">
   
     <link rel="alternate" href="/atom.xml" title="hicode" type="application/atom+xml">
   
@@ -158,7 +158,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/">学习与成长</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ml/">机器学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/">算法中的数学</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/">管理与思考</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/">学习与成长</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E7%A8%8B%E4%B8%8E%E5%AE%9E%E6%88%98/">工程与实战</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ml/">机器学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">深度学习与推荐系统</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/">算法中的数学</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/">管理与思考</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -168,7 +168,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/DeepFM/" style="font-size: 13px;">DeepFM</a> <a href="/tags/FM/" style="font-size: 13px;">FM</a> <a href="/tags/SVM/" style="font-size: 13px;">SVM</a> <a href="/tags/Transformer/" style="font-size: 13px;">Transformer</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" style="font-size: 13px;">信息增益</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/" style="font-size: 13px;">信息增益率</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 13px;">分类</a> <a href="/tags/%E5%88%86%E7%B1%BB%E6%A0%91/" style="font-size: 13px;">分类树</a> <a href="/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/" style="font-size: 13px;">分类算法</a> <a href="/tags/%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">判别式模型</a> <a href="/tags/%E5%8F%AC%E5%9B%9E/" style="font-size: 13px;">召回</a> <a href="/tags/%E5%9B%9E%E5%BD%92/" style="font-size: 14px;">回归</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 13px;">回归树</a> <a href="/tags/%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA/" style="font-size: 13px;">因子分解机</a> <a href="/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" style="font-size: 13px;">基尼系数</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/" style="font-size: 13px;">技术管理</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 14px;">排序</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E7%A7%AF/" style="font-size: 13px;">支持向量积</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/" style="font-size: 13px;">数据降维</a> <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/" style="font-size: 14px;">树模型</a> <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/" style="font-size: 13px;">核函数</a> <a href="/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/" style="font-size: 13px;">特征交叉</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13px;">理财</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">生成式模型</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13px;">管理</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">线性回归</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 13px;">股票</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">贝叶斯学派</a> <a href="/tags/%E8%BD%AF%E9%97%B4%E9%9A%94/" style="font-size: 13px;">软间隔</a> <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">逻辑回归</a> <a href="/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/" style="font-size: 13px;">降维算法</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" style="font-size: 13px;">随机森林</a> <a href="/tags/%E9%A2%91%E7%8E%87%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">频率学派</a>
+      <a href="/tags/DeepFM/" style="font-size: 13px;">DeepFM</a> <a href="/tags/FM/" style="font-size: 13px;">FM</a> <a href="/tags/GBDT/" style="font-size: 13px;">GBDT</a> <a href="/tags/LR/" style="font-size: 13px;">LR</a> <a href="/tags/SVM/" style="font-size: 13px;">SVM</a> <a href="/tags/Transformer/" style="font-size: 13px;">Transformer</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" style="font-size: 13px;">信息增益</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/" style="font-size: 13px;">信息增益率</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 13.5px;">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 13px;">分类</a> <a href="/tags/%E5%88%86%E7%B1%BB%E6%A0%91/" style="font-size: 13px;">分类树</a> <a href="/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/" style="font-size: 13px;">分类算法</a> <a href="/tags/%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">判别式模型</a> <a href="/tags/%E5%8F%AC%E5%9B%9E/" style="font-size: 13px;">召回</a> <a href="/tags/%E5%9B%9E%E5%BD%92/" style="font-size: 13.5px;">回归</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 13px;">回归树</a> <a href="/tags/%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA/" style="font-size: 13px;">因子分解机</a> <a href="/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" style="font-size: 13px;">基尼系数</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/" style="font-size: 13px;">技术管理</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13px;">投资</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 14px;">排序</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/" style="font-size: 13px;">推荐算法</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E7%A7%AF/" style="font-size: 13px;">支持向量积</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 13px;">数据类型</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/" style="font-size: 13px;">数据降维</a> <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/" style="font-size: 13.5px;">树模型</a> <a href="/tags/%E6%A0%B8%E5%87%BD%E6%95%B0/" style="font-size: 13px;">核函数</a> <a href="/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/" style="font-size: 13.5px;">特征交叉</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13px;">理财</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">生成式模型</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13px;">管理</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">线性回归</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 13px;">股票</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">贝叶斯学派</a> <a href="/tags/%E8%BD%AF%E9%97%B4%E9%9A%94/" style="font-size: 13px;">软间隔</a> <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" style="font-size: 13px;">逻辑回归</a> <a href="/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/" style="font-size: 13px;">降维算法</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" style="font-size: 13px;">随机森林</a> <a href="/tags/%E9%A2%91%E7%8E%87%E5%AD%A6%E6%B4%BE/" style="font-size: 13px;">频率学派</a>
     </div>
   </div>
 
@@ -182,32 +182,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuid3qIC6rey_O2F3mx8D8lnD" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/">学习与成长</a>
-              </p>
-              <p class="item-title">
-                <a href="/cuid3qIC6rey_O2F3mx8D8lnD" class="title">投资理财实战</a>
-              </p>
-              <p class="item-date" style="display:none;">
-                <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/cuidjHffEwLT7SGCimDN5PulY" class="thumb">
+              <a href="/cuidgCWLhDimaY-1IwSAYCAo5" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -221,7 +196,7 @@
                 <a class="category-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/">大模型与Agent</a>
               </p>
               <p class="item-title">
-                <a href="/cuidjHffEwLT7SGCimDN5PulY" class="title">Transformer详解</a>
+                <a href="/cuidgCWLhDimaY-1IwSAYCAo5" class="title">Transformer详解</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -232,7 +207,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuidckf8Ag2wajjnBYnFUsY6O" class="thumb">
+              <a href="/cuidssyfB1Jq2yvdfbHbKj0XN" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -246,7 +221,7 @@
                 <a class="category-link" href="/categories/ml/">机器学习</a>
               </p>
               <p class="item-title">
-                <a href="/cuidckf8Ag2wajjnBYnFUsY6O" class="title">数据的降维</a>
+                <a href="/cuidssyfB1Jq2yvdfbHbKj0XN" class="title">线性回归</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -257,7 +232,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuidDr_gVoWXpT7k7VfUMdgse" class="thumb">
+              <a href="/cuidjTbTzmolAH54BPETnUgnG" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -271,7 +246,7 @@
                 <a class="category-link" href="/categories/ml/">机器学习</a>
               </p>
               <p class="item-title">
-                <a href="/cuidDr_gVoWXpT7k7VfUMdgse" class="title">DecisionTree决策树原理、公式与实战</a>
+                <a href="/cuidjTbTzmolAH54BPETnUgnG" class="title">逻辑回归</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -282,7 +257,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/cuida9kggPAGYue_dc3g0WqYj" class="thumb">
+              <a href="/cuidQfkJ8n2rCgD6ciI3iVFkM" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -296,7 +271,32 @@
                 <a class="category-link" href="/categories/ml/">机器学习</a>
               </p>
               <p class="item-title">
-                <a href="/cuida9kggPAGYue_dc3g0WqYj" class="title">线性回归</a>
+                <a href="/cuidQfkJ8n2rCgD6ciI3iVFkM" class="title">DecisionTree决策树原理、公式与实战</a>
+              </p>
+              <p class="item-date" style="display:none;">
+                <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cuidYt8U2sQDIlZd42qJGmTBK" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/ml/">机器学习</a>
+              </p>
+              <p class="item-title">
+                <a href="/cuidYt8U2sQDIlZd42qJGmTBK" class="title">集成学习之随机森林RandomForest</a>
               </p>
               <p class="item-date" style="display:none;">
                 <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
@@ -319,7 +319,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FM%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89"><span class="toc-number">1.</span> <span class="toc-text">FM因子分解机中的特征交叉</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">基础线性模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E4%B8%AA%E4%BA%A4%E5%8F%89%E9%A1%B9%E2%80%94%E2%80%94POLY2"><span class="toc-number">1.2.</span> <span class="toc-text">加个交叉项——POLY2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FM%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA%E2%80%94%E2%80%94%E7%94%A8%E9%9A%90%E5%90%91%E9%87%8F%E5%81%9A%E5%8F%82%E6%95%B0%E5%85%B1%E4%BA%AB"><span class="toc-number">1.3.</span> <span class="toc-text">FM因子分解机——用隐向量做参数共享</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%E5%86%85%E7%A7%AF%E5%8E%BB%E8%BF%91%E4%BC%BC$w_%7Bij%7D$"><span class="toc-number">1.3.1.</span> <span class="toc-text">为什么用内积去近似$w_{ij}$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FM%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%84%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">FM中的两处优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E5%8C%96%E7%AE%80"><span class="toc-number">1.4.1.</span> <span class="toc-text">公式化简</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FM%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">FM的复杂度分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">1.6.</span> <span class="toc-text">优缺点分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.6.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FFM%E5%BC%95%E5%85%A5%E7%89%B9%E5%BE%81%E5%9F%9F%E7%9A%84FM"><span class="toc-number">1.7.</span> <span class="toc-text">FFM引入特征域的FM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FM-%E7%9A%84%E5%81%9A%E6%B3%95%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-number">1.7.1.</span> <span class="toc-text">FM 的做法与局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FFM-%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%9A%E5%9C%BA%E6%84%9F%E7%9F%A5"><span class="toc-number">1.7.2.</span> <span class="toc-text">FFM 的优化：场感知</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.8.</span> <span class="toc-text">小结</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FM%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89"><span class="toc-number">1.</span> <span class="toc-text">FM因子分解机中的特征交叉</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BLR"><span class="toc-number">1.1.</span> <span class="toc-text">基础线性模型LR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E7%89%B9%E5%BE%81%E5%8F%89POLY2"><span class="toc-number">1.2.</span> <span class="toc-text">二阶特征叉POLY2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FM-%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA-%E7%94%A8%E9%9A%90%E5%90%91%E9%87%8F%E5%81%9A%E5%8F%82%E6%95%B0%E5%85%B1%E4%BA%AB"><span class="toc-number">1.3.</span> <span class="toc-text">FM (因子分解机) 用隐向量做参数共享</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%E5%86%85%E7%A7%AF%E5%8E%BB%E8%BF%91%E4%BC%BC$w_%7Bij%7D$"><span class="toc-number">1.3.1.</span> <span class="toc-text">为什么用内积去近似$w_{ij}$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FM%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%84%E4%BC%98%E5%8C%96"><span class="toc-number">1.3.2.</span> <span class="toc-text">FM中的两处优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E5%8C%96%E7%AE%80"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">公式化简</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">1.3.3.</span> <span class="toc-text">复杂度分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FM%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E5%88%86%E9%85%8D"><span class="toc-number">1.3.4.</span> <span class="toc-text">FM中的特征分配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FM%E4%B8%80%E9%98%B6%E7%89%B9%E5%BE%81"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">FM一阶特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FM%E4%BA%8C%E9%98%B6%E7%89%B9%E5%BE%81%EF%BC%9A"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">FM二阶特征：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">1.3.5.</span> <span class="toc-text">优缺点分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FFM%E5%BC%95%E5%85%A5%E7%89%B9%E5%BE%81%E5%9F%9F%E7%9A%84FM"><span class="toc-number">1.4.</span> <span class="toc-text">FFM引入特征域的FM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FM-%E7%9A%84%E5%B1%80%E9%99%90"><span class="toc-number">1.4.1.</span> <span class="toc-text">FM 的局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FFM-%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.2.</span> <span class="toc-text">FFM 的优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">小结</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -341,7 +341,7 @@
       <div class="article-meta">
         <!-- <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/cuidGFTMGNx8tjEo-aqRGs6Is" class="article-date">
+	<a href="/cuidfReoeYBfQ3Hl4dBFbU1Hn" class="article-date">
 	  <time datetime="2026-02-22T13:23:58.226Z" itemprop="datePublished">2026-02-22</time>
 	</a>
 </span> -->
@@ -360,7 +360,7 @@
 
         
 
-        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/cuidGFTMGNx8tjEo-aqRGs6Is#comments" class="article-comment-link">评论</a></span> -->
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/cuidfReoeYBfQ3Hl4dBFbU1Hn#comments" class="article-comment-link">评论</a></span> -->
         
       </div>
     </div>
@@ -368,13 +368,13 @@
       
         <h1 id="FM因子分解机中的特征交叉"><a href="#FM因子分解机中的特征交叉" class="headerlink" title="FM因子分解机中的特征交叉"></a>FM因子分解机中的特征交叉</h1><p>从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。</p>
 <p>比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步都是在补上一个前作留下的窟窿。今天就把这条演进链彻底捋一遍。</p>
-<h2 id="基础线性模型"><a href="#基础线性模型" class="headerlink" title="基础线性模型"></a>基础线性模型</h2><p>最朴素的做法是LR（逻辑回归的线性打分部分）：</p>
+<h2 id="基础线性模型LR"><a href="#基础线性模型LR" class="headerlink" title="基础线性模型LR"></a>基础线性模型LR</h2><p>最朴素的做法是LR（逻辑回归的线性打分部分）：</p>
 <p>$$
 y = w_0 + \sum_{i=1}^n w_i x_i
 $$</p>
 <p>其中n是样本的特征数量，$x_i$是第i个特征的取值，$w_i$是它对应的系数。</p>
 <p>这个模型简单、训练快、权重可解释，工业界用了很多年，至今仍是很多场景里的baseline。但它有个致命假设——<strong>所有特征都是独立起作用的</strong>，谁也不影响谁，模型只是把每个特征的贡献线性加总。现实世界显然不是这样：年龄和职业会互相影响购买意愿，时间和地点会互相影响用户的行为模式。LR对这些交互统统视而不见，这是它天生的表达能力上限。</p>
-<h2 id="加个交叉项——POLY2"><a href="#加个交叉项——POLY2" class="headerlink" title="加个交叉项——POLY2"></a>加个交叉项——POLY2</h2><p>既然问题出在”看不到交互”，那最直接的补救办法就是把两两特征的乘积也当成一个新特征，单独学一个权重，这就是POLY2：</p>
+<h2 id="二阶特征叉POLY2"><a href="#二阶特征叉POLY2" class="headerlink" title="二阶特征叉POLY2"></a>二阶特征叉POLY2</h2><p>既然问题出在”看不到交互”，那最直接的补救办法就是把两两特征的乘积也当成一个新特征，单独学一个权重，这就是POLY2：</p>
 <p>$$
 y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{ij} x_i x_j
 $$</p>
@@ -388,7 +388,7 @@ $$</p>
 <li>最终的结果是，即便理论上POLY2能表达特征交互，实际上大部分交叉权重都学不出来，模型学不到有意义的交互关系。</li>
 </ul>
 <p>POLY2在理论上没问题，但一到高维稀疏场景就水土不服，正是这两个局限，直接催生了FM。</p>
-<h2 id="FM因子分解机——用隐向量做参数共享"><a href="#FM因子分解机——用隐向量做参数共享" class="headerlink" title="FM因子分解机——用隐向量做参数共享"></a>FM因子分解机——用隐向量做参数共享</h2><p>FM（Factorization Machine，因子分解机）的核心思想，是借助<strong>矩阵分解</strong>的方法，给每个特征引入一个k维的隐向量，用两个隐向量的内积去近似原来POLY2里那个独立的交叉权重，从而解决多项式扩展在稀疏特征下的求解难题。相比POLY2，FM具有线性的计算复杂度，并且能同时处理连续特征和离散特征。</p>
+<h2 id="FM-因子分解机-用隐向量做参数共享"><a href="#FM-因子分解机-用隐向量做参数共享" class="headerlink" title="FM (因子分解机) 用隐向量做参数共享"></a>FM (因子分解机) 用隐向量做参数共享</h2><p>FM（Factorization Machine，因子分解机）的核心思想，是借助<strong>矩阵分解</strong>的方法，给每个特征引入一个k维的隐向量，用两个隐向量的内积去近似原来POLY2里那个独立的交叉权重，从而解决多项式扩展在稀疏特征下的求解难题。相比POLY2，FM具有线性的计算复杂度，并且能同时处理连续特征和离散特征。</p>
 <p>完整的FM公式是：</p>
 <p>$$
 y = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n w_{i,j}x_i x_j =  w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^{n-1} \sum_{j=i+1}^n \langle V_i, V_j \rangle x_i x_j
@@ -416,10 +416,10 @@ $$</p>
 $$</p>
 <p>这一步转换看着不大，实际上是整个方法的核心。在POLY2里，$w_{ij}$和$w_{ik}$是两个毫不相干的参数，各学各的，谁也帮不了谁；但引入隐向量之后，$w_{ij} = \langle V_i, V_j \rangle$和$w_{ik} = \langle V_i, V_k \rangle$共享着同一个$V_i$，两者之间就建立起了关联。也就是说，<strong>只要样本里出现过特征i和任意一个非零特征j的组合（即存在某个$j \neq i$使得$x_i x_j \neq 0$），这条样本就能拿来训练$V_i$</strong>，而不需要恰好凑齐$(i,j)$这个特定的组合才行。稀疏性带来的训练不足问题，就这样被参数共享绕开了。</p>
 <p>这还带来一个额外的好处：<strong>泛化能力变强了</strong>。哪怕训练集里从没同时出现过某两个特征，只要它们各自的隐向量都学得不错，FM依然可以通过两个k维隐向量的内积，算出一个合理的组合特征权重。这是POLY2完全做不到的——POLY2里没见过的组合，权重就是学不出来。</p>
-<h2 id="FM中的两处优化"><a href="#FM中的两处优化" class="headerlink" title="FM中的两处优化"></a>FM中的两处优化</h2><p>FM之所以能真正落地，靠的是两处优化，一处是参数规模的压缩，一处是计算复杂度的压缩，两者是分开的两件事，容易被混在一起说，这里拆开讲清楚。</p>
+<h3 id="FM中的两处优化"><a href="#FM中的两处优化" class="headerlink" title="FM中的两处优化"></a>FM中的两处优化</h3><p>FM之所以能真正落地，靠的是两处优化，一处是参数规模的压缩，一处是计算复杂度的压缩，两者是分开的两件事，容易被混在一起说，这里拆开讲清楚。</p>
 <p><strong>优化一：参数规模从$n^2$降到$nk$。</strong> 通过引入特征隐向量替代原有权重的方式$w_{ij} = \langle v_i, v_j \rangle$，把原先$n^2$级别（准确说是$n(n-1)/2$个）的权重参数，降低到了$n \times k$的级别。因为通常$k$远小于$n$（k取几十到几百，n在one-hot之后可能是百万级），这一步就已经把参数量压缩了一个甚至几个数量级。</p>
 <p><strong>优化二：训练复杂度从$O(kn^2)$降到$O(kn)$。</strong> 这一步是通过转换目标函数的数学形式实现的，也是接下来要重点推导的部分。相比POLY2，这一步进一步极大地降低了训练开销，是FM能在工业界大规模落地的关键。</p>
-<h3 id="公式化简"><a href="#公式化简" class="headerlink" title="公式化简"></a>公式化简</h3><p>下面我们来看一下二阶交叉项是怎么从O(n²)降到O(kn)的。原始的二阶交互项长这样：<br>$$
+<h4 id="公式化简"><a href="#公式化简" class="headerlink" title="公式化简"></a>公式化简</h4><p>下面我们来看一下二阶交叉项是怎么从O(n²)降到O(kn)的。原始的二阶交互项长这样：<br>$$
 \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j
 $$</p>
 <p>其中$\langle V_i, V_j \rangle = \sum_{f=1}^k v_{i,f} v_{j,f}$。直接算这个双重求和，需要遍历所有的$(i,j)$对，复杂度是$O(n^2k)$，特征数一大就扛不住。下面一步步把它化简掉。</p>
@@ -456,7 +456,7 @@ $$</p>
 <li><strong>隐向量维度k</strong>：控制的是交互能表达的潜在语义空间大小，k越大表达能力越强，但计算量和过拟合风险也随之上升。</li>
 </ul>
 <p>这个数学变换是整个FM方法里最值得记住的一步，没有它，FM大概率也就停留在论文里，不会在工业界大规模落地。</p>
-<h2 id="FM的复杂度分析"><a href="#FM的复杂度分析" class="headerlink" title="FM的复杂度分析"></a>FM的复杂度分析</h2><p>把参数复杂度、训练复杂度、推理复杂度分开看一遍。</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>把参数复杂度、训练复杂度、推理复杂度分开看一遍。</p>
 <p><strong>参数复杂度：$O(kn)$。</strong> 对比一下POLY2：POLY2需要为每对特征组合单独存储参数$w_{ij}$，参数量是组合数$\frac{n(n-1)}{2}$（二阶项部分）；FM改为给每个特征学一个k维隐向量$V_i$，二阶项的参数量变成$kn$。当$k \ll n$时（k通常取几十到几百，n是one-hot之后的特征总数），参数量大幅减少。</p>
 <p><strong>训练时间复杂度：$O(kn)$。</strong> 这是前面推导的直接结果。</p>
 <p><strong>推理（预测）计算复杂度：$O(kn)$。</strong> 预测公式可以拆成两部分看：</p>
@@ -468,23 +468,61 @@ $$</p>
 \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle V_i, V_j \rangle x_i x_j = \frac{1}{2} \left( \sum_{f=1}^k \left( \sum_{i=1}^n v_{i,f} x_i \right)^2 - \sum_{i=1}^n \sum_{f=1}^k (v_{i,f} x_i)^2 \right)
 $$</p>
 <p>具体分三步：先计算每个隐向量维度f的求和$\sum_i v_{i,f} x_i$，复杂度$O(kn)$；再平方后求和，复杂度$O(k)$；最后减去对角线项，复杂度$O(kn)$。三步加起来总复杂度还是$O(kn)$，和特征数n、隐向量维度k都只是线性关系，这才是FM能扛住工业级高维稀疏数据的根本原因。</p>
-<h2 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p><strong>参数共享机制。</strong> 用隐向量内积近似代替单独的参数$w_{ij} \approx \langle V_i, V_j \rangle$，二阶项参数量从POLY2的$\frac{n(n-1)}{2}$降为$kn$，这是前面反复强调的核心机制。</p>
+<h3 id="FM中的特征分配"><a href="#FM中的特征分配" class="headerlink" title="FM中的特征分配"></a>FM中的特征分配</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">连续特征（如：身高、存款）、中低基数类别特征（如：性别、学历、颜色偏好）、高基数类别特征（如：用户ID、城市ID）</span><br></pre></td></tr></table></figure>
+
+<h4 id="FM一阶特征"><a href="#FM一阶特征" class="headerlink" title="FM一阶特征"></a>FM一阶特征</h4><ul>
+<li>连续特征：身高（归一化、离散化+One-hot）、存款（归一化、离散化+One-hot）</li>
+<li>中低基数类别特征：性别（One-hot）、学历（One-hot 、Label Encoding顺序编码 + 归一化）、颜色偏好（Multi-hot）</li>
+<li>高基数类别特征：城市ID（高频&#x2F;热门城市 One-hot，低频归为 <code>UNK</code>）【可选，也可以只放二阶】</li>
+</ul>
+<p>注：</p>
+<ol>
+<li><p>关于学历编码：</p>
+<ul>
+<li><p>如果学历（专科、本科、硕士、博士）做Label Encoding顺序编码，则需要再归一化为 $[0, 1]$ 的连续值，因为顺序编码强行假设了“本科是专科的2倍，硕士是专科的3倍”这种等差线性关系。</p>
+</li>
+<li><p>如果做One-hot处理，虽然丢失了学历间天然的递进关系，但当它进入 FM 的二阶交叉层时，每个学历分配的低维密集向量可以表征这些关系，如：$Cos(V_{专科}, V_{本科}) >  Cos(V_{专科}, V_{博士}$)  </p>
+</li>
+<li><p>一阶做顺序编码+归一化，二阶One-hot，既保留递进顺序，又享受独立表达的灵活度，兼顾全局单调性与局部非线性搭配。</p>
+</li>
+<li><p>累加编码 &#x2F; 阈值编码（Thermometer Encoding &#x2F; Target Encoding），温度计编码能完美保留顺序：</p>
+<ul>
+<li>专科：<code>[1, 0, 0, 0]</code>（满足 &gt;&#x3D; 专科）</li>
+<li>本科：<code>[1, 1, 0, 0]</code>（满足 &gt;&#x3D; 专科，&gt;&#x3D; 本科）</li>
+<li>硕士：<code>[1, 1, 1, 0]</code>（满足 &gt;&#x3D; 专科，&gt;&#x3D; 本科，&gt;&#x3D; 硕士）</li>
+<li>博士：<code>[1, 1, 1, 1]</code></li>
+</ul>
+<p><em>这样计算向量点积时，硕士自然包含了本科和专科的全部基础表达，同时多了一个“硕士特有”的维度。</em></p>
+</li>
+</ul>
+</li>
+<li><p>高基数特征不能直接 One-hot 到一阶，会导致百万级别的稀疏参数，导致<strong>模型过拟合</strong>，且一阶参数极其稀疏难以收敛。</p>
+</li>
+<li><p>连续特征在做了离散化后，还需要进行One-hot处理，否则会强行引入了不合理的线性假设。</p>
+</li>
+</ol>
+<h4 id="FM二阶特征："><a href="#FM二阶特征：" class="headerlink" title="FM二阶特征："></a>FM二阶特征：</h4><ul>
+<li>连续特征：如果做的是离散化处理，则在二阶均可完美适用；如果进行了归一化，则可只放一阶，若要放二阶则其隐向量与离散特征隐向量做标量乘法。</li>
+<li>中低基数类别特征：处理方式与一阶共享（相同），再与其他变量做交叉。</li>
+<li>高基数类别特征：用户ID（One-hot）、城市ID（One-hot），再与其他变量做交叉。</li>
+</ul>
+<h3 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p><strong>参数共享机制。</strong> 用隐向量内积近似代替单独的参数$w_{ij} \approx \langle V_i, V_j \rangle$，二阶项参数量从POLY2的$\frac{n(n-1)}{2}$降为$kn$，这是前面反复强调的核心机制。</p>
 <p><strong>解决了稀疏性问题。</strong> 共享隐向量使得所有包含特征i的交互项都能用来训练$V_i$。即便某些特征组合在训练集里从未出现过，仍然可以通过隐向量内积算出它的权重——比如$w_{ij} = \langle V_i,V_j\rangle$和$w_{ik} = \langle V_i,V_k\rangle$共享了$V_i$，所有包含$V_i$的非零组合特征都可以用来学习$V_i$，这在数据稀疏的场景下是决定性的优势。</p>
 <p><strong>泛化能力提升。</strong> FM可以预测训练数据中从未出现过的特征组合，靠的是隐向量内积计算新组合的权重，而不是依赖独立的、必须见过才能学到的参数。这是它相对POLY2最本质的进步。</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p><strong>高阶特征交叉能力有限。</strong> FM默认只建模特征的两两交互（二阶多项式），没法直接捕获三阶及以上的特征组合关系。虽然理论上可以扩展出高阶FM，但计算复杂度会显著增加，性价比不高。这个短板后来主要靠DeepFM、xDeepFM这类模型来补，它们结合深度神经网络去捕捉高阶的非线性特征交互。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p><strong>高阶特征交叉能力有限。</strong> FM默认只建模特征的两两交互（二阶多项式），没法直接捕获三阶及以上的特征组合关系。虽然理论上可以扩展出高阶FM，但计算复杂度会显著增加，性价比不高。这个短板后来主要靠DeepFM、xDeepFM这类模型来补，它们结合深度神经网络去捕捉高阶的非线性特征交互。</p>
 <p><strong>隐向量维度k需要人工选择。</strong> k是一个预设的超参数，大小直接影响模型表现：k太小，特征交叉的表达能力不够，容易欠拟合；k太大，计算开销上升，还可能过拟合。这个超参数没有解析解，只能靠交叉验证去调，增加了训练的复杂度和成本。</p>
 <p><strong>对非稀疏数据提升有限。</strong> FM的优势场景主要是稀疏数据，比如推荐系统、CTR预估里大量one-hot编码之后的类别特征。对于本身就是稠密特征的场景（比如图像、音频），FM的表现未必比得过神经网络一类的模型。另外，如果特征本身已经包含了显式的交互信息（比如人工构造好的组合特征），FM的隐式交叉反而可能带来不必要的冗余计算。</p>
 <p><strong>隐向量解释性较弱。</strong> 隐向量$V_i$本身的物理意义不直观，很难说清楚$\langle V_i, V_j \rangle$到底对应什么具体的业务逻辑，这是一种黑箱性。相比之下，线性模型的权重$w_i$，或者决策树的分裂规则，解释起来要直接得多。</p>
 <p><strong>计算效率的权衡。</strong> FM相比POLY2已经好了很多，但也不是没有上限。它把二阶参数量从$O(n^2)$降到了$O(kn)$，可当特征数n极大时（比如百万维的稀疏特征），计算和存储隐向量仍然需要不小的资源。工业级场景里，往往还要结合哈希技巧或者模型压缩之类的手段进一步优化。</p>
 <h2 id="FFM引入特征域的FM"><a href="#FFM引入特征域的FM" class="headerlink" title="FFM引入特征域的FM"></a>FFM引入特征域的FM</h2><p> FFM（Field-aware Factorization Machine）相比FM（Factorization Machine）的核心优化，在于引入了<strong>特征域（Field）</strong> 的概念，让模型能够更细致地刻画特征间的交互。</p>
 <p>简单来说，FM为每个特征学习一个隐向量，而FFM为每个特征<strong>针对不同域</strong>学习多个隐向量。</p>
-<h3 id="FM-的做法与局限"><a href="#FM-的做法与局限" class="headerlink" title="FM 的做法与局限"></a>FM 的做法与局限</h3><p>FM（Factorization Machine）的数学表达式为：</p>
+<h3 id="FM-的局限"><a href="#FM-的局限" class="headerlink" title="FM 的局限"></a>FM 的局限</h3><p>FM（Factorization Machine）的数学表达式为：</p>
 <p>$$
 y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j
 $$</p>
 <p>关键在于隐向量 $ \mathbf{v}_i $。每个特征 $ i $ <strong>只对应一个固定的隐向量</strong> $ \mathbf{v}_i $。当特征 $ i $ 与任何特征 $ j $ 交互时，都使用这同一个向量 $ \mathbf{v}_i $ 去计算内积。</p>
 <p>这带来一个问题：特征的“身份”在不同上下文里其实不一样，FM用同一个向量去参与这两种截然不同的交互，就会产生信息混淆，限制了模型的表达能力。</p>
-<h3 id="FFM-的优化：场感知"><a href="#FFM-的优化：场感知" class="headerlink" title="FFM 的优化：场感知"></a>FFM 的优化：场感知</h3><p>FFM 的表达式改进为：</p>
+<h3 id="FFM-的优化"><a href="#FFM-的优化" class="headerlink" title="FFM 的优化"></a>FFM 的优化</h3><p>FFM 的表达式改进为：</p>
 <p>$$
 y = w_0 + \sum_{i=1}^{n} w_i x_i + \sum_{i=1}^{n} \sum_{j=i+1}^{n} \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j
 $$</p>
@@ -508,7 +546,7 @@ $$</p>
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.hicode365.com/cuidGFTMGNx8tjEo-aqRGs6Is" title="FM因子分解机中的特征交叉" target="_blank" rel="external">https://www.hicode365.com/cuidGFTMGNx8tjEo-aqRGs6Is</a>
+      <a href="https://www.hicode365.com/cuidfReoeYBfQ3Hl4dBFbU1Hn" title="FM因子分解机中的特征交叉" target="_blank" rel="external">https://www.hicode365.com/cuidfReoeYBfQ3Hl4dBFbU1Hn</a>
     </li>
     
     <li class="post-copyright-license">
@@ -553,12 +591,12 @@ $$</p>
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/cuidcejVUHBlPSVLzrtgNguIo" title="向量"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/cuidFvdK_7yIDn2TFEpv7vSps" title="DeepFM排序"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/cuidHwTz4UBy1_zrFy6CBNcCI" title="矩阵"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/cuidRtzX3P3A8t6L6bfIYJV3x" title="GBDT+LR"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
