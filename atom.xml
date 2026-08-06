@@ -18,8 +18,8 @@
   
   <entry>
     <title>DeepFM推荐领域深度学习的Baseline</title>
-    <link href="https://www.hicode365.com/cuidytaCgB7NdHQq10QA2OSup"/>
-    <id>https://www.hicode365.com/cuidytaCgB7NdHQq10QA2OSup</id>
+    <link href="https://www.hicode365.com/cuidsutvb5FYamaUDtAhnRDd3"/>
+    <id>https://www.hicode365.com/cuidsutvb5FYamaUDtAhnRDd3</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-08-01T03:24:01.530Z</updated>
     
@@ -45,39 +45,9 @@
   </entry>
   
   <entry>
-    <title>GBDT+LR</title>
-    <link href="https://www.hicode365.com/cuidFsmTJZC90JxxyZqoqc8As"/>
-    <id>https://www.hicode365.com/cuidFsmTJZC90JxxyZqoqc8As</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-08-01T03:25:03.568Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT+LR"></a>GBDT+LR</h1><p>CTR预估场景涉及到大量高维稀疏特征，树模型并不适合处理这些高维稀疏特征（因此实际上会将dense特征或者低维的离散特征给GBDT，剩余高维稀疏特征拼接上GBDT阶段输出的稀疏特征，然后放到在LR阶段进行训练。GBDT的核心任务是特征组合，擅长自动发现非线性交叉关系。</p><ul><li>传统决策树模型不适合处理稀疏特征，效果和效率通常明显逊色于LR、SVM 或深度学习模型。</li><li>现代 GBDT（如 XGBoost、LightGBM）针对稀疏数据进行了专门优化（稀疏特征计算,不是稀疏特征泛化），能够处理稀疏特征。但需要频繁构建直方图或进行排序，内存占用和计算开销依然远大于基于梯度下降的线性模型。</li><li>超高维特征或高基数特征如用户ID、广告ID等，树模型不适合直接处理。可以使用开启了 smoothing 和 cross-fitting的TargetEncoder进行编码。或者使用GBDT + LR。</li></ul><h1 id="稀疏、稠密特征处理"><a href="#稀疏、稠密特征处理" class="headerlink" title="稀疏、稠密特征处理"></a>稀疏、稠密特征处理</h1><p>FM擅长做稀疏特征处理</p><ul><li>FM二阶做稀疏处理</li><li>FM一阶做稠密处理</li><li>GBDT擅长做稠密特征处理</li><li>DNN可以处理稠密特征、稀疏特征，不擅长做高维稀疏特征，如：uid，可以通过embedding的方式进行处理。【DNN中的连续特征：优先做归一化&#x2F;标准化，在推荐&#x2F;广告中分桶更常见。】</li><li>适合分桶的连续特征：<ul><li>长尾分布</li><li>明显非线性，如用户年龄：18岁、30岁、60岁，不同年龄段行为差异明显。</li><li>业务上有区间意义，如价格：低价商品、中价商品、高价商品</li></ul></li><li>适合归一化&#x2F;表转化的连续特征：<ul><li>数值统计特征：过去7天点击次数、平均停留时间。尤其是连续、分布稳定、没有明显业务区间的特征，通常做log(x+1)变换后再进行归一化&#x2F;标准化</li></ul></li></ul><h1 id="GBDT-FM"><a href="#GBDT-FM" class="headerlink" title="GBDT+FM"></a>GBDT+FM</h1><p>使用GBDT+FM替换升级GBDT+LR，GBDT+FM一般会比直接单纯使用GBDT效果要好。</p><p>尝试L-BFGS、SGD和FTRL三种优化算法求解，其中FTRL最优秀。</p><p>在稀疏特征建模里,凡是可以用”多个个体共享的属性组合”来替代”每个个体独有的身份标识”的地方,都应该优先这么做。<br>用一组可复用、跨用户共享的行为&#x2F;属性特征去替代一个不可复用、高度个体化的ID，去刻画用户。</p><p>[user_id字段(如果保留,做低权重embedding)] </p><ul><li>[观看历史标签字段: 悬疑&#x3D;0.42, 犯罪&#x3D;0.21, 惊悚&#x3D;0.21, 爱情&#x3D;0.28, 韩剧&#x3D;0.35, 其余&#x3D;0]  (500维,大部分为0,是稀疏的)</li><li>[兴趣偏好标签字段: 快节奏&#x3D;0.6, 高分内容&#x3D;0.8, 其余&#x3D;0]  (200维,同样稀疏)</li><li>[其他字段: 年龄段、地域、性别…]</li></ul><p>这个思路不只适用于FM,后来的深度学习推荐系统(比如很多工业界的双塔模型、DSSM变体)也普遍采用类似思路——不直接用user_id&#x2F;item_id做embedding,而是用用户的多维画像特征(年龄段、地域、兴趣类目、行为序列统计等)拼接后过embedding,道理是完全一样的:牺牲一定的个体区分度,换取参数被更充分训练、对长尾和新用户更友好的泛化能力。</p><p>当然这也有权衡取舍——纯ID embedding的好处是理论上能捕捉到”千人千面”里最细粒度的个体差异(比如两个兴趣标签完全一样的用户,实际口味可能仍有细微不同),所以工业界很多系统会两者结合:主特征用标签&#x2F;行为统计这类可复用特征保证泛化能力和冷启动效果,同时保留一个低权重&#x2F;低维度的ID embedding作为补充,去捕捉标签体系覆盖不到的个性化残差信息。这也是为什么现在很多系统会把”频次高的头部ID单独保留embedding,长尾ID统一映射到一个UNK&#x2F;兜底embedding”作为一种折中方案。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;GBDT-LR&quot;&gt;&lt;a href=&quot;#GBDT-LR&quot; class=&quot;headerlink&quot; title=&quot;GBDT+LR&quot;&gt;&lt;/a&gt;GBDT+LR&lt;/h1&gt;&lt;p&gt;CTR预估场景涉及到大量高维稀疏特征，树模型并不适合处理这些高维稀疏特征（因此实际上会将dense特</summary>
-      
-    
-    
-    
-    <category term="深度学习与推荐系统" scheme="https://www.hicode365.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="排序" scheme="https://www.hicode365.com/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-    <category term="GBDT" scheme="https://www.hicode365.com/tags/GBDT/"/>
-    
-    <category term="LR" scheme="https://www.hicode365.com/tags/LR/"/>
-    
-    <category term="特征交叉" scheme="https://www.hicode365.com/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"/>
-    
-  </entry>
-  
-  <entry>
     <title>FM因子分解机中的特征交叉</title>
-    <link href="https://www.hicode365.com/cuidppnwAku6CZteI-vc6Ts-K"/>
-    <id>https://www.hicode365.com/cuidppnwAku6CZteI-vc6Ts-K</id>
+    <link href="https://www.hicode365.com/cuidmQpruCxiun1vMTMxHtLh1"/>
+    <id>https://www.hicode365.com/cuidmQpruCxiun1vMTMxHtLh1</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-08-01T01:17:28.299Z</updated>
     
@@ -96,37 +66,106 @@
     
     <category term="排序" scheme="https://www.hicode365.com/tags/%E6%8E%92%E5%BA%8F/"/>
     
-    <category term="特征交叉" scheme="https://www.hicode365.com/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"/>
-    
     <category term="FM" scheme="https://www.hicode365.com/tags/FM/"/>
     
     <category term="因子分解机" scheme="https://www.hicode365.com/tags/%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3%E6%9C%BA/"/>
+    
+    <category term="特征交叉" scheme="https://www.hicode365.com/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"/>
     
     <category term="召回" scheme="https://www.hicode365.com/tags/%E5%8F%AC%E5%9B%9E/"/>
     
   </entry>
   
   <entry>
-    <title>Transformer详解</title>
-    <link href="https://www.hicode365.com/cuidQRoxRStupognda-kvRa05"/>
-    <id>https://www.hicode365.com/cuidQRoxRStupognda-kvRa05</id>
+    <title>GBDT+LR</title>
+    <link href="https://www.hicode365.com/cuid5nBRfIcys1Er0S079gGIC"/>
+    <id>https://www.hicode365.com/cuid5nBRfIcys1Er0S079gGIC</id>
     <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:55:21.789Z</updated>
+    <updated>2026-08-01T03:25:03.568Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT+LR"></a>GBDT+LR</h1><p>CTR预估场景涉及到大量高维稀疏特征，树模型并不适合处理这些高维稀疏特征（因此实际上会将dense特征或者低维的离散特征给GBDT，剩余高维稀疏特征拼接上GBDT阶段输出的稀疏特征，然后放到在LR阶段进行训练。GBDT的核心任务是特征组合，擅长自动发现非线性交叉关系。</p><ul><li>传统决策树模型不适合处理稀疏特征，效果和效率通常明显逊色于LR、SVM 或深度学习模型。</li><li>现代 GBDT（如 XGBoost、LightGBM）针对稀疏数据进行了专门优化（稀疏特征计算,不是稀疏特征泛化），能够处理稀疏特征。但需要频繁构建直方图或进行排序，内存占用和计算开销依然远大于基于梯度下降的线性模型。</li><li>超高维特征或高基数特征如用户ID、广告ID等，树模型不适合直接处理。可以使用开启了 smoothing 和 cross-fitting的TargetEncoder进行编码。或者使用GBDT + LR。</li></ul><h1 id="稀疏、稠密特征处理"><a href="#稀疏、稠密特征处理" class="headerlink" title="稀疏、稠密特征处理"></a>稀疏、稠密特征处理</h1><p>FM擅长做稀疏特征处理</p><ul><li>FM二阶做稀疏处理</li><li>FM一阶做稠密处理</li><li>GBDT擅长做稠密特征处理</li><li>DNN可以处理稠密特征、稀疏特征，不擅长做高维稀疏特征，如：uid，可以通过embedding的方式进行处理。【DNN中的连续特征：优先做归一化&#x2F;标准化，在推荐&#x2F;广告中分桶更常见。】</li><li>适合分桶的连续特征：<ul><li>长尾分布</li><li>明显非线性，如用户年龄：18岁、30岁、60岁，不同年龄段行为差异明显。</li><li>业务上有区间意义，如价格：低价商品、中价商品、高价商品</li></ul></li><li>适合归一化&#x2F;表转化的连续特征：<ul><li>数值统计特征：过去7天点击次数、平均停留时间。尤其是连续、分布稳定、没有明显业务区间的特征，通常做log(x+1)变换后再进行归一化&#x2F;标准化</li></ul></li></ul><h1 id="GBDT-FM"><a href="#GBDT-FM" class="headerlink" title="GBDT+FM"></a>GBDT+FM</h1><p>使用GBDT+FM替换升级GBDT+LR，GBDT+FM一般会比直接单纯使用GBDT效果要好。</p><p>尝试L-BFGS、SGD和FTRL三种优化算法求解，其中FTRL最优秀。</p><p>在稀疏特征建模里,凡是可以用”多个个体共享的属性组合”来替代”每个个体独有的身份标识”的地方,都应该优先这么做。<br>用一组可复用、跨用户共享的行为&#x2F;属性特征去替代一个不可复用、高度个体化的ID，去刻画用户。</p><p>[user_id字段(如果保留,做低权重embedding)] </p><ul><li>[观看历史标签字段: 悬疑&#x3D;0.42, 犯罪&#x3D;0.21, 惊悚&#x3D;0.21, 爱情&#x3D;0.28, 韩剧&#x3D;0.35, 其余&#x3D;0]  (500维,大部分为0,是稀疏的)</li><li>[兴趣偏好标签字段: 快节奏&#x3D;0.6, 高分内容&#x3D;0.8, 其余&#x3D;0]  (200维,同样稀疏)</li><li>[其他字段: 年龄段、地域、性别…]</li></ul><p>这个思路不只适用于FM,后来的深度学习推荐系统(比如很多工业界的双塔模型、DSSM变体)也普遍采用类似思路——不直接用user_id&#x2F;item_id做embedding,而是用用户的多维画像特征(年龄段、地域、兴趣类目、行为序列统计等)拼接后过embedding,道理是完全一样的:牺牲一定的个体区分度,换取参数被更充分训练、对长尾和新用户更友好的泛化能力。</p><p>当然这也有权衡取舍——纯ID embedding的好处是理论上能捕捉到”千人千面”里最细粒度的个体差异(比如两个兴趣标签完全一样的用户,实际口味可能仍有细微不同),所以工业界很多系统会两者结合:主特征用标签&#x2F;行为统计这类可复用特征保证泛化能力和冷启动效果,同时保留一个低权重&#x2F;低维度的ID embedding作为补充,去捕捉标签体系覆盖不到的个性化残差信息。这也是为什么现在很多系统会把”频次高的头部ID单独保留embedding,长尾ID统一映射到一个UNK&#x2F;兜底embedding”作为一种折中方案。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;GBDT-LR&quot;&gt;&lt;a href=&quot;#GBDT-LR&quot; class=&quot;headerlink&quot; title=&quot;GBDT+LR&quot;&gt;&lt;/a&gt;GBDT+LR&lt;/h1&gt;&lt;p&gt;CTR预估场景涉及到大量高维稀疏特征，树模型并不适合处理这些高维稀疏特征（因此实际上会将dense特</summary>
+      
+    
+    
+    
+    <category term="深度学习与推荐系统" scheme="https://www.hicode365.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="排序" scheme="https://www.hicode365.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+    <category term="特征交叉" scheme="https://www.hicode365.com/tags/%E7%89%B9%E5%BE%81%E4%BA%A4%E5%8F%89/"/>
+    
+    <category term="GBDT" scheme="https://www.hicode365.com/tags/GBDT/"/>
+    
+    <category term="LR" scheme="https://www.hicode365.com/tags/LR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信息论</title>
+    <link href="https://www.hicode365.com/cuidQezgZE-AeMyLslHj89Cry"/>
+    <id>https://www.hicode365.com/cuidQezgZE-AeMyLslHj89Cry</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-31T01:02:06.352Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="信息熵（Information-Entropy）"><a href="#信息熵（Information-Entropy）" class="headerlink" title="信息熵（Information Entropy）"></a>信息熵（Information Entropy）</h1><p>熵是随机变量或系统不确定性的度量。<strong>熵越大不确定性越大，熵越低纯度越高越稳定</strong></p><p>在决策树中熵用来衡量样本的纯度。<br>$$H(Y) = -\sum_{i=0}^{c-1}P(Y=y_i)log_2P(Y=y_i)$$<br>一般情况下当p为y所有取值情况n的倒数时1&#x2F;n，熵取得最大值，不确定性最强。</p><h1 id="条件熵（Conditional-entropy）"><a href="#条件熵（Conditional-entropy）" class="headerlink" title="条件熵（Conditional entropy）"></a>条件熵（Conditional entropy）</h1><p>条件熵表示在一个条件下，随机变量的不确定性。</p><p>给定条件X的情况下，(所有不同X值情况下)随机变量Y的信息熵，记作H(Y|X)。<br>$$H(Y|X) = \sum_{x_i\in X}^{}P(X=x_i)H(Y|X=x_i)$$<br>把H(Y|X&#x3D;x)代入熵公式H(Y)得：<br>$$H(Y|X=x_i) = -\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y|X=x_i)$$<br>最终得到条件熵的公式为：<br>$$H(Y|X) = - \sum_{x\in X}^{}P(X=x_i)\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y=|X=x_i)$$</p><h1 id="信息增益（Information-Gain）"><a href="#信息增益（Information-Gain）" class="headerlink" title="信息增益（Information Gain）"></a>信息增益（Information Gain）</h1><p>信息增益是用于衡量一个特征在给定条件下对于减少不确定性（或熵减）的贡献程度。我们需要<strong>最大化信息增益</strong> ，同时最小化熵。</p><p>在特征选择中，信息增益用于衡量一个特征将训练数据划分为不同类别的能力，它计算了在使用特征划分数据之前和之后的熵之差。信息增益越高，表示使用该特征进行划分后，不确定性减少得越多，因此该特征更具有区分性。</p><p><strong>信息增益 &#x3D; 信息熵 - 条件熵</strong><br>$$Gain(Y,X) = ΔH = H(Y) - H(Y|X)$$</p><h1 id="信息增益率（Information-Gain-Ratio）"><a href="#信息增益率（Information-Gain-Ratio）" class="headerlink" title="信息增益率（Information Gain Ratio）"></a>信息增益率（Information Gain Ratio）</h1><p>信息增益率是对信息增益的一种改进（信息增益倾向于选择具有更多可能取值的特征，因为它们可以更多地减少不确定性），它考虑了属性自身固有的信息量，避免了某些属性取值数目较多而导致的信息增益偏大的问题。<br>$$Gain\_rate(Y,X) = \frac{Gain(Y,X)}{H(X)}= \frac{H(Y) - H(Y|X)}{H(X)}$$</p><h1 id="基尼系数-Gini-index-不纯度"><a href="#基尼系数-Gini-index-不纯度" class="headerlink" title="基尼系数(Gini index) &#x2F; 不纯度"></a>基尼系数(Gini index) &#x2F; 不纯度</h1><p>基尼系数（Gini Index），也称为基尼不纯度（Gini Impurity），是用于衡量一个数据集中样本类别不纯度的指标。</p><p><strong>取值范围在0到1之间，其中0表示数据集完全纯净（所有数据点都属于同一类别），而1表示数据集最不纯（各类别的数据点均匀分布）</strong></p><p>数据集类别的基尼系数计算：<br>$$Gini(D) = 1-\sum_{i=1}^{n}p(i)^2 = 1-\sum_{i=1}^{n}(\frac{\left |D_i \right | }{\left |D \right | })^{2}$$</p><ul><li>D 表示数据集。</li><li>n 表示类别的总数。</li><li>p(i)表示数据集中属于第 i 个类别的样本的占比</li></ul><p>数据集在指定属性特征下的基尼系数的计算：<br>$$Gini(D,X) = \sum_{i=1}^{n}\frac{\left |X_i \right | }{\left |X \right |}Gini(D)$$</p><ul><li>基尼系数是用于衡量数据集不纯度的指标，范围在0和1之间。</li><li>在决策树算法中，基尼系数常用于特征选择和节点划分，选择能够<strong>最大程度降低不纯度的特征</strong>。</li><li>基尼系数越低，表示数据集越纯净，决策树节点的划分越好。</li></ul><p>在决策树中根据Gini系数的变动大小决定分裂特征：<br>$$ΔGini = Gini(D)-Gini(D,X)$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;信息熵（Information-Entropy）&quot;&gt;&lt;a href=&quot;#信息熵（Information-Entropy）&quot; class=&quot;headerlink&quot; title=&quot;信息熵（Information Entropy）&quot;&gt;&lt;/a&gt;信息熵（Informatio</summary>
+      
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="信息增益率" scheme="https://www.hicode365.com/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/"/>
+    
+    <category term="基尼系数" scheme="https://www.hicode365.com/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>向量</title>
+    <link href="https://www.hicode365.com/cuidNlrCr3eNpi5dGgn8U6iUl"/>
+    <id>https://www.hicode365.com/cuidNlrCr3eNpi5dGgn8U6iUl</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-31T01:01:52.387Z</updated>
     
     
     
     
-    <category term="大模型与Agent" scheme="https://www.hicode365.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/"/>
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
     
     
-    <category term="Transformer" scheme="https://www.hicode365.com/tags/Transformer/"/>
+  </entry>
+  
+  <entry>
+    <title>概率统计</title>
+    <link href="https://www.hicode365.com/cuidHRA-VR9E0OgPTKOwpv8PE"/>
+    <id>https://www.hicode365.com/cuidHRA-VR9E0OgPTKOwpv8PE</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-31T01:01:45.083Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
     
   </entry>
   
   <entry>
     <title>投资理财实战</title>
-    <link href="https://www.hicode365.com/cuida3y1ufQ6tN_N9r8MMwmlu"/>
-    <id>https://www.hicode365.com/cuida3y1ufQ6tN_N9r8MMwmlu</id>
+    <link href="https://www.hicode365.com/cuidrBAAkwVfbeTdJlxC7XmSl"/>
+    <id>https://www.hicode365.com/cuidrBAAkwVfbeTdJlxC7XmSl</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-29T18:01:06.619Z</updated>
     
@@ -145,9 +184,56 @@
   </entry>
   
   <entry>
+    <title>特征值与特征向量</title>
+    <link href="https://www.hicode365.com/cuidCPTU4EKuVl-Ua1vTAuMF7"/>
+    <id>https://www.hicode365.com/cuidCPTU4EKuVl-Ua1vTAuMF7</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-31T01:01:35.714Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer详解</title>
+    <link href="https://www.hicode365.com/cuidvBxV4brS4To70UiG5p-o6"/>
+    <id>https://www.hicode365.com/cuidvBxV4brS4To70UiG5p-o6</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T17:55:21.789Z</updated>
+    
+    
+    
+    
+    <category term="大模型与Agent" scheme="https://www.hicode365.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/"/>
+    
+    
+    <category term="Transformer" scheme="https://www.hicode365.com/tags/Transformer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高等数学</title>
+    <link href="https://www.hicode365.com/cuidP2sv6d_T08nDQ55PR3O8Y"/>
+    <id>https://www.hicode365.com/cuidP2sv6d_T08nDQ55PR3O8Y</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-31T01:01:07.863Z</updated>
+    
+    
+    
+    
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>数据的降维</title>
-    <link href="https://www.hicode365.com/cuidPASrTuQO9-QbLbir19UNO"/>
-    <id>https://www.hicode365.com/cuidPASrTuQO9-QbLbir19UNO</id>
+    <link href="https://www.hicode365.com/cuidMWORwc0eBXISb3Pm95eKq"/>
+    <id>https://www.hicode365.com/cuidMWORwc0eBXISb3Pm95eKq</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-29T18:16:01.425Z</updated>
     
@@ -165,8 +251,8 @@
   
   <entry>
     <title>DecisionTree决策树原理、公式与实战</title>
-    <link href="https://www.hicode365.com/cuidhoRex_ZvvfWWQJV-6IaC9"/>
-    <id>https://www.hicode365.com/cuidhoRex_ZvvfWWQJV-6IaC9</id>
+    <link href="https://www.hicode365.com/cuidnuJPdUYc4XkkiD0Z2Opuw"/>
+    <id>https://www.hicode365.com/cuidnuJPdUYc4XkkiD0Z2Opuw</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-30T02:19:02.447Z</updated>
     
@@ -196,47 +282,43 @@
   </entry>
   
   <entry>
-    <title>线性回归</title>
-    <link href="https://www.hicode365.com/cuideMrfjHAfVvLJ3OjUe2NAW"/>
-    <id>https://www.hicode365.com/cuideMrfjHAfVvLJ3OjUe2NAW</id>
+    <title>矩阵</title>
+    <link href="https://www.hicode365.com/cuidUKFUrNTGmvRVXhHlzMvXM"/>
+    <id>https://www.hicode365.com/cuidUKFUrNTGmvRVXhHlzMvXM</id>
     <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:52:39.599Z</updated>
+    <updated>2026-07-31T01:01:19.626Z</updated>
     
     
     
     
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
     
-    
-    <category term="回归" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92/"/>
-    
-    <category term="线性回归" scheme="https://www.hicode365.com/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
     
   </entry>
   
   <entry>
-    <title>逻辑回归</title>
-    <link href="https://www.hicode365.com/cuidrk_z9xL8QiRd-06QRGwCz"/>
-    <id>https://www.hicode365.com/cuidrk_z9xL8QiRd-06QRGwCz</id>
+    <title>如何做好技术型管理</title>
+    <link href="https://www.hicode365.com/cuidmVj34tUKh-14RfenrIdJI"/>
+    <id>https://www.hicode365.com/cuidmVj34tUKh-14RfenrIdJI</id>
     <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:54:15.373Z</updated>
+    <updated>2026-07-29T18:00:13.953Z</updated>
     
     
     
     
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    <category term="管理与思考" scheme="https://www.hicode365.com/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/"/>
     
     
-    <category term="逻辑回归" scheme="https://www.hicode365.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    <category term="技术管理" scheme="https://www.hicode365.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/"/>
     
-    <category term="分类算法" scheme="https://www.hicode365.com/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    <category term="管理" scheme="https://www.hicode365.com/tags/%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>集成学习之随机森林RandomForest</title>
-    <link href="https://www.hicode365.com/cuidVABOQWz52_sXCtwiycUQE"/>
-    <id>https://www.hicode365.com/cuidVABOQWz52_sXCtwiycUQE</id>
+    <link href="https://www.hicode365.com/cuideloXu9nVpWdskycpM-hAZ"/>
+    <id>https://www.hicode365.com/cuideloXu9nVpWdskycpM-hAZ</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-29T17:51:13.150Z</updated>
     
@@ -262,129 +344,47 @@
   </entry>
   
   <entry>
-    <title>如何做好技术型管理</title>
-    <link href="https://www.hicode365.com/cuid-alRtZOdVmDhr_i-Ai6EX"/>
-    <id>https://www.hicode365.com/cuid-alRtZOdVmDhr_i-Ai6EX</id>
+    <title>线性回归</title>
+    <link href="https://www.hicode365.com/cuid6uuJdEdXetdj8q5LN7gE9"/>
+    <id>https://www.hicode365.com/cuid6uuJdEdXetdj8q5LN7gE9</id>
     <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:00:13.953Z</updated>
+    <updated>2026-07-29T17:52:39.599Z</updated>
     
     
     
     
-    <category term="管理与思考" scheme="https://www.hicode365.com/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/"/>
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
     
     
-    <category term="技术管理" scheme="https://www.hicode365.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/"/>
+    <category term="回归" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92/"/>
     
-    <category term="管理" scheme="https://www.hicode365.com/tags/%E7%AE%A1%E7%90%86/"/>
+    <category term="线性回归" scheme="https://www.hicode365.com/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
     
   </entry>
   
   <entry>
-    <title>特征值与特征向量</title>
-    <link href="https://www.hicode365.com/cuidsNkGw299oeIlC3AaSF2rz"/>
-    <id>https://www.hicode365.com/cuidsNkGw299oeIlC3AaSF2rz</id>
+    <title>逻辑回归</title>
+    <link href="https://www.hicode365.com/cuidSsqlVKBsnXzW6K_4G5R6V"/>
+    <id>https://www.hicode365.com/cuidSsqlVKBsnXzW6K_4G5R6V</id>
     <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-31T01:01:35.714Z</updated>
+    <updated>2026-07-29T17:54:15.373Z</updated>
     
     
     
     
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
     
     
-  </entry>
-  
-  <entry>
-    <title>概率统计</title>
-    <link href="https://www.hicode365.com/cuidEUxeQx8HxQDVhVmPl9eev"/>
-    <id>https://www.hicode365.com/cuidEUxeQx8HxQDVhVmPl9eev</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-31T01:01:45.083Z</updated>
+    <category term="逻辑回归" scheme="https://www.hicode365.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
     
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>信息论</title>
-    <link href="https://www.hicode365.com/cuidvnsZyCb97mMhuIM-VMiNC"/>
-    <id>https://www.hicode365.com/cuidvnsZyCb97mMhuIM-VMiNC</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-31T01:02:06.352Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="信息熵（Information-Entropy）"><a href="#信息熵（Information-Entropy）" class="headerlink" title="信息熵（Information Entropy）"></a>信息熵（Information Entropy）</h1><p>熵是随机变量或系统不确定性的度量。<strong>熵越大不确定性越大，熵越低纯度越高越稳定</strong></p><p>在决策树中熵用来衡量样本的纯度。<br>$$H(Y) = -\sum_{i=0}^{c-1}P(Y=y_i)log_2P(Y=y_i)$$<br>一般情况下当p为y所有取值情况n的倒数时1&#x2F;n，熵取得最大值，不确定性最强。</p><h1 id="条件熵（Conditional-entropy）"><a href="#条件熵（Conditional-entropy）" class="headerlink" title="条件熵（Conditional entropy）"></a>条件熵（Conditional entropy）</h1><p>条件熵表示在一个条件下，随机变量的不确定性。</p><p>给定条件X的情况下，(所有不同X值情况下)随机变量Y的信息熵，记作H(Y|X)。<br>$$H(Y|X) = \sum_{x_i\in X}^{}P(X=x_i)H(Y|X=x_i)$$<br>把H(Y|X&#x3D;x)代入熵公式H(Y)得：<br>$$H(Y|X=x_i) = -\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y|X=x_i)$$<br>最终得到条件熵的公式为：<br>$$H(Y|X) = - \sum_{x\in X}^{}P(X=x_i)\sum_{i=0}^{c-1}P(Y|X=x_i)log_2P(Y=|X=x_i)$$</p><h1 id="信息增益（Information-Gain）"><a href="#信息增益（Information-Gain）" class="headerlink" title="信息增益（Information Gain）"></a>信息增益（Information Gain）</h1><p>信息增益是用于衡量一个特征在给定条件下对于减少不确定性（或熵减）的贡献程度。我们需要<strong>最大化信息增益</strong> ，同时最小化熵。</p><p>在特征选择中，信息增益用于衡量一个特征将训练数据划分为不同类别的能力，它计算了在使用特征划分数据之前和之后的熵之差。信息增益越高，表示使用该特征进行划分后，不确定性减少得越多，因此该特征更具有区分性。</p><p><strong>信息增益 &#x3D; 信息熵 - 条件熵</strong><br>$$Gain(Y,X) = ΔH = H(Y) - H(Y|X)$$</p><h1 id="信息增益率（Information-Gain-Ratio）"><a href="#信息增益率（Information-Gain-Ratio）" class="headerlink" title="信息增益率（Information Gain Ratio）"></a>信息增益率（Information Gain Ratio）</h1><p>信息增益率是对信息增益的一种改进（信息增益倾向于选择具有更多可能取值的特征，因为它们可以更多地减少不确定性），它考虑了属性自身固有的信息量，避免了某些属性取值数目较多而导致的信息增益偏大的问题。<br>$$Gain\_rate(Y,X) = \frac{Gain(Y,X)}{H(X)}= \frac{H(Y) - H(Y|X)}{H(X)}$$</p><h1 id="基尼系数-Gini-index-不纯度"><a href="#基尼系数-Gini-index-不纯度" class="headerlink" title="基尼系数(Gini index) &#x2F; 不纯度"></a>基尼系数(Gini index) &#x2F; 不纯度</h1><p>基尼系数（Gini Index），也称为基尼不纯度（Gini Impurity），是用于衡量一个数据集中样本类别不纯度的指标。</p><p><strong>取值范围在0到1之间，其中0表示数据集完全纯净（所有数据点都属于同一类别），而1表示数据集最不纯（各类别的数据点均匀分布）</strong></p><p>数据集类别的基尼系数计算：<br>$$Gini(D) = 1-\sum_{i=1}^{n}p(i)^2 = 1-\sum_{i=1}^{n}(\frac{\left |D_i \right | }{\left |D \right | })^{2}$$</p><ul><li>D 表示数据集。</li><li>n 表示类别的总数。</li><li>p(i)表示数据集中属于第 i 个类别的样本的占比</li></ul><p>数据集在指定属性特征下的基尼系数的计算：<br>$$Gini(D,X) = \sum_{i=1}^{n}\frac{\left |X_i \right | }{\left |X \right |}Gini(D)$$</p><ul><li>基尼系数是用于衡量数据集不纯度的指标，范围在0和1之间。</li><li>在决策树算法中，基尼系数常用于特征选择和节点划分，选择能够<strong>最大程度降低不纯度的特征</strong>。</li><li>基尼系数越低，表示数据集越纯净，决策树节点的划分越好。</li></ul><p>在决策树中根据Gini系数的变动大小决定分裂特征：<br>$$ΔGini = Gini(D)-Gini(D,X)$$</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;信息熵（Information-Entropy）&quot;&gt;&lt;a href=&quot;#信息熵（Information-Entropy）&quot; class=&quot;headerlink&quot; title=&quot;信息熵（Information Entropy）&quot;&gt;&lt;/a&gt;信息熵（Informatio</summary>
-      
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="信息增益率" scheme="https://www.hicode365.com/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87/"/>
-    
-    <category term="基尼系数" scheme="https://www.hicode365.com/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>向量</title>
-    <link href="https://www.hicode365.com/cuidb4Zfn-WbUNArUnMR_UGGW"/>
-    <id>https://www.hicode365.com/cuidb4Zfn-WbUNArUnMR_UGGW</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-31T01:01:52.387Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>矩阵</title>
-    <link href="https://www.hicode365.com/cuidvrnFW6kJIBndbr3zmO_Re"/>
-    <id>https://www.hicode365.com/cuidvrnFW6kJIBndbr3zmO_Re</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-31T01:01:19.626Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高等数学</title>
-    <link href="https://www.hicode365.com/cuidPvNfXZeMffSojraS_dT7G"/>
-    <id>https://www.hicode365.com/cuidPvNfXZeMffSojraS_dT7G</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-31T01:01:07.863Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
+    <category term="分类算法" scheme="https://www.hicode365.com/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>SVM支持向量机全景拆解</title>
-    <link href="https://www.hicode365.com/cuidxG-ItS1ccg1woYuUWAJPo"/>
-    <id>https://www.hicode365.com/cuidxG-ItS1ccg1woYuUWAJPo</id>
+    <link href="https://www.hicode365.com/cuidqRQ7IvwJaQW0X9wyYaKLs"/>
+    <id>https://www.hicode365.com/cuidqRQ7IvwJaQW0X9wyYaKLs</id>
     <published>2026-02-22T09:48:39.749Z</published>
     <updated>2026-07-29T17:46:50.700Z</updated>
     
@@ -413,8 +413,8 @@
   
   <entry>
     <title>机器学习导论</title>
-    <link href="https://www.hicode365.com/cuid7hlscIKJQvx5n_Dl-uNCR"/>
-    <id>https://www.hicode365.com/cuid7hlscIKJQvx5n_Dl-uNCR</id>
+    <link href="https://www.hicode365.com/cuid5xzDgZkMyYUdMN3VqcyJ_"/>
+    <id>https://www.hicode365.com/cuid5xzDgZkMyYUdMN3VqcyJ_</id>
     <published>2026-02-22T01:35:12.017Z</published>
     <updated>2026-02-22T07:05:54.959Z</updated>
     
@@ -447,12 +447,12 @@
   
   <entry>
     <title>DCN深度交叉网络详解</title>
-    <link href="https://www.hicode365.com/cuidaxb6uI3vjuHfRzQ_cLyZm"/>
-    <id>https://www.hicode365.com/cuidaxb6uI3vjuHfRzQ_cLyZm</id>
+    <link href="https://www.hicode365.com/cuidm09Qw7dAsA3zObzyDsEPs"/>
+    <id>https://www.hicode365.com/cuidm09Qw7dAsA3zObzyDsEPs</id>
     <published>2024-03-30T04:46:53.625Z</published>
-    <updated>2026-08-03T09:52:36.466Z</updated>
+    <updated>2026-08-06T02:49:56.280Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="DCN"><a href="#DCN" class="headerlink" title="DCN"></a>DCN</h1><p>基于FM方法的交叉往往只局限于二阶，更高阶的交叉会导致交叉项呈指数形式增加，计算复杂度高，使用成本高。当更高阶的数据交叉时我们可以使用DCN(Deep &amp; Cross Network)，深度交叉网络。</p><p>FM和DCN的交叉是显示交叉，DNN的交叉是隐式交叉（缺乏实际理论意义）</p><h2 id="DCN的迭代"><a href="#DCN的迭代" class="headerlink" title="DCN的迭代"></a>DCN的迭代</h2><ul><li>DCN-v（DCN）在交叉层引入vector形式的参数以实现特征交叉，在业界的命名也由此而来。【<strong>bit-wise</strong>】</li><li>DCN-m（DCN-v2）引入的是matrix形式的参数，优化了参数共享，从而细化不同交叉项的差异。【<strong>bit-wise</strong>】</li><li>xDeepFM针对DCN-v和DCN-m中对特征基于bit-wise的交叉进行改进，实现基于field-wise的交叉。【<strong>field-wise</strong>】</li></ul><h2 id="DCN-v（DCN-vector）"><a href="#DCN-v（DCN-vector）" class="headerlink" title="DCN-v（DCN-vector）"></a>DCN-v（DCN-vector）</h2><p>DCN-v（即DCN-vector）网络结构包括DNN和特征交叉两部分，在特征交叉部分通过设计网络层实现bit-wise的显式高阶特征交叉。</p><h3 id="DCN网络结构"><a href="#DCN网络结构" class="headerlink" title="DCN网络结构"></a>DCN网络结构</h3><img src="/images/WX20240330-125227@2x.png" alt="WX20240330-125227@2x" style="zoom:45%;" /><p><strong>输入层：</strong></p><ul><li><p>稠密特征(dense feature)：直接输入</p></li><li><p>稀疏特征(sparse feature)：做embedding</p></li><li><p>然后稠密特征拼接上稀疏特征后输出到隐层</p></li></ul><p><strong>隐藏层：</strong></p><p>中间隐层由DNN network和Cross network组成。</p><p><strong>输出层：</strong></p><p>神经网络的输出与交叉网络的输出拼接到一块，在通过sigmoid或softmax函数进行CTR预测。</p><h3 id="Cross-network"><a href="#Cross-network" class="headerlink" title="Cross network"></a>Cross network</h3><p>特征交叉部分包括N层网络结构，在每一层引入vector形式的参数（也就是$w$），和特征表征进行加和乘等的操作，得到该层的交叉项，再输入到下一层，进行更高阶的交叉。（实现bit-wise的N阶显式高阶特征交叉）</p><img src="/images/WX20240330-235502@2x.png" alt="WX20240330-235502@2x" style="zoom:50%;" /> <h4 id="交叉层向量计算"><a href="#交叉层向量计算" class="headerlink" title="交叉层向量计算"></a>交叉层向量计算</h4><img src="/images/WX20240330-125329@2x.png" alt="WX20240330-125329@2x" style="zoom:50%;" /><p>每层的特征交叉过程主要包括两个步骤：</p><ul><li>底层特征表征 $x_0$和上一层的特征表征 $x_l$相乘，进行交叉，相乘得到的交叉项通过vector形式的参数$w_l$ 和 $b_l$进行线性变换，得到交叉项结果；</li><li>交叉项结果和上一层的特征表征$x_l$ 相加，得到该层的特征表征$x_l$ 。</li><li><strong>交叉层向量计算公式如下</strong>：</li></ul><p>$$x_{l+1} = x_0 \cdot x_l^T \cdot w_l + b_l + x_l = f(x_l,w_l,b_l) + x_l$$</p><p>特征经过L层操作后，得到L+1阶交叉特征。特征交叉层引入了残差的思想，每层的交叉操作函数f拟合和的残差，有利于缓解梯度消失的问题，从而使网络具备更深的深度。</p><h4 id="计算示例"><a href="#计算示例" class="headerlink" title="计算示例"></a><strong>计算示例</strong></h4><p>我们以计算交叉层最下层（此时$l$的值为0，也就是计算$x_1$）为例，计算$x_1$的值：<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0$$</p><p>假设$x_0$是三维的$\begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix}$，$w_0$为$\begin{bmatrix} W_1 \\ W_2 \\ W_3 \end{bmatrix}$，$b_0$为$\begin{bmatrix} B_1 \\ B_2 \\ B_3 \end{bmatrix}$，则上述$x_0$与$x_0$转置的乘积为：<br>$$x_0 \cdot x_0^T = \begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix} \cdot \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} = \begin{bmatrix} X_1 \cdot X_1 & X_1 \cdot X_2 & X_1 \cdot X_3 \\ X_2 \cdot X_1 & X_2 \cdot X_2 & X_2 \cdot X_3 \\ X_3 \cdot X_1 & X_3 \cdot X_2 & X_3 \cdot X_3 \end{bmatrix}$$<br>接下来$x_0 \cdot x_0^T$与$w_0$相乘用来减少参数量（ $x_0 \cdot x_0^T$结果中的每一列都共享一个$W$值，如：第一列共享$W_1$，第二列共享$W_2$ …，这种共享的方式会造成一些损失 ）。</p><p>从下面的结果总可以发现，向量中（域中）每一个元素都两两相乘【交叉】。<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0= \begin{bmatrix} X_1 X_1 W_1 + X_1 X_2 W_2 + X_1 X_3 W_3 + B_1 + X_1 \\ X_2 X_1 W_1 + X_2 X_2 W_2 + X_2 X_3 W_3 + B_2 + X_2 \\ X_3 X_1 W_1 + X_3 X_2 W_2 + X_3 X_3 W_3 + B_3 + X_3 \end{bmatrix}$$<br>从$x_1$的最终结果中可以看出，$x_1$的值包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到2阶的所有的交叉项。</p><p>同理：<br>$$x_{2} = x_0 \cdot x_1^T \cdot w_1 + b_1 + x_1$$<br>$x_2$的最终结果包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到3阶的所有交叉项。</p><p>归纳总结：</p><p>一直到 $l$ 层，$ x_0 \cdot x_l^T \cdot w_l $ 乘法操作实现了2阶到 $l+1$ 阶的所有交叉组合，再加上 $x_l$，最终的结果表征了从1阶到L+1阶所有阶数的交叉项。</p><h4 id="参数共享"><a href="#参数共享" class="headerlink" title="参数共享"></a>参数共享</h4><p>交叉操作中，参数向量 $w$ 通过乘法操作，实现对交叉项结果的线性组合。</p><img src="/images/2321434534534.png" alt="2321434534534" style="zoom:40%;" /><ul><li>交叉层通过矩阵乘法 $ x_0 x_l^T $ 生成 <strong>特征交叉映射（feature map）</strong>，其中每一行代表不同特征的交叉组合。  </li><li>参数 $ w_l $ 用于对交叉项进行 <strong>线性组合</strong>，计算下一层的输出 $ x_{l+1} $。</li><li>feature map中第 $i$ 行的交叉项与 $x_l$ 相乘得到 $ x_{l+1} $对应的第 $ i $ 项，feature map中的每一行共享参数 $ w_l $。</li><li><strong>参数共享</strong>：所有交叉项共享同一个权重向量 $ w_l $，减少参数量并增强泛化性。</li></ul><p><strong>参数共享的优缺点</strong></p><p><strong>优点：</strong>  </p><ul><li><strong>减少参数量</strong>：避免为每个交叉项单独学习权重，降低计算成本。  </li><li><strong>增强泛化能力</strong>：即使某些特征组合未在训练数据中出现，模型仍能通过其他组合学习到的权重进行泛化。</li></ul><p><strong>缺点：</strong>  </p><ul><li><strong>缺乏差异性</strong>：所有交叉项共享同一组权重，无法区分不同交叉组合的重要性，限制模型表达能力。（不同行线性组合的差异性无法体现）</li></ul><p><strong>总结与改进</strong></p><ul><li><p>DCN的交叉层通过参数共享实现高效的特征交叉，但牺牲了组合差异性；</p></li><li><p>针对参数共享的不足，DCN-m（如DCN-v2）引入更灵活的参数化方法（如引入独立权重或高阶交互），以提升交叉特征的区分能力。</p></li></ul><h2 id="DCN-m（DCN-Matrix，DCN-v2）"><a href="#DCN-m（DCN-Matrix，DCN-v2）" class="headerlink" title="DCN-m（DCN-Matrix，DCN-v2）"></a>DCN-m（DCN-Matrix，DCN-v2）</h2><p>DCN-m（DCN-Matrix，又称DCN-v2）的整体思路和原理与DCN-v基本一致，在DCN-v的基础上对特征交叉的改进，通过在特征交叉层引入matrix形式的参数，使特征交叉层中的feature map可以进行差异化线性组合，从而提高对交叉特征的学习能力。</p><p>DCN-v2的特征交叉网络是通过对特征进行相乘和相加操作，实现显式高阶交叉。</p><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>DCN-m的模型结构如下图所示由特征交叉结构和DNN结构两部分构成，这两个部分可以采用<strong>串行</strong>也可以采用<strong>并行</strong>，这两部分的结果组合后经过输出层得到模型结果。【并行更常用】</p><img src="/images/WX20240330-125515@2x.png" alt="WX20240330-125515@2x" style="zoom: 60%;" /><h3 id="Cross-network-1"><a href="#Cross-network-1" class="headerlink" title="Cross network"></a>Cross network</h3><img src="/images/WX20240330-125530@2x.png" alt="WX20240330-125530@2x" style="zoom:50%;" /><p>特征交叉结构中每层网络的计算公式：</p><p>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot (\mathbf{w}_l \mathbf{x}_l + \mathbf{b}_l) + \mathbf{x}_l$$</p><ul><li><p>$\odot$ 表示按位乘</p></li><li><p>$\mathbf{w}_l$ 表示 $l$ 层的权重矩阵。</p></li><li><p>$\mathbf{w}_l$ 为matrix形式的参数。正是因为在计算中引入了matrix形式的参数，DCN-m实现了对特征表征形成的feature map中不同行所表示的feature进行差异化组合，从而相比DCN-v，提高了网络对特征交叉的学习能力。</p></li><li><p>$\mathbf{b}_l$ 标识 $l$ 层的偏置向量。</p></li></ul><h4 id="参数理解"><a href="#参数理解" class="headerlink" title="参数理解"></a>参数理解</h4><img src="/images/2413534543.png" alt="2413534543" style="zoom:50%;" /><p>特征交叉层的参数 $\mathbf{w}$ 为matrix形式，它实现了对交叉项的差异化线性组合。以第$l$层为例，首先$\mathbf{w}_l$ 和 $\mathbf{x}_l$ 相乘，是对 $\mathbf{x}_l$ 所表征的feature进行线性组合，相乘结果 $\mathbf{w}_l \mathbf{x}_l$ 的每一维对应了不同的参数 $\mathbf{w}_l^{(i)}$，也就是结果中的每一维都是 $\mathbf{x}_l$ 所有维线性组合后的表征，因此每一维包含更丰富的表达，$\mathbf{w}_l \mathbf{x}_l$ 再和 $\mathbf{x}_0$ 按位相乘，实现更高一阶的交叉，从而使交叉结果的表征更丰富。 </p><h4 id="交叉结构特点"><a href="#交叉结构特点" class="headerlink" title="交叉结构特点"></a>交叉结构特点</h4><ul><li><p>每层的输入和输出形状相同，因此每层的参数量相同，即参数 $\mathbf{w}_l$ 和 $\mathbf{b}_l$ 的参数量，为 $N^2 + N$（$N$ 为特征表征的维度），特征交叉模块整体的参数量随着层数线性增长，为 $O(N^2L)$（$L$ 为层数）。</p></li><li><p>由于每层引入了matrix形式的参数，因此参数量明显比DCN-v增多。由此也可以看出，模型效果的提升，在DCN-m上相应的代价的体现是参数量的增加。</p></li><li><p>每层的计算量为 $O(N^3)$，因此特征交叉模块的时间复杂度为 $O(N^3L)$。</p></li><li><p>特征的交叉阶数由网络深度决定，当特征交叉网络层数为$L$层时，交叉阶数为$L+1$。</p></li><li><p>特征交叉网络的输出，包含了从1阶（特征本身 $\mathbf{x}_0$）到$L+1$阶的所有特征交叉项组合。</p></li></ul><h4 id="矩阵分解优化交叉网络"><a href="#矩阵分解优化交叉网络" class="headerlink" title="矩阵分解优化交叉网络"></a>矩阵分解优化交叉网络</h4><h5 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a><strong>存在问题</strong></h5><ul><li>在原始的DCN-V2中，交叉层（Cross Network）通过引入一个稠密的权重矩阵 $ W \in \mathbb{R}^{d \times d} $ 显式建模特征交互。相比于其它特征交叉方法参数量大，尤其是当特征维度 $ d $ 较大时，矩阵 $ W $ 的参数规模会变得非常庞大为$ O(d^2) $，导致计算和存储成本高昂。</li><li>可以采用矩阵分解的方式进行优化，使特征交叉层的参数低秩化，在保证模型效果的同时有效减少参数量。</li><li>矩阵分解是一种降低参数量的常用方法，通过把一个大参数量的矩阵分解为两个简单的矩阵相乘，实现参数量的控制。</li></ul><h5 id="优化方式"><a href="#优化方式" class="headerlink" title="优化方式"></a><strong>优化方式</strong></h5><img src="/images/ScreenShot_2026-08-03_173312_697.png" alt="ScreenShot_2026-08-03_173312_697" style="zoom:35%;" /><p>通过训练过程观察到，实际训练后的矩阵 $ W $ 具有<strong>低秩特性</strong>（即其奇异值衰减较快）。因此，可以通过低秩分解技术近似表示 $ W $：<br>$$W \approx UV^\top$$</p><p>其中 $ U, V \in \mathbb{R}^{d \times r} $，且秩 $ r \ll d $。这样，参数规模从 $ O(d^2) $ 降至 $ O(2dr) $，显著减少了计算开销。</p><p>低秩交叉层的公式为：<br>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot \left( U_l (V_l^\top \mathbf{x}_l) + \mathbf{b}_l \right) + \mathbf{x}_l,$$</p><ul><li>$ U_l, V_l $ 是低秩矩阵，用于在子空间中学习特征交互。</li><li>$ \odot $ 表示逐元素乘法（Hadamard积）。</li><li>残差连接（$ +\mathbf{x}_l $）保留了低阶特征交互。</li></ul><h5 id="优化后的增强点"><a href="#优化后的增强点" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><strong>计算高效</strong>：将矩阵参数 $W_l$ 分解为两个向量参数 ${U}_l$ 和 $V_l$，有效减少了参数量，每一层的复杂度从 $ O(d^2) $ 降到了 $ O(2dr) $。</li><li><strong>保持表达能力</strong>：通过低秩近似，模型仍能捕捉重要的特征交互模式。</li></ul><h3 id="DCN-Mix（DCN-Mixture）"><a href="#DCN-Mix（DCN-Mixture）" class="headerlink" title="DCN-Mix（DCN-Mixture）"></a>DCN-Mix（DCN-Mixture）</h3><p>单一的低秩矩阵可能无法充分建模复杂的特征交互模式。受混合专家（Mixture of Experts, MoE）架构启发，作者提出<strong>混合低秩专家（DCN-Mix）</strong>。在矩阵分解减少参数量的基础上，通过多个低秩子空间组合进一步提升模型的表达能力。</p><h5 id="子空间MoE优化"><a href="#子空间MoE优化" class="headerlink" title="子空间MoE优化"></a>子空间MoE优化</h5><p>借鉴MoE的思路，在多个子空间学习特征交叉，即通过多个Expert学习特征交叉，每个expert表征一个子空间，再通过Gating方式将各个子空间的特征交叉结果融合。当K&#x3D;1时，表示只有一个子空间，简化为普通的矩阵分解，即没有拆分子空间的DCN-m。</p><img src="/images/wechat_2025-08-05_232837_437.png" alt="wechat_2025-08-05_232837_437" style="zoom:50%;" /><ul><li><p><strong>多专家设计</strong>：</p><ul><li>使用 $ K $ 个独立的低秩专家（每个专家对应一对矩阵 $ U_l^k, V_l^k $），每个专家在子空间中学习不同的特征交互模式。</li><li>每个专家的输出为：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k (V_l^{k\top} \mathbf{x}_l) + \mathbf{b}_l \right).     $$</li></ul></li><li><p><strong>门控机制（Gating）</strong>：</p><ul><li>引入门控函数 $ G_k(\mathbf{x}_l) $ 动态分配权重，组合多个专家的输出：<br>$$     \mathbf{x}_{l+1} = \sum_{k=1}^K G_k(\mathbf{x}_l) E_k(\mathbf{x}_l) + \mathbf{x}_l.     $$</li><li>门控函数可以是简单的常数（如均匀加权）、Sigmoid或Softmax。</li></ul></li><li><p><strong>非线性增强</strong>：</p><ul><li><p>使特征变换具有非线性，从而提高特征交叉结果的表征能力。</p></li><li><p>在低维投影空间（$ V_l^{k\top} \mathbf{x}_l $）后引入非线性激活函数 $ g(\cdot) $（如ReLU），进一步细化特征表示：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k \cdot g(C_l^k \cdot g(V_l^{k\top} \mathbf{x}_l)) + \mathbf{b}_l \right).     $$</p></li></ul></li></ul><p>DCN-Mix利用多个Expert在不同的子空间学习特征交叉，并对特征变换引入非线性，理论上提高了特征交叉网络的学习能力。</p><h5 id="优化后的增强点-1"><a href="#优化后的增强点-1" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><p>交叉组合项形成的feature可以进行有差别的组合，提高了模型对特征交叉的学习能力；</p></li><li><p>优化过程引入了子空间和特征的非线性变化，加强了特征交叉的学习。</p></li><li><p><strong>灵活建模</strong>：不同专家专注于不同的交互模式，门控机制自适应选择重要子空间。</p></li><li><p><strong>效率与性能平衡</strong>：通过控制专家数量 $ K $ 和秩 $ r $，实现计算成本与模型性能的权衡。</p></li></ul><h5 id="风险点"><a href="#风险点" class="headerlink" title="风险点"></a><strong>风险点</strong></h5><ul><li>优化后的网络的学习是在一个非常高维的空间中，增加了学习难度，实际收敛过程可能不如预期，难以达到理论上预期的效果。</li><li>对于多个子空间的特征交叉，在实际过程中，可能会遇到<strong>效果集中在单个Expert上，造成坍缩现象</strong>。</li><li>参数量和计算复杂度明显增加，增加线上性能压力，模型<strong>可能无法上线</strong>，因此上线时需结合工程性能进行适当优化；</li></ul><h3 id="优化总结"><a href="#优化总结" class="headerlink" title="优化总结"></a>优化总结</h3><ul><li><strong>矩阵分解</strong>：通过低秩近似减少参数量，提升计算效率。<ul><li>原始DCN-v2使用矩阵分解优化，每一交叉层的原始稠密权重矩阵$ W_l $，被分解成两个小矩阵$ U_l $和$ V_l $</li></ul></li><li><strong>MoE优化</strong>：结合多个低秩专家和门控机制，增强模型对复杂特征交互的建模能力。<ul><li>进一步使用MoE优化，每个交叉层包含K个低秩专家，每个专家对应两个小矩阵$ U_l^k, V_l^k $</li></ul></li></ul><h2 id="不同模型交叉对比"><a href="#不同模型交叉对比" class="headerlink" title="不同模型交叉对比"></a>不同模型交叉对比</h2><ul><li>FM：vector-wise交叉</li><li>Cross network（DCN）：bit-wise交叉，又称element-wise。</li><li>Cross network（DCN-v2）：bit-wise交叉，优化了交叉层的共享权重。</li><li>DeepFM中的交叉是向量的相乘，DCN中的交叉是向量中的每个元素值进行交叉，向量内神经元两两相乘。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="DCN"><a href="#DCN" class="headerlink" title="DCN"></a>DCN</h1><p>基于FM方法的交叉往往只局限于二阶，更高阶的交叉会导致交叉项呈指数形式增加，计算复杂度高，使用成本高。当更高阶的数据交叉时我们可以使用DCN(Deep &amp; Cross Network)，深度交叉网络。</p><p>FM和DCN的交叉是显示交叉，DNN的交叉是隐式交叉（缺乏实际理论意义）</p><h2 id="特征交叉的演进"><a href="#特征交叉的演进" class="headerlink" title="特征交叉的演进"></a>特征交叉的演进</h2><ul><li>DeepFM 通过共享输入使用FM捕捉低阶特征交互和DNN学习高阶特征交互的能力。【<strong>field-wise &#x2F; vector-wise</strong>】</li><li>DCN-v（DCN）在交叉层引入vector形式的参数以实现特征交叉，在业界的命名也由此而来。【<strong>bit-wise</strong>】</li><li>DCN-m（DCN-v2）引入的是matrix形式的参数，优化了参数共享，从而细化不同交叉项的差异。【<strong>bit-wise</strong>】</li><li>xDeepFM针对DCN-v和DCN-m中对特征基于bit-wise的交叉进行改进，实现基于field-wise的交叉。【<strong>field-wise</strong>】</li></ul><p> 注：上述模型的DNN部分是将embedding拼接输入MLP，不同 embedding的每个维度都会混合计算，可以认为是隐式高阶的<strong>bit-wise</strong></p><table><thead><tr><th align="left">模型</th><th align="left">核心改进点</th><th align="left">交叉参数形式</th><th align="left">交叉粒度（维度）</th><th align="left">主要特点 &#x2F; 解决的问题</th></tr></thead><tbody><tr><td align="left"><strong>DeepFM</strong></td><td align="left">基础框架</td><td align="left">隐向量（FM部分）</td><td align="left"><strong>vector-wise（向量级）</strong></td><td align="left">FM + DNN并行结构，同时捕捉二阶和高阶特征，无需人工特征工程。</td></tr><tr><td align="left"><strong>DCN-v（DCN）</strong></td><td align="left">引入Cross Network</td><td align="left"><strong>向量（vector）</strong></td><td align="left"><strong>bit-wise（逐位）</strong></td><td align="left">用Cross Network高效建模高阶交叉；每层参数为向量，与输入逐元素乘加。</td></tr><tr><td align="left"><strong>DCN-m（DCN-v2）</strong></td><td align="left">参数升级，细粒度差异化</td><td align="left"><strong>矩阵（matrix）</strong></td><td align="left"><strong>bit-wise（逐位）</strong></td><td align="left">将向量参数扩为矩阵，为每个特征位赋予独立权重，细化不同交叉项的差异，参数共享更灵活。</td></tr><tr><td align="left"><strong>xDeepFM</strong></td><td align="left">交叉粒度升级，更符合语义</td><td align="left">隐向量（CIN部分）</td><td align="left"><strong>field-wise（逐域）</strong></td><td align="left">引入CIN结构，以<strong>整个特征域（field）</strong> 为单位进行交叉，保留了域的整体语义，比bit-wise更合理、可解释性更强。</td></tr></tbody></table><p> 注：在当前语境下vector-wise和field-wise可以认为是等价的。</p><h2 id="DCN-v（DCN-vector）"><a href="#DCN-v（DCN-vector）" class="headerlink" title="DCN-v（DCN-vector）"></a>DCN-v（DCN-vector）</h2><p>DCN-v（即DCN-vector）网络结构包括DNN和特征交叉两部分，在特征交叉部分通过设计网络层实现bit-wise的显式高阶特征交叉。</p><h3 id="DCN网络结构"><a href="#DCN网络结构" class="headerlink" title="DCN网络结构"></a>DCN网络结构</h3><img src="/images/WX20240330-125227@2x.png" alt="WX20240330-125227@2x" style="zoom:45%;" /><p><strong>输入层：</strong></p><ul><li><p>稠密特征(dense feature)：直接输入</p></li><li><p>稀疏特征(sparse feature)：做embedding</p></li><li><p>然后稠密特征拼接上稀疏特征后输出到隐层</p></li></ul><p><strong>隐藏层：</strong></p><p>中间隐层由DNN network和Cross network组成。</p><p><strong>输出层：</strong></p><p>神经网络的输出与交叉网络的输出拼接到一块，在通过sigmoid或softmax函数进行CTR预测。</p><h3 id="Cross-network"><a href="#Cross-network" class="headerlink" title="Cross network"></a>Cross network</h3><p>特征交叉部分包括N层网络结构，在每一层引入vector形式的参数（也就是$w$），和特征表征进行加和乘等的操作，得到该层的交叉项，再输入到下一层，进行更高阶的交叉。（实现bit-wise的N阶显式高阶特征交叉）</p><img src="/images/WX20240330-235502@2x.png" alt="WX20240330-235502@2x" style="zoom:50%;" /> <h4 id="交叉层向量计算"><a href="#交叉层向量计算" class="headerlink" title="交叉层向量计算"></a>交叉层向量计算</h4><img src="/images/WX20240330-125329@2x.png" alt="WX20240330-125329@2x" style="zoom:50%;" /><p>每层的特征交叉过程主要包括两个步骤：</p><ul><li>底层特征表征 $x_0$和上一层的特征表征 $x_l$相乘，进行交叉，相乘得到的交叉项通过vector形式的参数$w_l$ 和 $b_l$进行线性变换，得到交叉项结果；</li><li>交叉项结果和上一层的特征表征$x_l$ 相加，得到该层的特征表征$x_l$ 。</li><li><strong>交叉层向量计算公式如下</strong>：</li></ul><p>$$x_{l+1} = x_0 \cdot x_l^T \cdot w_l + b_l + x_l = f(x_l,w_l,b_l) + x_l$$</p><p>特征经过L层操作后，得到L+1阶交叉特征。特征交叉层引入了残差的思想，每层的交叉操作函数f拟合和的残差，有利于缓解梯度消失的问题，从而使网络具备更深的深度。</p><h4 id="计算示例"><a href="#计算示例" class="headerlink" title="计算示例"></a><strong>计算示例</strong></h4><p>我们以计算交叉层最下层（此时$l$的值为0，也就是计算$x_1$）为例，计算$x_1$的值：<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0$$</p><p>假设$x_0$是三维的$\begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix}$，$w_0$为$\begin{bmatrix} W_1 \\ W_2 \\ W_3 \end{bmatrix}$，$b_0$为$\begin{bmatrix} B_1 \\ B_2 \\ B_3 \end{bmatrix}$，则上述$x_0$与$x_0$转置的乘积为：<br>$$x_0 \cdot x_0^T = \begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix} \cdot \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} = \begin{bmatrix} X_1 \cdot X_1 & X_1 \cdot X_2 & X_1 \cdot X_3 \\ X_2 \cdot X_1 & X_2 \cdot X_2 & X_2 \cdot X_3 \\ X_3 \cdot X_1 & X_3 \cdot X_2 & X_3 \cdot X_3 \end{bmatrix}$$<br>接下来$x_0 \cdot x_0^T$与$w_0$相乘用来减少参数量（ $x_0 \cdot x_0^T$结果中的每一列都共享一个$W$值，如：第一列共享$W_1$，第二列共享$W_2$ …，这种共享的方式会造成一些损失 ）。</p><p>从下面的结果总可以发现，向量中（域中）每一个元素都两两相乘【交叉】。<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0= \begin{bmatrix} X_1 X_1 W_1 + X_1 X_2 W_2 + X_1 X_3 W_3 + B_1 + X_1 \\ X_2 X_1 W_1 + X_2 X_2 W_2 + X_2 X_3 W_3 + B_2 + X_2 \\ X_3 X_1 W_1 + X_3 X_2 W_2 + X_3 X_3 W_3 + B_3 + X_3 \end{bmatrix}$$<br>从$x_1$的最终结果中可以看出，$x_1$的值包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到2阶的所有的交叉项。</p><p>同理：<br>$$x_{2} = x_0 \cdot x_1^T \cdot w_1 + b_1 + x_1$$<br>$x_2$的最终结果包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到3阶的所有交叉项。</p><p>归纳总结：</p><p>一直到 $l$ 层，$ x_0 \cdot x_l^T \cdot w_l $ 乘法操作实现了2阶到 $l+1$ 阶的所有交叉组合，再加上 $x_l$，最终的结果表征了从1阶到L+1阶所有阶数的交叉项。</p><h4 id="参数共享"><a href="#参数共享" class="headerlink" title="参数共享"></a>参数共享</h4><p>交叉操作中，参数向量 $w$ 通过乘法操作，实现对交叉项结果的线性组合。</p><img src="/images/2321434534534.png" alt="2321434534534" style="zoom:40%;" /><ul><li>交叉层通过矩阵乘法 $ x_0 x_l^T $ 生成 <strong>特征交叉映射（feature map）</strong>，其中每一行代表不同特征的交叉组合。  </li><li>参数 $ w_l $ 用于对交叉项进行 <strong>线性组合</strong>，计算下一层的输出 $ x_{l+1} $。</li><li>feature map中第 $i$ 行的交叉项与 $x_l$ 相乘得到 $ x_{l+1} $对应的第 $ i $ 项，feature map中的每一行共享参数 $ w_l $。</li><li><strong>参数共享</strong>：所有交叉项共享同一个权重向量 $ w_l $，减少参数量并增强泛化性。</li></ul><p><strong>参数共享的优缺点</strong></p><p><strong>优点：</strong>  </p><ul><li><strong>减少参数量</strong>：避免为每个交叉项单独学习权重，降低计算成本。  </li><li><strong>增强泛化能力</strong>：即使某些特征组合未在训练数据中出现，模型仍能通过其他组合学习到的权重进行泛化。</li></ul><p><strong>缺点：</strong>  </p><ul><li><strong>缺乏差异性</strong>：所有交叉项共享同一组权重，无法区分不同交叉组合的重要性，限制模型表达能力。（不同行线性组合的差异性无法体现）</li></ul><p><strong>总结与改进</strong></p><ul><li><p>DCN的交叉层通过参数共享实现高效的特征交叉，但牺牲了组合差异性；</p></li><li><p>针对参数共享的不足，DCN-m（如DCN-v2）引入更灵活的参数化方法（如引入独立权重或高阶交互），以提升交叉特征的区分能力。</p></li></ul><h2 id="DCN-m（DCN-Matrix，DCN-v2）"><a href="#DCN-m（DCN-Matrix，DCN-v2）" class="headerlink" title="DCN-m（DCN-Matrix，DCN-v2）"></a>DCN-m（DCN-Matrix，DCN-v2）</h2><p>DCN-m（DCN-Matrix，又称DCN-v2）的整体思路和原理与DCN-v基本一致，在DCN-v的基础上对特征交叉的改进，通过在特征交叉层引入matrix形式的参数，使特征交叉层中的feature map可以进行差异化线性组合，从而提高对交叉特征的学习能力。</p><p>DCN-v2的特征交叉网络是通过对特征进行相乘和相加操作，实现显式高阶交叉。</p><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>DCN-m的模型结构如下图所示由特征交叉结构和DNN结构两部分构成，这两个部分可以采用<strong>串行</strong>也可以采用<strong>并行</strong>，这两部分的结果组合后经过输出层得到模型结果。【并行更常用】</p><img src="/images/WX20240330-125515@2x.png" alt="WX20240330-125515@2x" style="zoom: 60%;" /><h3 id="Cross-network-1"><a href="#Cross-network-1" class="headerlink" title="Cross network"></a>Cross network</h3><img src="/images/WX20240330-125530@2x.png" alt="WX20240330-125530@2x" style="zoom:50%;" /><p>特征交叉结构中每层网络的计算公式：</p><p>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot (\mathbf{w}_l \mathbf{x}_l + \mathbf{b}_l) + \mathbf{x}_l$$</p><ul><li><p>$\odot$ 表示按位乘</p></li><li><p>$\mathbf{w}_l$ 表示 $l$ 层的权重矩阵。</p></li><li><p>$\mathbf{w}_l$ 为matrix形式的参数。正是因为在计算中引入了matrix形式的参数，DCN-m实现了对特征表征形成的feature map中不同行所表示的feature进行差异化组合，从而相比DCN-v，提高了网络对特征交叉的学习能力。</p></li><li><p>$\mathbf{b}_l$ 标识 $l$ 层的偏置向量。</p></li></ul><h4 id="参数理解"><a href="#参数理解" class="headerlink" title="参数理解"></a>参数理解</h4><img src="/images/2413534543.png" alt="2413534543" style="zoom:50%;" /><p>特征交叉层的参数 $\mathbf{w}$ 为matrix形式，它实现了对交叉项的差异化线性组合。以第$l$层为例，首先$\mathbf{w}_l$ 和 $\mathbf{x}_l$ 相乘，是对 $\mathbf{x}_l$ 所表征的feature进行线性组合，相乘结果 $\mathbf{w}_l \mathbf{x}_l$ 的每一维对应了不同的参数 $\mathbf{w}_l^{(i)}$，也就是结果中的每一维都是 $\mathbf{x}_l$ 所有维线性组合后的表征，因此每一维包含更丰富的表达，$\mathbf{w}_l \mathbf{x}_l$ 再和 $\mathbf{x}_0$ 按位相乘，实现更高一阶的交叉，从而使交叉结果的表征更丰富。 </p><h4 id="交叉结构特点"><a href="#交叉结构特点" class="headerlink" title="交叉结构特点"></a>交叉结构特点</h4><ul><li><p>每层的输入和输出形状相同，因此每层的参数量相同，即参数 $\mathbf{w}_l$ 和 $\mathbf{b}_l$ 的参数量，为 $N^2 + N$（$N$ 为特征表征的维度），特征交叉模块整体的参数量随着层数线性增长，为 $O(N^2L)$（$L$ 为层数）。</p></li><li><p>由于每层引入了matrix形式的参数，因此参数量明显比DCN-v增多。由此也可以看出，模型效果的提升，在DCN-m上相应的代价的体现是参数量的增加。</p></li><li><p>每层的计算量为 $O(N^3)$，因此特征交叉模块的时间复杂度为 $O(N^3L)$。</p></li><li><p>特征的交叉阶数由网络深度决定，当特征交叉网络层数为$L$层时，交叉阶数为$L+1$。</p></li><li><p>特征交叉网络的输出，包含了从1阶（特征本身 $\mathbf{x}_0$）到$L+1$阶的所有特征交叉项组合。</p></li></ul><h4 id="矩阵分解优化交叉网络"><a href="#矩阵分解优化交叉网络" class="headerlink" title="矩阵分解优化交叉网络"></a>矩阵分解优化交叉网络</h4><h5 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a><strong>存在问题</strong></h5><ul><li>在原始的DCN-V2中，交叉层（Cross Network）通过引入一个稠密的权重矩阵 $ W \in \mathbb{R}^{d \times d} $ 显式建模特征交互。相比于其它特征交叉方法参数量大，尤其是当特征维度 $ d $ 较大时，矩阵 $ W $ 的参数规模会变得非常庞大为$ O(d^2) $，导致计算和存储成本高昂。</li><li>可以采用矩阵分解的方式进行优化，使特征交叉层的参数低秩化，在保证模型效果的同时有效减少参数量。</li><li>矩阵分解是一种降低参数量的常用方法，通过把一个大参数量的矩阵分解为两个简单的矩阵相乘，实现参数量的控制。</li></ul><h5 id="优化方式"><a href="#优化方式" class="headerlink" title="优化方式"></a><strong>优化方式</strong></h5><img src="/images/ScreenShot_2026-08-03_173312_697.png" alt="ScreenShot_2026-08-03_173312_697" style="zoom:35%;" /><p>通过训练过程观察到，实际训练后的矩阵 $ W $ 具有<strong>低秩特性</strong>（即其奇异值衰减较快）。因此，可以通过低秩分解技术近似表示 $ W $：<br>$$W \approx UV^\top$$</p><p>其中 $ U, V \in \mathbb{R}^{d \times r} $，且秩 $ r \ll d $。这样，参数规模从 $ O(d^2) $ 降至 $ O(2dr) $，显著减少了计算开销。</p><p>低秩交叉层的公式为：<br>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot \left( U_l (V_l^\top \mathbf{x}_l) + \mathbf{b}_l \right) + \mathbf{x}_l,$$</p><ul><li>$ U_l, V_l $ 是低秩矩阵，用于在子空间中学习特征交互。</li><li>$ \odot $ 表示逐元素乘法（Hadamard积）。</li><li>残差连接（$ +\mathbf{x}_l $）保留了低阶特征交互。</li></ul><h5 id="优化后的增强点"><a href="#优化后的增强点" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><strong>计算高效</strong>：将矩阵参数 $W_l$ 分解为两个向量参数 ${U}_l$ 和 $V_l$，有效减少了参数量，每一层的复杂度从 $ O(d^2) $ 降到了 $ O(2dr) $。</li><li><strong>保持表达能力</strong>：通过低秩近似，模型仍能捕捉重要的特征交互模式。</li></ul><h3 id="DCN-Mix（DCN-Mixture）"><a href="#DCN-Mix（DCN-Mixture）" class="headerlink" title="DCN-Mix（DCN-Mixture）"></a>DCN-Mix（DCN-Mixture）</h3><p>单一的低秩矩阵可能无法充分建模复杂的特征交互模式。受混合专家（Mixture of Experts, MoE）架构启发，作者提出<strong>混合低秩专家（DCN-Mix）</strong>。在矩阵分解减少参数量的基础上，通过多个低秩子空间组合进一步提升模型的表达能力。</p><h5 id="子空间MoE优化"><a href="#子空间MoE优化" class="headerlink" title="子空间MoE优化"></a>子空间MoE优化</h5><p>借鉴MoE的思路，在多个子空间学习特征交叉，即通过多个Expert学习特征交叉，每个expert表征一个子空间，再通过Gating方式将各个子空间的特征交叉结果融合。当K&#x3D;1时，表示只有一个子空间，简化为普通的矩阵分解，即没有拆分子空间的DCN-m。</p><img src="/images/wechat_2025-08-05_232837_437.png" alt="wechat_2025-08-05_232837_437" style="zoom:50%;" /><ul><li><p><strong>多专家设计</strong>：</p><ul><li>使用 $ K $ 个独立的低秩专家（每个专家对应一对矩阵 $ U_l^k, V_l^k $），每个专家在子空间中学习不同的特征交互模式。</li><li>每个专家的输出为：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k (V_l^{k\top} \mathbf{x}_l) + \mathbf{b}_l \right).     $$</li></ul></li><li><p><strong>门控机制（Gating）</strong>：</p><ul><li>引入门控函数 $ G_k(\mathbf{x}_l) $ 动态分配权重，组合多个专家的输出：<br>$$     \mathbf{x}_{l+1} = \sum_{k=1}^K G_k(\mathbf{x}_l) E_k(\mathbf{x}_l) + \mathbf{x}_l.     $$</li><li>门控函数可以是简单的常数（如均匀加权）、Sigmoid或Softmax。</li></ul></li><li><p><strong>非线性增强</strong>：</p><ul><li><p>使特征变换具有非线性，从而提高特征交叉结果的表征能力。</p></li><li><p>在低维投影空间（$ V_l^{k\top} \mathbf{x}_l $）后引入非线性激活函数 $ g(\cdot) $（如ReLU），进一步细化特征表示：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k \cdot g(C_l^k \cdot g(V_l^{k\top} \mathbf{x}_l)) + \mathbf{b}_l \right).     $$</p></li></ul></li></ul><p>DCN-Mix利用多个Expert在不同的子空间学习特征交叉，并对特征变换引入非线性，理论上提高了特征交叉网络的学习能力。</p><h5 id="优化后的增强点-1"><a href="#优化后的增强点-1" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><p>交叉组合项形成的feature可以进行有差别的组合，提高了模型对特征交叉的学习能力；</p></li><li><p>优化过程引入了子空间和特征的非线性变化，加强了特征交叉的学习。</p></li><li><p><strong>灵活建模</strong>：不同专家专注于不同的交互模式，门控机制自适应选择重要子空间。</p></li><li><p><strong>效率与性能平衡</strong>：通过控制专家数量 $ K $ 和秩 $ r $，实现计算成本与模型性能的权衡。</p></li></ul><h5 id="风险点"><a href="#风险点" class="headerlink" title="风险点"></a><strong>风险点</strong></h5><ul><li>优化后的网络的学习是在一个非常高维的空间中，增加了学习难度，实际收敛过程可能不如预期，难以达到理论上预期的效果。</li><li>对于多个子空间的特征交叉，在实际过程中，可能会遇到<strong>效果集中在单个Expert上，造成坍缩现象</strong>。</li><li>参数量和计算复杂度明显增加，增加线上性能压力，模型<strong>可能无法上线</strong>，因此上线时需结合工程性能进行适当优化；</li></ul><h3 id="优化总结"><a href="#优化总结" class="headerlink" title="优化总结"></a>优化总结</h3><ul><li><strong>矩阵分解</strong>：通过低秩近似减少参数量，提升计算效率。<ul><li>原始DCN-v2使用矩阵分解优化，每一交叉层的原始稠密权重矩阵$ W_l $，被分解成两个小矩阵$ U_l $和$ V_l $</li></ul></li><li><strong>MoE优化</strong>：结合多个低秩专家和门控机制，增强模型对复杂特征交互的建模能力。<ul><li>进一步使用MoE优化，每个交叉层包含K个低秩专家，每个专家对应两个小矩阵$ U_l^k, V_l^k $</li></ul></li></ul><h2 id="不同模型交叉对比"><a href="#不同模型交叉对比" class="headerlink" title="不同模型交叉对比"></a>不同模型交叉对比</h2><ul><li>FM：vector-wise交叉</li><li>Cross network（DCN）：bit-wise交叉，又称element-wise。</li><li>Cross network（DCN-v2）：bit-wise交叉，优化了交叉层的共享权重。</li><li>DeepFM中的交叉是向量的相乘，DCN中的交叉是向量中的每个元素值进行交叉，向量内神经元两两相乘。</li></ul>]]></content>
     
     
       
