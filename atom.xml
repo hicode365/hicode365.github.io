@@ -6,7 +6,7 @@
   <link href="https://www.hicode365.com/atom.xml" rel="self"/>
   
   <link href="https://www.hicode365.com/"/>
-  <updated>2026-08-01T03:24:01.530Z</updated>
+  <updated>2026-07-29T17:55:21.789Z</updated>
   <id>https://www.hicode365.com/</id>
   
   <author>
@@ -17,9 +17,164 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Transformer详解</title>
+    <link href="https://www.hicode365.com/cuidSfqTEysxmfDT-GQQegUTa"/>
+    <id>https://www.hicode365.com/cuidSfqTEysxmfDT-GQQegUTa</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T17:55:21.789Z</updated>
+    
+    
+    
+    
+    <category term="大模型与Agent" scheme="https://www.hicode365.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/"/>
+    
+    
+    <category term="Transformer" scheme="https://www.hicode365.com/tags/Transformer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>投资理财实战</title>
+    <link href="https://www.hicode365.com/cuidBUOJHdyzI-1xcYhbwpchS"/>
+    <id>https://www.hicode365.com/cuidBUOJHdyzI-1xcYhbwpchS</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T18:01:06.619Z</updated>
+    
+    
+    
+    
+    <category term="学习与成长" scheme="https://www.hicode365.com/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/"/>
+    
+    
+    <category term="投资" scheme="https://www.hicode365.com/tags/%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="理财" scheme="https://www.hicode365.com/tags/%E7%90%86%E8%B4%A2/"/>
+    
+    <category term="股票" scheme="https://www.hicode365.com/tags/%E8%82%A1%E7%A5%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据的降维</title>
+    <link href="https://www.hicode365.com/cuidHk6HFhxz5IEZzXnpD5Hwe"/>
+    <id>https://www.hicode365.com/cuidHk6HFhxz5IEZzXnpD5Hwe</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T18:16:01.425Z</updated>
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    
+    
+    <category term="数据降维" scheme="https://www.hicode365.com/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
+    
+    <category term="降维算法" scheme="https://www.hicode365.com/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DecisionTree决策树原理、公式与实战</title>
+    <link href="https://www.hicode365.com/cuidHrMGYXtYbEpjNBFu-0MKD"/>
+    <id>https://www.hicode365.com/cuidHrMGYXtYbEpjNBFu-0MKD</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-30T02:19:02.447Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="决策树（DecisionTree）原理、公式与实战"><a href="#决策树（DecisionTree）原理、公式与实战" class="headerlink" title="决策树（DecisionTree）原理、公式与实战"></a>决策树（DecisionTree）原理、公式与实战</h1><p>决策树（Decision Tree）是机器学习中最直观、可解释性最强且应用最广泛的算法之一，它模拟人类做决策的过程——通过一系列”是与否”的判断，逐步缩小范围，最终得出结论。集成算法如：RF、GBDT、Xgboost、LightGBM都是以决策树为基础构建的。</p><p>决策树本质上是<strong>用一系列超平面对特征空间进行递归划分</strong>的方法。每一次分裂，都把当前空间一分为二，最终每个叶子节点都对应特征空间中一个不相交的区域。预测时，样本从根节点出发，根据每一维特征的取值不断向下走，最终落入某个叶子节点，这个叶子节点的类别（或数值）就是模型给出的预测结果。用一句话概括：<strong>决策树是从根节点到叶子节点的一条决策路径，所有训练数据最终都会落入某个叶子节点中。</strong></p><p>决策树的三个组成部分：</p><ul><li>根节点：树的起点，也是第一个用于分裂的特征</li><li>非叶子节点：代表一次特征判断，是决策过程的中间步骤</li><li>叶子节点：决策树的终点，给出最终的分类结果或预测值</li></ul><p>那<strong>根节点该选哪个特征？下一层节点又该选哪个特征？</strong> 答案是：通过量化每个特征带来的”纯度提升”（信息增益、信息增益率或基尼系数），选出提升最大的那个特征作为分裂依据。</p><p>几个关键认识：</p><ul><li><strong>决策树既能做分类，也能做回归</strong>。用于分类的叫<strong>分类树</strong>，预测的是离散标签；用于回归的叫<strong>回归树</strong>，预测的是连续数值。</li><li>决策树是一种基于概率分析、以树形结构呈现的<strong>有监督学习算法</strong>，每个叶子节点代表一种类别（分类树）或一个预测值（回归树）。</li><li>单棵决策树很容易过拟合，因此实际工程中很少直接使用单棵决策树做预测，而是用多棵树组成集成算法（如随机森林、GBDT、XGBoost）来降低方差、提升泛化能力。</li><li>预测时一个样本只会进入一个叶子节点，每个叶子节点可能包含<strong>多个训练样本</strong>，我们用这些样本的统计结果（如：分类树时的类别频率、 回归树时的均值）来决定该叶子的预测输出。</li></ul><hr><h2 id="前置知识：信息论基础"><a href="#前置知识：信息论基础" class="headerlink" title="前置知识：信息论基础"></a>前置知识：信息论基础</h2><h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h3><p>设想两个事件：</p><ul><li>事件 A：巴西队获得世界杯冠军</li><li>事件 B：中国队获得世界杯冠军</li></ul><p>直觉上，事件 B 一旦发生，带给我们的”信息量”要远大于事件 A。原因很简单：事件 A 发生的概率本来就大，事件 B 发生的概率很小。<strong>越不可能发生的事件一旦发生，携带的信息量就越大；越大概率发生的事件，携带的信息量反而越小。</strong> 也就是说，信息量与事件发生的概率成反比关系。</p><p>信息量的数学定义为：</p><p>$$I(x) = -\log p(x)$$</p><p>其中 $p(x)$ 是事件 $x$ 发生的概率，取值范围是 $[0,1]$。当以 2 为底取对数时，信息量的单位是比特（bit）。可以看出，$p(x)$ 越小，$I(x)$ 越大，符合我们的直觉。</p><h3 id="信息熵（Entropy）"><a href="#信息熵（Entropy）" class="headerlink" title="信息熵（Entropy）"></a>信息熵（Entropy）</h3><p>信息量描述的是单个事件，而<strong>信息熵是所有可能事件信息量的期望</strong>，用来衡量整个随机变量的不确定性：</p><p>$$H(X) = -\sum_{i=1}^{n} p(x_i) \log p(x_i)$$</p><p>信息熵的性质：</p><ul><li><strong>熵越大，不确定性越大</strong>：随机变量各种取值越接近等概率分布，熵越大；当所有取值等概率出现时，熵达到最大值。</li><li><strong>熵越小，纯度越高、越稳定</strong>：某些取值概率很大、某些取值概率很小时，随机变量的分布越”确定”，熵越小。</li><li>随机变量的取值个数越多，可能的状态数越多，熵通常也就越大，系统的混乱程度越高。</li></ul><p>对于只有两种取值（如是&#x2F;否）的二分类情形，设正例概率为 $p$：</p><p>$$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$</p><ul><li>当 $p=0$ 或 $p=1$ 时，$H(p)=0$，此时随机变量完全没有不确定性（结果已经确定）；</li><li>当 $p=0.5$ 时，$H(p)=1$，达到最大值，此时不确定性最大。</li></ul><p>推广到一般情形：当类别数为 $n$，且每个类别的概率均为 $1/n$（均匀分布）时，熵取得最大值，此时不确定性最强。</p><h3 id="联合熵"><a href="#联合熵" class="headerlink" title="联合熵"></a>联合熵</h3><p>联合熵（Joint Entropy）用来度量一对随机变量 $(X,Y)$ 组成的联合分布系统的不确定度。设联合分布为 $p(x,y)$，则：</p><p>$$H(X,Y) = -\sum_{x}\sum_{y} p(x,y)\log p(x,y)$$</p><p>联合熵描述的是这一对随机变量平均所需要的信息量。</p><h3 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h3><p>条件熵 $H(Y|X)$ 表示在已知随机变量 $X$ 的条件下，随机变量 $Y$ 的不确定性，即给定 $X$ 的每一个取值后，$Y$ 的信息熵的加权和：</p><p>$$H(Y|X) = \sum_{x} p(x)\, H(Y|X=x)$$</p><p>条件熵还有一种等价表达：</p><p>$$H(Y|X) = H(X,Y) - H(X)$$</p><p>即：<strong>条件熵 &#x3D; 联合熵 − 单独一个变量的信息熵</strong>。这个式子的直观含义是：$(X,Y)$ 一起发生所包含的总信息量，减去 $X$ 单独发生所包含的信息量，剩下的就是”在已知 $X$ 的前提下，$Y$ 新带来的信息量”，这正是条件熵的本质。</p><p>理解了信息熵和条件熵，我们就可以定义决策树选择特征的核心指标——<strong>信息增益</strong>了。</p><hr><h2 id="决策树的构建流程"><a href="#决策树的构建流程" class="headerlink" title="决策树的构建流程"></a>决策树的构建流程</h2><p>一棵决策树的生成主要包含三个环节：</p><ol><li><strong>特征选择</strong>：从众多特征中选出一个作为当前节点的分裂标准。评估标准不同，衍生出不同的决策树算法（ID3、C4.5、CART）。</li><li><strong>决策树生成</strong>：根据选定的特征评估标准，自上而下递归地生成子节点，直到数据集不可再分则停止生长。递归是理解树结构生成过程最直接的方式。</li><li><strong>剪枝</strong>：决策树天然容易过拟合，通常需要通过剪枝来缩小树的规模，缓解过拟合问题。</li></ol><h3 id="连续特征的处理"><a href="#连续特征的处理" class="headerlink" title="连续特征的处理"></a>连续特征的处理</h3><p>无论是分类树还是回归树，遇到连续型特征时都需要先做**离散化（二分）**处理，通用做法是：</p><ol><li>将该连续特征的所有取值从小到大排序；</li><li>取相邻两个取值的平均数作为候选切分点（若有 $m$ 个不同取值，则产生 $m-1$ 个候选切分点）；</li><li>遍历所有候选切分点，分别以”大于切分点”和”小于等于切分点”将样本一分为二，计算信息增益（或基尼系数下降量）；</li><li>选择使信息增益最大（或基尼系数最小）的切分点作为该特征的最优分裂点。</li></ol><h3 id="决策树的损失函数"><a href="#决策树的损失函数" class="headerlink" title="决策树的损失函数"></a>决策树的损失函数</h3><p>决策树整体的损失函数通常用<strong>基尼系数的加权平均</strong>来表示：</p><p>$$C(T) = \sum_{t=1}^{|T|} \frac{N_t}{N} H_t(T)$$</p><ul><li>$|T|$：叶子节点的个数；</li><li>$t$：第 $t$ 个叶子节点；</li><li>$N_t$：第 $t$ 个叶子节点的样本数；</li><li>$N$：所有样本总数；</li><li>$H_t(T)$：第 $t$ 个叶子节点的纯度指标（信息熵 &#x2F; Gini 系数 &#x2F; 错误率均可）。</li></ul><p>考虑到树的复杂度会影响过拟合风险，实践中常见的是加入正则项的损失函数：</p><p>$$C_\alpha(T) = \sum_{t=1}^{|T|} N_t H_t(T) + \alpha|T|$$</p><p>其中 $\alpha \geq 0$ 是控制模型复杂度的参数，$\alpha$ 越大，惩罚力度越强，最终得到的树越简单。这个带正则项的损失函数正是<strong>后剪枝算法</strong>判断是否剪枝的理论依据。</p><h3 id="决策树是停止生长的条件"><a href="#决策树是停止生长的条件" class="headerlink" title="决策树是停止生长的条件"></a>决策树是停止生长的条件</h3><p>递归过程必须有明确的终止条件，否则将无限分裂下去：</p><ul><li>一个节点中所有样本都属于同一类别（注意：如果只用这一条作为唯一停止条件，容易导致树的节点数过多，造成过拟合）；</li><li>当前节点样本数小于某个阈值，且迭代次数达到给定值时，停止构建，此时用该节点中出现频次最高的类别 $\max(p(i))$ 作为该节点的预测类别；</li><li>没有特征可用于继续划分该节点的样本，此时该节点的类别取样本数最多的那一类；</li><li>没有样本能满足剩余特征的取值条件，同样取样本数最多的类别作为该节点类别。</li></ul><hr><h2 id="经典决策树：ID3、C4-5、CART"><a href="#经典决策树：ID3、C4-5、CART" class="headerlink" title="经典决策树：ID3、C4.5、CART"></a>经典决策树：ID3、C4.5、CART</h2><p>不同种类的决策树算法，核心区别仅仅在于<strong>选择分裂特征所使用的量化标准不同</strong>：</p><table><thead><tr><th>算法</th><th>分裂标准</th></tr></thead><tbody><tr><td>ID3</td><td>信息增益（Information Gain）</td></tr><tr><td>C4.5</td><td>信息增益率（Gain Ratio）</td></tr><tr><td>CART</td><td>基尼系数（Gini Index）</td></tr></tbody></table><h3 id="ID3：信息增益"><a href="#ID3：信息增益" class="headerlink" title="ID3：信息增益"></a>ID3：信息增益</h3><p><strong>信息增益</strong>衡量的是：使用特征 $A$ 对数据集划分后，类别 $Y$ 的不确定性减少了多少。也就是选择不同特征 $A$ 作为分裂节点时，标签 $Y$ 的熵值发生了多大的变化。每次迭代都选择信息增益最大的特征作为当前节点的分裂属性。</p><p>信息增益的计算公式为：</p><p>$$\text{Gain}(D, A) = H(D) - H(D|A)$$</p><p>其中：</p><ul><li>$H(D)$ 是数据集 $D$（原始，未分裂）的信息熵；</li><li>$H(D|A)$ 是以特征 $A$ 划分之后的条件熵，也称为按特征 $A$ 分裂后的<strong>加权平均熵</strong>（决策树的损失函数之一），公式为：</li></ul><p>$$H(D|A) = \sum_{v} \frac{|D_v|}{|D|} H(D_v)$$</p><p>即根据特征 $A$ 的每个取值 $v$ 把数据集切分成若干子集 $D_v$，每个子集按其样本占比加权，求熵的加权平均。</p><p>信息增益越大，说明用该特征分裂后损失的不确定性（获得的纯度提升）越大，该特征就越应该排在决策树的上层。分类树中，每个叶子节点最终的预测类别取该叶子节点中样本数最多的类别（众数）。</p><h4 id="ID3-的缺陷"><a href="#ID3-的缺陷" class="headerlink" title="ID3 的缺陷"></a>ID3 的缺陷</h4><p>信息增益天然偏向于<strong>取值较多</strong>的特征。极端情况下，如果给数据集加一列唯一 ID（1,2,3,4,5…），以 ID 作为分裂特征后，每个子节点都只有一个样本，熵全部为 0，信息增益达到理论最大值——但 ID 显然不是一个有意义的特征，这种分裂对模型毫无泛化能力。为了解决这个问题，C4.5 算法引入了<strong>信息增益率</strong>。</p><h3 id="C4-5：信息增益率"><a href="#C4-5：信息增益率" class="headerlink" title="C4.5：信息增益率"></a>C4.5：信息增益率</h3><p>C4.5 在 ID3 的基础上做了改进，把信息增益除以特征本身的”固有值”（自身的熵），相当于对取值过多的特征施加一个惩罚项：</p><p>$$\text{GainRatio}(D, A) = \frac{\text{Gain}(D, A)}{\text{IV}(A)}$$</p><p>其中 $\text{IV}(A)$（Intrinsic Value，属性 $A$ 的固有值&#x2F;自身熵）定义为：</p><p>$$\text{IV}(A) = -\sum_{v} \frac{|D_v|}{|D|} \log_2 \frac{|D_v|}{|D|}$$</p><p>属性 $A$ 的取值可能性越多（即分支数越多），$\text{IV}(A)$ 通常也越大，从而对信息增益产生更强的抑制作用。仍以 ID 为例：虽然用 ID 分裂带来的信息增益很大，但除以 ID 自身极大的熵值之后，信息增益率会大幅下降，从而避免模型偏向这种无意义的高基数特征。</p><p>C4.5 在特征选择上使用<strong>信息增益率最大</strong>的属性作为分裂点。除此之外，C4.5 相较 ID3 还有三大优势：</p><ol><li>在树的构造过程中会进行<strong>剪枝优化</strong>；</li><li>能够<strong>自动完成连续属性的离散化</strong>处理；</li><li>能够<strong>自动处理缺失值</strong>。</li></ol><h4 id="C4-5-如何处理缺失值"><a href="#C4-5-如何处理缺失值" class="headerlink" title="C4.5 如何处理缺失值"></a>C4.5 如何处理缺失值</h4><p>C4.5 的缺失值处理分两个子问题：</p><p><strong>（1）属性上存在缺失值，如何选择分裂特征？</strong></p><p>思路是：只用没有缺失值的那部分样本子集 $D'$ 计算信息增益率，再按 $D'$ 占整体样本 $D$ 的比例做加权折算。</p><p>举例：某数据集共 7 个样本，其中”温度”这一特征有 1 个样本缺失，剩下 6 个样本构成 $D'$。假设按温度（高&#x2F;中&#x2F;低）划分后计算出：</p><p>$$\text{Gain}(D', \text{温度}) = \text{Ent}(D') - 0.792 = 1.0 - 0.792 = 0.208$$</p><p>温度自身的属性熵为 1.459，因此：</p><p>$$\text{Gain\_ratio}(D', \text{温度}) = 0.208 / 1.459 = 0.1426$$</p><p>由于 $D'$ 只有 6 个样本，$D$ 有 7 个样本，缺失比例意味着 $D'$ 的权重为 $6/7$，因此最终折算到全体样本 $D$ 上的信息增益率为：</p><p>$$\text{Gain\_ratio}(D, \text{温度}) = \frac{6}{7} \times 0.1426 = 0.122$$</p><p>这样，即便某个属性存在部分样本缺失，依然可以计算出信息增益率，用于属性选择。</p><p><strong>（2）已经确定了分裂属性，但某些样本在该属性上恰好缺失，该如何分配这些样本？</strong></p><p>处理方式是：把该样本<strong>同时划分到所有分支</strong>中，但赋予不同的权重（权重等于每个分支中已有样本数占总样本数的比例）。这样，如果后续还要继续往下分裂，计算条件熵时就需要把该样本自身的权重也考虑进去。这部分内容更严谨的推导可参考《机器学习》（西瓜书）决策树一章。</p><h3 id="CART：基尼系数"><a href="#CART：基尼系数" class="headerlink" title="CART：基尼系数"></a>CART：基尼系数</h3><p>CART（Classification And Regression Tree，分类回归树）使用<strong>基尼系数</strong>作为衡量数据纯度的指标（而不是熵）。CART 的两个重要特点：</p><ul><li><strong>既能做分类，又能做回归</strong>（分类用基尼系数，回归用均方误差）；</li><li><strong>只能构建二叉树</strong>，每次分裂只产生两个子节点。</li></ul><p>基尼系数的定义（$k$ 分类问题）：</p><p>$$\text{Gini}(D) = \sum_{i=1}^{k} p_i (1 - p_i) = 1 - \sum_{i=1}^{k} p_i^2$$</p><p>基尼系数衡量的是”从数据集中随机抽取两个样本，其类别标签不一致的概率”。概率 $p$ 越接近 1（数据越纯），基尼系数越接近 0；数据越混乱，基尼系数越接近其最大值。</p><p>按特征 $A$ 分裂后的<strong>基尼增益</strong>（分裂前后基尼系数的下降幅度）定义类似于信息增益：</p><p>$$\text{Gini\_Gain}(D, A) = \text{Gini}(D) - \sum_{v} \frac{|D_v|}{|D|} \text{Gini}(D_v)$$</p><p>CART 算法在每次分裂时选择使基尼增益最大（即分裂后基尼系数下降最多）的特征和切分点作为当前的分裂依据。</p><blockquote><p>三个纯度指标（信息熵、Gini 系数、错误率）的共同特点是：<strong>值越大表示数据越”不纯”，值越小表示越”纯”</strong>。三者可以相互替代作为决策树的分裂评价标准，只是计算方式和对极端分布的敏感度略有不同。</p></blockquote><hr><h3 id="ID3、C4-5、CART-树对比"><a href="#ID3、C4-5、CART-树对比" class="headerlink" title="ID3、C4.5、CART 树对比"></a>ID3、C4.5、CART 树对比</h3><table><thead><tr><th>对比维度</th><th>ID3</th><th>C4.5</th><th>CART</th></tr></thead><tbody><tr><td>分裂标准</td><td>信息增益</td><td>信息增益率</td><td>基尼系数</td></tr><tr><td>树的结构</td><td>不一定是二叉树</td><td>不一定是二叉树</td><td><strong>一定是二叉树</strong></td></tr><tr><td>是否支持回归</td><td>否</td><td>否</td><td><strong>支持</strong></td></tr><tr><td>连续值处理</td><td>不支持</td><td>支持</td><td>支持</td></tr><tr><td>缺失值处理</td><td>不支持</td><td><strong>自动处理</strong></td><td>支持</td></tr><tr><td>剪枝</td><td>不涉及</td><td>支持</td><td>支持（后剪枝为主）</td></tr><tr><td>对高基数特征的偏好</td><td>严重偏向</td><td>已缓解</td><td>较均衡</td></tr><tr><td>适用规模</td><td>小规模数据集</td><td>小规模数据集</td><td>应用最广泛</td></tr></tbody></table><p>几点重要结论：</p><ul><li>ID3 和 C4.5 都只适合在<strong>小规模数据集</strong>上使用，且都属于<strong>单变量决策树</strong>（每次只用一个特征分裂）；</li><li>当某个特征的取值比较多时，优先考虑 C4.5，因为 ID3 在这种场景下效果会明显变差；</li><li>决策树分类算法整体上更适合小数据量场景（数据能放进内存）；</li><li><strong>CART 是三种算法中工程实践里最常用的一种</strong>，因为它同时支持分类和回归，并且天然支持连续值和剪枝；</li><li>三种算法的本质区别只在于评价当前树分裂效果的标准不同：ID3 用信息增益、C4.5 用信息增益率、CART 用基尼系数；</li><li>CART 构建的一定是二叉树，而 ID3 和 C4.5 构建的可能是多叉树。</li></ul><h2 id="决策树的剪枝：防止过拟合"><a href="#决策树的剪枝：防止过拟合" class="headerlink" title="决策树的剪枝：防止过拟合"></a>决策树的剪枝：防止过拟合</h2><p>决策树如果不加限制地生长，会对训练集拟合得”面面俱到”，但在测试集上表现很差，也就是<strong>过拟合</strong>。剪枝的目的正是缩小树的规模、缓解过拟合，主要分为两种策略。</p><h3 id="预剪枝（Pre-Pruning，工业界常用）"><a href="#预剪枝（Pre-Pruning，工业界常用）" class="headerlink" title="预剪枝（Pre-Pruning，工业界常用）"></a>预剪枝（Pre-Pruning，工业界常用）</h3><p>预剪枝是在<strong>建树过程中</strong>就设置规则，提前阻止树的过度生长：</p><ul><li><strong>限制树的最大深度</strong>：树深超过阈值则该节点不再分裂；</li><li><strong>限制叶子节点的最少样本数</strong>：若某节点分裂后子节点的样本数小于阈值（如总样本的 1%），则不再分裂；</li><li><strong>限制叶子节点的最大个数</strong>：叶子节点总数超过阈值则停止分裂；</li><li><strong>限制信息增益率或基尼系数的阈值</strong>：低于给定阈值则不再分裂（此法实践中不太常用，因为阈值不易设定，且局部增益小不代表后续分裂无价值）。</li></ul><p>预剪枝的优点是计算开销小、训练速度快；缺点是可能存在”局部最优陷阱”——某次分裂当下增益不大，但继续往下分裂却可能带来显著提升，预剪枝会提前掐断这种可能性，导致欠拟合风险。</p><h3 id="后剪枝（Post-Pruning）"><a href="#后剪枝（Post-Pruning）" class="headerlink" title="后剪枝（Post-Pruning）"></a>后剪枝（Post-Pruning）</h3><p>后剪枝是先完整地建好一棵决策树，然后<strong>自下而上</strong>地对每个非叶子节点进行考察，判断是否将其”剪掉”（即把该子树替换为一个叶子节点）。</p><p><strong>损失函数公式</strong>：</p><p>$$C_{\alpha}(T) = C(T) + \alpha \cdot \vert{}T_{leaf}\vert{}$$</p><p><strong>变量标注与说明</strong>：</p><ul><li><p><strong>$C(T)$</strong>：损失函数</p><p>$$\text{损失函数} = \text{叶子节点样本数} \times \text{gini系数 \quad 或 \quad 叶子节点样本数} \times \text{熵值}$$</p></li><li><p><strong>$\alpha$</strong>：系数（超参数&#x2F;惩罚因子）</p></li><li><p><strong>$\vert{}T_{leaf}\vert{}$</strong>：叶子节点个数</p></li><li><p>$C_\alpha(T)$：分别计算某节点<strong>剪枝前</strong>（保留子树）和<strong>剪枝后</strong>（该节点变为叶子）的损失函数值</p></li></ul><p>通过最小化损失函数 $C_{\alpha}(T)$ 来确定是否剪枝。在节点分裂前计算 $C_{\alpha}(T)$ 的值，分裂后再计算一次，如果分裂后的值大于分裂前的值，就可以进行剪枝（即放弃分裂，保留父节点作为叶节点）。</p><p>后剪枝是指让决策树<strong>先充分生长</strong>（直到无法再分或达到止步条件），然后<strong>自底向上</strong>评估子树。如果将某个子树折叠回单个叶子节点能降低整体损失，就将其剪掉。</p><ol><li><p><strong>公式的含义与权衡（Trade-off）</strong>：</p><p>$$C_{\alpha}(T) = \underbrace{C(T)}_{\text{拟合误差}} + \underbrace{\alpha \cdot \vert{}T_{leaf}\vert{}}_{\text{模型复杂度惩罚}}$$</p><ul><li><strong>$C(T)$</strong>：衡量树对训练数据的拟合程度。树越深、分裂越细，数据不纯度（Gini系数或熵）越低，$C(T)$ 越小。</li><li><strong>$\alpha \cdot \vert{}T_{leaf}\vert{}$</strong>：控制模型的复杂度。叶子节点越少，树越简单，泛化能力越强。</li><li><strong>$\alpha$ 的作用</strong>：$\alpha$ 是调优参数。若 $\alpha = 0$，表示不考虑模型复杂度，只追求数据拟合；$\alpha$ 越大，对节点过多的惩罚力度越重，倾向于生成更小、更平滑的树。</li></ul></li><li><p><strong>决策逻辑</strong>：</p><p>决策树通过计算“剪枝前”与“剪枝后（或分裂前&#x2F;后）”的总损失值 $C_{\alpha}(T)$。如果<strong>复杂树的损失反而大于简单树</strong>（说明增加分支带来的拟合收益掩盖不了复杂度增加带来的惩罚），就选择<strong>剪枝</strong>，以防止过拟合。</p></li></ol><p>后剪枝通常比预剪枝欠拟合风险更低、泛化性能更好，但计算开销也更大，因为需要先生成完整的树再自底向上遍历评估。</p><p>CART 算法常用的后剪枝方式是：先生成完整的决策树，再枚举所有可能的剪枝方案，用<strong>交叉验证</strong>评估每种剪枝方案在验证集上的表现，选择泛化能力最好的那一种作为最终模型。</p><hr><h2 id="决策树做预测"><a href="#决策树做预测" class="headerlink" title="决策树做预测"></a>决策树做预测</h2><p>决策树的预测的过程其实很简单：一个新样本进来，从根节点开始，按照每个内部节点的判断条件，一步一步往下走，走到哪个分支完全由这个样本自身的特征值决定。最终，<strong>这个样本只会落到一个叶子节点上</strong>，不会同时属于两个叶子——树结构本身保证了这一点，因为每次分裂产生的子区域是互不重叠的。</p><p>关键在于：一个叶子节点里往往不止一个训练样本，训练阶段有一批数据最终都落进了同一个叶子。预测输出就是靠这批样本的统计结果得出来的：</p><ul><li><strong>分类树</strong>：看这个叶子节点里各类别出现的频率，取频率最高（也就是样本数最多）的那个类别作为预测结果，本质上是投票，少数服从多数；</li><li><strong>回归树</strong>：直接取这个叶子节点里所有样本目标值的均值作为预测结果。</li></ul><p>所以严格来说，决策树的”学习”过程，就是想办法把训练样本切分成一个个尽可能”纯”的小组（叶子节点），预测时只是把新样本对号入座，找到它该待的那个小组，然后把这个小组早就算好的统计值报出来。</p><p>这里有个容易被忽略但挺重要的点：<strong>决策树不适合用梯度下降来求解</strong>。原因也不复杂——树的分裂是一次次离散的”是否满足某个条件”的判断，输出结果随着分裂点、分裂特征的变化是阶跃式的、不连续的，压根没法对它求导。梯度下降依赖的是损失函数对参数连续可导，而决策树的结构本身就是一堆分段常数拼起来的，中间全是断层，谈”梯度”没有意义。这也是为什么决策树的构建靠的是贪心搜索（每一步找当前最优的分裂特征和分裂点），而不是像神经网络那样靠反向传播一点点调参数。</p><h2 id="回归树"><a href="#回归树" class="headerlink" title="回归树"></a>回归树</h2><p>前面讨论的都是<strong>分类树</strong>：用信息增益、信息增益率、基尼系数来评价分裂效果，本质上都是基于概率进行判断，叶子节点的预测值取该节点中<strong>样本数最多的类别</strong>（众数）。</p><p><strong>回归树</strong>则用于预测连续数值。回归树叶子节点的预测值，取该叶子节点内<strong>所有样本目标值的均值</strong>：</p><p>由于目标值是连续的，回归树通常采用 <strong>MSE（均方误差）</strong> 作为评价分裂效果的指标，而不是信息熵或基尼系数。实践中，回归树一般只使用 <strong>CART 算法</strong>构建（二叉树)。</p><h3 id="回归树的分裂原理"><a href="#回归树的分裂原理" class="headerlink" title="回归树的分裂原理"></a>回归树的分裂原理</h3><p>回归树采用启发式的方法进行分裂：假设有 $n$ 个特征，每个特征 $j$ 有若干个可能的取值，遍历所有特征及其所有可能的切分点 $s$，尝试用 $(j,s)$ 将当前空间一分为二，计算划分后的损失，选择使损失函数最小的 $(j,s)$ 作为当前节点的分裂依据。</p><p>设输入空间被最终划分为 $M$ 个区域 $R_1, R_2, \ldots, R_M$，每个区域的输出值（预测值）取该区域内所有样本目标值 $y$ 的均值：</p><p>$$c_m = \text{avg}(y_i \mid x_i \in R_m)$$</p><p>损失函数采用平方损失：</p><p>$$L = \sum_{x_i \in R_m} (y_i - c_m)^2$$</p><p>对于任意一个候选切分变量 $j$ 和切分点 $s$，将空间划分为两个区域：</p><p>$$R_1(j,s) = \{x \mid x_j \le s\}, \quad R_2(j,s) = \{x \mid x_j > s\}$$</p><p>目标函数是求使两个区域平方损失之和最小的 $(j,s)$：</p><p>$$\min_{j,s} \left[ \min_{c_1} \sum_{x_i \in R_1(j,s)} (y_i - c_1)^2 + \min_{c_2} \sum_{x_i \in R_2(j,s)} (y_i - c_2)^2 \right]$$</p><p>这个过程递归地进行下去，直到满足停止条件（如区域内样本数过少、达到最大深度、或损失下降不再显著），最终生成的树就是<strong>最小二乘回归树</strong>。</p><h3 id="回归树与线性回归"><a href="#回归树与线性回归" class="headerlink" title="回归树与线性回归"></a>回归树与线性回归</h3><p>回归树和线性回归都能处理连续值预测问题，但二者的建模方式截然不同：</p><ul><li><strong>线性回归</strong>假设特征与目标之间存在（近似）线性关系，用一条直线（或超平面）去拟合整体数据分布，模型形式简洁、可解释性强，但难以捕捉非线性、分段的模式；</li><li><strong>回归树</strong>通过不断切分特征空间，用分段常数（每个区域内的均值）去逼近真实的函数关系，天然能够拟合非线性、非单调的模式，但预测结果呈”阶梯状”，在区域边界处会有跳变，不如线性回归平滑。</li></ul><p>在实践中，如果数据的真实关系接近线性，线性回归通常表现更好、更稳定；如果数据存在复杂的非线性或交互效应，回归树（及其集成版本如随机森林、GBDT）往往更有优势。</p><hr><h2 id="分类树-vs-回归树"><a href="#分类树-vs-回归树" class="headerlink" title="分类树 vs 回归树"></a>分类树 vs 回归树</h2><table><thead><tr><th>对比维度</th><th>分类树</th><th>回归树</th></tr></thead><tbody><tr><td>目标变量</td><td>离散变量（类别）</td><td>连续变量（数值）</td></tr><tr><td>评价指标</td><td>信息增益 &#x2F; 信息增益率 &#x2F; 基尼系数</td><td>MSE（均方误差）</td></tr><tr><td>叶子节点预测值（得分函数）</td><td>该节点样本的众数（出现次数最多的类别）</td><td>该节点样本目标值的均值</td></tr><tr><td>损失函数</td><td>同一层所有分支基尼系数（或熵）的加权平均</td><td>同一层所有分支的平方差损失之和</td></tr><tr><td>分裂准则</td><td>比较分裂前后基尼系数（或熵）的下降量，下降越多越优先选择</td><td>使用最小方差作为分裂规则，只能生成二叉树</td></tr><tr><td>剪枝方式（以 CART 为例）</td><td>后剪枝：生成完整树后，枚举所有可能的剪枝方案，用交叉验证选择泛化能力最好的方案</td><td>同左</td></tr></tbody></table><hr><h2 id="决策树构建实例"><a href="#决策树构建实例" class="headerlink" title="决策树构建实例"></a>决策树构建实例</h2><h3 id="用信息增益构建分类树"><a href="#用信息增益构建分类树" class="headerlink" title="用信息增益构建分类树"></a>用信息增益构建分类树</h3><p>下面通过经典的”打篮球”数据集，完整演示 ID3 算法（信息增益）构建分类树的过程。</p><table><thead><tr><th align="left">outlook</th><th align="left">temperature</th><th align="left">humidity</th><th align="left">windy</th><th align="left">play</th></tr></thead><tbody><tr><td align="left">sunny</td><td align="left">hot</td><td align="left">high</td><td align="left">FALSE</td><td align="left">no</td></tr><tr><td align="left">sunny</td><td align="left">hot</td><td align="left">high</td><td align="left">TRUE</td><td align="left">no</td></tr><tr><td align="left">overcast</td><td align="left">hot</td><td align="left">high</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">mild</td><td align="left">high</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">cool</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">cool</td><td align="left">normal</td><td align="left">TRUE</td><td align="left">no</td></tr><tr><td align="left">overcast</td><td align="left">cool</td><td align="left">normal</td><td align="left">TRUE</td><td align="left">yes</td></tr><tr><td align="left">sunny</td><td align="left">mild</td><td align="left">high</td><td align="left">FALSE</td><td align="left">no</td></tr><tr><td align="left">sunny</td><td align="left">cool</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">mild</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">sunny</td><td align="left">mild</td><td align="left">normal</td><td align="left">TRUE</td><td align="left">yes</td></tr><tr><td align="left">overcast</td><td align="left">mild</td><td align="left">high</td><td align="left">TRUE</td><td align="left">yes</td></tr><tr><td align="left">overcast</td><td align="left">hot</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">mild</td><td align="left">high</td><td align="left">TRUE</td><td align="left">no</td></tr></tbody></table><p><strong>数据集</strong>：14 天的天气与是否打球的记录<br><strong>特征</strong>：4 种环境变量（outlook 天气、temperature 温度、humidity 湿度、windy 是否有风）<br><strong>标签</strong>：是否打球（Yes &#x2F; No）<br><strong>目标</strong>：构造一棵决策树</p><p>setp1：计算未分裂时的整体熵值：</p><p>14 天中有 9 天打球、5 天不打球：</p><p>$$H(D) = -\frac{9}{14}\log_2\frac{9}{14} - \frac{5}{14}\log_2\frac{5}{14} = 0.940$$</p><p>setp2：计算以 outlook（天气）为分裂特征时的条件熵：</p><p>outlook 有三个取值：sunny、overcast、rainy。</p><ul><li>outlook &#x3D; sunny 时（5 个样本，2 打球 3 不打球）：</li></ul><p>$$H(\text{sunny}) = -\frac{2}{5}\log_2\frac{2}{5} - \frac{3}{5}\log_2\frac{3}{5} = 0.971$$</p><ul><li>outlook &#x3D; overcast 时（4 个样本全部打球，纯度最高）：$H(\text{overcast}) = 0$</li><li>outlook &#x3D; rainy 时（5 个样本）：$H(\text{rainy}) = 0.971$</li></ul><p>三种取值在数据集中出现的概率分别为 $5/14, 4/14, 5/14$。</p><p>Setp3：计算按 outlook 分裂后的加权平均熵：</p><p>$$H(D|\text{outlook}) = \frac{5}{14}\times 0.971 + \frac{4}{14}\times 0 + \frac{5}{14}\times 0.971 = 0.693$$</p><p>setp4：计算信息增益：</p><p>$$\text{Gain}(\text{outlook}) = H(D) - H(D|\text{outlook}) = 0.940 - 0.693 = 0.247$$</p><p>即系统的熵值从原始的 0.940 下降到了 0.693，信息增益为 0.247。</p><p>用同样的方法，可以计算出其余三个特征的信息增益：</p><table><thead><tr><th>特征</th><th>信息增益</th></tr></thead><tbody><tr><td>outlook</td><td><strong>0.247</strong></td></tr><tr><td>temperature</td><td>0.029</td></tr><tr><td>humidity</td><td>0.152</td></tr><tr><td>windy</td><td>0.048</td></tr></tbody></table><p>outlook 的信息增益最大，因此<strong>选择 outlook 作为根节点</strong>。之后在每个子节点（sunny &#x2F; overcast &#x2F; rainy 分支）内，用剩余的特征重复上述计算过程，递归选出二级节点、三级节点，直到满足停止条件。</p><p>ID3 的问题在上述例子中的体现：</p><p>如果给这份数据再加一列 ID（取值为 1、2、3……14，每个样本各不相同），用 ID 作为分裂特征时，每个分支只有一个样本，熵全部为 0，信息增益达到最大值 0.940——远超 outlook 的 0.247。但显然 ID 对预测是否打球毫无意义，这正是前文提到的 ID3 偏向高基数特征的缺陷，也是 C4.5 引入信息增益率的动机所在。</p><hr><h3 id="构建最小二乘回归树"><a href="#构建最小二乘回归树" class="headerlink" title="构建最小二乘回归树"></a>构建最小二乘回归树</h3><p>训练数据见下表，目标是得到一棵最小二乘回归树。</p><table><thead><tr><th align="center">$x$</th><th align="center">1</th><th align="center">2</th><th align="center">3</th><th align="center">4</th><th align="center">5</th><th align="center">6</th><th align="center">7</th><th align="center">8</th><th align="center">9</th><th align="center">10</th></tr></thead><tbody><tr><td align="center">$y$</td><td align="center">5.56</td><td align="center">5.70</td><td align="center">5.91</td><td align="center">6.40</td><td align="center">6.80</td><td align="center">7.05</td><td align="center">8.90</td><td align="center">8.70</td><td align="center">9.00</td><td align="center">9.05</td></tr></tbody></table><hr><p>选择最优切分变量 $j$（也就是使用哪个特征进行切分）与最优切分点。在本数据集中，只有一个变量，因此最优切分变量自然是 $x$。我们假设 9 个切分点分别为：<br>$$[1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5]$$</p><p>损失函数定义为平方损失函数 $Loss(y, f(x)) = (f(x) - y)^2$，将上述 9 个切分点依次代入下面的公式，其中 $c_m = \text{ave}(y_i \mid x_i \in R_m)$：<br>$$\min_{j, s} \left[ \min_{c_1} \sum_{x_i \in R_1(j, s)} Loss(y_i, c_1) + \min_{c_2} \sum_{x_i \in R_2(j, s)} Loss(y_i, c_2) \right]$$</p><p>当取 $s = 1.5$ 时，$R_1 = \{1\}$，$R_2 = \{2, 3, 4, 5, 6, 7, 8, 9, 10\}$，这两个区域的输出值分别为：<br>$$c_1 = 5.56, \quad c_2 = (5.70 + 5.91 + 6.40 + 6.80 + 7.05 + 8.90 + 8.70 + 9.00 + 9.05) / 9 = 7.50$$</p><p>同理等于 2.5, 3.5, …, 9.5 时，得下表：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th><th align="center">6.5</th><th align="center">7.5</th><th align="center">8.5</th><th align="center">9.5</th></tr></thead><tbody><tr><td align="center">$c_1$</td><td align="center">5.56</td><td align="center">5.63</td><td align="center">5.72</td><td align="center">5.89</td><td align="center">6.07</td><td align="center">6.24</td><td align="center">6.62</td><td align="center">6.88</td><td align="center">7.11</td></tr><tr><td align="center">$c_2$</td><td align="center">7.50</td><td align="center">7.73</td><td align="center">7.99</td><td align="center">8.25</td><td align="center">8.54</td><td align="center">8.91</td><td align="center">8.92</td><td align="center">9.03</td><td align="center">9.05</td></tr></tbody></table><p>当 $s = 1.5$ 时把 $c_1, c_2$ 的值代入到目标函数：<br>$$g(1.5) = (5.56 - 5.56)^2 + [(5.70 - 7.50)^2 + (5.91 - 7.50)^2 + (6.40 - 7.50)^2 + (6.80 - 7.50)^2 + (7.05 - 7.50)^2 + (8.90 - 7.50)^2 + (8.70 - 7.50)^2 + (9.00 - 7.50)^2 + (9.05 - 7.50)^2] = 0 + 15.72 = 15.72$$</p><p><strong>注：</strong><br>后面几个数 5.70, 5.91, 6.40, 6.80, 7.05, 8.90, 8.70, 9.00, 9.05 分别减去平均数 7.50 再平方，得：<code>3.244, 2.532, 1.212, 0.492, 0.204, 1.957, 1.437, 2.247, 2.399</code>，再求和就是 15.72；前面的数 5.56 的均值也是 5.56，所以用同样的方法计算得到 0；所以最终就是 $0 + 15.72 = 15.72$。</p><p>同理，可获得下表：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th><th align="center">6.5</th><th align="center">7.5</th><th align="center">8.5</th><th align="center">9.5</th></tr></thead><tbody><tr><td align="center">$m(s)$</td><td align="center">15.72</td><td align="center">12.07</td><td align="center">8.36</td><td align="center">5.78</td><td align="center">3.91</td><td align="center">1.93</td><td align="center">8.01</td><td align="center">11.73</td><td align="center">15.74</td></tr></tbody></table><p>显然取 $s = 6.5$ 时 $m(s)$ 最小，因此，第一个划分变量 $j$ 为 $x$，$s = 6.5$。</p><p>用选定的 $(j, s)$ 划分区域，并决定输出值，两个区域分别是：<br>$R_1 = \{1, 2, 3, 4, 5, 6\}$，$R_2 = \{7, 8, 9, 10\}$，输出值 $c_m = \text{ave}(y_i \mid x_i \in R_m)$，$c_1 = 6.24$，$c_2 = 8.91$。</p><hr><p>继续上面步骤对 $R_1$ 继续进行划分：</p><table><thead><tr><th align="center">$x$</th><th align="center">1</th><th align="center">2</th><th align="center">3</th><th align="center">4</th><th align="center">5</th><th align="center">6</th></tr></thead><tbody><tr><td align="center">$y$</td><td align="center">5.56</td><td align="center">5.70</td><td align="center">5.91</td><td align="center">6.40</td><td align="center">6.80</td><td align="center">7.05</td></tr></tbody></table><p>取切分点 $[1.5, 2.5, 3.5, 4.5, 5.5]$，则各区域的输出值如下表：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th></tr></thead><tbody><tr><td align="center">$c_1$</td><td align="center">5.56</td><td align="center">5.63</td><td align="center">5.72</td><td align="center">5.89</td><td align="center">6.07</td></tr><tr><td align="center">$c_2$</td><td align="center">6.37</td><td align="center">6.54</td><td align="center">6.75</td><td align="center">6.93</td><td align="center">7.05</td></tr></tbody></table><p>计算 $g(s)$：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th></tr></thead><tbody><tr><td align="center">$m(s)$</td><td align="center">1.3087</td><td align="center">0.7540</td><td align="center">0.2771</td><td align="center">0.4368</td><td align="center">1.0644</td></tr></tbody></table><p>$s = 3.5$ 时 $g(s)$ 最小。</p><p>同样的方法，之后的过程不再赘述。</p><p>假设在生成 3 个区域之后停止划分，那么最终生成的回归树形式如下：</p><p>$$T(x) = \begin{cases} 5.72 & x \le 3.5 \\ 6.75 & 3.5 < x \le 6.5 \\ 8.91 & x > 6.5 \end{cases}$$</p><hr><h2 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="可解释性强"><a href="#可解释性强" class="headerlink" title="可解释性强"></a>可解释性强</h4><p>决策过程天然符合人的思考方式，业务人员可以直接理解模型原因。</p><h4 id="可以处理非线性关系"><a href="#可以处理非线性关系" class="headerlink" title="可以处理非线性关系"></a>可以处理非线性关系</h4><p>线性模型<code>y = wx+b</code>只能学习线性边界，而决策树可以形成复杂非线性边界。</p><h4 id="不需要特征归一化"><a href="#不需要特征归一化" class="headerlink" title="不需要特征归一化"></a>不需要特征归一化</h4><p>决策树只关心<code>x &lt; threshold</code>，不关心具体数值尺度。 </p><hr><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="容易过拟合"><a href="#容易过拟合" class="headerlink" title="容易过拟合"></a>容易过拟合</h4><p>如果树不断生长，模型可能记住训练数据，而不是学习规律。</p><h4 id="对数据变化敏感"><a href="#对数据变化敏感" class="headerlink" title="对数据变化敏感"></a>对数据变化敏感</h4><p>训练数据稍微变化，树结构可能完全改变。</p><h4 id="单颗决策树泛化能力有限"><a href="#单颗决策树泛化能力有限" class="headerlink" title="单颗决策树泛化能力有限"></a>单颗决策树泛化能力有限</h4><p>实际工业中通常不会直接使用单棵树，一般会使用基于决策树的集成算法。如：RF、GBDT、Xgboost、LightGBM</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul><li>决策树是用超平面递归划分特征空间的有监督学习算法，既能分类也能回归；</li><li>判断分裂效果的核心是信息论中的<strong>信息熵、条件熵</strong>，由此衍生出**信息增益（ID3）→ 信息增益率（C4.5）→ 基尼系数（CART）**三代分裂标准，一代比一代更成熟；</li><li>决策树天然容易过拟合，必须依靠<strong>预剪枝</strong>（建树过程中限制深度&#x2F;样本数&#x2F;节点数）或<strong>后剪枝</strong>（建完整树后自底向上评估是否剪枝）来控制模型复杂度；</li><li>连续特征需要先离散化处理，缺失值可以通过样本权重折算的方式处理（C4.5 的经典做法）；</li><li>回归树用 MSE 作为分裂评价指标，叶子节点预测值取均值，本质是用分段常数函数逼近真实的回归关系；</li><li>实际工程中，<strong>CART 是应用最广泛的决策树算法</strong>，也是随机森林、GBDT、XGBoost 等集成模型的基础组件——吃透单棵决策树的原理，是理解这些更强大模型的第一步。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;决策树（DecisionTree）原理、公式与实战&quot;&gt;&lt;a href=&quot;#决策树（DecisionTree）原理、公式与实战&quot; class=&quot;headerlink&quot; title=&quot;决策树（DecisionTree）原理、公式与实战&quot;&gt;&lt;/a&gt;决策树（Decisio</summary>
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    
+    
+    <category term="决策树" scheme="https://www.hicode365.com/tags/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
+    
+    <category term="树模型" scheme="https://www.hicode365.com/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="信息增益" scheme="https://www.hicode365.com/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/"/>
+    
+    <category term="分类树" scheme="https://www.hicode365.com/tags/%E5%88%86%E7%B1%BB%E6%A0%91/"/>
+    
+    <category term="回归树" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性回归</title>
+    <link href="https://www.hicode365.com/cuidRt0Ib9QuVgvPXVYFjtYux"/>
+    <id>https://www.hicode365.com/cuidRt0Ib9QuVgvPXVYFjtYux</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T17:52:39.599Z</updated>
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    
+    
+    <category term="回归" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92/"/>
+    
+    <category term="线性回归" scheme="https://www.hicode365.com/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>逻辑回归</title>
+    <link href="https://www.hicode365.com/cuidygl-YA3If4QoYRVPg28K3"/>
+    <id>https://www.hicode365.com/cuidygl-YA3If4QoYRVPg28K3</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T17:54:15.373Z</updated>
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    
+    
+    <category term="逻辑回归" scheme="https://www.hicode365.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+    <category term="分类算法" scheme="https://www.hicode365.com/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>集成学习之随机森林RandomForest</title>
+    <link href="https://www.hicode365.com/cuidy4LX_U0N6qpA27iSmmkGf"/>
+    <id>https://www.hicode365.com/cuidy4LX_U0N6qpA27iSmmkGf</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T17:51:13.150Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="集成学习概述"><a href="#集成学习概述" class="headerlink" title="集成学习概述"></a>集成学习概述</h1><h2 id="随机森林（Random-forest）"><a href="#随机森林（Random-forest）" class="headerlink" title="随机森林（Random forest）"></a>随机森林（Random forest）</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;集成学习概述&quot;&gt;&lt;a href=&quot;#集成学习概述&quot; class=&quot;headerlink&quot; title=&quot;集成学习概述&quot;&gt;&lt;/a&gt;集成学习概述&lt;/h1&gt;&lt;h2 id=&quot;随机森林（Random-forest）&quot;&gt;&lt;a href=&quot;#随机森林（Random-forest</summary>
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
+    
+    
+    <category term="决策树" scheme="https://www.hicode365.com/tags/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
+    
+    <category term="树模型" scheme="https://www.hicode365.com/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="随机森林" scheme="https://www.hicode365.com/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DeepFM推荐领域深度学习的Baseline</title>
-    <link href="https://www.hicode365.com/cuidsutvb5FYamaUDtAhnRDd3"/>
-    <id>https://www.hicode365.com/cuidsutvb5FYamaUDtAhnRDd3</id>
+    <link href="https://www.hicode365.com/cuidSin5ek_03jLFwteFqsL4B"/>
+    <id>https://www.hicode365.com/cuidSin5ek_03jLFwteFqsL4B</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-08-01T03:24:01.530Z</updated>
     
@@ -46,8 +201,8 @@
   
   <entry>
     <title>FM因子分解机中的特征交叉</title>
-    <link href="https://www.hicode365.com/cuidmQpruCxiun1vMTMxHtLh1"/>
-    <id>https://www.hicode365.com/cuidmQpruCxiun1vMTMxHtLh1</id>
+    <link href="https://www.hicode365.com/cuidsfChNi-pd1mAhKCwWszIv"/>
+    <id>https://www.hicode365.com/cuidsfChNi-pd1mAhKCwWszIv</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-08-01T01:17:28.299Z</updated>
     
@@ -78,8 +233,8 @@
   
   <entry>
     <title>GBDT+LR</title>
-    <link href="https://www.hicode365.com/cuid5nBRfIcys1Er0S079gGIC"/>
-    <id>https://www.hicode365.com/cuid5nBRfIcys1Er0S079gGIC</id>
+    <link href="https://www.hicode365.com/cuidTkxQ1YkAsA4pX2Tgdkvzy"/>
+    <id>https://www.hicode365.com/cuidTkxQ1YkAsA4pX2Tgdkvzy</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-08-01T03:25:03.568Z</updated>
     
@@ -107,9 +262,28 @@
   </entry>
   
   <entry>
+    <title>如何做好技术型管理</title>
+    <link href="https://www.hicode365.com/cuidDUi8fZh9dgI6Q_LXKflJZ"/>
+    <id>https://www.hicode365.com/cuidDUi8fZh9dgI6Q_LXKflJZ</id>
+    <published>2026-02-22T13:23:58.226Z</published>
+    <updated>2026-07-29T18:00:13.953Z</updated>
+    
+    
+    
+    
+    <category term="管理与思考" scheme="https://www.hicode365.com/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="技术管理" scheme="https://www.hicode365.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="管理" scheme="https://www.hicode365.com/tags/%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>信息论</title>
-    <link href="https://www.hicode365.com/cuidQezgZE-AeMyLslHj89Cry"/>
-    <id>https://www.hicode365.com/cuidQezgZE-AeMyLslHj89Cry</id>
+    <link href="https://www.hicode365.com/cuidliBs3QtqDPNcaaG6bG64r"/>
+    <id>https://www.hicode365.com/cuidliBs3QtqDPNcaaG6bG64r</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-31T01:02:06.352Z</updated>
     
@@ -134,8 +308,8 @@
   
   <entry>
     <title>向量</title>
-    <link href="https://www.hicode365.com/cuidNlrCr3eNpi5dGgn8U6iUl"/>
-    <id>https://www.hicode365.com/cuidNlrCr3eNpi5dGgn8U6iUl</id>
+    <link href="https://www.hicode365.com/cuidhFoSNk2UCKP6j0xEXlOEr"/>
+    <id>https://www.hicode365.com/cuidhFoSNk2UCKP6j0xEXlOEr</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-31T01:01:52.387Z</updated>
     
@@ -149,8 +323,8 @@
   
   <entry>
     <title>概率统计</title>
-    <link href="https://www.hicode365.com/cuidHRA-VR9E0OgPTKOwpv8PE"/>
-    <id>https://www.hicode365.com/cuidHRA-VR9E0OgPTKOwpv8PE</id>
+    <link href="https://www.hicode365.com/cuid8QW0M4R-So80INwS8pKVb"/>
+    <id>https://www.hicode365.com/cuid8QW0M4R-So80INwS8pKVb</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-31T01:01:45.083Z</updated>
     
@@ -163,30 +337,9 @@
   </entry>
   
   <entry>
-    <title>投资理财实战</title>
-    <link href="https://www.hicode365.com/cuidrBAAkwVfbeTdJlxC7XmSl"/>
-    <id>https://www.hicode365.com/cuidrBAAkwVfbeTdJlxC7XmSl</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:01:06.619Z</updated>
-    
-    
-    
-    
-    <category term="学习与成长" scheme="https://www.hicode365.com/categories/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/"/>
-    
-    
-    <category term="投资" scheme="https://www.hicode365.com/tags/%E6%8A%95%E8%B5%84/"/>
-    
-    <category term="理财" scheme="https://www.hicode365.com/tags/%E7%90%86%E8%B4%A2/"/>
-    
-    <category term="股票" scheme="https://www.hicode365.com/tags/%E8%82%A1%E7%A5%A8/"/>
-    
-  </entry>
-  
-  <entry>
     <title>特征值与特征向量</title>
-    <link href="https://www.hicode365.com/cuidCPTU4EKuVl-Ua1vTAuMF7"/>
-    <id>https://www.hicode365.com/cuidCPTU4EKuVl-Ua1vTAuMF7</id>
+    <link href="https://www.hicode365.com/cuidoQS3H3WcsihTcilmZMqjs"/>
+    <id>https://www.hicode365.com/cuidoQS3H3WcsihTcilmZMqjs</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-31T01:01:35.714Z</updated>
     
@@ -199,92 +352,9 @@
   </entry>
   
   <entry>
-    <title>Transformer详解</title>
-    <link href="https://www.hicode365.com/cuidvBxV4brS4To70UiG5p-o6"/>
-    <id>https://www.hicode365.com/cuidvBxV4brS4To70UiG5p-o6</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:55:21.789Z</updated>
-    
-    
-    
-    
-    <category term="大模型与Agent" scheme="https://www.hicode365.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAgent/"/>
-    
-    
-    <category term="Transformer" scheme="https://www.hicode365.com/tags/Transformer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高等数学</title>
-    <link href="https://www.hicode365.com/cuidP2sv6d_T08nDQ55PR3O8Y"/>
-    <id>https://www.hicode365.com/cuidP2sv6d_T08nDQ55PR3O8Y</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-31T01:01:07.863Z</updated>
-    
-    
-    
-    
-    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>数据的降维</title>
-    <link href="https://www.hicode365.com/cuidMWORwc0eBXISb3Pm95eKq"/>
-    <id>https://www.hicode365.com/cuidMWORwc0eBXISb3Pm95eKq</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:16:01.425Z</updated>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
-    
-    
-    <category term="数据降维" scheme="https://www.hicode365.com/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
-    
-    <category term="降维算法" scheme="https://www.hicode365.com/tags/%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DecisionTree决策树原理、公式与实战</title>
-    <link href="https://www.hicode365.com/cuidnuJPdUYc4XkkiD0Z2Opuw"/>
-    <id>https://www.hicode365.com/cuidnuJPdUYc4XkkiD0Z2Opuw</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-30T02:19:02.447Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="决策树（DecisionTree）原理、公式与实战"><a href="#决策树（DecisionTree）原理、公式与实战" class="headerlink" title="决策树（DecisionTree）原理、公式与实战"></a>决策树（DecisionTree）原理、公式与实战</h1><p>决策树（Decision Tree）是机器学习中最直观、可解释性最强且应用最广泛的算法之一，它模拟人类做决策的过程——通过一系列”是与否”的判断，逐步缩小范围，最终得出结论。集成算法如：RF、GBDT、Xgboost、LightGBM都是以决策树为基础构建的。</p><p>决策树本质上是<strong>用一系列超平面对特征空间进行递归划分</strong>的方法。每一次分裂，都把当前空间一分为二，最终每个叶子节点都对应特征空间中一个不相交的区域。预测时，样本从根节点出发，根据每一维特征的取值不断向下走，最终落入某个叶子节点，这个叶子节点的类别（或数值）就是模型给出的预测结果。用一句话概括：<strong>决策树是从根节点到叶子节点的一条决策路径，所有训练数据最终都会落入某个叶子节点中。</strong></p><p>决策树的三个组成部分：</p><ul><li>根节点：树的起点，也是第一个用于分裂的特征</li><li>非叶子节点：代表一次特征判断，是决策过程的中间步骤</li><li>叶子节点：决策树的终点，给出最终的分类结果或预测值</li></ul><p>那<strong>根节点该选哪个特征？下一层节点又该选哪个特征？</strong> 答案是：通过量化每个特征带来的”纯度提升”（信息增益、信息增益率或基尼系数），选出提升最大的那个特征作为分裂依据。</p><p>几个关键认识：</p><ul><li><strong>决策树既能做分类，也能做回归</strong>。用于分类的叫<strong>分类树</strong>，预测的是离散标签；用于回归的叫<strong>回归树</strong>，预测的是连续数值。</li><li>决策树是一种基于概率分析、以树形结构呈现的<strong>有监督学习算法</strong>，每个叶子节点代表一种类别（分类树）或一个预测值（回归树）。</li><li>单棵决策树很容易过拟合，因此实际工程中很少直接使用单棵决策树做预测，而是用多棵树组成集成算法（如随机森林、GBDT、XGBoost）来降低方差、提升泛化能力。</li><li>预测时一个样本只会进入一个叶子节点，每个叶子节点可能包含<strong>多个训练样本</strong>，我们用这些样本的统计结果（如：分类树时的类别频率、 回归树时的均值）来决定该叶子的预测输出。</li></ul><hr><h2 id="前置知识：信息论基础"><a href="#前置知识：信息论基础" class="headerlink" title="前置知识：信息论基础"></a>前置知识：信息论基础</h2><h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h3><p>设想两个事件：</p><ul><li>事件 A：巴西队获得世界杯冠军</li><li>事件 B：中国队获得世界杯冠军</li></ul><p>直觉上，事件 B 一旦发生，带给我们的”信息量”要远大于事件 A。原因很简单：事件 A 发生的概率本来就大，事件 B 发生的概率很小。<strong>越不可能发生的事件一旦发生，携带的信息量就越大；越大概率发生的事件，携带的信息量反而越小。</strong> 也就是说，信息量与事件发生的概率成反比关系。</p><p>信息量的数学定义为：</p><p>$$I(x) = -\log p(x)$$</p><p>其中 $p(x)$ 是事件 $x$ 发生的概率，取值范围是 $[0,1]$。当以 2 为底取对数时，信息量的单位是比特（bit）。可以看出，$p(x)$ 越小，$I(x)$ 越大，符合我们的直觉。</p><h3 id="信息熵（Entropy）"><a href="#信息熵（Entropy）" class="headerlink" title="信息熵（Entropy）"></a>信息熵（Entropy）</h3><p>信息量描述的是单个事件，而<strong>信息熵是所有可能事件信息量的期望</strong>，用来衡量整个随机变量的不确定性：</p><p>$$H(X) = -\sum_{i=1}^{n} p(x_i) \log p(x_i)$$</p><p>信息熵的性质：</p><ul><li><strong>熵越大，不确定性越大</strong>：随机变量各种取值越接近等概率分布，熵越大；当所有取值等概率出现时，熵达到最大值。</li><li><strong>熵越小，纯度越高、越稳定</strong>：某些取值概率很大、某些取值概率很小时，随机变量的分布越”确定”，熵越小。</li><li>随机变量的取值个数越多，可能的状态数越多，熵通常也就越大，系统的混乱程度越高。</li></ul><p>对于只有两种取值（如是&#x2F;否）的二分类情形，设正例概率为 $p$：</p><p>$$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$</p><ul><li>当 $p=0$ 或 $p=1$ 时，$H(p)=0$，此时随机变量完全没有不确定性（结果已经确定）；</li><li>当 $p=0.5$ 时，$H(p)=1$，达到最大值，此时不确定性最大。</li></ul><p>推广到一般情形：当类别数为 $n$，且每个类别的概率均为 $1/n$（均匀分布）时，熵取得最大值，此时不确定性最强。</p><h3 id="联合熵"><a href="#联合熵" class="headerlink" title="联合熵"></a>联合熵</h3><p>联合熵（Joint Entropy）用来度量一对随机变量 $(X,Y)$ 组成的联合分布系统的不确定度。设联合分布为 $p(x,y)$，则：</p><p>$$H(X,Y) = -\sum_{x}\sum_{y} p(x,y)\log p(x,y)$$</p><p>联合熵描述的是这一对随机变量平均所需要的信息量。</p><h3 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h3><p>条件熵 $H(Y|X)$ 表示在已知随机变量 $X$ 的条件下，随机变量 $Y$ 的不确定性，即给定 $X$ 的每一个取值后，$Y$ 的信息熵的加权和：</p><p>$$H(Y|X) = \sum_{x} p(x)\, H(Y|X=x)$$</p><p>条件熵还有一种等价表达：</p><p>$$H(Y|X) = H(X,Y) - H(X)$$</p><p>即：<strong>条件熵 &#x3D; 联合熵 − 单独一个变量的信息熵</strong>。这个式子的直观含义是：$(X,Y)$ 一起发生所包含的总信息量，减去 $X$ 单独发生所包含的信息量，剩下的就是”在已知 $X$ 的前提下，$Y$ 新带来的信息量”，这正是条件熵的本质。</p><p>理解了信息熵和条件熵，我们就可以定义决策树选择特征的核心指标——<strong>信息增益</strong>了。</p><hr><h2 id="决策树的构建流程"><a href="#决策树的构建流程" class="headerlink" title="决策树的构建流程"></a>决策树的构建流程</h2><p>一棵决策树的生成主要包含三个环节：</p><ol><li><strong>特征选择</strong>：从众多特征中选出一个作为当前节点的分裂标准。评估标准不同，衍生出不同的决策树算法（ID3、C4.5、CART）。</li><li><strong>决策树生成</strong>：根据选定的特征评估标准，自上而下递归地生成子节点，直到数据集不可再分则停止生长。递归是理解树结构生成过程最直接的方式。</li><li><strong>剪枝</strong>：决策树天然容易过拟合，通常需要通过剪枝来缩小树的规模，缓解过拟合问题。</li></ol><h3 id="连续特征的处理"><a href="#连续特征的处理" class="headerlink" title="连续特征的处理"></a>连续特征的处理</h3><p>无论是分类树还是回归树，遇到连续型特征时都需要先做**离散化（二分）**处理，通用做法是：</p><ol><li>将该连续特征的所有取值从小到大排序；</li><li>取相邻两个取值的平均数作为候选切分点（若有 $m$ 个不同取值，则产生 $m-1$ 个候选切分点）；</li><li>遍历所有候选切分点，分别以”大于切分点”和”小于等于切分点”将样本一分为二，计算信息增益（或基尼系数下降量）；</li><li>选择使信息增益最大（或基尼系数最小）的切分点作为该特征的最优分裂点。</li></ol><h3 id="决策树的损失函数"><a href="#决策树的损失函数" class="headerlink" title="决策树的损失函数"></a>决策树的损失函数</h3><p>决策树整体的损失函数通常用<strong>基尼系数的加权平均</strong>来表示：</p><p>$$C(T) = \sum_{t=1}^{|T|} \frac{N_t}{N} H_t(T)$$</p><ul><li>$|T|$：叶子节点的个数；</li><li>$t$：第 $t$ 个叶子节点；</li><li>$N_t$：第 $t$ 个叶子节点的样本数；</li><li>$N$：所有样本总数；</li><li>$H_t(T)$：第 $t$ 个叶子节点的纯度指标（信息熵 &#x2F; Gini 系数 &#x2F; 错误率均可）。</li></ul><p>考虑到树的复杂度会影响过拟合风险，实践中常见的是加入正则项的损失函数：</p><p>$$C_\alpha(T) = \sum_{t=1}^{|T|} N_t H_t(T) + \alpha|T|$$</p><p>其中 $\alpha \geq 0$ 是控制模型复杂度的参数，$\alpha$ 越大，惩罚力度越强，最终得到的树越简单。这个带正则项的损失函数正是<strong>后剪枝算法</strong>判断是否剪枝的理论依据。</p><h3 id="决策树是停止生长的条件"><a href="#决策树是停止生长的条件" class="headerlink" title="决策树是停止生长的条件"></a>决策树是停止生长的条件</h3><p>递归过程必须有明确的终止条件，否则将无限分裂下去：</p><ul><li>一个节点中所有样本都属于同一类别（注意：如果只用这一条作为唯一停止条件，容易导致树的节点数过多，造成过拟合）；</li><li>当前节点样本数小于某个阈值，且迭代次数达到给定值时，停止构建，此时用该节点中出现频次最高的类别 $\max(p(i))$ 作为该节点的预测类别；</li><li>没有特征可用于继续划分该节点的样本，此时该节点的类别取样本数最多的那一类；</li><li>没有样本能满足剩余特征的取值条件，同样取样本数最多的类别作为该节点类别。</li></ul><hr><h2 id="经典决策树：ID3、C4-5、CART"><a href="#经典决策树：ID3、C4-5、CART" class="headerlink" title="经典决策树：ID3、C4.5、CART"></a>经典决策树：ID3、C4.5、CART</h2><p>不同种类的决策树算法，核心区别仅仅在于<strong>选择分裂特征所使用的量化标准不同</strong>：</p><table><thead><tr><th>算法</th><th>分裂标准</th></tr></thead><tbody><tr><td>ID3</td><td>信息增益（Information Gain）</td></tr><tr><td>C4.5</td><td>信息增益率（Gain Ratio）</td></tr><tr><td>CART</td><td>基尼系数（Gini Index）</td></tr></tbody></table><h3 id="ID3：信息增益"><a href="#ID3：信息增益" class="headerlink" title="ID3：信息增益"></a>ID3：信息增益</h3><p><strong>信息增益</strong>衡量的是：使用特征 $A$ 对数据集划分后，类别 $Y$ 的不确定性减少了多少。也就是选择不同特征 $A$ 作为分裂节点时，标签 $Y$ 的熵值发生了多大的变化。每次迭代都选择信息增益最大的特征作为当前节点的分裂属性。</p><p>信息增益的计算公式为：</p><p>$$\text{Gain}(D, A) = H(D) - H(D|A)$$</p><p>其中：</p><ul><li>$H(D)$ 是数据集 $D$（原始，未分裂）的信息熵；</li><li>$H(D|A)$ 是以特征 $A$ 划分之后的条件熵，也称为按特征 $A$ 分裂后的<strong>加权平均熵</strong>（决策树的损失函数之一），公式为：</li></ul><p>$$H(D|A) = \sum_{v} \frac{|D_v|}{|D|} H(D_v)$$</p><p>即根据特征 $A$ 的每个取值 $v$ 把数据集切分成若干子集 $D_v$，每个子集按其样本占比加权，求熵的加权平均。</p><p>信息增益越大，说明用该特征分裂后损失的不确定性（获得的纯度提升）越大，该特征就越应该排在决策树的上层。分类树中，每个叶子节点最终的预测类别取该叶子节点中样本数最多的类别（众数）。</p><h4 id="ID3-的缺陷"><a href="#ID3-的缺陷" class="headerlink" title="ID3 的缺陷"></a>ID3 的缺陷</h4><p>信息增益天然偏向于<strong>取值较多</strong>的特征。极端情况下，如果给数据集加一列唯一 ID（1,2,3,4,5…），以 ID 作为分裂特征后，每个子节点都只有一个样本，熵全部为 0，信息增益达到理论最大值——但 ID 显然不是一个有意义的特征，这种分裂对模型毫无泛化能力。为了解决这个问题，C4.5 算法引入了<strong>信息增益率</strong>。</p><h3 id="C4-5：信息增益率"><a href="#C4-5：信息增益率" class="headerlink" title="C4.5：信息增益率"></a>C4.5：信息增益率</h3><p>C4.5 在 ID3 的基础上做了改进，把信息增益除以特征本身的”固有值”（自身的熵），相当于对取值过多的特征施加一个惩罚项：</p><p>$$\text{GainRatio}(D, A) = \frac{\text{Gain}(D, A)}{\text{IV}(A)}$$</p><p>其中 $\text{IV}(A)$（Intrinsic Value，属性 $A$ 的固有值&#x2F;自身熵）定义为：</p><p>$$\text{IV}(A) = -\sum_{v} \frac{|D_v|}{|D|} \log_2 \frac{|D_v|}{|D|}$$</p><p>属性 $A$ 的取值可能性越多（即分支数越多），$\text{IV}(A)$ 通常也越大，从而对信息增益产生更强的抑制作用。仍以 ID 为例：虽然用 ID 分裂带来的信息增益很大，但除以 ID 自身极大的熵值之后，信息增益率会大幅下降，从而避免模型偏向这种无意义的高基数特征。</p><p>C4.5 在特征选择上使用<strong>信息增益率最大</strong>的属性作为分裂点。除此之外，C4.5 相较 ID3 还有三大优势：</p><ol><li>在树的构造过程中会进行<strong>剪枝优化</strong>；</li><li>能够<strong>自动完成连续属性的离散化</strong>处理；</li><li>能够<strong>自动处理缺失值</strong>。</li></ol><h4 id="C4-5-如何处理缺失值"><a href="#C4-5-如何处理缺失值" class="headerlink" title="C4.5 如何处理缺失值"></a>C4.5 如何处理缺失值</h4><p>C4.5 的缺失值处理分两个子问题：</p><p><strong>（1）属性上存在缺失值，如何选择分裂特征？</strong></p><p>思路是：只用没有缺失值的那部分样本子集 $D'$ 计算信息增益率，再按 $D'$ 占整体样本 $D$ 的比例做加权折算。</p><p>举例：某数据集共 7 个样本，其中”温度”这一特征有 1 个样本缺失，剩下 6 个样本构成 $D'$。假设按温度（高&#x2F;中&#x2F;低）划分后计算出：</p><p>$$\text{Gain}(D', \text{温度}) = \text{Ent}(D') - 0.792 = 1.0 - 0.792 = 0.208$$</p><p>温度自身的属性熵为 1.459，因此：</p><p>$$\text{Gain\_ratio}(D', \text{温度}) = 0.208 / 1.459 = 0.1426$$</p><p>由于 $D'$ 只有 6 个样本，$D$ 有 7 个样本，缺失比例意味着 $D'$ 的权重为 $6/7$，因此最终折算到全体样本 $D$ 上的信息增益率为：</p><p>$$\text{Gain\_ratio}(D, \text{温度}) = \frac{6}{7} \times 0.1426 = 0.122$$</p><p>这样，即便某个属性存在部分样本缺失，依然可以计算出信息增益率，用于属性选择。</p><p><strong>（2）已经确定了分裂属性，但某些样本在该属性上恰好缺失，该如何分配这些样本？</strong></p><p>处理方式是：把该样本<strong>同时划分到所有分支</strong>中，但赋予不同的权重（权重等于每个分支中已有样本数占总样本数的比例）。这样，如果后续还要继续往下分裂，计算条件熵时就需要把该样本自身的权重也考虑进去。这部分内容更严谨的推导可参考《机器学习》（西瓜书）决策树一章。</p><h3 id="CART：基尼系数"><a href="#CART：基尼系数" class="headerlink" title="CART：基尼系数"></a>CART：基尼系数</h3><p>CART（Classification And Regression Tree，分类回归树）使用<strong>基尼系数</strong>作为衡量数据纯度的指标（而不是熵）。CART 的两个重要特点：</p><ul><li><strong>既能做分类，又能做回归</strong>（分类用基尼系数，回归用均方误差）；</li><li><strong>只能构建二叉树</strong>，每次分裂只产生两个子节点。</li></ul><p>基尼系数的定义（$k$ 分类问题）：</p><p>$$\text{Gini}(D) = \sum_{i=1}^{k} p_i (1 - p_i) = 1 - \sum_{i=1}^{k} p_i^2$$</p><p>基尼系数衡量的是”从数据集中随机抽取两个样本，其类别标签不一致的概率”。概率 $p$ 越接近 1（数据越纯），基尼系数越接近 0；数据越混乱，基尼系数越接近其最大值。</p><p>按特征 $A$ 分裂后的<strong>基尼增益</strong>（分裂前后基尼系数的下降幅度）定义类似于信息增益：</p><p>$$\text{Gini\_Gain}(D, A) = \text{Gini}(D) - \sum_{v} \frac{|D_v|}{|D|} \text{Gini}(D_v)$$</p><p>CART 算法在每次分裂时选择使基尼增益最大（即分裂后基尼系数下降最多）的特征和切分点作为当前的分裂依据。</p><blockquote><p>三个纯度指标（信息熵、Gini 系数、错误率）的共同特点是：<strong>值越大表示数据越”不纯”，值越小表示越”纯”</strong>。三者可以相互替代作为决策树的分裂评价标准，只是计算方式和对极端分布的敏感度略有不同。</p></blockquote><hr><h3 id="ID3、C4-5、CART-树对比"><a href="#ID3、C4-5、CART-树对比" class="headerlink" title="ID3、C4.5、CART 树对比"></a>ID3、C4.5、CART 树对比</h3><table><thead><tr><th>对比维度</th><th>ID3</th><th>C4.5</th><th>CART</th></tr></thead><tbody><tr><td>分裂标准</td><td>信息增益</td><td>信息增益率</td><td>基尼系数</td></tr><tr><td>树的结构</td><td>不一定是二叉树</td><td>不一定是二叉树</td><td><strong>一定是二叉树</strong></td></tr><tr><td>是否支持回归</td><td>否</td><td>否</td><td><strong>支持</strong></td></tr><tr><td>连续值处理</td><td>不支持</td><td>支持</td><td>支持</td></tr><tr><td>缺失值处理</td><td>不支持</td><td><strong>自动处理</strong></td><td>支持</td></tr><tr><td>剪枝</td><td>不涉及</td><td>支持</td><td>支持（后剪枝为主）</td></tr><tr><td>对高基数特征的偏好</td><td>严重偏向</td><td>已缓解</td><td>较均衡</td></tr><tr><td>适用规模</td><td>小规模数据集</td><td>小规模数据集</td><td>应用最广泛</td></tr></tbody></table><p>几点重要结论：</p><ul><li>ID3 和 C4.5 都只适合在<strong>小规模数据集</strong>上使用，且都属于<strong>单变量决策树</strong>（每次只用一个特征分裂）；</li><li>当某个特征的取值比较多时，优先考虑 C4.5，因为 ID3 在这种场景下效果会明显变差；</li><li>决策树分类算法整体上更适合小数据量场景（数据能放进内存）；</li><li><strong>CART 是三种算法中工程实践里最常用的一种</strong>，因为它同时支持分类和回归，并且天然支持连续值和剪枝；</li><li>三种算法的本质区别只在于评价当前树分裂效果的标准不同：ID3 用信息增益、C4.5 用信息增益率、CART 用基尼系数；</li><li>CART 构建的一定是二叉树，而 ID3 和 C4.5 构建的可能是多叉树。</li></ul><h2 id="决策树的剪枝：防止过拟合"><a href="#决策树的剪枝：防止过拟合" class="headerlink" title="决策树的剪枝：防止过拟合"></a>决策树的剪枝：防止过拟合</h2><p>决策树如果不加限制地生长，会对训练集拟合得”面面俱到”，但在测试集上表现很差，也就是<strong>过拟合</strong>。剪枝的目的正是缩小树的规模、缓解过拟合，主要分为两种策略。</p><h3 id="预剪枝（Pre-Pruning，工业界常用）"><a href="#预剪枝（Pre-Pruning，工业界常用）" class="headerlink" title="预剪枝（Pre-Pruning，工业界常用）"></a>预剪枝（Pre-Pruning，工业界常用）</h3><p>预剪枝是在<strong>建树过程中</strong>就设置规则，提前阻止树的过度生长：</p><ul><li><strong>限制树的最大深度</strong>：树深超过阈值则该节点不再分裂；</li><li><strong>限制叶子节点的最少样本数</strong>：若某节点分裂后子节点的样本数小于阈值（如总样本的 1%），则不再分裂；</li><li><strong>限制叶子节点的最大个数</strong>：叶子节点总数超过阈值则停止分裂；</li><li><strong>限制信息增益率或基尼系数的阈值</strong>：低于给定阈值则不再分裂（此法实践中不太常用，因为阈值不易设定，且局部增益小不代表后续分裂无价值）。</li></ul><p>预剪枝的优点是计算开销小、训练速度快；缺点是可能存在”局部最优陷阱”——某次分裂当下增益不大，但继续往下分裂却可能带来显著提升，预剪枝会提前掐断这种可能性，导致欠拟合风险。</p><h3 id="后剪枝（Post-Pruning）"><a href="#后剪枝（Post-Pruning）" class="headerlink" title="后剪枝（Post-Pruning）"></a>后剪枝（Post-Pruning）</h3><p>后剪枝是先完整地建好一棵决策树，然后<strong>自下而上</strong>地对每个非叶子节点进行考察，判断是否将其”剪掉”（即把该子树替换为一个叶子节点）。</p><p><strong>损失函数公式</strong>：</p><p>$$C_{\alpha}(T) = C(T) + \alpha \cdot \vert{}T_{leaf}\vert{}$$</p><p><strong>变量标注与说明</strong>：</p><ul><li><p><strong>$C(T)$</strong>：损失函数</p><p>$$\text{损失函数} = \text{叶子节点样本数} \times \text{gini系数 \quad 或 \quad 叶子节点样本数} \times \text{熵值}$$</p></li><li><p><strong>$\alpha$</strong>：系数（超参数&#x2F;惩罚因子）</p></li><li><p><strong>$\vert{}T_{leaf}\vert{}$</strong>：叶子节点个数</p></li><li><p>$C_\alpha(T)$：分别计算某节点<strong>剪枝前</strong>（保留子树）和<strong>剪枝后</strong>（该节点变为叶子）的损失函数值</p></li></ul><p>通过最小化损失函数 $C_{\alpha}(T)$ 来确定是否剪枝。在节点分裂前计算 $C_{\alpha}(T)$ 的值，分裂后再计算一次，如果分裂后的值大于分裂前的值，就可以进行剪枝（即放弃分裂，保留父节点作为叶节点）。</p><p>后剪枝是指让决策树<strong>先充分生长</strong>（直到无法再分或达到止步条件），然后<strong>自底向上</strong>评估子树。如果将某个子树折叠回单个叶子节点能降低整体损失，就将其剪掉。</p><ol><li><p><strong>公式的含义与权衡（Trade-off）</strong>：</p><p>$$C_{\alpha}(T) = \underbrace{C(T)}_{\text{拟合误差}} + \underbrace{\alpha \cdot \vert{}T_{leaf}\vert{}}_{\text{模型复杂度惩罚}}$$</p><ul><li><strong>$C(T)$</strong>：衡量树对训练数据的拟合程度。树越深、分裂越细，数据不纯度（Gini系数或熵）越低，$C(T)$ 越小。</li><li><strong>$\alpha \cdot \vert{}T_{leaf}\vert{}$</strong>：控制模型的复杂度。叶子节点越少，树越简单，泛化能力越强。</li><li><strong>$\alpha$ 的作用</strong>：$\alpha$ 是调优参数。若 $\alpha = 0$，表示不考虑模型复杂度，只追求数据拟合；$\alpha$ 越大，对节点过多的惩罚力度越重，倾向于生成更小、更平滑的树。</li></ul></li><li><p><strong>决策逻辑</strong>：</p><p>决策树通过计算“剪枝前”与“剪枝后（或分裂前&#x2F;后）”的总损失值 $C_{\alpha}(T)$。如果<strong>复杂树的损失反而大于简单树</strong>（说明增加分支带来的拟合收益掩盖不了复杂度增加带来的惩罚），就选择<strong>剪枝</strong>，以防止过拟合。</p></li></ol><p>后剪枝通常比预剪枝欠拟合风险更低、泛化性能更好，但计算开销也更大，因为需要先生成完整的树再自底向上遍历评估。</p><p>CART 算法常用的后剪枝方式是：先生成完整的决策树，再枚举所有可能的剪枝方案，用<strong>交叉验证</strong>评估每种剪枝方案在验证集上的表现，选择泛化能力最好的那一种作为最终模型。</p><hr><h2 id="决策树做预测"><a href="#决策树做预测" class="headerlink" title="决策树做预测"></a>决策树做预测</h2><p>决策树的预测的过程其实很简单：一个新样本进来，从根节点开始，按照每个内部节点的判断条件，一步一步往下走，走到哪个分支完全由这个样本自身的特征值决定。最终，<strong>这个样本只会落到一个叶子节点上</strong>，不会同时属于两个叶子——树结构本身保证了这一点，因为每次分裂产生的子区域是互不重叠的。</p><p>关键在于：一个叶子节点里往往不止一个训练样本，训练阶段有一批数据最终都落进了同一个叶子。预测输出就是靠这批样本的统计结果得出来的：</p><ul><li><strong>分类树</strong>：看这个叶子节点里各类别出现的频率，取频率最高（也就是样本数最多）的那个类别作为预测结果，本质上是投票，少数服从多数；</li><li><strong>回归树</strong>：直接取这个叶子节点里所有样本目标值的均值作为预测结果。</li></ul><p>所以严格来说，决策树的”学习”过程，就是想办法把训练样本切分成一个个尽可能”纯”的小组（叶子节点），预测时只是把新样本对号入座，找到它该待的那个小组，然后把这个小组早就算好的统计值报出来。</p><p>这里有个容易被忽略但挺重要的点：<strong>决策树不适合用梯度下降来求解</strong>。原因也不复杂——树的分裂是一次次离散的”是否满足某个条件”的判断，输出结果随着分裂点、分裂特征的变化是阶跃式的、不连续的，压根没法对它求导。梯度下降依赖的是损失函数对参数连续可导，而决策树的结构本身就是一堆分段常数拼起来的，中间全是断层，谈”梯度”没有意义。这也是为什么决策树的构建靠的是贪心搜索（每一步找当前最优的分裂特征和分裂点），而不是像神经网络那样靠反向传播一点点调参数。</p><h2 id="回归树"><a href="#回归树" class="headerlink" title="回归树"></a>回归树</h2><p>前面讨论的都是<strong>分类树</strong>：用信息增益、信息增益率、基尼系数来评价分裂效果，本质上都是基于概率进行判断，叶子节点的预测值取该节点中<strong>样本数最多的类别</strong>（众数）。</p><p><strong>回归树</strong>则用于预测连续数值。回归树叶子节点的预测值，取该叶子节点内<strong>所有样本目标值的均值</strong>：</p><p>由于目标值是连续的，回归树通常采用 <strong>MSE（均方误差）</strong> 作为评价分裂效果的指标，而不是信息熵或基尼系数。实践中，回归树一般只使用 <strong>CART 算法</strong>构建（二叉树)。</p><h3 id="回归树的分裂原理"><a href="#回归树的分裂原理" class="headerlink" title="回归树的分裂原理"></a>回归树的分裂原理</h3><p>回归树采用启发式的方法进行分裂：假设有 $n$ 个特征，每个特征 $j$ 有若干个可能的取值，遍历所有特征及其所有可能的切分点 $s$，尝试用 $(j,s)$ 将当前空间一分为二，计算划分后的损失，选择使损失函数最小的 $(j,s)$ 作为当前节点的分裂依据。</p><p>设输入空间被最终划分为 $M$ 个区域 $R_1, R_2, \ldots, R_M$，每个区域的输出值（预测值）取该区域内所有样本目标值 $y$ 的均值：</p><p>$$c_m = \text{avg}(y_i \mid x_i \in R_m)$$</p><p>损失函数采用平方损失：</p><p>$$L = \sum_{x_i \in R_m} (y_i - c_m)^2$$</p><p>对于任意一个候选切分变量 $j$ 和切分点 $s$，将空间划分为两个区域：</p><p>$$R_1(j,s) = \{x \mid x_j \le s\}, \quad R_2(j,s) = \{x \mid x_j > s\}$$</p><p>目标函数是求使两个区域平方损失之和最小的 $(j,s)$：</p><p>$$\min_{j,s} \left[ \min_{c_1} \sum_{x_i \in R_1(j,s)} (y_i - c_1)^2 + \min_{c_2} \sum_{x_i \in R_2(j,s)} (y_i - c_2)^2 \right]$$</p><p>这个过程递归地进行下去，直到满足停止条件（如区域内样本数过少、达到最大深度、或损失下降不再显著），最终生成的树就是<strong>最小二乘回归树</strong>。</p><h3 id="回归树与线性回归"><a href="#回归树与线性回归" class="headerlink" title="回归树与线性回归"></a>回归树与线性回归</h3><p>回归树和线性回归都能处理连续值预测问题，但二者的建模方式截然不同：</p><ul><li><strong>线性回归</strong>假设特征与目标之间存在（近似）线性关系，用一条直线（或超平面）去拟合整体数据分布，模型形式简洁、可解释性强，但难以捕捉非线性、分段的模式；</li><li><strong>回归树</strong>通过不断切分特征空间，用分段常数（每个区域内的均值）去逼近真实的函数关系，天然能够拟合非线性、非单调的模式，但预测结果呈”阶梯状”，在区域边界处会有跳变，不如线性回归平滑。</li></ul><p>在实践中，如果数据的真实关系接近线性，线性回归通常表现更好、更稳定；如果数据存在复杂的非线性或交互效应，回归树（及其集成版本如随机森林、GBDT）往往更有优势。</p><hr><h2 id="分类树-vs-回归树"><a href="#分类树-vs-回归树" class="headerlink" title="分类树 vs 回归树"></a>分类树 vs 回归树</h2><table><thead><tr><th>对比维度</th><th>分类树</th><th>回归树</th></tr></thead><tbody><tr><td>目标变量</td><td>离散变量（类别）</td><td>连续变量（数值）</td></tr><tr><td>评价指标</td><td>信息增益 &#x2F; 信息增益率 &#x2F; 基尼系数</td><td>MSE（均方误差）</td></tr><tr><td>叶子节点预测值（得分函数）</td><td>该节点样本的众数（出现次数最多的类别）</td><td>该节点样本目标值的均值</td></tr><tr><td>损失函数</td><td>同一层所有分支基尼系数（或熵）的加权平均</td><td>同一层所有分支的平方差损失之和</td></tr><tr><td>分裂准则</td><td>比较分裂前后基尼系数（或熵）的下降量，下降越多越优先选择</td><td>使用最小方差作为分裂规则，只能生成二叉树</td></tr><tr><td>剪枝方式（以 CART 为例）</td><td>后剪枝：生成完整树后，枚举所有可能的剪枝方案，用交叉验证选择泛化能力最好的方案</td><td>同左</td></tr></tbody></table><hr><h2 id="决策树构建实例"><a href="#决策树构建实例" class="headerlink" title="决策树构建实例"></a>决策树构建实例</h2><h3 id="用信息增益构建分类树"><a href="#用信息增益构建分类树" class="headerlink" title="用信息增益构建分类树"></a>用信息增益构建分类树</h3><p>下面通过经典的”打篮球”数据集，完整演示 ID3 算法（信息增益）构建分类树的过程。</p><table><thead><tr><th align="left">outlook</th><th align="left">temperature</th><th align="left">humidity</th><th align="left">windy</th><th align="left">play</th></tr></thead><tbody><tr><td align="left">sunny</td><td align="left">hot</td><td align="left">high</td><td align="left">FALSE</td><td align="left">no</td></tr><tr><td align="left">sunny</td><td align="left">hot</td><td align="left">high</td><td align="left">TRUE</td><td align="left">no</td></tr><tr><td align="left">overcast</td><td align="left">hot</td><td align="left">high</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">mild</td><td align="left">high</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">cool</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">cool</td><td align="left">normal</td><td align="left">TRUE</td><td align="left">no</td></tr><tr><td align="left">overcast</td><td align="left">cool</td><td align="left">normal</td><td align="left">TRUE</td><td align="left">yes</td></tr><tr><td align="left">sunny</td><td align="left">mild</td><td align="left">high</td><td align="left">FALSE</td><td align="left">no</td></tr><tr><td align="left">sunny</td><td align="left">cool</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">mild</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">sunny</td><td align="left">mild</td><td align="left">normal</td><td align="left">TRUE</td><td align="left">yes</td></tr><tr><td align="left">overcast</td><td align="left">mild</td><td align="left">high</td><td align="left">TRUE</td><td align="left">yes</td></tr><tr><td align="left">overcast</td><td align="left">hot</td><td align="left">normal</td><td align="left">FALSE</td><td align="left">yes</td></tr><tr><td align="left">rainy</td><td align="left">mild</td><td align="left">high</td><td align="left">TRUE</td><td align="left">no</td></tr></tbody></table><p><strong>数据集</strong>：14 天的天气与是否打球的记录<br><strong>特征</strong>：4 种环境变量（outlook 天气、temperature 温度、humidity 湿度、windy 是否有风）<br><strong>标签</strong>：是否打球（Yes &#x2F; No）<br><strong>目标</strong>：构造一棵决策树</p><p>setp1：计算未分裂时的整体熵值：</p><p>14 天中有 9 天打球、5 天不打球：</p><p>$$H(D) = -\frac{9}{14}\log_2\frac{9}{14} - \frac{5}{14}\log_2\frac{5}{14} = 0.940$$</p><p>setp2：计算以 outlook（天气）为分裂特征时的条件熵：</p><p>outlook 有三个取值：sunny、overcast、rainy。</p><ul><li>outlook &#x3D; sunny 时（5 个样本，2 打球 3 不打球）：</li></ul><p>$$H(\text{sunny}) = -\frac{2}{5}\log_2\frac{2}{5} - \frac{3}{5}\log_2\frac{3}{5} = 0.971$$</p><ul><li>outlook &#x3D; overcast 时（4 个样本全部打球，纯度最高）：$H(\text{overcast}) = 0$</li><li>outlook &#x3D; rainy 时（5 个样本）：$H(\text{rainy}) = 0.971$</li></ul><p>三种取值在数据集中出现的概率分别为 $5/14, 4/14, 5/14$。</p><p>Setp3：计算按 outlook 分裂后的加权平均熵：</p><p>$$H(D|\text{outlook}) = \frac{5}{14}\times 0.971 + \frac{4}{14}\times 0 + \frac{5}{14}\times 0.971 = 0.693$$</p><p>setp4：计算信息增益：</p><p>$$\text{Gain}(\text{outlook}) = H(D) - H(D|\text{outlook}) = 0.940 - 0.693 = 0.247$$</p><p>即系统的熵值从原始的 0.940 下降到了 0.693，信息增益为 0.247。</p><p>用同样的方法，可以计算出其余三个特征的信息增益：</p><table><thead><tr><th>特征</th><th>信息增益</th></tr></thead><tbody><tr><td>outlook</td><td><strong>0.247</strong></td></tr><tr><td>temperature</td><td>0.029</td></tr><tr><td>humidity</td><td>0.152</td></tr><tr><td>windy</td><td>0.048</td></tr></tbody></table><p>outlook 的信息增益最大，因此<strong>选择 outlook 作为根节点</strong>。之后在每个子节点（sunny &#x2F; overcast &#x2F; rainy 分支）内，用剩余的特征重复上述计算过程，递归选出二级节点、三级节点，直到满足停止条件。</p><p>ID3 的问题在上述例子中的体现：</p><p>如果给这份数据再加一列 ID（取值为 1、2、3……14，每个样本各不相同），用 ID 作为分裂特征时，每个分支只有一个样本，熵全部为 0，信息增益达到最大值 0.940——远超 outlook 的 0.247。但显然 ID 对预测是否打球毫无意义，这正是前文提到的 ID3 偏向高基数特征的缺陷，也是 C4.5 引入信息增益率的动机所在。</p><hr><h3 id="构建最小二乘回归树"><a href="#构建最小二乘回归树" class="headerlink" title="构建最小二乘回归树"></a>构建最小二乘回归树</h3><p>训练数据见下表，目标是得到一棵最小二乘回归树。</p><table><thead><tr><th align="center">$x$</th><th align="center">1</th><th align="center">2</th><th align="center">3</th><th align="center">4</th><th align="center">5</th><th align="center">6</th><th align="center">7</th><th align="center">8</th><th align="center">9</th><th align="center">10</th></tr></thead><tbody><tr><td align="center">$y$</td><td align="center">5.56</td><td align="center">5.70</td><td align="center">5.91</td><td align="center">6.40</td><td align="center">6.80</td><td align="center">7.05</td><td align="center">8.90</td><td align="center">8.70</td><td align="center">9.00</td><td align="center">9.05</td></tr></tbody></table><hr><p>选择最优切分变量 $j$（也就是使用哪个特征进行切分）与最优切分点。在本数据集中，只有一个变量，因此最优切分变量自然是 $x$。我们假设 9 个切分点分别为：<br>$$[1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5]$$</p><p>损失函数定义为平方损失函数 $Loss(y, f(x)) = (f(x) - y)^2$，将上述 9 个切分点依次代入下面的公式，其中 $c_m = \text{ave}(y_i \mid x_i \in R_m)$：<br>$$\min_{j, s} \left[ \min_{c_1} \sum_{x_i \in R_1(j, s)} Loss(y_i, c_1) + \min_{c_2} \sum_{x_i \in R_2(j, s)} Loss(y_i, c_2) \right]$$</p><p>当取 $s = 1.5$ 时，$R_1 = \{1\}$，$R_2 = \{2, 3, 4, 5, 6, 7, 8, 9, 10\}$，这两个区域的输出值分别为：<br>$$c_1 = 5.56, \quad c_2 = (5.70 + 5.91 + 6.40 + 6.80 + 7.05 + 8.90 + 8.70 + 9.00 + 9.05) / 9 = 7.50$$</p><p>同理等于 2.5, 3.5, …, 9.5 时，得下表：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th><th align="center">6.5</th><th align="center">7.5</th><th align="center">8.5</th><th align="center">9.5</th></tr></thead><tbody><tr><td align="center">$c_1$</td><td align="center">5.56</td><td align="center">5.63</td><td align="center">5.72</td><td align="center">5.89</td><td align="center">6.07</td><td align="center">6.24</td><td align="center">6.62</td><td align="center">6.88</td><td align="center">7.11</td></tr><tr><td align="center">$c_2$</td><td align="center">7.50</td><td align="center">7.73</td><td align="center">7.99</td><td align="center">8.25</td><td align="center">8.54</td><td align="center">8.91</td><td align="center">8.92</td><td align="center">9.03</td><td align="center">9.05</td></tr></tbody></table><p>当 $s = 1.5$ 时把 $c_1, c_2$ 的值代入到目标函数：<br>$$g(1.5) = (5.56 - 5.56)^2 + [(5.70 - 7.50)^2 + (5.91 - 7.50)^2 + (6.40 - 7.50)^2 + (6.80 - 7.50)^2 + (7.05 - 7.50)^2 + (8.90 - 7.50)^2 + (8.70 - 7.50)^2 + (9.00 - 7.50)^2 + (9.05 - 7.50)^2] = 0 + 15.72 = 15.72$$</p><p><strong>注：</strong><br>后面几个数 5.70, 5.91, 6.40, 6.80, 7.05, 8.90, 8.70, 9.00, 9.05 分别减去平均数 7.50 再平方，得：<code>3.244, 2.532, 1.212, 0.492, 0.204, 1.957, 1.437, 2.247, 2.399</code>，再求和就是 15.72；前面的数 5.56 的均值也是 5.56，所以用同样的方法计算得到 0；所以最终就是 $0 + 15.72 = 15.72$。</p><p>同理，可获得下表：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th><th align="center">6.5</th><th align="center">7.5</th><th align="center">8.5</th><th align="center">9.5</th></tr></thead><tbody><tr><td align="center">$m(s)$</td><td align="center">15.72</td><td align="center">12.07</td><td align="center">8.36</td><td align="center">5.78</td><td align="center">3.91</td><td align="center">1.93</td><td align="center">8.01</td><td align="center">11.73</td><td align="center">15.74</td></tr></tbody></table><p>显然取 $s = 6.5$ 时 $m(s)$ 最小，因此，第一个划分变量 $j$ 为 $x$，$s = 6.5$。</p><p>用选定的 $(j, s)$ 划分区域，并决定输出值，两个区域分别是：<br>$R_1 = \{1, 2, 3, 4, 5, 6\}$，$R_2 = \{7, 8, 9, 10\}$，输出值 $c_m = \text{ave}(y_i \mid x_i \in R_m)$，$c_1 = 6.24$，$c_2 = 8.91$。</p><hr><p>继续上面步骤对 $R_1$ 继续进行划分：</p><table><thead><tr><th align="center">$x$</th><th align="center">1</th><th align="center">2</th><th align="center">3</th><th align="center">4</th><th align="center">5</th><th align="center">6</th></tr></thead><tbody><tr><td align="center">$y$</td><td align="center">5.56</td><td align="center">5.70</td><td align="center">5.91</td><td align="center">6.40</td><td align="center">6.80</td><td align="center">7.05</td></tr></tbody></table><p>取切分点 $[1.5, 2.5, 3.5, 4.5, 5.5]$，则各区域的输出值如下表：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th></tr></thead><tbody><tr><td align="center">$c_1$</td><td align="center">5.56</td><td align="center">5.63</td><td align="center">5.72</td><td align="center">5.89</td><td align="center">6.07</td></tr><tr><td align="center">$c_2$</td><td align="center">6.37</td><td align="center">6.54</td><td align="center">6.75</td><td align="center">6.93</td><td align="center">7.05</td></tr></tbody></table><p>计算 $g(s)$：</p><table><thead><tr><th align="center">$s$</th><th align="center">1.5</th><th align="center">2.5</th><th align="center">3.5</th><th align="center">4.5</th><th align="center">5.5</th></tr></thead><tbody><tr><td align="center">$m(s)$</td><td align="center">1.3087</td><td align="center">0.7540</td><td align="center">0.2771</td><td align="center">0.4368</td><td align="center">1.0644</td></tr></tbody></table><p>$s = 3.5$ 时 $g(s)$ 最小。</p><p>同样的方法，之后的过程不再赘述。</p><p>假设在生成 3 个区域之后停止划分，那么最终生成的回归树形式如下：</p><p>$$T(x) = \begin{cases} 5.72 & x \le 3.5 \\ 6.75 & 3.5 < x \le 6.5 \\ 8.91 & x > 6.5 \end{cases}$$</p><hr><h2 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="可解释性强"><a href="#可解释性强" class="headerlink" title="可解释性强"></a>可解释性强</h4><p>决策过程天然符合人的思考方式，业务人员可以直接理解模型原因。</p><h4 id="可以处理非线性关系"><a href="#可以处理非线性关系" class="headerlink" title="可以处理非线性关系"></a>可以处理非线性关系</h4><p>线性模型<code>y = wx+b</code>只能学习线性边界，而决策树可以形成复杂非线性边界。</p><h4 id="不需要特征归一化"><a href="#不需要特征归一化" class="headerlink" title="不需要特征归一化"></a>不需要特征归一化</h4><p>决策树只关心<code>x &lt; threshold</code>，不关心具体数值尺度。 </p><hr><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="容易过拟合"><a href="#容易过拟合" class="headerlink" title="容易过拟合"></a>容易过拟合</h4><p>如果树不断生长，模型可能记住训练数据，而不是学习规律。</p><h4 id="对数据变化敏感"><a href="#对数据变化敏感" class="headerlink" title="对数据变化敏感"></a>对数据变化敏感</h4><p>训练数据稍微变化，树结构可能完全改变。</p><h4 id="单颗决策树泛化能力有限"><a href="#单颗决策树泛化能力有限" class="headerlink" title="单颗决策树泛化能力有限"></a>单颗决策树泛化能力有限</h4><p>实际工业中通常不会直接使用单棵树，一般会使用基于决策树的集成算法。如：RF、GBDT、Xgboost、LightGBM</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul><li>决策树是用超平面递归划分特征空间的有监督学习算法，既能分类也能回归；</li><li>判断分裂效果的核心是信息论中的<strong>信息熵、条件熵</strong>，由此衍生出**信息增益（ID3）→ 信息增益率（C4.5）→ 基尼系数（CART）**三代分裂标准，一代比一代更成熟；</li><li>决策树天然容易过拟合，必须依靠<strong>预剪枝</strong>（建树过程中限制深度&#x2F;样本数&#x2F;节点数）或<strong>后剪枝</strong>（建完整树后自底向上评估是否剪枝）来控制模型复杂度；</li><li>连续特征需要先离散化处理，缺失值可以通过样本权重折算的方式处理（C4.5 的经典做法）；</li><li>回归树用 MSE 作为分裂评价指标，叶子节点预测值取均值，本质是用分段常数函数逼近真实的回归关系；</li><li>实际工程中，<strong>CART 是应用最广泛的决策树算法</strong>，也是随机森林、GBDT、XGBoost 等集成模型的基础组件——吃透单棵决策树的原理，是理解这些更强大模型的第一步。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;决策树（DecisionTree）原理、公式与实战&quot;&gt;&lt;a href=&quot;#决策树（DecisionTree）原理、公式与实战&quot; class=&quot;headerlink&quot; title=&quot;决策树（DecisionTree）原理、公式与实战&quot;&gt;&lt;/a&gt;决策树（Decisio</summary>
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
-    
-    
-    <category term="决策树" scheme="https://www.hicode365.com/tags/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
-    
-    <category term="树模型" scheme="https://www.hicode365.com/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/"/>
-    
-    <category term="信息增益" scheme="https://www.hicode365.com/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/"/>
-    
-    <category term="分类树" scheme="https://www.hicode365.com/tags/%E5%88%86%E7%B1%BB%E6%A0%91/"/>
-    
-    <category term="回归树" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>矩阵</title>
-    <link href="https://www.hicode365.com/cuidUKFUrNTGmvRVXhHlzMvXM"/>
-    <id>https://www.hicode365.com/cuidUKFUrNTGmvRVXhHlzMvXM</id>
+    <link href="https://www.hicode365.com/cuidkyW496dHEDUKKA5h6R0NY"/>
+    <id>https://www.hicode365.com/cuidkyW496dHEDUKKA5h6R0NY</id>
     <published>2026-02-22T13:23:58.226Z</published>
     <updated>2026-07-31T01:01:19.626Z</updated>
     
@@ -297,94 +367,24 @@
   </entry>
   
   <entry>
-    <title>如何做好技术型管理</title>
-    <link href="https://www.hicode365.com/cuidmVj34tUKh-14RfenrIdJI"/>
-    <id>https://www.hicode365.com/cuidmVj34tUKh-14RfenrIdJI</id>
+    <title>高等数学</title>
+    <link href="https://www.hicode365.com/cuidlOJMDhGaIk_M5THjrMDhE"/>
+    <id>https://www.hicode365.com/cuidlOJMDhGaIk_M5THjrMDhE</id>
     <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T18:00:13.953Z</updated>
+    <updated>2026-07-31T01:01:07.863Z</updated>
     
     
     
     
-    <category term="管理与思考" scheme="https://www.hicode365.com/categories/%E7%AE%A1%E7%90%86%E4%B8%8E%E6%80%9D%E8%80%83/"/>
+    <category term="算法中的数学" scheme="https://www.hicode365.com/categories/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/"/>
     
-    
-    <category term="技术管理" scheme="https://www.hicode365.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="管理" scheme="https://www.hicode365.com/tags/%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>集成学习之随机森林RandomForest</title>
-    <link href="https://www.hicode365.com/cuideloXu9nVpWdskycpM-hAZ"/>
-    <id>https://www.hicode365.com/cuideloXu9nVpWdskycpM-hAZ</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:51:13.150Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="集成学习概述"><a href="#集成学习概述" class="headerlink" title="集成学习概述"></a>集成学习概述</h1><h2 id="随机森林（Random-forest）"><a href="#随机森林（Random-forest）" class="headerlink" title="随机森林（Random forest）"></a>随机森林（Random forest）</h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;集成学习概述&quot;&gt;&lt;a href=&quot;#集成学习概述&quot; class=&quot;headerlink&quot; title=&quot;集成学习概述&quot;&gt;&lt;/a&gt;集成学习概述&lt;/h1&gt;&lt;h2 id=&quot;随机森林（Random-forest）&quot;&gt;&lt;a href=&quot;#随机森林（Random-forest</summary>
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
-    
-    
-    <category term="决策树" scheme="https://www.hicode365.com/tags/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
-    
-    <category term="树模型" scheme="https://www.hicode365.com/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/"/>
-    
-    <category term="随机森林" scheme="https://www.hicode365.com/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线性回归</title>
-    <link href="https://www.hicode365.com/cuid6uuJdEdXetdj8q5LN7gE9"/>
-    <id>https://www.hicode365.com/cuid6uuJdEdXetdj8q5LN7gE9</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:52:39.599Z</updated>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
-    
-    
-    <category term="回归" scheme="https://www.hicode365.com/tags/%E5%9B%9E%E5%BD%92/"/>
-    
-    <category term="线性回归" scheme="https://www.hicode365.com/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>逻辑回归</title>
-    <link href="https://www.hicode365.com/cuidSsqlVKBsnXzW6K_4G5R6V"/>
-    <id>https://www.hicode365.com/cuidSsqlVKBsnXzW6K_4G5R6V</id>
-    <published>2026-02-22T13:23:58.226Z</published>
-    <updated>2026-07-29T17:54:15.373Z</updated>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://www.hicode365.com/categories/ml/"/>
-    
-    
-    <category term="逻辑回归" scheme="https://www.hicode365.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
-    
-    <category term="分类算法" scheme="https://www.hicode365.com/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>SVM支持向量机全景拆解</title>
-    <link href="https://www.hicode365.com/cuidqRQ7IvwJaQW0X9wyYaKLs"/>
-    <id>https://www.hicode365.com/cuidqRQ7IvwJaQW0X9wyYaKLs</id>
+    <link href="https://www.hicode365.com/cuidQngPS3pjt7_a4LqPwxMoT"/>
+    <id>https://www.hicode365.com/cuidQngPS3pjt7_a4LqPwxMoT</id>
     <published>2026-02-22T09:48:39.749Z</published>
     <updated>2026-07-29T17:46:50.700Z</updated>
     
@@ -413,8 +413,8 @@
   
   <entry>
     <title>机器学习导论</title>
-    <link href="https://www.hicode365.com/cuid5xzDgZkMyYUdMN3VqcyJ_"/>
-    <id>https://www.hicode365.com/cuid5xzDgZkMyYUdMN3VqcyJ_</id>
+    <link href="https://www.hicode365.com/cuidbXGu6SOKWB1YUVrmzlsUE"/>
+    <id>https://www.hicode365.com/cuidbXGu6SOKWB1YUVrmzlsUE</id>
     <published>2026-02-22T01:35:12.017Z</published>
     <updated>2026-02-22T07:05:54.959Z</updated>
     
@@ -447,12 +447,12 @@
   
   <entry>
     <title>DCN深度交叉网络详解</title>
-    <link href="https://www.hicode365.com/cuidm09Qw7dAsA3zObzyDsEPs"/>
-    <id>https://www.hicode365.com/cuidm09Qw7dAsA3zObzyDsEPs</id>
+    <link href="https://www.hicode365.com/cuidG2qvIC3skWc6JWRfFEgRL"/>
+    <id>https://www.hicode365.com/cuidG2qvIC3skWc6JWRfFEgRL</id>
     <published>2024-03-30T04:46:53.625Z</published>
-    <updated>2026-08-06T02:49:56.280Z</updated>
+    <updated>2026-08-06T02:51:58.788Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="DCN"><a href="#DCN" class="headerlink" title="DCN"></a>DCN</h1><p>基于FM方法的交叉往往只局限于二阶，更高阶的交叉会导致交叉项呈指数形式增加，计算复杂度高，使用成本高。当更高阶的数据交叉时我们可以使用DCN(Deep &amp; Cross Network)，深度交叉网络。</p><p>FM和DCN的交叉是显示交叉，DNN的交叉是隐式交叉（缺乏实际理论意义）</p><h2 id="特征交叉的演进"><a href="#特征交叉的演进" class="headerlink" title="特征交叉的演进"></a>特征交叉的演进</h2><ul><li>DeepFM 通过共享输入使用FM捕捉低阶特征交互和DNN学习高阶特征交互的能力。【<strong>field-wise &#x2F; vector-wise</strong>】</li><li>DCN-v（DCN）在交叉层引入vector形式的参数以实现特征交叉，在业界的命名也由此而来。【<strong>bit-wise</strong>】</li><li>DCN-m（DCN-v2）引入的是matrix形式的参数，优化了参数共享，从而细化不同交叉项的差异。【<strong>bit-wise</strong>】</li><li>xDeepFM针对DCN-v和DCN-m中对特征基于bit-wise的交叉进行改进，实现基于field-wise的交叉。【<strong>field-wise</strong>】</li></ul><p> 注：上述模型的DNN部分是将embedding拼接输入MLP，不同 embedding的每个维度都会混合计算，可以认为是隐式高阶的<strong>bit-wise</strong></p><table><thead><tr><th align="left">模型</th><th align="left">核心改进点</th><th align="left">交叉参数形式</th><th align="left">交叉粒度（维度）</th><th align="left">主要特点 &#x2F; 解决的问题</th></tr></thead><tbody><tr><td align="left"><strong>DeepFM</strong></td><td align="left">基础框架</td><td align="left">隐向量（FM部分）</td><td align="left"><strong>vector-wise（向量级）</strong></td><td align="left">FM + DNN并行结构，同时捕捉二阶和高阶特征，无需人工特征工程。</td></tr><tr><td align="left"><strong>DCN-v（DCN）</strong></td><td align="left">引入Cross Network</td><td align="left"><strong>向量（vector）</strong></td><td align="left"><strong>bit-wise（逐位）</strong></td><td align="left">用Cross Network高效建模高阶交叉；每层参数为向量，与输入逐元素乘加。</td></tr><tr><td align="left"><strong>DCN-m（DCN-v2）</strong></td><td align="left">参数升级，细粒度差异化</td><td align="left"><strong>矩阵（matrix）</strong></td><td align="left"><strong>bit-wise（逐位）</strong></td><td align="left">将向量参数扩为矩阵，为每个特征位赋予独立权重，细化不同交叉项的差异，参数共享更灵活。</td></tr><tr><td align="left"><strong>xDeepFM</strong></td><td align="left">交叉粒度升级，更符合语义</td><td align="left">隐向量（CIN部分）</td><td align="left"><strong>field-wise（逐域）</strong></td><td align="left">引入CIN结构，以<strong>整个特征域（field）</strong> 为单位进行交叉，保留了域的整体语义，比bit-wise更合理、可解释性更强。</td></tr></tbody></table><p> 注：在当前语境下vector-wise和field-wise可以认为是等价的。</p><h2 id="DCN-v（DCN-vector）"><a href="#DCN-v（DCN-vector）" class="headerlink" title="DCN-v（DCN-vector）"></a>DCN-v（DCN-vector）</h2><p>DCN-v（即DCN-vector）网络结构包括DNN和特征交叉两部分，在特征交叉部分通过设计网络层实现bit-wise的显式高阶特征交叉。</p><h3 id="DCN网络结构"><a href="#DCN网络结构" class="headerlink" title="DCN网络结构"></a>DCN网络结构</h3><img src="/images/WX20240330-125227@2x.png" alt="WX20240330-125227@2x" style="zoom:45%;" /><p><strong>输入层：</strong></p><ul><li><p>稠密特征(dense feature)：直接输入</p></li><li><p>稀疏特征(sparse feature)：做embedding</p></li><li><p>然后稠密特征拼接上稀疏特征后输出到隐层</p></li></ul><p><strong>隐藏层：</strong></p><p>中间隐层由DNN network和Cross network组成。</p><p><strong>输出层：</strong></p><p>神经网络的输出与交叉网络的输出拼接到一块，在通过sigmoid或softmax函数进行CTR预测。</p><h3 id="Cross-network"><a href="#Cross-network" class="headerlink" title="Cross network"></a>Cross network</h3><p>特征交叉部分包括N层网络结构，在每一层引入vector形式的参数（也就是$w$），和特征表征进行加和乘等的操作，得到该层的交叉项，再输入到下一层，进行更高阶的交叉。（实现bit-wise的N阶显式高阶特征交叉）</p><img src="/images/WX20240330-235502@2x.png" alt="WX20240330-235502@2x" style="zoom:50%;" /> <h4 id="交叉层向量计算"><a href="#交叉层向量计算" class="headerlink" title="交叉层向量计算"></a>交叉层向量计算</h4><img src="/images/WX20240330-125329@2x.png" alt="WX20240330-125329@2x" style="zoom:50%;" /><p>每层的特征交叉过程主要包括两个步骤：</p><ul><li>底层特征表征 $x_0$和上一层的特征表征 $x_l$相乘，进行交叉，相乘得到的交叉项通过vector形式的参数$w_l$ 和 $b_l$进行线性变换，得到交叉项结果；</li><li>交叉项结果和上一层的特征表征$x_l$ 相加，得到该层的特征表征$x_l$ 。</li><li><strong>交叉层向量计算公式如下</strong>：</li></ul><p>$$x_{l+1} = x_0 \cdot x_l^T \cdot w_l + b_l + x_l = f(x_l,w_l,b_l) + x_l$$</p><p>特征经过L层操作后，得到L+1阶交叉特征。特征交叉层引入了残差的思想，每层的交叉操作函数f拟合和的残差，有利于缓解梯度消失的问题，从而使网络具备更深的深度。</p><h4 id="计算示例"><a href="#计算示例" class="headerlink" title="计算示例"></a><strong>计算示例</strong></h4><p>我们以计算交叉层最下层（此时$l$的值为0，也就是计算$x_1$）为例，计算$x_1$的值：<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0$$</p><p>假设$x_0$是三维的$\begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix}$，$w_0$为$\begin{bmatrix} W_1 \\ W_2 \\ W_3 \end{bmatrix}$，$b_0$为$\begin{bmatrix} B_1 \\ B_2 \\ B_3 \end{bmatrix}$，则上述$x_0$与$x_0$转置的乘积为：<br>$$x_0 \cdot x_0^T = \begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix} \cdot \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} = \begin{bmatrix} X_1 \cdot X_1 & X_1 \cdot X_2 & X_1 \cdot X_3 \\ X_2 \cdot X_1 & X_2 \cdot X_2 & X_2 \cdot X_3 \\ X_3 \cdot X_1 & X_3 \cdot X_2 & X_3 \cdot X_3 \end{bmatrix}$$<br>接下来$x_0 \cdot x_0^T$与$w_0$相乘用来减少参数量（ $x_0 \cdot x_0^T$结果中的每一列都共享一个$W$值，如：第一列共享$W_1$，第二列共享$W_2$ …，这种共享的方式会造成一些损失 ）。</p><p>从下面的结果总可以发现，向量中（域中）每一个元素都两两相乘【交叉】。<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0= \begin{bmatrix} X_1 X_1 W_1 + X_1 X_2 W_2 + X_1 X_3 W_3 + B_1 + X_1 \\ X_2 X_1 W_1 + X_2 X_2 W_2 + X_2 X_3 W_3 + B_2 + X_2 \\ X_3 X_1 W_1 + X_3 X_2 W_2 + X_3 X_3 W_3 + B_3 + X_3 \end{bmatrix}$$<br>从$x_1$的最终结果中可以看出，$x_1$的值包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到2阶的所有的交叉项。</p><p>同理：<br>$$x_{2} = x_0 \cdot x_1^T \cdot w_1 + b_1 + x_1$$<br>$x_2$的最终结果包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到3阶的所有交叉项。</p><p>归纳总结：</p><p>一直到 $l$ 层，$ x_0 \cdot x_l^T \cdot w_l $ 乘法操作实现了2阶到 $l+1$ 阶的所有交叉组合，再加上 $x_l$，最终的结果表征了从1阶到L+1阶所有阶数的交叉项。</p><h4 id="参数共享"><a href="#参数共享" class="headerlink" title="参数共享"></a>参数共享</h4><p>交叉操作中，参数向量 $w$ 通过乘法操作，实现对交叉项结果的线性组合。</p><img src="/images/2321434534534.png" alt="2321434534534" style="zoom:40%;" /><ul><li>交叉层通过矩阵乘法 $ x_0 x_l^T $ 生成 <strong>特征交叉映射（feature map）</strong>，其中每一行代表不同特征的交叉组合。  </li><li>参数 $ w_l $ 用于对交叉项进行 <strong>线性组合</strong>，计算下一层的输出 $ x_{l+1} $。</li><li>feature map中第 $i$ 行的交叉项与 $x_l$ 相乘得到 $ x_{l+1} $对应的第 $ i $ 项，feature map中的每一行共享参数 $ w_l $。</li><li><strong>参数共享</strong>：所有交叉项共享同一个权重向量 $ w_l $，减少参数量并增强泛化性。</li></ul><p><strong>参数共享的优缺点</strong></p><p><strong>优点：</strong>  </p><ul><li><strong>减少参数量</strong>：避免为每个交叉项单独学习权重，降低计算成本。  </li><li><strong>增强泛化能力</strong>：即使某些特征组合未在训练数据中出现，模型仍能通过其他组合学习到的权重进行泛化。</li></ul><p><strong>缺点：</strong>  </p><ul><li><strong>缺乏差异性</strong>：所有交叉项共享同一组权重，无法区分不同交叉组合的重要性，限制模型表达能力。（不同行线性组合的差异性无法体现）</li></ul><p><strong>总结与改进</strong></p><ul><li><p>DCN的交叉层通过参数共享实现高效的特征交叉，但牺牲了组合差异性；</p></li><li><p>针对参数共享的不足，DCN-m（如DCN-v2）引入更灵活的参数化方法（如引入独立权重或高阶交互），以提升交叉特征的区分能力。</p></li></ul><h2 id="DCN-m（DCN-Matrix，DCN-v2）"><a href="#DCN-m（DCN-Matrix，DCN-v2）" class="headerlink" title="DCN-m（DCN-Matrix，DCN-v2）"></a>DCN-m（DCN-Matrix，DCN-v2）</h2><p>DCN-m（DCN-Matrix，又称DCN-v2）的整体思路和原理与DCN-v基本一致，在DCN-v的基础上对特征交叉的改进，通过在特征交叉层引入matrix形式的参数，使特征交叉层中的feature map可以进行差异化线性组合，从而提高对交叉特征的学习能力。</p><p>DCN-v2的特征交叉网络是通过对特征进行相乘和相加操作，实现显式高阶交叉。</p><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>DCN-m的模型结构如下图所示由特征交叉结构和DNN结构两部分构成，这两个部分可以采用<strong>串行</strong>也可以采用<strong>并行</strong>，这两部分的结果组合后经过输出层得到模型结果。【并行更常用】</p><img src="/images/WX20240330-125515@2x.png" alt="WX20240330-125515@2x" style="zoom: 60%;" /><h3 id="Cross-network-1"><a href="#Cross-network-1" class="headerlink" title="Cross network"></a>Cross network</h3><img src="/images/WX20240330-125530@2x.png" alt="WX20240330-125530@2x" style="zoom:50%;" /><p>特征交叉结构中每层网络的计算公式：</p><p>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot (\mathbf{w}_l \mathbf{x}_l + \mathbf{b}_l) + \mathbf{x}_l$$</p><ul><li><p>$\odot$ 表示按位乘</p></li><li><p>$\mathbf{w}_l$ 表示 $l$ 层的权重矩阵。</p></li><li><p>$\mathbf{w}_l$ 为matrix形式的参数。正是因为在计算中引入了matrix形式的参数，DCN-m实现了对特征表征形成的feature map中不同行所表示的feature进行差异化组合，从而相比DCN-v，提高了网络对特征交叉的学习能力。</p></li><li><p>$\mathbf{b}_l$ 标识 $l$ 层的偏置向量。</p></li></ul><h4 id="参数理解"><a href="#参数理解" class="headerlink" title="参数理解"></a>参数理解</h4><img src="/images/2413534543.png" alt="2413534543" style="zoom:50%;" /><p>特征交叉层的参数 $\mathbf{w}$ 为matrix形式，它实现了对交叉项的差异化线性组合。以第$l$层为例，首先$\mathbf{w}_l$ 和 $\mathbf{x}_l$ 相乘，是对 $\mathbf{x}_l$ 所表征的feature进行线性组合，相乘结果 $\mathbf{w}_l \mathbf{x}_l$ 的每一维对应了不同的参数 $\mathbf{w}_l^{(i)}$，也就是结果中的每一维都是 $\mathbf{x}_l$ 所有维线性组合后的表征，因此每一维包含更丰富的表达，$\mathbf{w}_l \mathbf{x}_l$ 再和 $\mathbf{x}_0$ 按位相乘，实现更高一阶的交叉，从而使交叉结果的表征更丰富。 </p><h4 id="交叉结构特点"><a href="#交叉结构特点" class="headerlink" title="交叉结构特点"></a>交叉结构特点</h4><ul><li><p>每层的输入和输出形状相同，因此每层的参数量相同，即参数 $\mathbf{w}_l$ 和 $\mathbf{b}_l$ 的参数量，为 $N^2 + N$（$N$ 为特征表征的维度），特征交叉模块整体的参数量随着层数线性增长，为 $O(N^2L)$（$L$ 为层数）。</p></li><li><p>由于每层引入了matrix形式的参数，因此参数量明显比DCN-v增多。由此也可以看出，模型效果的提升，在DCN-m上相应的代价的体现是参数量的增加。</p></li><li><p>每层的计算量为 $O(N^3)$，因此特征交叉模块的时间复杂度为 $O(N^3L)$。</p></li><li><p>特征的交叉阶数由网络深度决定，当特征交叉网络层数为$L$层时，交叉阶数为$L+1$。</p></li><li><p>特征交叉网络的输出，包含了从1阶（特征本身 $\mathbf{x}_0$）到$L+1$阶的所有特征交叉项组合。</p></li></ul><h4 id="矩阵分解优化交叉网络"><a href="#矩阵分解优化交叉网络" class="headerlink" title="矩阵分解优化交叉网络"></a>矩阵分解优化交叉网络</h4><h5 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a><strong>存在问题</strong></h5><ul><li>在原始的DCN-V2中，交叉层（Cross Network）通过引入一个稠密的权重矩阵 $ W \in \mathbb{R}^{d \times d} $ 显式建模特征交互。相比于其它特征交叉方法参数量大，尤其是当特征维度 $ d $ 较大时，矩阵 $ W $ 的参数规模会变得非常庞大为$ O(d^2) $，导致计算和存储成本高昂。</li><li>可以采用矩阵分解的方式进行优化，使特征交叉层的参数低秩化，在保证模型效果的同时有效减少参数量。</li><li>矩阵分解是一种降低参数量的常用方法，通过把一个大参数量的矩阵分解为两个简单的矩阵相乘，实现参数量的控制。</li></ul><h5 id="优化方式"><a href="#优化方式" class="headerlink" title="优化方式"></a><strong>优化方式</strong></h5><img src="/images/ScreenShot_2026-08-03_173312_697.png" alt="ScreenShot_2026-08-03_173312_697" style="zoom:35%;" /><p>通过训练过程观察到，实际训练后的矩阵 $ W $ 具有<strong>低秩特性</strong>（即其奇异值衰减较快）。因此，可以通过低秩分解技术近似表示 $ W $：<br>$$W \approx UV^\top$$</p><p>其中 $ U, V \in \mathbb{R}^{d \times r} $，且秩 $ r \ll d $。这样，参数规模从 $ O(d^2) $ 降至 $ O(2dr) $，显著减少了计算开销。</p><p>低秩交叉层的公式为：<br>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot \left( U_l (V_l^\top \mathbf{x}_l) + \mathbf{b}_l \right) + \mathbf{x}_l,$$</p><ul><li>$ U_l, V_l $ 是低秩矩阵，用于在子空间中学习特征交互。</li><li>$ \odot $ 表示逐元素乘法（Hadamard积）。</li><li>残差连接（$ +\mathbf{x}_l $）保留了低阶特征交互。</li></ul><h5 id="优化后的增强点"><a href="#优化后的增强点" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><strong>计算高效</strong>：将矩阵参数 $W_l$ 分解为两个向量参数 ${U}_l$ 和 $V_l$，有效减少了参数量，每一层的复杂度从 $ O(d^2) $ 降到了 $ O(2dr) $。</li><li><strong>保持表达能力</strong>：通过低秩近似，模型仍能捕捉重要的特征交互模式。</li></ul><h3 id="DCN-Mix（DCN-Mixture）"><a href="#DCN-Mix（DCN-Mixture）" class="headerlink" title="DCN-Mix（DCN-Mixture）"></a>DCN-Mix（DCN-Mixture）</h3><p>单一的低秩矩阵可能无法充分建模复杂的特征交互模式。受混合专家（Mixture of Experts, MoE）架构启发，作者提出<strong>混合低秩专家（DCN-Mix）</strong>。在矩阵分解减少参数量的基础上，通过多个低秩子空间组合进一步提升模型的表达能力。</p><h5 id="子空间MoE优化"><a href="#子空间MoE优化" class="headerlink" title="子空间MoE优化"></a>子空间MoE优化</h5><p>借鉴MoE的思路，在多个子空间学习特征交叉，即通过多个Expert学习特征交叉，每个expert表征一个子空间，再通过Gating方式将各个子空间的特征交叉结果融合。当K&#x3D;1时，表示只有一个子空间，简化为普通的矩阵分解，即没有拆分子空间的DCN-m。</p><img src="/images/wechat_2025-08-05_232837_437.png" alt="wechat_2025-08-05_232837_437" style="zoom:50%;" /><ul><li><p><strong>多专家设计</strong>：</p><ul><li>使用 $ K $ 个独立的低秩专家（每个专家对应一对矩阵 $ U_l^k, V_l^k $），每个专家在子空间中学习不同的特征交互模式。</li><li>每个专家的输出为：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k (V_l^{k\top} \mathbf{x}_l) + \mathbf{b}_l \right).     $$</li></ul></li><li><p><strong>门控机制（Gating）</strong>：</p><ul><li>引入门控函数 $ G_k(\mathbf{x}_l) $ 动态分配权重，组合多个专家的输出：<br>$$     \mathbf{x}_{l+1} = \sum_{k=1}^K G_k(\mathbf{x}_l) E_k(\mathbf{x}_l) + \mathbf{x}_l.     $$</li><li>门控函数可以是简单的常数（如均匀加权）、Sigmoid或Softmax。</li></ul></li><li><p><strong>非线性增强</strong>：</p><ul><li><p>使特征变换具有非线性，从而提高特征交叉结果的表征能力。</p></li><li><p>在低维投影空间（$ V_l^{k\top} \mathbf{x}_l $）后引入非线性激活函数 $ g(\cdot) $（如ReLU），进一步细化特征表示：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k \cdot g(C_l^k \cdot g(V_l^{k\top} \mathbf{x}_l)) + \mathbf{b}_l \right).     $$</p></li></ul></li></ul><p>DCN-Mix利用多个Expert在不同的子空间学习特征交叉，并对特征变换引入非线性，理论上提高了特征交叉网络的学习能力。</p><h5 id="优化后的增强点-1"><a href="#优化后的增强点-1" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><p>交叉组合项形成的feature可以进行有差别的组合，提高了模型对特征交叉的学习能力；</p></li><li><p>优化过程引入了子空间和特征的非线性变化，加强了特征交叉的学习。</p></li><li><p><strong>灵活建模</strong>：不同专家专注于不同的交互模式，门控机制自适应选择重要子空间。</p></li><li><p><strong>效率与性能平衡</strong>：通过控制专家数量 $ K $ 和秩 $ r $，实现计算成本与模型性能的权衡。</p></li></ul><h5 id="风险点"><a href="#风险点" class="headerlink" title="风险点"></a><strong>风险点</strong></h5><ul><li>优化后的网络的学习是在一个非常高维的空间中，增加了学习难度，实际收敛过程可能不如预期，难以达到理论上预期的效果。</li><li>对于多个子空间的特征交叉，在实际过程中，可能会遇到<strong>效果集中在单个Expert上，造成坍缩现象</strong>。</li><li>参数量和计算复杂度明显增加，增加线上性能压力，模型<strong>可能无法上线</strong>，因此上线时需结合工程性能进行适当优化；</li></ul><h3 id="优化总结"><a href="#优化总结" class="headerlink" title="优化总结"></a>优化总结</h3><ul><li><strong>矩阵分解</strong>：通过低秩近似减少参数量，提升计算效率。<ul><li>原始DCN-v2使用矩阵分解优化，每一交叉层的原始稠密权重矩阵$ W_l $，被分解成两个小矩阵$ U_l $和$ V_l $</li></ul></li><li><strong>MoE优化</strong>：结合多个低秩专家和门控机制，增强模型对复杂特征交互的建模能力。<ul><li>进一步使用MoE优化，每个交叉层包含K个低秩专家，每个专家对应两个小矩阵$ U_l^k, V_l^k $</li></ul></li></ul><h2 id="不同模型交叉对比"><a href="#不同模型交叉对比" class="headerlink" title="不同模型交叉对比"></a>不同模型交叉对比</h2><ul><li>FM：vector-wise交叉</li><li>Cross network（DCN）：bit-wise交叉，又称element-wise。</li><li>Cross network（DCN-v2）：bit-wise交叉，优化了交叉层的共享权重。</li><li>DeepFM中的交叉是向量的相乘，DCN中的交叉是向量中的每个元素值进行交叉，向量内神经元两两相乘。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="DCN"><a href="#DCN" class="headerlink" title="DCN"></a>DCN</h1><p>基于FM方法的交叉往往只局限于二阶，更高阶的交叉会导致交叉项呈指数形式增加，计算复杂度高，使用成本高。当更高阶的数据交叉时我们可以使用DCN(Deep &amp; Cross Network)，深度交叉网络。</p><p>FM和DCN的交叉是显示交叉，DNN的交叉是隐式交叉（缺乏实际理论意义）</p><h2 id="特征交叉的演进"><a href="#特征交叉的演进" class="headerlink" title="特征交叉的演进"></a>特征交叉的演进</h2><ul><li>DeepFM 通过共享输入使用FM捕捉低阶特征交互和DNN学习高阶特征交互的能力。【<strong>field-wise &#x2F; vector-wise</strong>】</li><li>DCN-v（DCN）在交叉层引入vector形式的参数以实现特征交叉，在业界的命名也由此而来。【<strong>bit-wise</strong>】</li><li>DCN-m（DCN-v2）引入的是matrix形式的参数，优化了参数共享，从而细化不同交叉项的差异。【<strong>bit-wise</strong>】</li><li>xDeepFM针对DCN-v和DCN-m中对特征基于bit-wise的交叉进行改进，实现基于field-wise的交叉。【<strong>field-wise</strong>】</li></ul><p> 注：上述模型的DNN部分是将embedding拼接输入MLP，不同 embedding的每个维度都会混合计算，可以认为是隐式高阶的<strong>bit-wise</strong></p><table><thead><tr><th align="left">模型</th><th align="left">核心改进点</th><th align="left">交叉参数形式</th><th align="left">交叉粒度（维度）</th><th align="left">特点</th></tr></thead><tbody><tr><td align="left"><strong>DeepFM</strong></td><td align="left">基础框架</td><td align="left">隐向量（FM部分）</td><td align="left"><strong>vector-wise（向量级）</strong></td><td align="left">FM + DNN并行结构，同时捕捉二阶和高阶特征，无需人工特征工程。</td></tr><tr><td align="left"><strong>DCN-v（DCN）</strong></td><td align="left">引入Cross Network</td><td align="left"><strong>向量（vector）</strong></td><td align="left"><strong>bit-wise（逐位）</strong></td><td align="left">用Cross Network高效建模高阶交叉；每层参数为向量，与输入逐元素乘加。</td></tr><tr><td align="left"><strong>DCN-m（DCN-v2）</strong></td><td align="left">参数升级，细粒度差异化</td><td align="left"><strong>矩阵（matrix）</strong></td><td align="left"><strong>bit-wise（逐位）</strong></td><td align="left">将向量参数扩为矩阵，为每个特征位赋予独立权重，细化不同交叉项的差异，参数共享更灵活。</td></tr><tr><td align="left"><strong>xDeepFM</strong></td><td align="left">交叉粒度升级，更符合语义</td><td align="left">隐向量（CIN部分）</td><td align="left"><strong>field-wise（逐域）</strong></td><td align="left">引入CIN结构，以<strong>整个特征域（field）</strong> 为单位进行交叉，保留了域的整体语义，比bit-wise更合理、可解释性更强。</td></tr></tbody></table><p> 注：在当前语境下vector-wise和field-wise可以认为是等价的。</p><h2 id="DCN-v（DCN-vector）"><a href="#DCN-v（DCN-vector）" class="headerlink" title="DCN-v（DCN-vector）"></a>DCN-v（DCN-vector）</h2><p>DCN-v（即DCN-vector）网络结构包括DNN和特征交叉两部分，在特征交叉部分通过设计网络层实现bit-wise的显式高阶特征交叉。</p><h3 id="DCN网络结构"><a href="#DCN网络结构" class="headerlink" title="DCN网络结构"></a>DCN网络结构</h3><img src="/images/WX20240330-125227@2x.png" alt="WX20240330-125227@2x" style="zoom:45%;" /><p><strong>输入层：</strong></p><ul><li><p>稠密特征(dense feature)：直接输入</p></li><li><p>稀疏特征(sparse feature)：做embedding</p></li><li><p>然后稠密特征拼接上稀疏特征后输出到隐层</p></li></ul><p><strong>隐藏层：</strong></p><p>中间隐层由DNN network和Cross network组成。</p><p><strong>输出层：</strong></p><p>神经网络的输出与交叉网络的输出拼接到一块，在通过sigmoid或softmax函数进行CTR预测。</p><h3 id="Cross-network"><a href="#Cross-network" class="headerlink" title="Cross network"></a>Cross network</h3><p>特征交叉部分包括N层网络结构，在每一层引入vector形式的参数（也就是$w$），和特征表征进行加和乘等的操作，得到该层的交叉项，再输入到下一层，进行更高阶的交叉。（实现bit-wise的N阶显式高阶特征交叉）</p><img src="/images/WX20240330-235502@2x.png" alt="WX20240330-235502@2x" style="zoom:50%;" /> <h4 id="交叉层向量计算"><a href="#交叉层向量计算" class="headerlink" title="交叉层向量计算"></a>交叉层向量计算</h4><img src="/images/WX20240330-125329@2x.png" alt="WX20240330-125329@2x" style="zoom:50%;" /><p>每层的特征交叉过程主要包括两个步骤：</p><ul><li>底层特征表征 $x_0$和上一层的特征表征 $x_l$相乘，进行交叉，相乘得到的交叉项通过vector形式的参数$w_l$ 和 $b_l$进行线性变换，得到交叉项结果；</li><li>交叉项结果和上一层的特征表征$x_l$ 相加，得到该层的特征表征$x_l$ 。</li><li><strong>交叉层向量计算公式如下</strong>：</li></ul><p>$$x_{l+1} = x_0 \cdot x_l^T \cdot w_l + b_l + x_l = f(x_l,w_l,b_l) + x_l$$</p><p>特征经过L层操作后，得到L+1阶交叉特征。特征交叉层引入了残差的思想，每层的交叉操作函数f拟合和的残差，有利于缓解梯度消失的问题，从而使网络具备更深的深度。</p><h4 id="计算示例"><a href="#计算示例" class="headerlink" title="计算示例"></a><strong>计算示例</strong></h4><p>我们以计算交叉层最下层（此时$l$的值为0，也就是计算$x_1$）为例，计算$x_1$的值：<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0$$</p><p>假设$x_0$是三维的$\begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix}$，$w_0$为$\begin{bmatrix} W_1 \\ W_2 \\ W_3 \end{bmatrix}$，$b_0$为$\begin{bmatrix} B_1 \\ B_2 \\ B_3 \end{bmatrix}$，则上述$x_0$与$x_0$转置的乘积为：<br>$$x_0 \cdot x_0^T = \begin{bmatrix} X_1 \\ X_2 \\ X_3 \end{bmatrix} \cdot \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} = \begin{bmatrix} X_1 \cdot X_1 & X_1 \cdot X_2 & X_1 \cdot X_3 \\ X_2 \cdot X_1 & X_2 \cdot X_2 & X_2 \cdot X_3 \\ X_3 \cdot X_1 & X_3 \cdot X_2 & X_3 \cdot X_3 \end{bmatrix}$$<br>接下来$x_0 \cdot x_0^T$与$w_0$相乘用来减少参数量（ $x_0 \cdot x_0^T$结果中的每一列都共享一个$W$值，如：第一列共享$W_1$，第二列共享$W_2$ …，这种共享的方式会造成一些损失 ）。</p><p>从下面的结果总可以发现，向量中（域中）每一个元素都两两相乘【交叉】。<br>$$x_{1} = x_0 \cdot x_0^T \cdot w_0 + b_0 + x_0= \begin{bmatrix} X_1 X_1 W_1 + X_1 X_2 W_2 + X_1 X_3 W_3 + B_1 + X_1 \\ X_2 X_1 W_1 + X_2 X_2 W_2 + X_2 X_3 W_3 + B_2 + X_2 \\ X_3 X_1 W_1 + X_3 X_2 W_2 + X_3 X_3 W_3 + B_3 + X_3 \end{bmatrix}$$<br>从$x_1$的最终结果中可以看出，$x_1$的值包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到2阶的所有的交叉项。</p><p>同理：<br>$$x_{2} = x_0 \cdot x_1^T \cdot w_1 + b_1 + x_1$$<br>$x_2$的最终结果包含了原始特征 $ \begin{bmatrix} X_1 & X_2 & X_3 \end{bmatrix} $ 从1阶到3阶的所有交叉项。</p><p>归纳总结：</p><p>一直到 $l$ 层，$ x_0 \cdot x_l^T \cdot w_l $ 乘法操作实现了2阶到 $l+1$ 阶的所有交叉组合，再加上 $x_l$，最终的结果表征了从1阶到L+1阶所有阶数的交叉项。</p><h4 id="参数共享"><a href="#参数共享" class="headerlink" title="参数共享"></a>参数共享</h4><p>交叉操作中，参数向量 $w$ 通过乘法操作，实现对交叉项结果的线性组合。</p><img src="/images/2321434534534.png" alt="2321434534534" style="zoom:40%;" /><ul><li>交叉层通过矩阵乘法 $ x_0 x_l^T $ 生成 <strong>特征交叉映射（feature map）</strong>，其中每一行代表不同特征的交叉组合。  </li><li>参数 $ w_l $ 用于对交叉项进行 <strong>线性组合</strong>，计算下一层的输出 $ x_{l+1} $。</li><li>feature map中第 $i$ 行的交叉项与 $x_l$ 相乘得到 $ x_{l+1} $对应的第 $ i $ 项，feature map中的每一行共享参数 $ w_l $。</li><li><strong>参数共享</strong>：所有交叉项共享同一个权重向量 $ w_l $，减少参数量并增强泛化性。</li></ul><p><strong>参数共享的优缺点</strong></p><p><strong>优点：</strong>  </p><ul><li><strong>减少参数量</strong>：避免为每个交叉项单独学习权重，降低计算成本。  </li><li><strong>增强泛化能力</strong>：即使某些特征组合未在训练数据中出现，模型仍能通过其他组合学习到的权重进行泛化。</li></ul><p><strong>缺点：</strong>  </p><ul><li><strong>缺乏差异性</strong>：所有交叉项共享同一组权重，无法区分不同交叉组合的重要性，限制模型表达能力。（不同行线性组合的差异性无法体现）</li></ul><p><strong>总结与改进</strong></p><ul><li><p>DCN的交叉层通过参数共享实现高效的特征交叉，但牺牲了组合差异性；</p></li><li><p>针对参数共享的不足，DCN-m（如DCN-v2）引入更灵活的参数化方法（如引入独立权重或高阶交互），以提升交叉特征的区分能力。</p></li></ul><h2 id="DCN-m（DCN-Matrix，DCN-v2）"><a href="#DCN-m（DCN-Matrix，DCN-v2）" class="headerlink" title="DCN-m（DCN-Matrix，DCN-v2）"></a>DCN-m（DCN-Matrix，DCN-v2）</h2><p>DCN-m（DCN-Matrix，又称DCN-v2）的整体思路和原理与DCN-v基本一致，在DCN-v的基础上对特征交叉的改进，通过在特征交叉层引入matrix形式的参数，使特征交叉层中的feature map可以进行差异化线性组合，从而提高对交叉特征的学习能力。</p><p>DCN-v2的特征交叉网络是通过对特征进行相乘和相加操作，实现显式高阶交叉。</p><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>DCN-m的模型结构如下图所示由特征交叉结构和DNN结构两部分构成，这两个部分可以采用<strong>串行</strong>也可以采用<strong>并行</strong>，这两部分的结果组合后经过输出层得到模型结果。【并行更常用】</p><img src="/images/WX20240330-125515@2x.png" alt="WX20240330-125515@2x" style="zoom: 60%;" /><h3 id="Cross-network-1"><a href="#Cross-network-1" class="headerlink" title="Cross network"></a>Cross network</h3><img src="/images/WX20240330-125530@2x.png" alt="WX20240330-125530@2x" style="zoom:50%;" /><p>特征交叉结构中每层网络的计算公式：</p><p>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot (\mathbf{w}_l \mathbf{x}_l + \mathbf{b}_l) + \mathbf{x}_l$$</p><ul><li><p>$\odot$ 表示按位乘</p></li><li><p>$\mathbf{w}_l$ 表示 $l$ 层的权重矩阵。</p></li><li><p>$\mathbf{w}_l$ 为matrix形式的参数。正是因为在计算中引入了matrix形式的参数，DCN-m实现了对特征表征形成的feature map中不同行所表示的feature进行差异化组合，从而相比DCN-v，提高了网络对特征交叉的学习能力。</p></li><li><p>$\mathbf{b}_l$ 标识 $l$ 层的偏置向量。</p></li></ul><h4 id="参数理解"><a href="#参数理解" class="headerlink" title="参数理解"></a>参数理解</h4><img src="/images/2413534543.png" alt="2413534543" style="zoom:50%;" /><p>特征交叉层的参数 $\mathbf{w}$ 为matrix形式，它实现了对交叉项的差异化线性组合。以第$l$层为例，首先$\mathbf{w}_l$ 和 $\mathbf{x}_l$ 相乘，是对 $\mathbf{x}_l$ 所表征的feature进行线性组合，相乘结果 $\mathbf{w}_l \mathbf{x}_l$ 的每一维对应了不同的参数 $\mathbf{w}_l^{(i)}$，也就是结果中的每一维都是 $\mathbf{x}_l$ 所有维线性组合后的表征，因此每一维包含更丰富的表达，$\mathbf{w}_l \mathbf{x}_l$ 再和 $\mathbf{x}_0$ 按位相乘，实现更高一阶的交叉，从而使交叉结果的表征更丰富。 </p><h4 id="交叉结构特点"><a href="#交叉结构特点" class="headerlink" title="交叉结构特点"></a>交叉结构特点</h4><ul><li><p>每层的输入和输出形状相同，因此每层的参数量相同，即参数 $\mathbf{w}_l$ 和 $\mathbf{b}_l$ 的参数量，为 $N^2 + N$（$N$ 为特征表征的维度），特征交叉模块整体的参数量随着层数线性增长，为 $O(N^2L)$（$L$ 为层数）。</p></li><li><p>由于每层引入了matrix形式的参数，因此参数量明显比DCN-v增多。由此也可以看出，模型效果的提升，在DCN-m上相应的代价的体现是参数量的增加。</p></li><li><p>每层的计算量为 $O(N^3)$，因此特征交叉模块的时间复杂度为 $O(N^3L)$。</p></li><li><p>特征的交叉阶数由网络深度决定，当特征交叉网络层数为$L$层时，交叉阶数为$L+1$。</p></li><li><p>特征交叉网络的输出，包含了从1阶（特征本身 $\mathbf{x}_0$）到$L+1$阶的所有特征交叉项组合。</p></li></ul><h4 id="矩阵分解优化交叉网络"><a href="#矩阵分解优化交叉网络" class="headerlink" title="矩阵分解优化交叉网络"></a>矩阵分解优化交叉网络</h4><h5 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a><strong>存在问题</strong></h5><ul><li>在原始的DCN-V2中，交叉层（Cross Network）通过引入一个稠密的权重矩阵 $ W \in \mathbb{R}^{d \times d} $ 显式建模特征交互。相比于其它特征交叉方法参数量大，尤其是当特征维度 $ d $ 较大时，矩阵 $ W $ 的参数规模会变得非常庞大为$ O(d^2) $，导致计算和存储成本高昂。</li><li>可以采用矩阵分解的方式进行优化，使特征交叉层的参数低秩化，在保证模型效果的同时有效减少参数量。</li><li>矩阵分解是一种降低参数量的常用方法，通过把一个大参数量的矩阵分解为两个简单的矩阵相乘，实现参数量的控制。</li></ul><h5 id="优化方式"><a href="#优化方式" class="headerlink" title="优化方式"></a><strong>优化方式</strong></h5><img src="/images/ScreenShot_2026-08-03_173312_697.png" alt="ScreenShot_2026-08-03_173312_697" style="zoom:35%;" /><p>通过训练过程观察到，实际训练后的矩阵 $ W $ 具有<strong>低秩特性</strong>（即其奇异值衰减较快）。因此，可以通过低秩分解技术近似表示 $ W $：<br>$$W \approx UV^\top$$</p><p>其中 $ U, V \in \mathbb{R}^{d \times r} $，且秩 $ r \ll d $。这样，参数规模从 $ O(d^2) $ 降至 $ O(2dr) $，显著减少了计算开销。</p><p>低秩交叉层的公式为：<br>$$\mathbf{x}_{l+1} = \mathbf{x}_0 \odot \left( U_l (V_l^\top \mathbf{x}_l) + \mathbf{b}_l \right) + \mathbf{x}_l,$$</p><ul><li>$ U_l, V_l $ 是低秩矩阵，用于在子空间中学习特征交互。</li><li>$ \odot $ 表示逐元素乘法（Hadamard积）。</li><li>残差连接（$ +\mathbf{x}_l $）保留了低阶特征交互。</li></ul><h5 id="优化后的增强点"><a href="#优化后的增强点" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><strong>计算高效</strong>：将矩阵参数 $W_l$ 分解为两个向量参数 ${U}_l$ 和 $V_l$，有效减少了参数量，每一层的复杂度从 $ O(d^2) $ 降到了 $ O(2dr) $。</li><li><strong>保持表达能力</strong>：通过低秩近似，模型仍能捕捉重要的特征交互模式。</li></ul><h3 id="DCN-Mix（DCN-Mixture）"><a href="#DCN-Mix（DCN-Mixture）" class="headerlink" title="DCN-Mix（DCN-Mixture）"></a>DCN-Mix（DCN-Mixture）</h3><p>单一的低秩矩阵可能无法充分建模复杂的特征交互模式。受混合专家（Mixture of Experts, MoE）架构启发，作者提出<strong>混合低秩专家（DCN-Mix）</strong>。在矩阵分解减少参数量的基础上，通过多个低秩子空间组合进一步提升模型的表达能力。</p><h5 id="子空间MoE优化"><a href="#子空间MoE优化" class="headerlink" title="子空间MoE优化"></a>子空间MoE优化</h5><p>借鉴MoE的思路，在多个子空间学习特征交叉，即通过多个Expert学习特征交叉，每个expert表征一个子空间，再通过Gating方式将各个子空间的特征交叉结果融合。当K&#x3D;1时，表示只有一个子空间，简化为普通的矩阵分解，即没有拆分子空间的DCN-m。</p><img src="/images/wechat_2025-08-05_232837_437.png" alt="wechat_2025-08-05_232837_437" style="zoom:50%;" /><ul><li><p><strong>多专家设计</strong>：</p><ul><li>使用 $ K $ 个独立的低秩专家（每个专家对应一对矩阵 $ U_l^k, V_l^k $），每个专家在子空间中学习不同的特征交互模式。</li><li>每个专家的输出为：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k (V_l^{k\top} \mathbf{x}_l) + \mathbf{b}_l \right).     $$</li></ul></li><li><p><strong>门控机制（Gating）</strong>：</p><ul><li>引入门控函数 $ G_k(\mathbf{x}_l) $ 动态分配权重，组合多个专家的输出：<br>$$     \mathbf{x}_{l+1} = \sum_{k=1}^K G_k(\mathbf{x}_l) E_k(\mathbf{x}_l) + \mathbf{x}_l.     $$</li><li>门控函数可以是简单的常数（如均匀加权）、Sigmoid或Softmax。</li></ul></li><li><p><strong>非线性增强</strong>：</p><ul><li><p>使特征变换具有非线性，从而提高特征交叉结果的表征能力。</p></li><li><p>在低维投影空间（$ V_l^{k\top} \mathbf{x}_l $）后引入非线性激活函数 $ g(\cdot) $（如ReLU），进一步细化特征表示：<br>$$     E_k(\mathbf{x}_l) = \mathbf{x}_0 \odot \left( U_l^k \cdot g(C_l^k \cdot g(V_l^{k\top} \mathbf{x}_l)) + \mathbf{b}_l \right).     $$</p></li></ul></li></ul><p>DCN-Mix利用多个Expert在不同的子空间学习特征交叉，并对特征变换引入非线性，理论上提高了特征交叉网络的学习能力。</p><h5 id="优化后的增强点-1"><a href="#优化后的增强点-1" class="headerlink" title="优化后的增强点"></a><strong>优化后的增强点</strong></h5><ul><li><p>交叉组合项形成的feature可以进行有差别的组合，提高了模型对特征交叉的学习能力；</p></li><li><p>优化过程引入了子空间和特征的非线性变化，加强了特征交叉的学习。</p></li><li><p><strong>灵活建模</strong>：不同专家专注于不同的交互模式，门控机制自适应选择重要子空间。</p></li><li><p><strong>效率与性能平衡</strong>：通过控制专家数量 $ K $ 和秩 $ r $，实现计算成本与模型性能的权衡。</p></li></ul><h5 id="风险点"><a href="#风险点" class="headerlink" title="风险点"></a><strong>风险点</strong></h5><ul><li>优化后的网络的学习是在一个非常高维的空间中，增加了学习难度，实际收敛过程可能不如预期，难以达到理论上预期的效果。</li><li>对于多个子空间的特征交叉，在实际过程中，可能会遇到<strong>效果集中在单个Expert上，造成坍缩现象</strong>。</li><li>参数量和计算复杂度明显增加，增加线上性能压力，模型<strong>可能无法上线</strong>，因此上线时需结合工程性能进行适当优化；</li></ul><h3 id="优化总结"><a href="#优化总结" class="headerlink" title="优化总结"></a>优化总结</h3><ul><li><strong>矩阵分解</strong>：通过低秩近似减少参数量，提升计算效率。<ul><li>原始DCN-v2使用矩阵分解优化，每一交叉层的原始稠密权重矩阵$ W_l $，被分解成两个小矩阵$ U_l $和$ V_l $</li></ul></li><li><strong>MoE优化</strong>：结合多个低秩专家和门控机制，增强模型对复杂特征交互的建模能力。<ul><li>进一步使用MoE优化，每个交叉层包含K个低秩专家，每个专家对应两个小矩阵$ U_l^k, V_l^k $</li></ul></li></ul><h2 id="不同模型交叉对比"><a href="#不同模型交叉对比" class="headerlink" title="不同模型交叉对比"></a>不同模型交叉对比</h2><ul><li>FM：vector-wise交叉</li><li>Cross network（DCN）：bit-wise交叉，又称element-wise。</li><li>Cross network（DCN-v2）：bit-wise交叉，优化了交叉层的共享权重。</li><li>DeepFM中的交叉是向量的相乘，DCN中的交叉是向量中的每个元素值进行交叉，向量内神经元两两相乘。</li></ul>]]></content>
     
     
       
