@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Transformer详解</title>
-    <url>/cuidSfqTEysxmfDT-GQQegUTa.html</url>
+    <url>/cuidqBIKEyP2-hQGrjdi01_EB.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>大模型与Agent</category>
@@ -12,21 +12,8 @@
       </tags>
   </entry>
   <entry>
-    <title>投资理财实战</title>
-    <url>/cuidBUOJHdyzI-1xcYhbwpchS.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>学习与成长</category>
-      </categories>
-      <tags>
-        <tag>投资</tag>
-        <tag>理财</tag>
-        <tag>股票</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SVM支持向量机全景拆解</title>
-    <url>/cuidQngPS3pjt7_a4LqPwxMoT.html</url>
+    <url>/cuidoClOOWVqT-t2olIQ5bI_d.html</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>支持向量机（Support Vector Machine, SVM）是一种经典的二分类模型，它的核心思想是：<strong>在特征空间中寻找一个决策边界（超平面），使得两类样本被正确分开，并且离决策边界最近的样本点（即支持向量）到该边界的距离尽可能大</strong>。这个距离被称为<strong>间隔（Margin）</strong>，SVM因此也被称为<strong>最大间隔分类器</strong>。</p>
 <h1 id="决策函数"><a href="#决策函数" class="headerlink" title="决策函数"></a>决策函数</h1><p>$$
 \left\{
@@ -567,191 +554,8 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>python中的数据类型</title>
-    <url>/cuid4M97CRrDnFI5ghay9Z85O.html</url>
-    <content><![CDATA[<h1 id="Python中的数据类型"><a href="#Python中的数据类型" class="headerlink" title="Python中的数据类型"></a>Python中的数据类型</h1><h2 id="可变数据类型"><a href="#可变数据类型" class="headerlink" title="可变数据类型"></a>可变数据类型</h2><p>对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。</p>
-<h2 id="不可变数据类型"><a href="#不可变数据类型" class="headerlink" title="不可变数据类型"></a>不可变数据类型</h2><p>对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。</p>
-<p>也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变</p>
-<h2 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h2><table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>是否是可变数据类型</th>
-<th>是否有序</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>None (空)</td>
-<td>不可变</td>
-<td>-</td>
-</tr>
-<tr>
-<td>int (整数)</td>
-<td>不可变</td>
-<td>-</td>
-</tr>
-<tr>
-<td>float (浮点)</td>
-<td>不可变</td>
-<td>-</td>
-</tr>
-<tr>
-<td>bool (布尔)</td>
-<td>不可变</td>
-<td>-</td>
-</tr>
-<tr>
-<td>str (字符串)</td>
-<td>不可变</td>
-<td>-</td>
-</tr>
-<tr>
-<td>tuple (元组)</td>
-<td>不可变</td>
-<td>序列类型，有序</td>
-</tr>
-<tr>
-<td>list (列表)</td>
-<td>可变</td>
-<td>序列类型，有序</td>
-</tr>
-<tr>
-<td>set (集合)</td>
-<td>可变</td>
-<td>序列类型，无序，不可重复</td>
-</tr>
-<tr>
-<td>dict (字典)</td>
-<td>可变</td>
-<td>映射类型，v3.6及以后无有序, 前面版本无序</td>
-</tr>
-</tbody></table>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>是否是可变数据类型</th>
-<th>是否有序</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bytes</td>
-<td>不可变</td>
-<td>-</td>
-<td>定义字节：b’hello’,bytes(5)</td>
-</tr>
-<tr>
-<td>bytearray</td>
-<td>可变</td>
-<td>-</td>
-<td>定义字节数组：bytearray(b’hello’), bytearray(10)</td>
-</tr>
-<tr>
-<td>complex (复数)</td>
-<td>不可变</td>
-<td>-</td>
-<td>由一个实数和一个虚数组合构成，如：4+3j</td>
-</tr>
-<tr>
-<td>frozenset (冻结的set)</td>
-<td>不可变</td>
-<td>无序</td>
-<td>冻结的set初始化后不能再添加或删除元素</td>
-</tr>
-<tr>
-<td>array (数组)</td>
-<td>可变</td>
-<td>有序</td>
-<td>数组中的元素必须是同一类型</td>
-</tr>
-<tr>
-<td>OrderedDict</td>
-<td>可变</td>
-<td>有序</td>
-<td>key有序，setdefault取值key不存在也不报错</td>
-</tr>
-<tr>
-<td>defaultdict</td>
-<td>可变</td>
-<td>有序</td>
-<td>取值时Key不存在也不会抛出KeyError异常</td>
-</tr>
-<tr>
-<td>deque</td>
-<td>可变</td>
-<td>有序</td>
-<td>高效插入和删除的<strong>双向队列列表</strong></td>
-</tr>
-</tbody></table>
-<h2 id="常见数据类型的操作和转换"><a href="#常见数据类型的操作和转换" class="headerlink" title="常见数据类型的操作和转换"></a>常见数据类型的操作和转换</h2><h3 id="list列表"><a href="#list列表" class="headerlink" title="list列表[ ]"></a>list列表[ ]</h3><p>list是**&#x3D;&#x3D;可变&#x3D;&#x3D;<strong>、</strong>&#x3D;&#x3D;可重复&#x3D;&#x3D;<strong>的</strong>&#x3D;&#x3D;有序&#x3D;&#x3D;**列表，里面的元素的数据类型也可以不同(也可以是另一个list)。list可根据索引号取其中的数据。</p>
-<h4 id="list的生成"><a href="#list的生成" class="headerlink" title="list的生成"></a>list的生成</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, <span class="built_in">list</span>(list1)) <span class="comment"># 输出： list1:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line">list2 = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list2: &quot;</span>, <span class="built_in">list</span>(list2))</span><br><span class="line">list3 = [i*i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list3: &quot;</span>, <span class="built_in">list</span>(list3))</span><br><span class="line">list4 = (<span class="built_in">str</span>(i) + j <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&quot;xyz&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list4: &quot;</span>, <span class="built_in">list</span>(list4))</span><br></pre></td></tr></table></figure>
-<h4 id="list元素反转、排序和次数统计"><a href="#list元素反转、排序和次数统计" class="headerlink" title="list元素反转、排序和次数统计"></a>list元素反转、排序和次数统计</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">list1.reverse()  <span class="comment"># 元素顺序反转</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list reverse: &quot;</span>, list1)</span><br><span class="line">list1.sort(reverse=<span class="literal">False</span>)  <span class="comment"># 排序</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list sort: &quot;</span>, list1)</span><br><span class="line">list1 = <span class="built_in">sorted</span>(list1, reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list sort: &quot;</span>, list1)</span><br><span class="line">times = list1.count(<span class="number">5</span>)  <span class="comment"># 查看list中的元素出现的次数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;times: &quot;</span>, times)</span><br></pre></td></tr></table></figure>
-<h4 id="list元素的添加、删除和取值"><a href="#list元素的添加、删除和取值" class="headerlink" title="list元素的添加、删除和取值"></a>list元素的添加、删除和取值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1.append(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;append value: &quot;</span>, list1)  <span class="comment"># 添加元素</span></span><br><span class="line">list1.insert(<span class="number">1</span>, <span class="number">10</span>)  <span class="comment"># 在指定位置添加元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;insert value: &quot;</span>, list1)</span><br><span class="line">list1.remove(<span class="number">10</span>)  <span class="comment"># 删除指定value元素(第一个匹配的元素)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;remove value: &quot;</span>, list1)</span><br><span class="line">value = list1.pop(<span class="number">12</span>)  <span class="comment"># 删除指定index的元素并返回删除的值</span></span><br><span class="line">list1.pop()  <span class="comment"># 不指定index时默认删除最后一个元素</span></span><br><span class="line">list1.pop(-<span class="number">2</span>)  <span class="comment"># 删除倒数第二个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;remove index: &quot;</span>, list1)</span><br><span class="line"></span><br><span class="line">index_value = list1.index(<span class="number">3</span>)  <span class="comment"># 查找第一个value为100的index值，如果不存在报TypeError异常</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;index_value: &quot;</span>, index_value)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line">index_value = list1.index(<span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>)  <span class="comment"># 指定范围，从第7(包括)个到第9(不包括)个元素之间查找value为5的index</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;index_value: &quot;</span>, index_value)</span><br></pre></td></tr></table></figure>
-<h4 id="list添加多个元素、list的合并"><a href="#list添加多个元素、list的合并" class="headerlink" title="list添加多个元素、list的合并"></a>list添加多个元素、list的合并</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list2 = [<span class="number">100</span>, <span class="number">101</span>, <span class="number">102</span>]</span><br><span class="line"><span class="comment"># list1 = list1 + list2</span></span><br><span class="line">list1.extend(list2)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="list的遍历"><a href="#list的遍历" class="headerlink" title="list的遍历"></a>list的遍历</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> list1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;value: %i&quot;</span> % value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(list1)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, list1[index]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(list1):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, value))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(list1, <span class="number">100</span>):  <span class="comment"># index从100开始</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, value))</span><br></pre></td></tr></table></figure>
-
-<h4 id="list中使用切片-slice-取值"><a href="#list中使用切片-slice-取值" class="headerlink" title="list中使用切片(slice)取值"></a>list中使用切片(slice)取值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">elements = list1[<span class="number">0</span>:<span class="number">3</span>]  <span class="comment"># 取第0到3条元素(包括头不包括尾)</span></span><br><span class="line"><span class="comment"># elements = list1[:3]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">1</span>:]  <span class="comment"># 取第1到最后一个元素(包括头也包括尾)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[-<span class="number">2</span>]  <span class="comment"># 取倒数第二条</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">4</span>:-<span class="number">2</span>]  <span class="comment"># 取第四条到倒数第二条(包括头不包括尾)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">0</span>:<span class="number">6</span>:<span class="number">2</span>]  <span class="comment"># 取第0条到第6条中每2个取一个</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[:]  <span class="comment"># 取所有元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br></pre></td></tr></table></figure>
-<p><strong>&#x3D;&#x3D;列表、元组和字符串&#x3D;&#x3D;都可以使用切片进行操作</strong></p>
-<h4 id="list的深copy和浅copy"><a href="#list的深copy和浅copy" class="headerlink" title="list的深copy和浅copy"></a>list的深copy和浅copy</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 浅拷贝只拷贝了引用，没有拷贝内容</span></span><br><span class="line">list2 = list1</span><br><span class="line">list2[<span class="number">1</span>] = <span class="number">1000</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list2: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(list1), <span class="built_in">id</span>(list2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 深拷贝是对于一个对象所有层次的拷贝(递归拷贝)</span></span><br><span class="line">list3 = list1.copy()</span><br><span class="line"><span class="comment"># import copy</span></span><br><span class="line"><span class="comment"># list3 = copy.copy(list1)</span></span><br><span class="line"><span class="comment"># list3 = copy.deepcopy(list1)</span></span><br><span class="line">list1[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list3: &quot;</span>, list3)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(list1), <span class="built_in">id</span>(list3))</span><br></pre></td></tr></table></figure>
-
-<h3 id="set集合"><a href="#set集合" class="headerlink" title="set集合{ }"></a>set集合{ }</h3><p>set是**&#x3D;&#x3D;可变&#x3D;&#x3D;**、&#x3D;&#x3D;<strong>不可重复</strong>&#x3D;&#x3D;的&#x3D;&#x3D;<strong>无序</strong>&#x3D;&#x3D;列表。 &#x3D;&#x3D;<strong>set中不可以放入可变对象</strong>&#x3D;&#x3D;，因为无法判断两个可变对象是否相等而去重。</p>
-<h4 id="set的定义"><a href="#set的定义" class="headerlink" title="set的定义"></a>set的定义</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set0 = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;  <span class="comment"># 直接定义set集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)  <span class="comment"># 输出 set0:  &#123;0,1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line">set1 = <span class="built_in">set</span>([<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])  <span class="comment"># 通过list定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set1: &quot;</span>, set1)</span><br><span class="line"></span><br><span class="line">set2 = <span class="built_in">set</span>((<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>))  <span class="comment"># 通过tuple定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set2: &quot;</span>, set2)</span><br><span class="line"></span><br><span class="line">set3 = <span class="built_in">set</span>(&#123;<span class="string">&quot;x&quot;</span>: <span class="number">2</span>, <span class="number">10</span>: <span class="string">&quot;b&quot;</span>&#125;)  <span class="comment"># 通过dict定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set3: &quot;</span>, set3)  <span class="comment"># 输出 set3:  &#123;10, &#x27;x&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line">my_list = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">set4 = <span class="built_in">set</span>(my_list)  <span class="comment"># set中不可以放入可变对象,然而为何放入list却不报错?</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set4: &quot;</span>, set4)  <span class="comment"># 输出 set4:  &#123;0, 1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由下面操作可以得出结论,set是先把list做遍历得到不可变的int对象类型后再放入set中</span></span><br><span class="line">my_list[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set4 with my_list changed: &quot;</span>, set4)  <span class="comment"># 输出 &#123;0, 1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line">my_list.append([<span class="number">10</span>, <span class="number">20</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;my_list: &quot;</span>, my_list)</span><br><span class="line">set5 = <span class="built_in">set</span>(my_list)  <span class="comment"># 在list再放入list,此时将报错</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set5: &quot;</span>, set5)</span><br></pre></td></tr></table></figure>
-
-<h4 id="set元素的添加、删除和取值"><a href="#set元素的添加、删除和取值" class="headerlink" title="set元素的添加、删除和取值"></a>set元素的添加、删除和取值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set0 = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line">set0.add(<span class="string">&quot;cn&quot;</span>)  <span class="comment"># 添加单个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"></span><br><span class="line">set0.update([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>])  <span class="comment"># 添加多个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"></span><br><span class="line">set0.add((<span class="string">&quot;com&quot;</span>, <span class="string">&quot;cn&quot;</span>))  <span class="comment"># 添加元组(元组是不可变数据类型)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"><span class="comment"># set0.add([10, 20])  # 添加list报错,不能添加可变的数据类型(不能添加,但可以使用list创建set)</span></span><br><span class="line"><span class="comment"># set0.add(&#123;10, 20&#125;)  # 添加set报错,(可是使用不可变的frozenset添加:set0.add(frozenset(&#123;10, 20&#125;)))</span></span><br><span class="line"><span class="comment"># set0.add(&#123;&quot;x&quot;: 2, 10: &quot;b&quot;&#125;)  # 添加dict报错,不能添加可变的数据类型(不能添加,但可以使用dict创建set)</span></span><br><span class="line"></span><br><span class="line">set0.remove(<span class="string">&quot;cn&quot;</span>)  <span class="comment"># 根据值删除元素(set不能根据索引删除)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br></pre></td></tr></table></figure>
-
-<h4 id="set取并集和交集"><a href="#set取并集和交集" class="headerlink" title="set取并集和交集"></a>set取并集和交集</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set1 = &#123;<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">100</span>&#125;</span><br><span class="line">my_set = set0 | set1  <span class="comment"># 取并集</span></span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br><span class="line">my_set = set0 &amp; set1  <span class="comment"># 取交集</span></span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br></pre></td></tr></table></figure>
-
-<h4 id="set遍历"><a href="#set遍历" class="headerlink" title="set遍历"></a>set遍历</h4><p>注：set的遍历同list</p>
-<h3 id="dict字典"><a href="#dict字典" class="headerlink" title="dict字典{ }"></a>dict字典{ }</h3><p>dict是**&#x3D;&#x3D;无序&#x3D;&#x3D;<strong>，key&#x3D;&#x3D;<strong>不可重复</strong>&#x3D;&#x3D;、</strong>&#x3D;&#x3D;不可变&#x3D;&#x3D;**内容以key-value键值对形式存在的映射</p>
-<p><strong>dict中的key只能是不可变对象且唯一</strong>, 一个key对应一个value，多次对一个key设置value，后面的值会把前面的冲掉。</p>
-<blockquote>
-<p>dict一般用在需要高速查找的很多地方。dict的key必须是不可变对象，这是因为dict根据key来计算value的存储位置，如果每次计算相同的key得出的结果不同，那dict内部就完全混乱了。这种通过key计算位置的算法称为哈希算法（Hash）。要保证hash的正确性，作为key的对象就不能变。在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list、set是可变的，所以就不能作为key。</p>
-</blockquote>
-<h4 id="dict的创建和增删改查"><a href="#dict的创建和增删改查" class="headerlink" title="dict的创建和增删改查"></a>dict的创建和增删改查</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">&quot;addr&quot;</span>: <span class="string">&quot;北京&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">18</span>, <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;女&quot;</span>&#125;</span><br><span class="line">dict1[<span class="string">&quot;height&quot;</span>] = <span class="number">1.77</span>  <span class="comment"># 添加元素</span></span><br><span class="line">dict1.pop(<span class="string">&quot;age&quot;</span>)  <span class="comment"># 删除元素输出</span></span><br><span class="line">item_del = dict1.popitem()  <span class="comment"># 产出dict中的最后一个item并返回</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;item_del: &quot;</span>, item_del)</span><br><span class="line">dict1[<span class="string">&quot;addr&quot;</span>] = <span class="string">&quot;深圳&quot;</span>  <span class="comment"># 修改元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict1: &quot;</span>, dict1)</span><br><span class="line"></span><br><span class="line">keys = dict1.keys()  <span class="comment"># 获取dict的所有key</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;keys: &quot;</span>, keys)  <span class="comment"># dict_keys([&#x27;add&#x27;, &#x27;height&#x27;])</span></span><br><span class="line">addr = dict1.get(<span class="string">&quot;addr&quot;</span>)  <span class="comment"># 根据key获取value,若key不存在报异常(defaultdict字典不报异常)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;addr: &quot;</span>, addr)</span><br><span class="line">addr = dict1.setdefault(<span class="string">&quot;addr&quot;</span>)  <span class="comment"># 根据key获取value,若key不存返回None,也可设置默认返回值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;addr: &quot;</span>, addr)</span><br><span class="line">name = dict1.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;unknow&quot;</span>)  <span class="comment"># 根据key获取value,若key不存返回默认值&#x27;unknow&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;name: &quot;</span>, name)</span><br></pre></td></tr></table></figure>
-
-<h4 id="dict的遍历"><a href="#dict的遍历" class="headerlink" title="dict的遍历"></a>dict的遍历</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dict的遍历</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dict1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;key: %s, value: %s&quot;</span> % (key, dict1[key]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict1.values():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;value: &quot;</span>, value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;key: %s, value: %s&quot;</span> % (key, value))</span><br></pre></td></tr></table></figure>
-
-<h4 id="dict的合并"><a href="#dict的合并" class="headerlink" title="dict的合并"></a>dict的合并</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict2 = &#123;<span class="string">&quot;mobel&quot;</span>: <span class="number">15888888888</span>, <span class="string">&quot;postal_code&quot;</span>: <span class="number">10000</span>&#125;  <span class="comment"># 合并两个dict</span></span><br><span class="line">dict1.update(dict2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict1: &quot;</span>, dict1)</span><br></pre></td></tr></table></figure>
-
-<h4 id="dict和list的异同"><a href="#dict和list的异同" class="headerlink" title="dict和list的异同"></a>dict和list的异同</h4><blockquote>
-<p><strong>list</strong>查找和插入的时间随着元素的增加而增加；<br>占用空间小，浪费内存很少</p>
-</blockquote>
-<blockquote>
-<p><strong>dict</strong>查找和插入的速度极快，不会随着key的增加而变慢；<br>需要占用大量的内存，内存浪费多。<br>所以，dict是用空间来换取时间的一种方法。</p>
-</blockquote>
-<h4 id="dict的排序"><a href="#dict的排序" class="headerlink" title="dict的排序"></a>dict的排序</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dict排序</span></span><br><span class="line">dict3 = &#123;<span class="string">&#x27;sh&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;hz&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;tj&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;bj&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;gz&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;sz&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;wh&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认排序，并仅返回key</span></span><br><span class="line">key_rank1 = <span class="built_in">sorted</span>(dict3.keys(), reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;key_rank1: &quot;</span>, key_rank1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认排序(以key来排序)，并返回key和value</span></span><br><span class="line">dict_key_rank1 = <span class="built_in">sorted</span>(dict3.items(), reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_key_rank1: &quot;</span>, <span class="built_in">dict</span>(dict_key_rank1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以key排序</span></span><br><span class="line">dict_key_rank2 = <span class="built_in">sorted</span>(dict3.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">0</span>], reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_key_rank2: &quot;</span>, <span class="built_in">dict</span>(dict_key_rank2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以value排序</span></span><br><span class="line">dict_value_rank1 = <span class="built_in">sorted</span>(dict3.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_value_rank1: &quot;</span>, <span class="built_in">dict</span>(dict_value_rank1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以value排序</span></span><br><span class="line">dict4 = &#123;<span class="string">&#x27;上海&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;杭州&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;天津&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;北京&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;广州&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;深圳&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;武汉&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line">dict_value_rank2 = <span class="built_in">sorted</span>(dict4.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_value_rank2: &quot;</span>, <span class="built_in">dict</span>(dict_value_rank2))</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="tuple元组"><a href="#tuple元组" class="headerlink" title="tuple元组( )"></a>tuple元组( )</h3><p>tuple是**&#x3D;&#x3D;不可变&#x3D;&#x3D;<strong>、</strong>&#x3D;&#x3D;有序&#x3D;&#x3D;**的列表，所以一般在定义tuple时就进行初始化赋值。</p>
-<p>注意：</p>
-<ul>
-<li><p>在定义只有一个元素的tuple时其元素后面要加逗号</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tuple0 = ()  <span class="comment"># 创建空元祖</span></span><br><span class="line">tuple0 = (<span class="number">1</span>)  <span class="comment"># 不是tuple，会当成括号处理</span></span><br><span class="line">tuple0 = (<span class="number">1</span>,)  <span class="comment"># 正确的tuple</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>tuple虽然不可变但tuple中的元素对象却是可变的</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&quot;x&quot;</span>, <span class="string">&quot;y&quot;</span>]</span><br><span class="line">tuple1 = (<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, my_list)  <span class="comment"># tuple包含list,list变化时,tuple1也就跟着变化</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple1: &quot;</span>, tuple1)  <span class="comment"># tuple1:  (&#x27;a&#x27;, &#x27;b&#x27;, [&#x27;x&#x27;, &#x27;y&#x27;])</span></span><br><span class="line">my_list.append(<span class="string">&quot;z&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple1 with my_list changed: &quot;</span>, tuple1)  <span class="comment"># tuple1变为(&#x27;a&#x27;, &#x27;b&#x27;, [&#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;])</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="tuple的创建"><a href="#tuple的创建" class="headerlink" title="tuple的创建"></a>tuple的创建</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tuple2 = (<span class="number">1</span>, <span class="string">&quot;good&quot;</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">&quot;good&quot;</span>, <span class="literal">True</span>)  <span class="comment"># 创建元组,里面的元素类型可以不同</span></span><br><span class="line">tuple3 = (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, *tuple2, <span class="number">4</span>, <span class="number">5</span>)  <span class="comment"># 元组引用另一个数组中的所有元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple3: &quot;</span>, tuple3)</span><br></pre></td></tr></table></figure>
-
-<h4 id="tuple中元素的增删改查"><a href="#tuple中元素的增删改查" class="headerlink" title="tuple中元素的增删改查"></a>tuple中元素的增删改查</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">element = tuple2[<span class="number">4</span>]  <span class="comment"># 根据索引获取元组中的元素</span></span><br><span class="line">element = tuple2[-<span class="number">2</span>]  <span class="comment"># 使用索引获取元组中的元素</span></span><br><span class="line">index = tuple2.index(<span class="string">&quot;good&quot;</span>)  <span class="comment"># 获取第一个匹配给定值的index值</span></span><br><span class="line"><span class="keyword">del</span> tuple2  <span class="comment"># 删除元组</span></span><br><span class="line"><span class="comment"># tuple2[4] = &quot;well&quot; # 修改元组的元素,报错</span></span><br><span class="line"></span><br><span class="line">tuple4 = (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple4: &quot;</span>, tuple4)</span><br><span class="line"><span class="comment"># tuple4[-1] = [10, 20, 30] #报错</span></span><br><span class="line">tuple4[-<span class="number">1</span>][<span class="number">0</span>] = <span class="number">100</span>  <span class="comment"># 可以通过修改元组中的list,从而改变元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple4: &quot;</span>, tuple4) <span class="comment"># tuple4:  (&#x27;a&#x27;, &#x27;b&#x27;, 4, 5, [100, 7, 8])</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="tuple的遍历"><a href="#tuple的遍历" class="headerlink" title="tuple的遍历"></a>tuple的遍历</h4><p>注：tuple的遍历同list</p>
-]]></content>
-      <categories>
-        <category>工程与实战</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>数据类型</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据的降维</title>
-    <url>/cuidHk6HFhxz5IEZzXnpD5Hwe.html</url>
+    <url>/cuidQWAHsDAJxYPs1R-cBNiv1.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -763,7 +567,7 @@ $$</p>
   </entry>
   <entry>
     <title>DecisionTree决策树原理、公式与实战</title>
-    <url>/cuidHrMGYXtYbEpjNBFu-0MKD.html</url>
+    <url>/cuid2BGw1DYaLv81WRzS6Rx1l.html</url>
     <content><![CDATA[<h1 id="决策树（DecisionTree）原理、公式与实战"><a href="#决策树（DecisionTree）原理、公式与实战" class="headerlink" title="决策树（DecisionTree）原理、公式与实战"></a>决策树（DecisionTree）原理、公式与实战</h1><p>决策树（Decision Tree）是机器学习中最直观、可解释性最强且应用最广泛的算法之一，它模拟人类做决策的过程——通过一系列”是与否”的判断，逐步缩小范围，最终得出结论。集成算法如：RF、GBDT、Xgboost、LightGBM都是以决策树为基础构建的。</p>
 <p>决策树本质上是<strong>用一系列超平面对特征空间进行递归划分</strong>的方法。每一次分裂，都把当前空间一分为二，最终每个叶子节点都对应特征空间中一个不相交的区域。预测时，样本从根节点出发，根据每一维特征的取值不断向下走，最终落入某个叶子节点，这个叶子节点的类别（或数值）就是模型给出的预测结果。用一句话概括：<strong>决策树是从根节点到叶子节点的一条决策路径，所有训练数据最终都会落入某个叶子节点中。</strong></p>
 <p>决策树的三个组成部分：</p>
@@ -1472,7 +1276,7 @@ $$</p>
   </entry>
   <entry>
     <title>机器学习导论</title>
-    <url>/cuidbXGu6SOKWB1YUVrmzlsUE.html</url>
+    <url>/cuidDB6nYCOl9FKqjefffAbOc.html</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在传统的编程范式中，我们输入数据和规则，通过计算机得到答案。而机器学习（Machine Learning）则不同，我们向计算机输入数据和答案（即最终的结果），让计算机自己去发现其中的学习模型、发现规律，从而构建能够进行预测的数学模型。简而言之，<strong>机器学习是一门研究如何让计算机从数据中自动获取规律，并利用这些规律来预测未知、辅助决策的科学。</strong></p>
 <p>机器学习是一门交叉学科，根据不同的视角可以被划分为多种范式，如： </p>
 <p>从<strong>统计推断的哲学思想</strong>划分，机器学习模型可以划分为：<strong>频率学派与贝叶斯学派</strong>。前者认为模型的参数是固定但未知的“常数”，学习的过程就是通过优化方法寻找这个最优值；而后者则认为参数本身服从某种分布，学习的过程是在观察数据后，对先验信念进行更新。</p>
@@ -1951,7 +1755,7 @@ $$</p>
   </entry>
   <entry>
     <title>线性回归</title>
-    <url>/cuidRt0Ib9QuVgvPXVYFjtYux.html</url>
+    <url>/cuid7ahAw0xNfrGOG6c6LvLiB.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -1963,7 +1767,7 @@ $$</p>
   </entry>
   <entry>
     <title>逻辑回归</title>
-    <url>/cuidygl-YA3If4QoYRVPg28K3.html</url>
+    <url>/cuidVwBXBsO6gkgVauCnO0qmJ.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -1975,7 +1779,7 @@ $$</p>
   </entry>
   <entry>
     <title>集成学习之随机森林RandomForest</title>
-    <url>/cuidy4LX_U0N6qpA27iSmmkGf.html</url>
+    <url>/cuidiCWKixsR8gYl7udxy3HMf.html</url>
     <content><![CDATA[<h1 id="集成学习概述"><a href="#集成学习概述" class="headerlink" title="集成学习概述"></a>集成学习概述</h1><h2 id="随机森林（Random-forest）"><a href="#随机森林（Random-forest）" class="headerlink" title="随机森林（Random forest）"></a>随机森林（Random forest）</h2>]]></content>
       <categories>
         <category>机器学习</category>
@@ -1987,15 +1791,202 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>python中的数据类型</title>
+    <url>/cuidGjLhKMha-Z0ieuD-FjuH0.html</url>
+    <content><![CDATA[<h1 id="Python中的数据类型"><a href="#Python中的数据类型" class="headerlink" title="Python中的数据类型"></a>Python中的数据类型</h1><h2 id="可变数据类型"><a href="#可变数据类型" class="headerlink" title="可变数据类型"></a>可变数据类型</h2><p>对变量的值进行修改时，变量对应的内存地址不变，对应的值发生了改变，这种数据类型就称为可变数据类型。</p>
+<h2 id="不可变数据类型"><a href="#不可变数据类型" class="headerlink" title="不可变数据类型"></a>不可变数据类型</h2><p>对变量的进行修改时，变量对应的内存地址发生了改变(变量指向了新的内存)，从而修改了变量的值，而变量对应的原内存的值并没有被改变，这种数据类型就称为可变数据类型。</p>
+<p>也就是：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变</p>
+<h2 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>是否是可变数据类型</th>
+<th>是否有序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>None (空)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>int (整数)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>float (浮点)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bool (布尔)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>str (字符串)</td>
+<td>不可变</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tuple (元组)</td>
+<td>不可变</td>
+<td>序列类型，有序</td>
+</tr>
+<tr>
+<td>list (列表)</td>
+<td>可变</td>
+<td>序列类型，有序</td>
+</tr>
+<tr>
+<td>set (集合)</td>
+<td>可变</td>
+<td>序列类型，无序，不可重复</td>
+</tr>
+<tr>
+<td>dict (字典)</td>
+<td>可变</td>
+<td>映射类型，v3.6及以后无有序, 前面版本无序</td>
+</tr>
+</tbody></table>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>是否是可变数据类型</th>
+<th>是否有序</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bytes</td>
+<td>不可变</td>
+<td>-</td>
+<td>定义字节：b’hello’,bytes(5)</td>
+</tr>
+<tr>
+<td>bytearray</td>
+<td>可变</td>
+<td>-</td>
+<td>定义字节数组：bytearray(b’hello’), bytearray(10)</td>
+</tr>
+<tr>
+<td>complex (复数)</td>
+<td>不可变</td>
+<td>-</td>
+<td>由一个实数和一个虚数组合构成，如：4+3j</td>
+</tr>
+<tr>
+<td>frozenset (冻结的set)</td>
+<td>不可变</td>
+<td>无序</td>
+<td>冻结的set初始化后不能再添加或删除元素</td>
+</tr>
+<tr>
+<td>array (数组)</td>
+<td>可变</td>
+<td>有序</td>
+<td>数组中的元素必须是同一类型</td>
+</tr>
+<tr>
+<td>OrderedDict</td>
+<td>可变</td>
+<td>有序</td>
+<td>key有序，setdefault取值key不存在也不报错</td>
+</tr>
+<tr>
+<td>defaultdict</td>
+<td>可变</td>
+<td>有序</td>
+<td>取值时Key不存在也不会抛出KeyError异常</td>
+</tr>
+<tr>
+<td>deque</td>
+<td>可变</td>
+<td>有序</td>
+<td>高效插入和删除的<strong>双向队列列表</strong></td>
+</tr>
+</tbody></table>
+<h2 id="常见数据类型的操作和转换"><a href="#常见数据类型的操作和转换" class="headerlink" title="常见数据类型的操作和转换"></a>常见数据类型的操作和转换</h2><h3 id="list列表"><a href="#list列表" class="headerlink" title="list列表[ ]"></a>list列表[ ]</h3><p>list是**&#x3D;&#x3D;可变&#x3D;&#x3D;<strong>、</strong>&#x3D;&#x3D;可重复&#x3D;&#x3D;<strong>的</strong>&#x3D;&#x3D;有序&#x3D;&#x3D;**列表，里面的元素的数据类型也可以不同(也可以是另一个list)。list可根据索引号取其中的数据。</p>
+<h4 id="list的生成"><a href="#list的生成" class="headerlink" title="list的生成"></a>list的生成</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, <span class="built_in">list</span>(list1)) <span class="comment"># 输出： list1:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line">list2 = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list2: &quot;</span>, <span class="built_in">list</span>(list2))</span><br><span class="line">list3 = [i*i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list3: &quot;</span>, <span class="built_in">list</span>(list3))</span><br><span class="line">list4 = (<span class="built_in">str</span>(i) + j <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&quot;xyz&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list4: &quot;</span>, <span class="built_in">list</span>(list4))</span><br></pre></td></tr></table></figure>
+<h4 id="list元素反转、排序和次数统计"><a href="#list元素反转、排序和次数统计" class="headerlink" title="list元素反转、排序和次数统计"></a>list元素反转、排序和次数统计</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">list1.reverse()  <span class="comment"># 元素顺序反转</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list reverse: &quot;</span>, list1)</span><br><span class="line">list1.sort(reverse=<span class="literal">False</span>)  <span class="comment"># 排序</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list sort: &quot;</span>, list1)</span><br><span class="line">list1 = <span class="built_in">sorted</span>(list1, reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list sort: &quot;</span>, list1)</span><br><span class="line">times = list1.count(<span class="number">5</span>)  <span class="comment"># 查看list中的元素出现的次数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;times: &quot;</span>, times)</span><br></pre></td></tr></table></figure>
+<h4 id="list元素的添加、删除和取值"><a href="#list元素的添加、删除和取值" class="headerlink" title="list元素的添加、删除和取值"></a>list元素的添加、删除和取值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1.append(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;append value: &quot;</span>, list1)  <span class="comment"># 添加元素</span></span><br><span class="line">list1.insert(<span class="number">1</span>, <span class="number">10</span>)  <span class="comment"># 在指定位置添加元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;insert value: &quot;</span>, list1)</span><br><span class="line">list1.remove(<span class="number">10</span>)  <span class="comment"># 删除指定value元素(第一个匹配的元素)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;remove value: &quot;</span>, list1)</span><br><span class="line">value = list1.pop(<span class="number">12</span>)  <span class="comment"># 删除指定index的元素并返回删除的值</span></span><br><span class="line">list1.pop()  <span class="comment"># 不指定index时默认删除最后一个元素</span></span><br><span class="line">list1.pop(-<span class="number">2</span>)  <span class="comment"># 删除倒数第二个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;remove index: &quot;</span>, list1)</span><br><span class="line"></span><br><span class="line">index_value = list1.index(<span class="number">3</span>)  <span class="comment"># 查找第一个value为100的index值，如果不存在报TypeError异常</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;index_value: &quot;</span>, index_value)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line">index_value = list1.index(<span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>)  <span class="comment"># 指定范围，从第7(包括)个到第9(不包括)个元素之间查找value为5的index</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;index_value: &quot;</span>, index_value)</span><br></pre></td></tr></table></figure>
+<h4 id="list添加多个元素、list的合并"><a href="#list添加多个元素、list的合并" class="headerlink" title="list添加多个元素、list的合并"></a>list添加多个元素、list的合并</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list2 = [<span class="number">100</span>, <span class="number">101</span>, <span class="number">102</span>]</span><br><span class="line"><span class="comment"># list1 = list1 + list2</span></span><br><span class="line">list1.extend(list2)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="list的遍历"><a href="#list的遍历" class="headerlink" title="list的遍历"></a>list的遍历</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> list1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;value: %i&quot;</span> % value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(list1)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, list1[index]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(list1):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, value))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(list1, <span class="number">100</span>):  <span class="comment"># index从100开始</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;index: %i, value: %i&quot;</span> % (index, value))</span><br></pre></td></tr></table></figure>
+
+<h4 id="list中使用切片-slice-取值"><a href="#list中使用切片-slice-取值" class="headerlink" title="list中使用切片(slice)取值"></a>list中使用切片(slice)取值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">elements = list1[<span class="number">0</span>:<span class="number">3</span>]  <span class="comment"># 取第0到3条元素(包括头不包括尾)</span></span><br><span class="line"><span class="comment"># elements = list1[:3]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">1</span>:]  <span class="comment"># 取第1到最后一个元素(包括头也包括尾)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[-<span class="number">2</span>]  <span class="comment"># 取倒数第二条</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">4</span>:-<span class="number">2</span>]  <span class="comment"># 取第四条到倒数第二条(包括头不包括尾)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[<span class="number">0</span>:<span class="number">6</span>:<span class="number">2</span>]  <span class="comment"># 取第0条到第6条中每2个取一个</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br><span class="line">elements = list1[:]  <span class="comment"># 取所有元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;slice elements: &quot;</span>, elements)</span><br></pre></td></tr></table></figure>
+<p><strong>&#x3D;&#x3D;列表、元组和字符串&#x3D;&#x3D;都可以使用切片进行操作</strong></p>
+<h4 id="list的深copy和浅copy"><a href="#list的深copy和浅copy" class="headerlink" title="list的深copy和浅copy"></a>list的深copy和浅copy</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 浅拷贝只拷贝了引用，没有拷贝内容</span></span><br><span class="line">list2 = list1</span><br><span class="line">list2[<span class="number">1</span>] = <span class="number">1000</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list2: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(list1), <span class="built_in">id</span>(list2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 深拷贝是对于一个对象所有层次的拷贝(递归拷贝)</span></span><br><span class="line">list3 = list1.copy()</span><br><span class="line"><span class="comment"># import copy</span></span><br><span class="line"><span class="comment"># list3 = copy.copy(list1)</span></span><br><span class="line"><span class="comment"># list3 = copy.deepcopy(list1)</span></span><br><span class="line">list1[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list1: &quot;</span>, list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;list3: &quot;</span>, list3)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(list1), <span class="built_in">id</span>(list3))</span><br></pre></td></tr></table></figure>
+
+<h3 id="set集合"><a href="#set集合" class="headerlink" title="set集合{ }"></a>set集合{ }</h3><p>set是**&#x3D;&#x3D;可变&#x3D;&#x3D;**、&#x3D;&#x3D;<strong>不可重复</strong>&#x3D;&#x3D;的&#x3D;&#x3D;<strong>无序</strong>&#x3D;&#x3D;列表。 &#x3D;&#x3D;<strong>set中不可以放入可变对象</strong>&#x3D;&#x3D;，因为无法判断两个可变对象是否相等而去重。</p>
+<h4 id="set的定义"><a href="#set的定义" class="headerlink" title="set的定义"></a>set的定义</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set0 = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;  <span class="comment"># 直接定义set集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)  <span class="comment"># 输出 set0:  &#123;0,1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line">set1 = <span class="built_in">set</span>([<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])  <span class="comment"># 通过list定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set1: &quot;</span>, set1)</span><br><span class="line"></span><br><span class="line">set2 = <span class="built_in">set</span>((<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>))  <span class="comment"># 通过tuple定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set2: &quot;</span>, set2)</span><br><span class="line"></span><br><span class="line">set3 = <span class="built_in">set</span>(&#123;<span class="string">&quot;x&quot;</span>: <span class="number">2</span>, <span class="number">10</span>: <span class="string">&quot;b&quot;</span>&#125;)  <span class="comment"># 通过dict定义set</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set3: &quot;</span>, set3)  <span class="comment"># 输出 set3:  &#123;10, &#x27;x&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line">my_list = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">set4 = <span class="built_in">set</span>(my_list)  <span class="comment"># set中不可以放入可变对象,然而为何放入list却不报错?</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set4: &quot;</span>, set4)  <span class="comment"># 输出 set4:  &#123;0, 1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由下面操作可以得出结论,set是先把list做遍历得到不可变的int对象类型后再放入set中</span></span><br><span class="line">my_list[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set4 with my_list changed: &quot;</span>, set4)  <span class="comment"># 输出 &#123;0, 1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line"></span><br><span class="line">my_list.append([<span class="number">10</span>, <span class="number">20</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;my_list: &quot;</span>, my_list)</span><br><span class="line">set5 = <span class="built_in">set</span>(my_list)  <span class="comment"># 在list再放入list,此时将报错</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set5: &quot;</span>, set5)</span><br></pre></td></tr></table></figure>
+
+<h4 id="set元素的添加、删除和取值"><a href="#set元素的添加、删除和取值" class="headerlink" title="set元素的添加、删除和取值"></a>set元素的添加、删除和取值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set0 = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line">set0.add(<span class="string">&quot;cn&quot;</span>)  <span class="comment"># 添加单个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"></span><br><span class="line">set0.update([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>])  <span class="comment"># 添加多个元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"></span><br><span class="line">set0.add((<span class="string">&quot;com&quot;</span>, <span class="string">&quot;cn&quot;</span>))  <span class="comment"># 添加元组(元组是不可变数据类型)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br><span class="line"><span class="comment"># set0.add([10, 20])  # 添加list报错,不能添加可变的数据类型(不能添加,但可以使用list创建set)</span></span><br><span class="line"><span class="comment"># set0.add(&#123;10, 20&#125;)  # 添加set报错,(可是使用不可变的frozenset添加:set0.add(frozenset(&#123;10, 20&#125;)))</span></span><br><span class="line"><span class="comment"># set0.add(&#123;&quot;x&quot;: 2, 10: &quot;b&quot;&#125;)  # 添加dict报错,不能添加可变的数据类型(不能添加,但可以使用dict创建set)</span></span><br><span class="line"></span><br><span class="line">set0.remove(<span class="string">&quot;cn&quot;</span>)  <span class="comment"># 根据值删除元素(set不能根据索引删除)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;set0: &quot;</span>, set0)</span><br></pre></td></tr></table></figure>
+
+<h4 id="set取并集和交集"><a href="#set取并集和交集" class="headerlink" title="set取并集和交集"></a>set取并集和交集</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">set1 = &#123;<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">100</span>&#125;</span><br><span class="line">my_set = set0 | set1  <span class="comment"># 取并集</span></span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br><span class="line">my_set = set0 &amp; set1  <span class="comment"># 取交集</span></span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br></pre></td></tr></table></figure>
+
+<h4 id="set遍历"><a href="#set遍历" class="headerlink" title="set遍历"></a>set遍历</h4><p>注：set的遍历同list</p>
+<h3 id="dict字典"><a href="#dict字典" class="headerlink" title="dict字典{ }"></a>dict字典{ }</h3><p>dict是**&#x3D;&#x3D;无序&#x3D;&#x3D;<strong>，key&#x3D;&#x3D;<strong>不可重复</strong>&#x3D;&#x3D;、</strong>&#x3D;&#x3D;不可变&#x3D;&#x3D;**内容以key-value键值对形式存在的映射</p>
+<p><strong>dict中的key只能是不可变对象且唯一</strong>, 一个key对应一个value，多次对一个key设置value，后面的值会把前面的冲掉。</p>
+<blockquote>
+<p>dict一般用在需要高速查找的很多地方。dict的key必须是不可变对象，这是因为dict根据key来计算value的存储位置，如果每次计算相同的key得出的结果不同，那dict内部就完全混乱了。这种通过key计算位置的算法称为哈希算法（Hash）。要保证hash的正确性，作为key的对象就不能变。在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list、set是可变的，所以就不能作为key。</p>
+</blockquote>
+<h4 id="dict的创建和增删改查"><a href="#dict的创建和增删改查" class="headerlink" title="dict的创建和增删改查"></a>dict的创建和增删改查</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">&quot;addr&quot;</span>: <span class="string">&quot;北京&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">18</span>, <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;女&quot;</span>&#125;</span><br><span class="line">dict1[<span class="string">&quot;height&quot;</span>] = <span class="number">1.77</span>  <span class="comment"># 添加元素</span></span><br><span class="line">dict1.pop(<span class="string">&quot;age&quot;</span>)  <span class="comment"># 删除元素输出</span></span><br><span class="line">item_del = dict1.popitem()  <span class="comment"># 产出dict中的最后一个item并返回</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;item_del: &quot;</span>, item_del)</span><br><span class="line">dict1[<span class="string">&quot;addr&quot;</span>] = <span class="string">&quot;深圳&quot;</span>  <span class="comment"># 修改元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict1: &quot;</span>, dict1)</span><br><span class="line"></span><br><span class="line">keys = dict1.keys()  <span class="comment"># 获取dict的所有key</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;keys: &quot;</span>, keys)  <span class="comment"># dict_keys([&#x27;add&#x27;, &#x27;height&#x27;])</span></span><br><span class="line">addr = dict1.get(<span class="string">&quot;addr&quot;</span>)  <span class="comment"># 根据key获取value,若key不存在报异常(defaultdict字典不报异常)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;addr: &quot;</span>, addr)</span><br><span class="line">addr = dict1.setdefault(<span class="string">&quot;addr&quot;</span>)  <span class="comment"># 根据key获取value,若key不存返回None,也可设置默认返回值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;addr: &quot;</span>, addr)</span><br><span class="line">name = dict1.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;unknow&quot;</span>)  <span class="comment"># 根据key获取value,若key不存返回默认值&#x27;unknow&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;name: &quot;</span>, name)</span><br></pre></td></tr></table></figure>
+
+<h4 id="dict的遍历"><a href="#dict的遍历" class="headerlink" title="dict的遍历"></a>dict的遍历</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dict的遍历</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dict1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;key: %s, value: %s&quot;</span> % (key, dict1[key]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict1.values():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;value: &quot;</span>, value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;key: %s, value: %s&quot;</span> % (key, value))</span><br></pre></td></tr></table></figure>
+
+<h4 id="dict的合并"><a href="#dict的合并" class="headerlink" title="dict的合并"></a>dict的合并</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict2 = &#123;<span class="string">&quot;mobel&quot;</span>: <span class="number">15888888888</span>, <span class="string">&quot;postal_code&quot;</span>: <span class="number">10000</span>&#125;  <span class="comment"># 合并两个dict</span></span><br><span class="line">dict1.update(dict2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict1: &quot;</span>, dict1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="dict和list的异同"><a href="#dict和list的异同" class="headerlink" title="dict和list的异同"></a>dict和list的异同</h4><blockquote>
+<p><strong>list</strong>查找和插入的时间随着元素的增加而增加；<br>占用空间小，浪费内存很少</p>
+</blockquote>
+<blockquote>
+<p><strong>dict</strong>查找和插入的速度极快，不会随着key的增加而变慢；<br>需要占用大量的内存，内存浪费多。<br>所以，dict是用空间来换取时间的一种方法。</p>
+</blockquote>
+<h4 id="dict的排序"><a href="#dict的排序" class="headerlink" title="dict的排序"></a>dict的排序</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dict排序</span></span><br><span class="line">dict3 = &#123;<span class="string">&#x27;sh&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;hz&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;tj&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;bj&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;gz&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;sz&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;wh&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认排序，并仅返回key</span></span><br><span class="line">key_rank1 = <span class="built_in">sorted</span>(dict3.keys(), reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;key_rank1: &quot;</span>, key_rank1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认排序(以key来排序)，并返回key和value</span></span><br><span class="line">dict_key_rank1 = <span class="built_in">sorted</span>(dict3.items(), reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_key_rank1: &quot;</span>, <span class="built_in">dict</span>(dict_key_rank1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以key排序</span></span><br><span class="line">dict_key_rank2 = <span class="built_in">sorted</span>(dict3.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">0</span>], reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_key_rank2: &quot;</span>, <span class="built_in">dict</span>(dict_key_rank2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以value排序</span></span><br><span class="line">dict_value_rank1 = <span class="built_in">sorted</span>(dict3.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_value_rank1: &quot;</span>, <span class="built_in">dict</span>(dict_value_rank1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以value排序</span></span><br><span class="line">dict4 = &#123;<span class="string">&#x27;上海&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;杭州&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;天津&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;北京&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;广州&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;深圳&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;武汉&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line">dict_value_rank2 = <span class="built_in">sorted</span>(dict4.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dict_value_rank2: &quot;</span>, <span class="built_in">dict</span>(dict_value_rank2))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="tuple元组"><a href="#tuple元组" class="headerlink" title="tuple元组( )"></a>tuple元组( )</h3><p>tuple是**&#x3D;&#x3D;不可变&#x3D;&#x3D;<strong>、</strong>&#x3D;&#x3D;有序&#x3D;&#x3D;**的列表，所以一般在定义tuple时就进行初始化赋值。</p>
+<p>注意：</p>
+<ul>
+<li><p>在定义只有一个元素的tuple时其元素后面要加逗号</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tuple0 = ()  <span class="comment"># 创建空元祖</span></span><br><span class="line">tuple0 = (<span class="number">1</span>)  <span class="comment"># 不是tuple，会当成括号处理</span></span><br><span class="line">tuple0 = (<span class="number">1</span>,)  <span class="comment"># 正确的tuple</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>tuple虽然不可变但tuple中的元素对象却是可变的</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&quot;x&quot;</span>, <span class="string">&quot;y&quot;</span>]</span><br><span class="line">tuple1 = (<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, my_list)  <span class="comment"># tuple包含list,list变化时,tuple1也就跟着变化</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple1: &quot;</span>, tuple1)  <span class="comment"># tuple1:  (&#x27;a&#x27;, &#x27;b&#x27;, [&#x27;x&#x27;, &#x27;y&#x27;])</span></span><br><span class="line">my_list.append(<span class="string">&quot;z&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple1 with my_list changed: &quot;</span>, tuple1)  <span class="comment"># tuple1变为(&#x27;a&#x27;, &#x27;b&#x27;, [&#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;])</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="tuple的创建"><a href="#tuple的创建" class="headerlink" title="tuple的创建"></a>tuple的创建</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tuple2 = (<span class="number">1</span>, <span class="string">&quot;good&quot;</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">&quot;good&quot;</span>, <span class="literal">True</span>)  <span class="comment"># 创建元组,里面的元素类型可以不同</span></span><br><span class="line">tuple3 = (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, *tuple2, <span class="number">4</span>, <span class="number">5</span>)  <span class="comment"># 元组引用另一个数组中的所有元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple3: &quot;</span>, tuple3)</span><br></pre></td></tr></table></figure>
+
+<h4 id="tuple中元素的增删改查"><a href="#tuple中元素的增删改查" class="headerlink" title="tuple中元素的增删改查"></a>tuple中元素的增删改查</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">element = tuple2[<span class="number">4</span>]  <span class="comment"># 根据索引获取元组中的元素</span></span><br><span class="line">element = tuple2[-<span class="number">2</span>]  <span class="comment"># 使用索引获取元组中的元素</span></span><br><span class="line">index = tuple2.index(<span class="string">&quot;good&quot;</span>)  <span class="comment"># 获取第一个匹配给定值的index值</span></span><br><span class="line"><span class="keyword">del</span> tuple2  <span class="comment"># 删除元组</span></span><br><span class="line"><span class="comment"># tuple2[4] = &quot;well&quot; # 修改元组的元素,报错</span></span><br><span class="line"></span><br><span class="line">tuple4 = (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple4: &quot;</span>, tuple4)</span><br><span class="line"><span class="comment"># tuple4[-1] = [10, 20, 30] #报错</span></span><br><span class="line">tuple4[-<span class="number">1</span>][<span class="number">0</span>] = <span class="number">100</span>  <span class="comment"># 可以通过修改元组中的list,从而改变元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuple4: &quot;</span>, tuple4) <span class="comment"># tuple4:  (&#x27;a&#x27;, &#x27;b&#x27;, 4, 5, [100, 7, 8])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="tuple的遍历"><a href="#tuple的遍历" class="headerlink" title="tuple的遍历"></a>tuple的遍历</h4><p>注：tuple的遍历同list</p>
+]]></content>
+      <categories>
+        <category>工程与实战</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>数据类型</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DCN深度交叉网络详解</title>
-    <url>/cuidG2qvIC3skWc6JWRfFEgRL.html</url>
+    <url>/cuidlOxOjZ03x2bulZLbaLwun.html</url>
     <content><![CDATA[<h1 id="DCN"><a href="#DCN" class="headerlink" title="DCN"></a>DCN</h1><p>基于FM方法的交叉往往只局限于二阶，更高阶的交叉会导致交叉项呈指数形式增加，计算复杂度高，使用成本高。当更高阶的数据交叉时我们可以使用DCN(Deep &amp; Cross Network)，深度交叉网络。</p>
 <p>FM和DCN的交叉是显示交叉，DNN的交叉是隐式交叉（缺乏实际理论意义）</p>
-<h2 id="特征交叉的演进"><a href="#特征交叉的演进" class="headerlink" title="特征交叉的演进"></a>特征交叉的演进</h2><ul>
+<h2 id="特征交叉的演进"><a href="#特征交叉的演进" class="headerlink" title="特征交叉的演进"></a>特征交叉的演进</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FM</span><br><span class="line">│</span><br><span class="line">├── DeepFM</span><br><span class="line">│     ├── FM（二阶显式 field-wise）</span><br><span class="line">│     └── DNN（高阶隐式 bit-wise）</span><br><span class="line">│</span><br><span class="line">├── DCN</span><br><span class="line">│     ├── Cross（高阶显式 bit-wise）</span><br><span class="line">│     └── DNN（高阶隐式 bit-wise）</span><br><span class="line">│</span><br><span class="line">└── xDeepFM</span><br><span class="line">      ├── CIN（高阶显式 field-wise）</span><br><span class="line">      └── DNN（高阶隐式 bit-wise）</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
 <li>DeepFM 通过共享输入使用FM捕捉低阶特征交互和DNN学习高阶特征交互的能力。【<strong>field-wise &#x2F; vector-wise</strong>】</li>
 <li>DCN-v（DCN）在交叉层引入vector形式的参数以实现特征交叉，在业界的命名也由此而来。【<strong>bit-wise</strong>】</li>
 <li>DCN-m（DCN-v2）引入的是matrix形式的参数，优化了参数共享，从而细化不同交叉项的差异。【<strong>bit-wise</strong>】</li>
-<li>xDeepFM针对DCN-v和DCN-m中对特征基于bit-wise的交叉进行改进，实现基于field-wise的交叉。【<strong>field-wise</strong>】</li>
+<li>xDeepFM（CIN）针对DCN-v和DCN-m中对特征基于bit-wise的交叉进行改进，实现基于field-wise的交叉。【<strong>field-wise</strong>】</li>
 </ul>
 <p> 注：上述模型的DNN部分是将embedding拼接输入MLP，不同 embedding的每个维度都会混合计算，可以认为是隐式高阶的<strong>bit-wise</strong></p>
 <table>
@@ -2016,14 +2007,14 @@ $$</p>
 <td align="left">FM + DNN并行结构，同时捕捉二阶和高阶特征，无需人工特征工程。</td>
 </tr>
 <tr>
-<td align="left"><strong>DCN-v（DCN）</strong></td>
+<td align="left"><strong>DCN-v</strong></td>
 <td align="left">引入Cross Network</td>
 <td align="left"><strong>向量（vector）</strong></td>
 <td align="left"><strong>bit-wise（逐位）</strong></td>
 <td align="left">用Cross Network高效建模高阶交叉；每层参数为向量，与输入逐元素乘加。</td>
 </tr>
 <tr>
-<td align="left"><strong>DCN-m（DCN-v2）</strong></td>
+<td align="left"><strong>DCN-m</strong></td>
 <td align="left">参数升级，细粒度差异化</td>
 <td align="left"><strong>矩阵（matrix）</strong></td>
 <td align="left"><strong>bit-wise（逐位）</strong></td>
@@ -2257,7 +2248,7 @@ $$</p>
   </entry>
   <entry>
     <title>DeepFM推荐领域深度学习的Baseline</title>
-    <url>/cuidSin5ek_03jLFwteFqsL4B.html</url>
+    <url>/cuiddQxOInhufKMyGgqcsVlN4.html</url>
     <content><![CDATA[<h1 id="DeepFM推荐领域深度学习的Baseline"><a href="#DeepFM推荐领域深度学习的Baseline" class="headerlink" title="DeepFM推荐领域深度学习的Baseline"></a>DeepFM推荐领域深度学习的Baseline</h1><blockquote>
 <p>CTR（点击率）预估是推荐系统、广告系统和搜索排序的核心环节，而特征交叉（Feature Interaction）的建模能力，直接决定了模型效果的上限。DeepFM 由华为诺亚方舟实验室于 2017 年提出，凭借”无需人工特征工程、无需预训练、同时捕捉低阶与高阶特征交叉”三大优势，成为工业界落地最广的 CTR 模型之一。</p>
 </blockquote>
@@ -2577,7 +2568,7 @@ $$<br>其中 $\sigma$ 是 Sigmoid 函数，$y_{FM}$ 是 FM 部分的输出（包
   </entry>
   <entry>
     <title>FM因子分解机中的特征交叉</title>
-    <url>/cuidsfChNi-pd1mAhKCwWszIv.html</url>
+    <url>/cuid0P8vzrP-XEXMkg2MINEe6.html</url>
     <content><![CDATA[<h1 id="FM因子分解机中的特征交叉"><a href="#FM因子分解机中的特征交叉" class="headerlink" title="FM因子分解机中的特征交叉"></a>FM因子分解机中的特征交叉</h1><p>从事推荐和广告算法的同学，大概都绕不开一个话题：怎么做特征组合。</p>
 <p>比如”用户是年轻男性”这个特征单独看没什么信息量，”商品是球鞋”这个特征单独看也很普通，但如果模型能学到”年轻男性 × 球鞋”这个组合的权重明显偏高，点击率预估的效果往往会有质的提升。问题是，怎么让模型自动学到这种组合关系，而不是靠人工一个个去构造交叉特征？这条路，业界走了LR、POLY2、FM三步，每一步都是在补上一个前作留下的窟窿。今天就把这条演进链彻底捋一遍。</p>
 <h2 id="基础线性模型LR"><a href="#基础线性模型LR" class="headerlink" title="基础线性模型LR"></a>基础线性模型LR</h2><p>最朴素的做法是LR（逻辑回归的线性打分部分）：</p>
@@ -2763,7 +2754,7 @@ $$</p>
   </entry>
   <entry>
     <title>GBDT+LR</title>
-    <url>/cuidTkxQ1YkAsA4pX2Tgdkvzy.html</url>
+    <url>/cuidAk1pMxln16pX2BpIe0QIw.html</url>
     <content><![CDATA[<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT+LR"></a>GBDT+LR</h1><p>CTR预估场景涉及到大量高维稀疏特征，树模型并不适合处理这些高维稀疏特征（因此实际上会将dense特征或者低维的离散特征给GBDT，剩余高维稀疏特征拼接上GBDT阶段输出的稀疏特征，然后放到在LR阶段进行训练。GBDT的核心任务是特征组合，擅长自动发现非线性交叉关系。</p>
 <ul>
 <li>传统决策树模型不适合处理稀疏特征，效果和效率通常明显逊色于LR、SVM 或深度学习模型。</li>
@@ -2810,20 +2801,8 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>如何做好技术型管理</title>
-    <url>/cuidDUi8fZh9dgI6Q_LXKflJZ.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>管理与思考</category>
-      </categories>
-      <tags>
-        <tag>技术管理</tag>
-        <tag>管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>信息论</title>
-    <url>/cuidliBs3QtqDPNcaaG6bG64r.html</url>
+    <url>/cuidlpIne_F5tX3QDEHvEF0W8.html</url>
     <content><![CDATA[<h1 id="信息熵（Information-Entropy）"><a href="#信息熵（Information-Entropy）" class="headerlink" title="信息熵（Information Entropy）"></a>信息熵（Information Entropy）</h1><p>熵是随机变量或系统不确定性的度量。<strong>熵越大不确定性越大，熵越低纯度越高越稳定</strong></p>
 <p>在决策树中熵用来衡量样本的纯度。<br>$$
 H(Y) = -\sum_{i=0}^{c-1}P(Y=y_i)log_2P(Y=y_i)
@@ -2876,7 +2855,7 @@ $$</p>
   </entry>
   <entry>
     <title>向量</title>
-    <url>/cuidhFoSNk2UCKP6j0xEXlOEr.html</url>
+    <url>/cuidmErHMbTk5KfaKQ6fTPtvU.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2884,7 +2863,7 @@ $$</p>
   </entry>
   <entry>
     <title>概率统计</title>
-    <url>/cuid8QW0M4R-So80INwS8pKVb.html</url>
+    <url>/cuidhymj1FCyR3J7lvhTkQ_dw.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2892,7 +2871,7 @@ $$</p>
   </entry>
   <entry>
     <title>特征值与特征向量</title>
-    <url>/cuidoQS3H3WcsihTcilmZMqjs.html</url>
+    <url>/cuidpOlZVNBFR6FQvHDrd2JdU.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2900,7 +2879,7 @@ $$</p>
   </entry>
   <entry>
     <title>矩阵</title>
-    <url>/cuidkyW496dHEDUKKA5h6R0NY.html</url>
+    <url>/cuidzLwhDOOMytDn3gQgb1Phs.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
@@ -2908,10 +2887,35 @@ $$</p>
   </entry>
   <entry>
     <title>高等数学</title>
-    <url>/cuidlOJMDhGaIk_M5THjrMDhE.html</url>
+    <url>/cuideVN2UVKVbbUsPRpiQlPvG.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>算法中的数学</category>
       </categories>
+  </entry>
+  <entry>
+    <title>投资理财实战</title>
+    <url>/cuidBbU_Itkr9T7avEWxdTBgA.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习与成长</category>
+      </categories>
+      <tags>
+        <tag>投资</tag>
+        <tag>理财</tag>
+        <tag>股票</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何做好技术型管理</title>
+    <url>/cuidSiklGxPBXEo9VYNvG8hJl.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>管理与思考</category>
+      </categories>
+      <tags>
+        <tag>技术管理</tag>
+        <tag>管理</tag>
+      </tags>
   </entry>
 </search>
